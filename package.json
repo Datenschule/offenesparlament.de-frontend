@@ -1,0 +1,22 @@
+{
+  "name": "offenesfrontend",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "watch": "webpack -w"
+  },
+  "dependencies": {
+    "angular": "^1.6.5",
+    "buble-loader": "^0.4.1",
+    "child_process": "^1.0.2",
+    "express": "^4.15.4",
+    "gulp": "^3.9.1",
+    "gulp-livereload": "^3.8.1",
+    "gulp-sass": "^3.1.0",
+    "html-loader": "^0.5.1",
+    "lodash": "^4.17.4",
+    "webpack": "^3.5.3",
+    "webpack-dev-server": "^2.7.1"
+  }
+}

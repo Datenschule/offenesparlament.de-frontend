@@ -1,0 +1,131 @@
+---
+
+---
+
+@import "./loader.css"
+
+.protokolle
+  .filters
+    background-color: #e9e9e9
+    padding: 1em
+
+    h1
+      margin-top: -1.2em
+
+    .options
+      display: flex
+
+    .options *
+      font-family: "overpass"  //TODO USE sass variable
+      font-size: 20px
+
+    ul
+      max-height: 200px
+      overflow-y: scroll
+
+    h2
+      text-transform: none
+      font-size: 20px
+      font-weight: normal
+      margin-top: 1.8em
+      margin-bottom: 0.5em
+
+    form
+      display: inline-block
+      margin-left: auto
+
+    button
+      background-color: transparent
+      border: none
+      margin-right: 30px
+
+      img
+        margin: .1em .3em
+        //transition: all 1s ease
+        transform: rotate(180deg)
+
+      &.selected
+        span
+          text-decoration: underline
+        img
+          transform: rotate(0deg)
+
+    .hasSelect
+      button:not(.selected), input:not(.selected)
+        opacity: .3
+
+
+    .people
+      input[type="text"]
+        padding: 10px
+        border: 2px solid
+
+        &:disabled
+          background-color: #B8B8B8
+          border: 2px solid #B8B8B8
+
+      label:hover
+        background-color: #e7fcfe
+        border: 1px solid #00bfd0
+        border-radius: 9px
+
+      input[type=checkbox]
+        display: none
+
+      label
+        margin-top: 5px
+        display: block
+        width: 80%
+        cursor: pointer
+        border-bottom: 1px solid #ccc
+
+        padding: 10px 10px 10px 20px
+
+        img
+          clip-path: circle(23px at 23px 23px)
+          width: 45px
+          float: left
+          margin-right: 10px
+
+        .party
+          font-size: 16px
+          color: #807e7e
+
+      ul
+        list-style-type: none
+
+  .selections
+    display: flex
+    align-items: center
+
+    ul
+      display: flex
+      list-style-type: none
+      flex-wrap: wrap
+
+      li
+        background-color: black
+        color: white
+        padding: 5px
+        margin-left: 30px
+
+        a
+          color: white
+
+    button
+      padding: 10px
+      background-color: black
+      color: white
+      border: 2px solid black
+      margin-left: auto
+
+  .tops
+    tbody td:first-child span
+      background-color: #88ffdb
+      padding: .3em
+    ul
+      list-style-type: none
+      a
+        text-decoration: none
+
+        
