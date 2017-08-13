@@ -107,14 +107,14 @@
         </div>
     </div>
     <div class="tops container-left-16">
-        <table>
+        <table ng-if="!$ctrl.loading && $ctrl.sessions.length">
             <thead>
             <tr>
                 <th>Sitzung</th>
                 <th>Tagesordnungspunkte</th>
             </tr>
             </thead>
-            <tbody ng-if="!$ctrl.loading && $ctrl.sessions.length">
+            <tbody>
             <tr ng-repeat="session in $ctrl.sessions">
                 <td><span>{{session.session.sitzung}}.</span></td>
                 <td>
