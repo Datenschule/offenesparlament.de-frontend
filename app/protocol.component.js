@@ -1,6 +1,7 @@
 import { kebabCase } from "lodash";
 
 const BASE_URL = API_BASE_URL;
+import maybeEmojify from "./utils";
 
 const protocol = {
     template: require("./protocol.html"),
@@ -32,6 +33,7 @@ const protocol = {
 
 				}
             );
+            $timeout(maybeEmojify, 3000);
         }
         this.selectTop = function(link) {
             console.log('scrolled by' + link);
@@ -43,5 +45,5 @@ const protocol = {
 			$anchorScroll();
         };
     }
-}
+};
 export default protocol;
