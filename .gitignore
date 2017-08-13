@@ -1,4 +1,6 @@
 _site/
-dist/
 node_modules/
 .ruby-version
+misc.xml
+.idea
+.sass-cache
