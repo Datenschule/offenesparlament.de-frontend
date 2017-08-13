@@ -5,6 +5,8 @@ angular.module('offenesparlament', [])
     .component('protocols', {
         template: require("./protocols.html"),
         controller: function ($http) {
+            var api_url = "http://api.offenesparlament.de/";
+
             this.loading = true;
             this.selectedSpeakers = [];
             this.selectedFilter = "";
@@ -29,13 +31,13 @@ angular.module('offenesparlament', [])
                 }
             };
 
-            $http.get("http://localhost:5000/api/tops").then(
+            $http.get(api_url + "api/tops").then(
                 (resp) => {
                     this.sessions = resp.data.data;
                 }
             );
 
-            $http.get("http://localhost:5000/api/speakers").then(
+            $http.get(api_url + "api/speakers").then(
                 (resp) => {
                     this.speakers = resp.data.data;
                     this.loading = false;
@@ -46,7 +48,7 @@ angular.module('offenesparlament', [])
                 this.loading = true;
                 $http({
                     method: "GET",
-                    url: "http://localhost:5000/api/tops",
+                    url: api_url + "api/tops",
                     params: {
                         search: this.searchText,
                         people: this.selectedSpeakers.map(s => s.speaker_fp),
