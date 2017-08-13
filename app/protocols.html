@@ -31,8 +31,17 @@
         <div class="topics afilter" ng-show="$ctrl.selectedFilter === 'topic'">
             <h2>Wähle eine Thema</h2>
             <ul>
-                <li ng-repeat="topic in [1,2,3,4,5,6,7,8,9]">
-                    Thema {{$index}}
+                <li ng-repeat="category in $ctrl.categories | filter: $ctrl.filterCategories">
+                    <input type="checkbox"
+                           id="category-{{$index}}"
+                           ng-checked="$ctrl.selectedCategories.indexOf(category) !== -1"
+                           ng-click="$ctrl.togglCategory(category)"/>
+
+                    <label for="category-{{$index}}">
+                        <div class="person">
+                            {{category}}
+                        </div>
+                    </label>
                 </li>
             </ul>
         </div>
@@ -86,8 +95,15 @@
                 <li ng-repeat="year in $ctrl.selectedYears">
                     {{year}} <a ng-click="$ctrl.togglYear(year)">x</a>
                 </li>
+                <li ng-repeat="category in $ctrl.selectedCategories">
+                    {{category}} <a ng-click="$ctrl.togglCategory(category)">x</a>
+                </li>
             </ul>
-            <button ng-disabled="!$ctrl.selectedSpeakers.length" ng-click="$ctrl.search()">Los</button>
+            <button
+                    ng-disabled="!($ctrl.selectedSpeakers.length
+                                   || $ctrl.selectedYears.length
+                                   || $ctrl.selectedCategories.length)"
+                    ng-click="$ctrl.search()">Los</button>
         </div>
     </div>
     <div class="tops container-left-16">
