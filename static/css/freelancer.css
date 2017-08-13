@@ -2464,9 +2464,9 @@ a {
 
 a {
   color: black;
-  text-decoration: underline; }
+  text-decoration: none; }
   a:active, a:hover {
-    text-decoration: none; }
+    text-decoration: underline; }
 
 a.link-nav {
   text-decoration: none; }
@@ -5389,7 +5389,7 @@ i::before {
     line-height: 3em;
     overflow: hidden;
     padding-right: 0.8em;
-    text-align: right;
+    text-align: left;
     width: 100%;
     z-index: 9999; }
     @media screen and (min-width: 42em) {
@@ -5456,8 +5456,6 @@ i::before {
   .navigation li.more {
     overflow: visible;
     padding-right: 0; }
-    .navigation li.more a {
-      padding-right: 0.8em; }
     .navigation li.more > a {
       padding-right: 1.6em;
       position: relative; }
@@ -5512,13 +5510,13 @@ i::before {
             padding-bottom: 0.7em; } }
       .navigation ul.submenu li a {
         background-color: #f7f7f7;
-        display: inline-block;
+        display: inline;
         text-align: right;
         width: 100%; }
         @media screen and (min-width: 42em) {
           .navigation ul.submenu li a {
             background-color: white;
-            padding-left: 1em;
+            margin-left: 1em;
             text-align: left;
             width: 12em; } }
 

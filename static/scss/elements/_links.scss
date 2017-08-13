@@ -7,11 +7,13 @@
 a {
   @extend %link;
   color: $link-color;
-  text-decoration: underline;
+  //text-decoration: underline;
+  text-decoration: none;
 
   &:active,
   &:hover {
-    text-decoration: none;
+    //text-decoration: none;
+    text-decoration: underline;
   }
 }
 
