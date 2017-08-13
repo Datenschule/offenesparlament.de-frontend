@@ -28,7 +28,7 @@
                 <button type="submit" ng-class="{selected: $ctrl.selectedFilter === 'text'}">🔎</button>
             </form>
         </div>
-        <div class="topics" ng-show="$ctrl.selectedFilter === 'topic'">
+        <div class="topics afilter" ng-show="$ctrl.selectedFilter === 'topic'">
             <h2>Wähle eine Thema</h2>
             <ul>
                 <li ng-repeat="topic in [1,2,3,4,5,6,7,8,9]">
@@ -36,7 +36,7 @@
                 </li>
             </ul>
         </div>
-        <div class="people" ng-show="$ctrl.selectedFilter === 'person'">
+        <div class="people afilter" ng-show="$ctrl.selectedFilter === 'person'">
             <h2>Wähle einen Abgeordneten</h2>
             <input type="text" ng-model="$ctrl.speakerSearch" placeholder="Abgeordnete suchen..."/>
             <ul>
@@ -56,16 +56,24 @@
                             <img src="http://www.bundestag.de/image/240714/3x4/162/216/be23238d3921acf3e9fa694ab1ae41f8/dZ/aken_jan_gross.jpg" />
                             <div class="name">{{speaker.speaker_name}}</div>
                         </div>
-
                     </label>
                 </li>
             </ul>
         </div>
-        <div class="years" ng-show="$ctrl.selectedFilter === 'year'">
+        <div class="years afilter" ng-show="$ctrl.selectedFilter === 'year'">
             <h2>Wähle eine Jahr</h2>
             <ul>
-                <li ng-repeat="year in [2013, 2014, 2015, 2016, 2017]">
-                    {{year}}
+                <li ng-repeat="year in [2013, 2014, 2015, 2016, 2017] | filter: $ctrl.filterYears">
+                    <input type="checkbox"
+                           id="year-{{$index}}"
+                           ng-checked="$ctrl.selectedYears.indexOf(year) !== -1"
+                           ng-click="$ctrl.togglYear(year)"/>
+
+                    <label for="year-{{$index}}">
+                        <div class="person">
+                            {{year}}
+                        </div>
+                    </label>
                 </li>
             </ul>
         </div>
@@ -74,6 +82,9 @@
             <ul>
                 <li ng-repeat="speaker in $ctrl.selectedSpeakers">
                     {{speaker.speaker_cleaned}} <a ng-click="$ctrl.togglSpeaker(speaker)">x</a>
+                </li>
+                <li ng-repeat="year in $ctrl.selectedYears">
+                    {{year}} <a ng-click="$ctrl.togglYear(year)">x</a>
                 </li>
             </ul>
             <button ng-disabled="!$ctrl.selectedSpeakers.length" ng-click="$ctrl.search()">Los</button>
@@ -92,7 +103,8 @@
                 <td><span>{{session.session.sitzung}}.</span></td>
                 <td>
                     <ul ng-repeat="top in session.tops">
-                        <li><a href="http://protokolle.datenschule.de/session/{{session.session.sitzung}}#top-{{top}}">{{top}}</a>
+                        <li>
+                            <a ng-href="{{top.link}}">{{top.title}}</a>
                         </li>
                     </ul>
                 </td>

@@ -1,7 +1,24 @@
 const webpack = require("webpack");
+const UglifyJSPlugin = require("uglifyjs-webpack-plugin");
 const path = require("path");
 
-const DIST = "dist";
+const DIST = "_site/dist";
+
+console.log(process.env.DEV ? "DEV Mode" : "Production Mode");
+
+
+const plugins = [
+    new webpack.DefinePlugin({
+        API_BASE_URL: JSON.stringify(process.env.DEV ? "http://localhost:5000" : "http://protokolle.datenschule.de"),
+    }),
+];
+
+if (!process.env.DEV) {
+    plugins.push(new UglifyJSPlugin({
+        mangle: false,
+        sourceMap: true,
+    }));
+}
 
 module.exports = {
     entry: {
@@ -35,12 +52,7 @@ module.exports = {
             loader: "json-loader",
         }],
     },
-    devServer:
-        {
-            contentBase: path.join(__dirname, DIST),
-            compress:
-                true,
-            port:
-                9000,
-        },
+    plugins: plugins,
 };
+
+
