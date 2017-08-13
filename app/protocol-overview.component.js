@@ -1,8 +1,6 @@
 import { pull, kebabCase } from "lodash";
 
 const BASE_URL = API_BASE_URL;
-console.log(BASE_URL);
-
 
 const poc = {
     template: require("./protocols.html"),
