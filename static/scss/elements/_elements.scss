@@ -62,3 +62,18 @@ span.mark {
 .panel-error {
 
 }
+
+.interlude-margin-top {
+  margin:auto;
+}
+
+.container-interlude img {
+  @include respond-to(large-down) {
+    display: none;
+  }
+}
+
+.title-img {
+  height: 1em;
+  vertical-align: middle;
+}

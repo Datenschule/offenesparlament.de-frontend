@@ -123,8 +123,11 @@
 //  }
 //
 //}
+.container .navigation-sub {
+  border-bottom: none;
+}
 
-header.navigation {
+.navigation {
   $base-border-color: gainsboro !default;
   $base-border-radius: 3px !default;
   $action-color: #477DCA !default;
@@ -315,7 +318,6 @@ header.navigation {
   // Sub menus
 
   li.more.nav-link {
-    padding-right: 0;
 
     @include media($horizontal-bar-mode) {
       padding-right: $navigation-submenu-padding;
@@ -378,6 +380,8 @@ header.navigation {
   ul.submenu {
     display: none;
     padding-left: 0;
+    padding-top: 10px;
+    margin: -10px 0px 0 0;
 
     @include media($horizontal-bar-mode) {
       left: -$navigation-submenu-padding;

@@ -107,3 +107,19 @@ small {
 i {
   font-style: italic;
 }
+
+.interlude-text-big {
+  font-size: 26px;
+  font-weight: 600;
+  line-height: 1.5em;
+
+  a {
+    background-color: $white;
+    text-decoration: none;
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
+
+}

@@ -45,3 +45,9 @@
 *[hidden], .hidden {
   display: none !important;
 }
+
+.hide-mobile {
+  @include respond-to(medium-down) {
+    display:none !important;
+  }
+}

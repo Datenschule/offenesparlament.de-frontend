@@ -27,9 +27,27 @@
         <nav role="navigation">
             <ul id="js-navigation-menu" class="navigation-menu show">
                 <li class="nav-link {% if selected == 'protokolle' %}active {% endif %}"><a href="/protokolle">Protokolle</a></li>
-                <li class="nav-link {% if selected == 'analyse' %}active {% endif %}"><a href="/analyse">Analyse</a></li>
-                <li class="nav-link {% if selected == 'tracker' %}active {% endif %}"><a href="/tracker">Tracker</a></li>
-                <li class="nav-link {% if selected == 'daten-tools' %}active {% endif %}"><a href="/daten-tools">Daten & Tools</a></li>
+                <li class="nav-link more {% if selected == 'analyse' %}active {% endif %}"><a href="/analyse">Analyse</a>
+                    <ul class="submenu">
+                        <li class="nav-link"><a href="/analyse/themen.html">Themen</a></li>
+                        <li class="nav-link"><a href="/analyse/redeanteile.html">Reden</a></li>
+                        <li class="nav-link"><a href="/analyse/abgeordnete.html">Abgeordnete</a></li>
+                    </ul>
+                </li>
+
+                <li class="nav-link more {% if selected == 'daten' %}active {% endif %}"><a href="/daten/aufbereitung.html">Daten</a>
+                    <ul class="submenu">
+                        <li class="nav-link"><a href="/daten/aufbereitung.html">Aufbereitung</a></li>
+                        <li class="nav-link"><a href="/daten/download.html">Download</a></li>
+                    </ul>
+                </li>
+                <li class="nav-link more {% if selected == 'info' %}active {% endif %}"><a href="/info/about.html">Info</a>
+                    <ul class="submenu">
+                        <li class="nav-link"><a href="/info/about">Über uns</a></li>
+                        <li class="nav-link"><a href="#">Forderung</a></li>
+                        <li class="nav-link"><a href="#">Projekte</a></li>
+                    </ul>
+                </li>
             </ul>
         </nav>
     </div>
@@ -94,5 +112,7 @@
         </div>
     </div>
 </footer>
+<script src="/static/js/jquery.js"></script>
+<script src="/static/js/refill.js"></script>
 </body>
 </html>
