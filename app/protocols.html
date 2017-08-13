@@ -101,6 +101,7 @@
             </ul>
             <button
                     ng-disabled="!($ctrl.selectedSpeakers.length
+                                   || $ctrl.searchText.length
                                    || $ctrl.selectedYears.length
                                    || $ctrl.selectedCategories.length)"
                     ng-click="$ctrl.search()">Los</button>
