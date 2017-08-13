@@ -9,7 +9,7 @@ console.log(process.env.DEV ? "DEV Mode" : "Production Mode");
 
 const plugins = [
     new webpack.DefinePlugin({
-        API_BASE_URL: JSON.stringify(process.env.DEV ? "http://localhost:5000" : "http://protokolle.datenschule.de"),
+        API_BASE_URL: JSON.stringify(process.env.DEV ? "http://localhost:5000" : "http://api.offenesparlament.de"),
     }),
 ];
 
