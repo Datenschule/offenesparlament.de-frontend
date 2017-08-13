@@ -5,34 +5,34 @@ const DIST = "dist";
 
 module.exports = {
     entry: {
-        main: "./app/main.js",
+        main: "./app/main.js"
     },
     output: {
         path: path.join(__dirname, DIST),
-        filename: "[name].js",
+        filename: "[name].js"
     },
     module: {
         loaders: [{
             test: /\.js$/,
-            loader: "buble-loader",
+            loader: "buble-loader"
         }, {
             test: /\.html/,
-            loader: "html-loader",
+            loader: "html-loader"
         }, {
             test: /\.scss$/,
-            loader: "style-loader!css-loader?minimize=true!sass-loader",
+            loader: "style-loader!css-loader?minimize=true!sass-loader"
         }, {
             test: /\.css/,
-            loader: "style-loader!css-loader?minimize=true",
+            loader: "style-loader!css-loader?minimize=true"
         }, {
             test: /\.(png|svg|jpg)$/,
-            loader: "file-loader?name=[path][name].[ext]&context=./scripts",
+            loader: "file-loader?name=[path][name].[ext]&context=./scripts"
         }, {
             test: /\.(eot|woff|woff2|ttf)$/,
-            loader: "file-loader?name=[path][name].[ext]&context=./scripts",
+            loader: "file-loader?name=[path][name].[ext]&context=./scripts"
         }, {
             test: /\.json$/,
-            loader: "json-loader",
+            loader: "json-loader"
         }],
     },
     devServer:
@@ -41,6 +41,6 @@ module.exports = {
             compress:
                 true,
             port:
-                9000,
-        },
+                9000
+        }
 };
