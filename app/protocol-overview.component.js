@@ -1,8 +1,6 @@
 import { pull, kebabCase } from "lodash";
 
 const BASE_URL = API_BASE_URL;
-console.log(BASE_URL);
-
 
 const poc = {
     template: require("./protocols.html"),
@@ -10,6 +8,8 @@ const poc = {
         this.loading = true;
         this.selectedSpeakers = [];
         this.selectedYears = [];
+        this.selectedCategories = [];
+        this.categories = [];
         this.selectedFilter = "";
 
         const loadSessions = (resp) => {
@@ -34,6 +34,13 @@ const poc = {
                     this.loading = false;
                 }
             );
+
+            $http.get(`${BASE_URL}/api/categories`).then(
+                (resp) => {
+                    this.categories = resp.data.data;
+                    this.loading = false;
+                }
+            );
         };
 
         this.togglSpeaker = (speaker) => {
@@ -52,12 +59,24 @@ const poc = {
             }
         };
 
+        this.togglCategory = (category) => {
+            if (this.selectedCategories.indexOf(category) === -1) {
+                this.selectedCategories.push(category)
+            } else {
+                pull(this.selectedCategories, category);
+            }
+        };
+
         this.filterSpeakers = (speaker) => {
             return this.selectedSpeakers.indexOf(speaker) === -1;
         };
 
         this.filterYears = (year) => {
             return this.selectedYears.indexOf(year) === -1;
+        };
+
+        this.filterCategories = (category) => {
+            return this.selectedCategories.indexOf(category) === -1;
         };
 
         this.selectFilter = (filter) => {
@@ -77,6 +96,7 @@ const poc = {
                     search: this.searchText,
                     people: this.selectedSpeakers.map(s => s.speaker_fp),
                     years: this.selectedYears,
+                    categories: this.selectedCategories,
                 }
             }).then(loadSessions);
         }

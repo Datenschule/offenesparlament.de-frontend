@@ -78,36 +78,36 @@
               transform: rotate(0deg); }
   .protokolle .filters .hasSelect button:not(.selected), .protokolle .filters .hasSelect input:not(.selected) {
     opacity: .3; }
-  .protokolle .filters .people input[type="text"], .protokolle .filters .years input[type="text"] {
+  .protokolle .filters .people input[type="text"], .protokolle .filters .years input[type="text"], .protokolle .filters .topics input[type="text"] {
     padding: 10px;
     border: 2px solid; }
-    .protokolle .filters .people input[type="text"]:disabled, .protokolle .filters .years input[type="text"]:disabled {
+    .protokolle .filters .people input[type="text"]:disabled, .protokolle .filters .years input[type="text"]:disabled, .protokolle .filters .topics input[type="text"]:disabled {
       background-color: #B8B8B8;
       border: 2px solid #B8B8B8; }
-  .protokolle .filters .people label:hover, .protokolle .filters .years label:hover {
+  .protokolle .filters .people label:hover, .protokolle .filters .years label:hover, .protokolle .filters .topics label:hover {
     background-color: #e7fcfe;
     border: 1px solid #00bfd0;
     -webkit-border-radius: 9px;
             border-radius: 9px; }
-  .protokolle .filters .people input[type=checkbox], .protokolle .filters .years input[type=checkbox] {
+  .protokolle .filters .people input[type=checkbox], .protokolle .filters .years input[type=checkbox], .protokolle .filters .topics input[type=checkbox] {
     display: none; }
-  .protokolle .filters .people label, .protokolle .filters .years label {
+  .protokolle .filters .people label, .protokolle .filters .years label, .protokolle .filters .topics label {
     margin-top: 5px;
     display: block;
     width: 80%;
     cursor: pointer;
     border-bottom: 1px solid #ccc;
     padding: 10px 10px 10px 20px; }
-    .protokolle .filters .people label img, .protokolle .filters .years label img {
+    .protokolle .filters .people label img, .protokolle .filters .years label img, .protokolle .filters .topics label img {
       -webkit-clip-path: circle(23px at 23px 23px);
               clip-path: circle(23px at 23px 23px);
       width: 45px;
       float: left;
       margin-right: 10px; }
-    .protokolle .filters .people label .party, .protokolle .filters .years label .party {
+    .protokolle .filters .people label .party, .protokolle .filters .years label .party, .protokolle .filters .topics label .party {
       font-size: 16px;
       color: #807e7e; }
-  .protokolle .filters .people ul, .protokolle .filters .years ul {
+  .protokolle .filters .people ul, .protokolle .filters .years ul, .protokolle .filters .topics ul {
     list-style-type: none; }
 
 .protokolle .selections {
@@ -141,6 +141,8 @@
     color: white;
     border: 2px solid black;
     margin-left: auto; }
+    .protokolle .selections button:disabled {
+      background-color: gray; }
 
 .protokolle .tops tbody td:first-child span {
   background-color: #88ffdb;
