@@ -1,8 +1,4 @@
----
-
----
-
-@import "./loader.css"
+@import "_loader"
 
 .protokolle
   .filters
@@ -55,7 +51,7 @@
         opacity: .3
 
 
-    .people
+    .people, .years
       input[type="text"]
         padding: 10px
         border: 2px solid
@@ -128,4 +124,13 @@
       a
         text-decoration: none
 
-        
+
+
+.afilter
+  max-height: 300px
+  overflow: hidden
+  transition: all ease-in 0.5s
+
+
+.afilter.ng-hide
+  max-height: 0

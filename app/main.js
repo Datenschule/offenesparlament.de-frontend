@@ -1,64 +1,20 @@
 import * as angular from "angular";
-import { pull } from "lodash";
+import ngAnimate from "angular-animate"
 
-angular.module('offenesparlament', [])
-    .component('protocols', {
-        template: require("./protocols.html"),
-        controller: function ($http) {
-            var api_url = "http://api.offenesparlament.de/";
+import protocolOverviewComponent from "./protocol-overview.component";
+import poiComponent from "./poi.component"
+import protocolComponent from "./protocol.component"
+import speechComponent from "./speech.component"
+import top from "./top.component"
 
-            this.loading = true;
-            this.selectedSpeakers = [];
-            this.selectedFilter = "";
-
-            this.togglSpeaker = (speaker) => {
-                if (this.selectedSpeakers.indexOf(speaker) === -1) {
-                    this.selectedSpeakers.push(speaker)
-                } else {
-                    pull(this.selectedSpeakers, speaker);
-                }
-            };
-            
-            this.filterSpeakers = (speaker) => {
-                return this.selectedSpeakers.indexOf(speaker) === -1;
-            }
-
-            this.selectFilter = (filter) => {
-                if (this.selectedFilter == filter) {
-                    this.selectedFilter = "";
-                } else {
-                    this.selectedFilter = filter;
-                }
-            };
-
-            $http.get(api_url + "api/tops").then(
-                (resp) => {
-                    this.sessions = resp.data.data;
-                }
-            );
-
-            $http.get(api_url + "api/speakers").then(
-                (resp) => {
-                    this.speakers = resp.data.data;
-                    this.loading = false;
-                }
-            );
-
-            this.search = () => {
-                this.loading = true;
-                $http({
-                    method: "GET",
-                    url: api_url + "api/tops",
-                    params: {
-                        search: this.searchText,
-                        people: this.selectedSpeakers.map(s => s.speaker_fp),
-                    }
-                }).then(
-                    (resp) => {
-                        this.sessions = resp.data.data;
-                        this.loading = false
-                    }
-                );
-            }
+angular.module('offenesparlament', [ngAnimate])
+    .component('protocols', protocolOverviewComponent)
+    .component('protocol', protocolComponent)
+    .component('speech', speechComponent)
+    .component('poi', poiComponent)
+    .component('top', top)
+    .filter('newlines', function () {
+        return function(text) {
+            return text.replace(/\n/g, '<br/>');
         }
     });

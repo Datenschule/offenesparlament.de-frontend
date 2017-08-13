@@ -7021,7 +7021,7 @@ svg#germany_svg path:hover {
   line-height: 1.4em;
   margin: 0 auto; }
 
-div:target {
+div:target, .linked {
   background-color: rgba(255, 255, 191, 0.44); }
 
 .dropdown {
