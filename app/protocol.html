@@ -3,7 +3,7 @@
         <div class="main" ng-if="$ctrl.utterances.length">
             <h1> {{ $ctrl.utterances[0].wahlperiode }}. Wahlperiode - Sitzung {{ $ctrl.utterances[0].sitzung }}</h1>
             <div ng-repeat="utterance in $ctrl.utterances">
-                <top ng-if="utterance.type === 'top'" title="utterance.title"></top>
+                <top ng-if="utterance.type === 'top'" title="utterance.title" categories="utterance.categories"></top>
                 <speech id="{{utterance.sequence}}" ng-if="utterance.type === 'speech' || utterance.type === 'chair'" utterance="utterance"></speech>
                 <poi ng-if="utterance.type === 'poi'" utterance="utterance" linked="utterance.sequence "></poi>
             </div>

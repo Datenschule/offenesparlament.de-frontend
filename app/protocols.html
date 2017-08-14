@@ -113,6 +113,7 @@
             <tr>
                 <th>Sitzung</th>
                 <th>Tagesordnungspunkte</th>
+                <th>Kategorien</th>
             </tr>
             </thead>
             <tbody>
@@ -122,6 +123,13 @@
                     <ul ng-repeat="top in session.tops">
                         <li>
                             <a ng-href="{{top.link}}">{{top.title}}</a>
+                        </li>
+                    </ul>
+                </td>
+                <td>
+                    <ul ng-repeat="top in session.tops">
+                        <li>
+                            <a ng-href="{{top.link}}">{{top.categories.join(', ')}}</a>
                         </li>
                     </ul>
                 </td>

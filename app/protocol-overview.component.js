@@ -16,8 +16,9 @@ const poc = {
             this.sessions = resp.data.data.map(session => {
                 session.tops = session.tops.map(top => {
                     return {
-                        title: top,
-                        link: `/protokoll/#!/${session.session.sitzung}#${kebabCase(top)}`
+                        title: top.title,
+                        link: `/protokoll/#!/${session.session.sitzung}#${kebabCase(top)}`,
+                        categories: top.categories
                     }
                 });
                 return session;
