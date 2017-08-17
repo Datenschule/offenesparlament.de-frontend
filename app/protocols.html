@@ -1,5 +1,5 @@
 <div>
-    <div class="filters container-left-16">
+    <div class="filters container-left-12">
         <h1>Filtern nach</h1>
         <div class="options" ng-class="{hasSelect: $ctrl.selectedFilter !== ''}">
             <button class="topic"
@@ -107,13 +107,13 @@
                     ng-click="$ctrl.search()">Los</button>
         </div>
     </div>
-    <div class="tops container-left-16">
+    <div class="tops container-left-12">
         <table ng-if="!$ctrl.loading && $ctrl.sessions.length">
             <thead>
             <tr>
-                <th>Sitzung</th>
-                <th>Tagesordnungspunkte</th>
-                <th>Kategorien</th>
+                <th style="width: 10%">Sitzung</th>
+                <th style="width: 45%">Tagesordnungspunkte</th>
+                <th style="width: 45%">Kategorien</th>
             </tr>
             </thead>
             <tbody>
