@@ -5,3 +5,4 @@ misc.xml
 .idea
 .sass-cache
 npm-debug.log
+Gemfile.lock
