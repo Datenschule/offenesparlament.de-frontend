@@ -1,0 +1,32 @@
+<div class="container">
+	<div class="container-left-6">
+		<div class="dropdown">
+			<div class="dropdown-container">
+				<p class="dropdown-button">Häufigkeit nach Alter <span class="dropdown-button-arrow pull-right"><i class="fa fa-chevron-down"></i></span></p>
+
+				<ul class="dropdown-menu dropdown-select">
+					<li ng-click="$ctrl.load_data('/api/utterances/by_birth_date_category', '/api/mdb/aggregated/age')">Häufigkeit nach Alter</li>
+					<li ng-click="$ctrl.load_data('/api/utterances/by_election_list_category', '/api/mdb/aggregated?attribute=election_list')">Häufigkeit nach Bundesland</li>
+					<li ng-click="$ctrl.load_data('/api/utterances/by_gender_category', '/api/mdb/aggregated?attribute=gender')">Häufigkeit nach Geschlecht</li>
+					<li ng-click="$ctrl.load_data('/api/utterances/by_profession_category', '/api/mdb/aggregated?attribute=education')">Häufigkeit nach Beruf</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<div class="container-left-6">
+		<div class="dropdown">
+			<div class="dropdown-container">
+				<p class="dropdown-button">zu Thema <span class="dropdown-button-arrow pull-right"><i class="fa fa-chevron-down"></i></span></p>
+				<ul class="dropdown-menu dropdown-select">
+					<li ng-repeat="category in $ctrl.categories" ng-click="$ctrl.select_subject(category)">{{category}}</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="container">
+	<div class="container-left-12">
+		<chartist class="ct-frequency" chartist-data="$ctrl.data" chartist-chart-type="Bar"
+				  chartist-chart-options="$ctrl.options"></chartist>
+	</div>
+</div>
