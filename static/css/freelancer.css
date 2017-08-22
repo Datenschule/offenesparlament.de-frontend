@@ -5939,14 +5939,14 @@ footer {
     fill: red;
     stroke: red; }
   .sankeychart .sankey-node-0 rect {
-    fill: #61B861;
-    stroke: #5ab55a; }
+    fill: #4CCDF2;
+    stroke: #42caf1; }
   .sankeychart .sankey-node-1 rect {
-    fill: #FFCC9A;
-    stroke: #ffc790; }
+    fill: #00D4CA;
+    stroke: #00cac0; }
   .sankeychart .sankey-node-2 rect {
-    fill: #ccdff8;
-    stroke: #c3d9f7; }
+    fill: #4D52D8;
+    stroke: #454ad6; }
   .sankeychart .sankey-node-3 rect {
     fill: #FF9F4A;
     stroke: #ff9a40; }
@@ -6621,85 +6621,15 @@ footer {
   display: block;
   max-width: 90%; }
 
-.chartist-finance-report h5 {
-  padding-left: 10px;
-  text-align: center;
-  margin-top: 0;
-  margin-bottom: 5px; }
-.chartist-finance-report .special-data-column {
-  padding-bottom: 0; }
-  @media only screen and (min-width: 61.875em) {
-    .chartist-finance-report .special-data-column {
-      padding-bottom: 20px; } }
-.chartist-finance-report .chart-grid::after {
-  clear: both;
-  content: "";
-  display: block; }
-.chartist-finance-report .chart-grid-column {
-  width: calc(100% - 40px);
-  float: left;
-  margin-left: 20px; }
-  .chartist-finance-report .chart-grid-column h5 {
-    min-height: 50px;
-    display: flex;
-    justify-content: center;
-    align-items: center; }
-  @media only screen and (min-width: 37.5em) {
-    .chartist-finance-report .chart-grid-column {
-      width: calc(50% - 30px);
-      float: left;
-      margin-left: 20px; }
-      .chartist-finance-report .chart-grid-column h5 {
-        min-height: 60px; }
-      .chartist-finance-report .chart-grid-column:nth-of-type(1) {
-        margin-left: 0; }
-      .chartist-finance-report .chart-grid-column:nth-of-type(3) {
-        margin-left: 0; } }
-  @media only screen and (min-width: 61.875em) {
-    .chartist-finance-report .chart-grid-column {
-      width: calc(25% - 25px);
-      float: left;
-      margin-left: 20px; }
-      .chartist-finance-report .chart-grid-column h5 {
-        min-height: 80px; }
-      .chartist-finance-report .chart-grid-column:nth-of-type(3) {
-        margin-left: 20px; } }
-.chartist-finance-report .chart-color-0 .ct-bar {
-  stroke: #61B861; }
-.chartist-finance-report .chart-color-1 .ct-bar {
-  stroke: #FFCC9A; }
-.chartist-finance-report .chart-color-2 .ct-bar {
-  stroke: #ccdff8; }
-.chartist-finance-report .chart-color-3 .ct-bar {
-  stroke: #FF9F4A; }
-.chartist-finance-report .chart-color-4 .ct-bar {
-  stroke: #5799C7; }
-.chartist-finance-report .chart-color-5 .ct-bar {
-  stroke: #AF8DCE; }
-.chartist-finance-report .chart-color-6 .ct-bar {
-  stroke: #b2c326; }
-.chartist-finance-report .chart-color-7 .ct-bar {
-  stroke: #a7ccd8; }
-.chartist-finance-report .chart-color-8 .ct-bar {
-  stroke: #d17905; }
-.chartist-finance-report .chart-color-9 .ct-bar {
-  stroke: #93868a; }
-.chartist-finance-report .chart-color-10 .ct-bar {
-  stroke: #46749e; }
-.chartist-finance-report .chart-color-11 .ct-bar {
-  stroke: #f0e2a1; }
-.chartist-finance-report .chart-color-12 .ct-bar {
-  stroke: #a16a76; }
-
 .chartist-programs, .chartist-teacher, .chartist-foreign-languages, .chartist-school-type-change {
   margin-top: 54px;
   margin-bottom: 20px; }
   .chartist-programs .ct-series-a .ct-bar, .chartist-teacher .ct-series-a .ct-bar, .chartist-foreign-languages .ct-series-a .ct-bar, .chartist-school-type-change .ct-series-a .ct-bar {
-    stroke: #61B861; }
+    stroke: #4CCDF2; }
   .chartist-programs .ct-series-b .ct-bar, .chartist-teacher .ct-series-b .ct-bar, .chartist-foreign-languages .ct-series-b .ct-bar, .chartist-school-type-change .ct-series-b .ct-bar {
-    stroke: #FFCC9A; }
+    stroke: #00D4CA; }
   .chartist-programs .ct-series-c .ct-bar, .chartist-teacher .ct-series-c .ct-bar, .chartist-foreign-languages .ct-series-c .ct-bar, .chartist-school-type-change .ct-series-c .ct-bar {
-    stroke: #ccdff8; }
+    stroke: #4D52D8; }
   .chartist-programs .ct-series-d .ct-bar, .chartist-teacher .ct-series-d .ct-bar, .chartist-foreign-languages .ct-series-d .ct-bar, .chartist-school-type-change .ct-series-d .ct-bar {
     stroke: #FF9F4A; }
   .chartist-programs .ct-series-e .ct-bar, .chartist-teacher .ct-series-e .ct-bar, .chartist-foreign-languages .ct-series-e .ct-bar, .chartist-school-type-change .ct-series-e .ct-bar {
@@ -6713,35 +6643,17 @@ footer {
   .chartist-programs .ct-series-i .ct-bar, .chartist-teacher .ct-series-i .ct-bar, .chartist-foreign-languages .ct-series-i .ct-bar, .chartist-school-type-change .ct-series-i .ct-bar {
     stroke: #d17905; }
 
-.chartist-foreign-languages-complete .ct-series {
-  cursor: pointer; }
+.ct-frequency .ct-grid {
+  stroke-dasharray: none; }
+.ct-frequency .ct-bar {
+  stroke-linecap: square; }
+.ct-frequency .ct-series-a .ct-bar {
+  stroke: #4D52D8; }
+.ct-frequency .ct-series-b .ct-bar {
+  stroke: #00D4CA; }
 
-.chartist-foreign-languages-select.chartist-foreign-languages-select-0 .ct-bar {
-  stroke: #61B861 !important; }
-.chartist-foreign-languages-select.chartist-foreign-languages-select-1 .ct-bar {
-  stroke: #FFCC9A !important; }
-.chartist-foreign-languages-select.chartist-foreign-languages-select-2 .ct-bar {
-  stroke: #ccdff8 !important; }
-.chartist-foreign-languages-select.chartist-foreign-languages-select-3 .ct-bar {
-  stroke: #FF9F4A !important; }
-.chartist-foreign-languages-select.chartist-foreign-languages-select-4 .ct-bar {
-  stroke: #5799C7 !important; }
-.chartist-foreign-languages-select.chartist-foreign-languages-select-5 .ct-bar {
-  stroke: #AF8DCE !important; }
-.chartist-foreign-languages-select.chartist-foreign-languages-select-6 .ct-bar {
-  stroke: #b2c326 !important; }
-.chartist-foreign-languages-select.chartist-foreign-languages-select-7 .ct-bar {
-  stroke: #a7ccd8 !important; }
-.chartist-foreign-languages-select.chartist-foreign-languages-select-8 .ct-bar {
-  stroke: #d17905 !important; }
-.chartist-foreign-languages-select.chartist-foreign-languages-select-9 .ct-bar {
-  stroke: #93868a !important; }
-.chartist-foreign-languages-select.chartist-foreign-languages-select-10 .ct-bar {
-  stroke: #46749e !important; }
-.chartist-foreign-languages-select.chartist-foreign-languages-select-11 .ct-bar {
-  stroke: #f0e2a1 !important; }
-.chartist-foreign-languages-select.chartist-foreign-languages-select-12 .ct-bar {
-  stroke: #a16a76 !important; }
+.ct-subject .ct-bar {
+  stroke: #4CCDF2; }
 
 .chartists-footnote, .chartists-footnote-center {
   fill: rgba(0, 0, 0, 0.4);
@@ -6793,6 +6705,19 @@ footer {
   color: rgba(0, 0, 0, 0.6);
   font-size: 12px; }
 
+.ct-label {
+  font-size: 12px;
+  line-height: 1;
+  font-weight: 600;
+  font-family: 'Overpass';
+  fill: black;
+  color: black; }
+
+.ct-bar {
+  stroke: #4ccdf2;
+  stroke-linecap: round;
+  stroke-width: 15px; }
+
 .ct-legend {
   position: relative;
   z-index: 10;
@@ -6821,14 +6746,14 @@ footer {
     top: 0;
     right: 0; }
   .ct-legend .ct-series-0:before {
-    background-color: #61B861;
-    border-color: #61B861; }
+    background-color: #4CCDF2;
+    border-color: #4CCDF2; }
   .ct-legend .ct-series-1:before {
-    background-color: #FFCC9A;
-    border-color: #FFCC9A; }
+    background-color: #00D4CA;
+    border-color: #00D4CA; }
   .ct-legend .ct-series-2:before {
-    background-color: #ccdff8;
-    border-color: #ccdff8; }
+    background-color: #4D52D8;
+    border-color: #4D52D8; }
   .ct-legend .ct-series-3:before {
     background-color: #FF9F4A;
     border-color: #FF9F4A; }
@@ -6859,27 +6784,6 @@ footer {
   .ct-legend .ct-series-12:before {
     background-color: #a16a76;
     border-color: #a16a76; }
-
-.chartist-teacher-amount svg {
-  overflow: visible; }
-
-.chartist-foreign-languages svg, .chartist-school-type-change svg {
-  overflow: visible; }
-@media only screen and (max-width: 48em) {
-  .chartist-foreign-languages foreignObject, .chartist-school-type-change foreignObject {
-    text-align: right;
-    overflow: visible; }
-  .chartist-foreign-languages .ct-label.ct-horizontal.ct-end, .chartist-school-type-change .ct-label.ct-horizontal.ct-end {
-    position: relative;
-    justify-content: flex-end;
-    text-align: right;
-    transform-origin: 100% 0;
-    transform: translate(-100%) rotate(-90deg);
-    overflow: visible;
-    white-space: nowrap; } }
-@media only screen and (min-width: 48em) {
-  .chartist-foreign-languages .ct-horizontal.ct-label, .chartist-school-type-change .ct-horizontal.ct-label {
-    word-break: break-word; } }
 
 progress {
   width: 80%; }

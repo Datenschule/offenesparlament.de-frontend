@@ -1,69 +1,3 @@
-
-.chartist-finance-report {
-
-  h5 {
-    padding-left: 10px;
-    text-align: center;
-    margin-top: 0;
-    margin-bottom: 5px;
-  }
-
-  .special-data-column {
-    padding-bottom: 0;
-    @include respond-to(large-up) {
-      padding-bottom: 20px;
-    }
-  }
-
-  .chart-grid {
-    @include grid-container;
-  }
-  .chart-grid-column {
-    @include grid-column(12);
-
-    h5 {
-      min-height: 50px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-
-    @include respond-to(small-up) {
-
-      @include grid-column(6);
-      h5 {
-        min-height: 60px;
-      }
-      &:nth-of-type(1) {
-        margin-left: 0;
-      }
-      &:nth-of-type(3) {
-        margin-left: 0;
-      }
-    }
-    @include respond-to(large-up) {
-      @include grid-column(3);
-
-      h5 {
-        min-height: 80px;
-      }
-      &:nth-of-type(3) {
-        margin-left: 20px;
-      }
-
-    }
-
-  }
-
-  @for $i from 1 through length($chart-colors) {
-    .chart-color-#{$i - 1} {
-      .ct-bar {
-        stroke: nth($chart-colors, $i);
-      }
-    }
-  }
-}
-
 .chartist-programs, .chartist-teacher, .chartist-foreign-languages, .chartist-school-type-change {
   margin-top: 54px;
   margin-bottom: 20px;
@@ -115,22 +49,33 @@
   }
 }
 
-.chartist-foreign-languages-complete {
-  .ct-series {
-    cursor: pointer;
+.ct-frequency {
+
+  .ct-grid {
+    stroke-dasharray: none;
   }
-}
 
-.chartist-foreign-languages-select {
+  .ct-bar {
+    stroke-linecap: square;
+  }
 
-  @for $i from 1 through length($chart-colors) {
-    &.chartist-foreign-languages-select-#{$i - 1} {
-      .ct-bar {
-        stroke: nth($chart-colors, $i) !important;
-      }
+  .ct-series-a {
+    .ct-bar {
+      stroke: nth($chart-colors, 3)
     }
   }
 
+  .ct-series-b {
+    .ct-bar {
+      stroke: nth($chart-colors, 2)
+    }
+  }
+}
+
+.ct-subject {
+  .ct-bar {
+    stroke: $chart-color1
+  }
 }
 
 .chartists-footnote, .chartists-footnote-center {
@@ -202,6 +147,23 @@
   font-size: 12px;
 }
 
+.ct-label {
+  font-size: 12px;
+  line-height: 1;
+  font-weight: 600;
+  font-family: 'Overpass';
+  fill: black;
+  color: black;
+}
+
+.ct-bar {
+  stroke: #4ccdf2;
+  stroke-linecap: round;
+  stroke-width: 15px;
+}
+
+
+
 .ct-legend {
   position: relative;
   z-index: 10;
@@ -242,43 +204,6 @@
     .ct-series-#{$i}:before {
       background-color: nth($chart-colors, $i + 1);
       border-color: nth($chart-colors, $i + 1);
-    }
-  }
-}
-
-.chartist-teacher-amount {
-  svg {
-    overflow: visible;
-  }
-}
-
-.chartist-foreign-languages, .chartist-school-type-change {
-  svg {
-    overflow: visible;
-  }
-
-  @include respond-to(medium-down) {
-
-    foreignObject {
-      text-align: right; //this property is important, if set to right, chartist.events.draw js will center the rotated labels
-      overflow: visible;
-    }
-
-
-    .ct-label.ct-horizontal.ct-end {
-      position: relative;
-      justify-content: flex-end;
-      text-align: right;
-      transform-origin: 100% 0;
-      transform: translate(-100%) rotate(-90deg);
-      overflow: visible;
-      white-space: nowrap;
-    }
-  }
-  @include respond-to(medium-up) {
-
-    .ct-horizontal.ct-label {
-      word-break: break-word;
     }
   }
 }
