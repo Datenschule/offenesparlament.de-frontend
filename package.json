@@ -11,6 +11,7 @@
     "angular": "^1.6.5",
     "angular-animate": "^1.6.5",
     "angular-chartist.js": "^4.3.3",
+    "angular-sanitize": "^1.6.6",
     "browser-sync": "^2.18.13",
     "buble-loader": "^0.4.1",
     "chartist": "^0.11.0",
@@ -23,6 +24,7 @@
     "html-loader": "^0.5.1",
     "lodash": "^4.17.4",
     "uglifyjs-webpack-plugin": "^0.4.6",
+    "ui-select": "^0.19.8",
     "webpack": "^3.5.3",
     "webpack-dev-server": "^2.7.1"
   }

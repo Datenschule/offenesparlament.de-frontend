@@ -1,6 +1,8 @@
 import * as angular from "angular";
 import ngAnimate from "angular-animate"
+import ui_select from "ui-select"
 import angularChartist from "angular-chartist.js"
+import ngSanitize from "angular-sanitize"
 
 // import chartistBarLabels from "./lib/chartist-bar-labels"
 
@@ -14,7 +16,7 @@ import top from "./top.component"
 import subjectVizComponent from "./subject-viz.component"
 import speechFrequencyComponent from "./speech-frequency.component-viz"
 
-angular.module('offenesparlament', [ngAnimate, angularChartist])
+angular.module('offenesparlament', [ngAnimate, angularChartist, ui_select, ngSanitize])
     .component('protocols', protocolOverviewComponent)
     .component('protocol', protocolComponent)
     .component('speech', speechComponent)

@@ -6,6 +6,16 @@ const subject_viz = {
 	template: require("./speech-frequency.component-viz.html"),
 	controller: function ($location, $anchorScroll, $timeout, $http, $q) {
 
+		this.itemArray = [
+			{id: 1, name: 'Häufigkeit nach Alter', url_speech: '/api/utterances/by_birth_date_category', url_mdb:'/api/mdb/aggregated/age'},
+			{id: 2, name: 'Häufigkeit nach Bundesland', url_speech: '/api/utterances/by_election_list_category', url_mdb:'/api/mdb/aggregated?attribute=election_list'},
+			{id: 3, name: 'Häufigkeit nach Geschlecht', url_speech: '/api/utterances/by_gender_category', url_mdb:'/api/mdb/aggregated?attribute=gender'},
+			{id: 4, name: 'Häufigkeit nach Beruf', url_speech: '/api/utterances/by_profession_category', url_mdb:'/api/mdb/aggregated?attribute=education'},
+		];
+
+		this.selectedItem = this.itemArray[0];
+		this.selected_category = "alle";
+
 		this.$onInit = () => {
 			this.data = {
 				labels: ['W1', 'W2', 'W3', 'W4', 'W5', 'W6', 'W7', 'W8', 'W9', 'W10'],
@@ -33,6 +43,7 @@ const subject_viz = {
 			});
 			this.load_data('/api/utterances/by_birth_date_category', '/api/mdb/aggregated/age');
 		}
+		
 		this.load_data = function(url_speech, url_mdb) {
 			let speeches = $http.get(BASE_URL + url_speech);
 			let mdb = $http.get(BASE_URL + url_mdb);

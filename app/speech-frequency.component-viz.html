@@ -1,28 +1,24 @@
 <div class="container">
-	<div class="container-left-6">
-		<div class="dropdown">
-			<div class="dropdown-container">
-				<p class="dropdown-button">Häufigkeit nach Alter <span class="dropdown-button-arrow pull-right"><i class="fa fa-chevron-down"></i></span></p>
+	<div class="container-left-4">
+		<h3>Selectize theme</h3>
+		<ui-select ng-model="$ctrl.selectedItem" theme="selectize" style="width: 300px;" title="Choose a country" on-select="$ctrl.load_data($item.url_speech, $item.url_mdb)">
+			<ui-select-match placeholder="Select or search a country in the list...">{{$select.selected.name}}</ui-select-match>
+			<ui-select-choices repeat="item in $ctrl.itemArray | filter: $select.search">
+				<span ng-bind-html="item.name | highlight: $select.search"></span>
+			</ui-select-choices>
+		</ui-select>
+	</div>
+	<div class="container-left-4 container-left-offset-1">
+		<h3>Selectize theme</h3>
+		<ui-select ng-model="$ctrl.selected_category" theme="selectize" style="width: 300px;" title="Choose a country"
+				   on-select="$ctrl.select_subject($item)">
+			<ui-select-match placeholder="Wähle oder suche ein Thema aus der Liste">{{$select.selected}}</ui-select-match>
+			<ui-select-choices repeat="item in $ctrl.categories | filter: $select.search">
+				<span ng-bind-html="item | highlight: $select.search"></span>
+			</ui-select-choices>
+		</ui-select>
+	</div>
 
-				<ul class="dropdown-menu dropdown-select">
-					<li ng-click="$ctrl.load_data('/api/utterances/by_birth_date_category', '/api/mdb/aggregated/age')">Häufigkeit nach Alter</li>
-					<li ng-click="$ctrl.load_data('/api/utterances/by_election_list_category', '/api/mdb/aggregated?attribute=election_list')">Häufigkeit nach Bundesland</li>
-					<li ng-click="$ctrl.load_data('/api/utterances/by_gender_category', '/api/mdb/aggregated?attribute=gender')">Häufigkeit nach Geschlecht</li>
-					<li ng-click="$ctrl.load_data('/api/utterances/by_profession_category', '/api/mdb/aggregated?attribute=education')">Häufigkeit nach Beruf</li>
-				</ul>
-			</div>
-		</div>
-	</div>
-	<div class="container-left-6">
-		<div class="dropdown">
-			<div class="dropdown-container">
-				<p class="dropdown-button">zu Thema <span class="dropdown-button-arrow pull-right"><i class="fa fa-chevron-down"></i></span></p>
-				<ul class="dropdown-menu dropdown-select">
-					<li ng-repeat="category in $ctrl.categories" ng-click="$ctrl.select_subject(category)">{{category}}</li>
-				</ul>
-			</div>
-		</div>
-	</div>
 </div>
 <div class="container">
 	<div class="container-left-12">
