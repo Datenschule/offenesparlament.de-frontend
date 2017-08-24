@@ -15,24 +15,25 @@ const poc = {
         this.parties = {
             'cducsu' : {
                 name: 'CDU / CSU',
-                logo: '/static/parties/cducsu.svg'
+                logo: '/static/img/parties/cducsu.svg'
             },
             'spd' : {
                 name: 'SPD',
-                logo: '/static/parties/spd.svg'
+                logo: '/static/img/parties/spd.svg'
             },
             'gruene' : {
                 name: 'Bündnis \'90 die Grünen',
-                logo: 'gruene.svg'
+                logo: '/static/img/parties/gruene.svg'
             },
             'linke': {
                 name: 'Die Linke',
-                logo: 'linke.svg'
+                logo: '/static/img/parties/linke.svg'
             }
         };
 
         const loadSessions = (resp) => {
             this.sessions = resp.data.data.map(session => {
+                session.session.date = Date.parse(session.session.date);
                 session.tops = session.tops.map(top => {
                     return {
                         title: top.title,

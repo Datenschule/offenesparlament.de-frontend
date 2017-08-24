@@ -8,16 +8,25 @@
             </ui-select-choices>
         </ui-select>
     </div>
-
+<!--clip-path:circle(73px at 99px 109px)
+-->
     <div class="container-left-4 form-group">
         <h3>Person:</h3>
         <ui-select multiple ng-model="$ctrl.selectedSpeakers" theme="selectize" sortable="true" close-on-select="true">
-            <ui-select-match placeholder="Person auswählen...">{{$item.speaker_cleaned}} ({{$ctrl.parties[$item.speaker_party].name}})</ui-select-match>
+            <ui-select-match placeholder="Tippe den Namen eines Abgeordneten...">{{$item.speaker_cleaned}} ({{$ctrl.parties[$item.speaker_party].name}})</ui-select-match>
             <ui-select-choices repeat="speaker in $ctrl.speakers | filter: $select.search">
-                <div ng-bind-html="speaker.speaker_cleaned | highlight: $select.search">
-                    <small>
-                        Partei:{{speaker.speaker_party}}
-                    </small>
+                <div class="container" style="height: 3em; overflow: hidden;">
+                    <div class="container-left-2">
+                        <div class="picture-wrapper">
+                            <img src="{{speaker.picture}}" alt="" style="width:75%; clip-path:circle(16px at 18px 18px)"/>
+                        </div>
+                    </div>
+                    <div class="container-left-8">
+                        <div ng-bind-html="speaker.speaker_cleaned | highlight: $select.search"></div>
+                        <small>
+                            <img src="{{$ctrl.parties[speaker.speaker_party].logo}}" alt="Logo {{$ctrl.parties[speaker.speaker_party].name}}" style="height: 2em">
+                        </small>
+                    </div>
                 </div>
             </ui-select-choices>
             <span class="input-group-btn">
@@ -171,13 +180,15 @@
             <thead>
             <tr>
                 <th style="width: 10%">Sitzung</th>
-                <th style="width: 45%">Tagesordnungspunkte</th>
-                <th style="width: 45%">Kategorien</th>
+                <th style="width: 10%">Datum</th>
+                <th style="width: 40%">Tagesordnungspunkte</th>
+                <th style="width: 40%">Kategorien</th>
             </tr>
             </thead>
             <tbody>
             <tr ng-repeat="session in $ctrl.sessions">
                 <td><span>{{session.session.sitzung}}.</span></td>
+                <td><span ng-if="session.session.date">{{ session.session.date | date :  "dd.MM.y" }}</span></td>
                 <td>
                     <ul ng-repeat="top in session.tops">
                         <li>
