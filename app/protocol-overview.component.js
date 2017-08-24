@@ -12,6 +12,25 @@ const poc = {
         this.categories = [];
         this.selectedFilter = "";
 
+        this.parties = {
+            'cducsu' : {
+                name: 'CDU / CSU',
+                logo: '/static/parties/cducsu.svg'
+            },
+            'spd' : {
+                name: 'SPD',
+                logo: '/static/parties/spd.svg'
+            },
+            'gruene' : {
+                name: 'Bündnis \'90 die Grünen',
+                logo: 'gruene.svg'
+            },
+            'linke': {
+                name: 'Die Linke',
+                logo: 'linke.svg'
+            }
+        };
+
         const loadSessions = (resp) => {
             this.sessions = resp.data.data.map(session => {
                 session.tops = session.tops.map(top => {

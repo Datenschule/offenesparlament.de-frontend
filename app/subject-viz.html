@@ -1,20 +1,12 @@
 <div class="container">
 	<div class="container-left-12">
 		<p><strong>Filter nach Jahr</strong></p>
-		<div class="dropdown">
-			<div class="dropdown-container">
-				<p class="dropdown-button">alle <span class="dropdown-button-arrow pull-right"><i class="fa fa-chevron-down"></i></span></p>
-
-				<ul class="dropdown-menu dropdown-select">
-					<li>alle</li>
-					<li>2017</li>
-					<li>2016</li>
-					<li>2015</li>
-					<li>2014</li>
-					<li>2013</li>
-				</ul>
-			</div>
-		</div>
+		<ui-select ng-model="$ctrl.selectedYear" theme="selectize" style="width: 300px;" title="Wähle ein Jahr">
+			<ui-select-match placeholder="Wähle ein Jahr aus">{{$select.selected.name}}</ui-select-match>
+			<ui-select-choices repeat="item in $ctrl.years | filter: $select.search">
+				<span ng-bind-html="item | highlight: $select.search"></span>
+			</ui-select-choices>
+		</ui-select>
 	</div>
 </div>
 <h1>Test</h1><chartist class="ct-chart ct-subject" chartist-data="$ctrl.data" chartist-chart-type="Bar"

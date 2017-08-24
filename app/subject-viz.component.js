@@ -13,6 +13,10 @@ const subject_viz = {
 				]
 			};
 
+			this.years = ['alle', '2017', '2016', '2015', '2014', '2013'];
+
+			this.selectedYear = this.years[0];
+
 			this.options = {
 				horizontalBars: true,
 				height: "100px",
