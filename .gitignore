@@ -6,3 +6,4 @@ misc.xml
 .sass-cache
 npm-debug.log
 Gemfile.lock
+.bundle/
