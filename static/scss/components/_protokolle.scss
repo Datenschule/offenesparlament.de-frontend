@@ -2,6 +2,14 @@
 //  font-family: Georgia, serif;
 //}
 
+.spy {
+  display: none;
+}
+
+.active {
+  display: block;
+}
+
 .protocols-speaker{
   font-weight: bold;
   text-decoration: none;
@@ -59,7 +67,7 @@
 }
 
 .protocols-poi-party img {
-  filter: grayscale(100%);
+  //filter: grayscale(100%); puts image on top of everything in chrome
   height: .8em;
 }
 

@@ -7141,6 +7141,12 @@ svg {
 svg#germany_svg path:hover {
   fill: #b2c326; }
 
+.spy {
+  display: none; }
+
+.active {
+  display: block; }
+
 .protocols-speaker {
   font-weight: bold;
   text-decoration: none;
@@ -7185,7 +7191,6 @@ svg#germany_svg path:hover {
   text-decoration: none; }
 
 .protocols-poi-party img {
-  filter: grayscale(100%);
   height: .8em; }
 
 .protocols-party img {
@@ -7198,5 +7203,15 @@ svg#germany_svg path:hover {
 
 div:target, .linked {
   background-color: rgba(255, 255, 191, 0.44); }
+
+.controls-fixed {
+  background-color: white;
+  border-bottom: 1px solid black;
+  top: 0;
+  left: 0;
+  padding: 10px 15px;
+  position: fixed;
+  bottom: auto;
+  width: 100%; }
 
 /*# sourceMappingURL=freelancer.css.map */

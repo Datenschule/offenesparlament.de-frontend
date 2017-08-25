@@ -1,15 +1,57 @@
-<div class="container">
-    <div class="container-left-12">
-        <div class="main" ng-if="$ctrl.utterances.length">
-            <h1> {{ $ctrl.utterances[0].wahlperiode }}. Wahlperiode - Sitzung {{ $ctrl.utterances[0].sitzung }}</h1>
-            <div ng-repeat="utterance in $ctrl.utterances">
-                <top ng-if="utterance.type === 'top'" title="utterance.title" categories="utterance.categories"></top>
-                <speech id="{{utterance.sequence}}" ng-if="utterance.type === 'speech' || utterance.type === 'chair'" utterance="utterance"></speech>
-                <poi ng-if="utterance.type === 'poi'" utterance="utterance" linked="utterance.sequence "></poi>
-            </div>
-        </div>
-        <div class="main" ng-if="!$ctrl.utterances.length">
-            <div class="loader"></div>
-        </div>
-    </div>
+<section sticky-nav>
+	<div class="container">
+		<div class="container-left-3">
+			<p>
+				<a href="/protokolle/" class="bold"><i class="fa fa-arrow-left"></i> zurück zur Suche</a>
+			</p>
+		</div>
+		<div class="container-left-5">
+			<p>
+				Sitzungsnummer: {{$ctrl.session}}
+			</p>
+			<p>
+				Datum: {{$ctrl.date}}
+			</p>
+			<p ng-repeat="top in $ctrl.tops">
+				<span href="#{{top.link}}" du-smooth-scroll="" du-scrollspy="" offset="30" class="spy">{{top.title}}</span>
+			</p>
+		</div>
+		<div class="container-left-3">
+			<div class="">
+				<span>springe zu TOP: </span>
+				<ui-select ng-model="$ctrl.selectedTop" theme="selectize" style="width: 300px;" title="Wähle ein TOP"
+						   on-select="$ctrl.selectTop($item.link)">
+					<ui-select-match placeholder="Wähle ein TOP aus">{{$select.selected.title}}</ui-select-match>
+					<ui-select-choices repeat="item in $ctrl.tops | filter: $select.search">
+						<span ng-bind-html="item.title | highlight: $select.search"></span>
+					</ui-select-choices>
+				</ui-select>
+			</div>
+			<div class="">
+				<span>springe zu Suchergebnis: </span>
+				<ui-select ng-model="$ctrl.selectedResult" theme="selectize" style="width: 300px;" title="Wähle ein TOP">
+					<ui-select-match placeholder="Wähle ein TOP aus">{{$select.selected.title}}</ui-select-match>
+					<ui-select-choices repeat="item in [1,2,3,4,5] | filter: $select.search">
+						<span ng-bind-html="item | highlight: $select.search"></span>
+					</ui-select-choices>
+				</ui-select>
+			</div>
+		</div>
+	</div>
+</section>
+
+<div class="container" in-view-container>
+	<div class="container-left-12">
+		<div class="main" ng-if="$ctrl.utterances.length">
+			<h1 inview="$crl.updateTop()"> {{ $ctrl.utterances[0].wahlperiode }}. Wahlperiode - Sitzung {{ $ctrl.utterances[0].sitzung }}</h1>
+			<div ng-repeat="utterance in $ctrl.utterances">
+				<top ng-if="utterance.type === 'top'" title="utterance.title" categories="utterance.categories" in-view="$ctrl.updateTop()"></top>
+				<speech id="{{utterance.sequence}}" ng-if="utterance.type === 'speech' || utterance.type === 'chair'" utterance="utterance"></speech>
+				<poi ng-if="utterance.type === 'poi'" utterance="utterance" linked="utterance.sequence "></poi>
+			</div>
+		</div>
+		<div class="main" ng-if="!$ctrl.utterances.length">
+			<div class="loader"></div>
+		</div>
+	</div>
 </div>
