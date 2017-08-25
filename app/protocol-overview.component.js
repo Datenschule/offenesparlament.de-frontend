@@ -1,4 +1,4 @@
-import { pull, kebabCase } from "lodash";
+import { pull, kebabCase, uniqBy } from "lodash";
 
 const BASE_URL = API_BASE_URL;
 
@@ -51,7 +51,8 @@ const poc = {
 
             $http.get(`${BASE_URL}/api/speakers`).then(
                 (resp) => {
-                    this.speakers = resp.data.data;
+                    this.speakers = uniqBy(resp.data.data, 'speaker_cleaned');
+                    console.log(this.speakers.length);
                     this.loading = false;
                 }
             );
