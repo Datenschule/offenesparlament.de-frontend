@@ -22,6 +22,58 @@
 		</div>
 	</div>
 	<div class="container">
+		<div class="container-left-12">
+			<div class="out-wrapper text-center">
+				<div class="wrapper" style="display: inline-block">
+					<div class="omage-inle" style="height:4em; width:10em; margin:auto">
+						<img ng-src="{{$ctrl.ranking[0].picture}}" alt="" style="height:168%; clip-path:circle(35px at 37px 37px)"/>
+						<img src="/static/img/icons/victory_icon.png" alt="" style="height: 20px; position: relative; top: -23px; left: -47px;">
+					</div>
+					<p class="" style="font-size:2rem; text-align: left">
+						{{$ctrl.ranking[0].first_name}} {{$ctrl.ranking[0].last_name}}
+					</p>
+					<p class="" style="font-size: 1rem; text-align: left">
+						{{$ctrl.ranking[0].fraction}} · {{$ctrl.ranking[0].count}} Reden
+					</p>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="container">
+		<div class="container-left-6">
+			<div class="out-wrapper text-center">
+				<div class="wrapper" style="display: inline-block">
+					<div class="omage-inle" style="height:4em; width:10em; margin:auto">
+						<img ng-src="{{$ctrl.ranking[0].picture}}" alt="" style="height:168%; clip-path:circle(35px at 37px 37px)"/>
+						<img src="/static/img/icons/victory_icon.png" alt="" style="height: 20px; position: relative; top: -23px; left: -47px;">
+					</div>
+					<p class="" style="font-size:2rem; text-align: left">
+						{{$ctrl.ranking[0].first_name}} {{$ctrl.ranking[0].last_name}}
+					</p>
+					<p class="" style="font-size: 1rem; text-align: left">
+						{{$ctrl.ranking[0].fraction}} · {{$ctrl.ranking[0].count}} Reden
+					</p>
+				</div>
+			</div>
+		</div>
+		<div class="container-left-6">
+			<div class="out-wrapper text-center">
+				<div class="wrapper" style="display: inline-block">
+					<div class="omage-inle" style="height:4em; width:10em; margin:auto">
+						<img ng-src="{{$ctrl.ranking[0].picture}}" alt="" style="height:168%; clip-path:circle(35px at 37px 37px)"/>
+						<img src="/static/img/icons/victory_icon.png" alt="" style="height: 20px; position: relative; top: -23px; left: -47px;">
+					</div>
+					<p class="" style="font-size:2rem; text-align: left">
+						{{$ctrl.ranking[0].first_name}} {{$ctrl.ranking[0].last_name}}
+					</p>
+					<p class="" style="font-size: 1rem; text-align: left">
+						{{$ctrl.ranking[0].fraction}} · {{$ctrl.ranking[0].count}} Reden
+					</p>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="container">
 		<div class="container-left-10 container-left-offset-1">
 			<table style="width: 100%">
 				<tr class="mdb-rank container" ng-repeat="mdb in $ctrl.ranking | limitTo: 20 track by $index" style="line-height:1em; border-bottom:1px solid black">
