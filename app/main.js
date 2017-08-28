@@ -18,6 +18,7 @@ import speechComponent from "./speech.component"
 import top from "./top.component"
 import subjectVizComponent from "./subject-viz.component"
 import speechFrequencyComponent from "./speech-frequency.component-viz"
+import speechMdbComponent from "./speech-mdb-viz"
 
 let app = angular.module('offenesparlament', [ngAnimate, angularChartist, ui_select, ngSanitize, duScroll, angularInview.name])
     .component('protocols', protocolOverviewComponent)
@@ -27,6 +28,7 @@ let app = angular.module('offenesparlament', [ngAnimate, angularChartist, ui_sel
     .component('top', top)
     .component('subjectViz', subjectVizComponent)
     .component('speechFrequency', speechFrequencyComponent)
+    .component('speechMdb', speechMdbComponent)
 	.value('duScrollOffset', -200);
 
 app.filter('newlines', function () {
