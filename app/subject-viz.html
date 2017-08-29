@@ -2,12 +2,15 @@
 	<div class="container-left-12">
 		<p><strong>Filter nach Jahr</strong></p>
 		<ui-select ng-model="$ctrl.selectedYear" theme="selectize" style="width: 300px;" title="Wähle ein Jahr">
-			<ui-select-match placeholder="Wähle ein Jahr aus">{{$select.selected.name}}</ui-select-match>
+			<ui-select-match placeholder="Wähle ein Jahr aus">{{$select.selected}}</ui-select-match>
 			<ui-select-choices repeat="item in $ctrl.years | filter: $select.search">
 				<span ng-bind-html="item | highlight: $select.search"></span>
 			</ui-select-choices>
 		</ui-select>
 	</div>
+</div><div class="container">
+	<div class="container-left-10 container-left-offset-1">
+		<chartist class="ct-chart ct-frequency" chartist-data="$ctrl.data" chartist-chart-type="Bar"
+				  chartist-chart-options="$ctrl.options" chartist-events="$ctrl.events"></chartist>
+	</div>
 </div>
-<h1>Test</h1><chartist class="ct-chart ct-subject" chartist-data="$ctrl.data" chartist-chart-type="Bar"
-					   chartist-chart-options="$ctrl.options"></chartist>

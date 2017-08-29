@@ -6916,6 +6916,10 @@ body > .ui-select-bootstrap.open {
   .chartist-programs .ct-series-i .ct-bar, .chartist-teacher .ct-series-i .ct-bar, .chartist-foreign-languages .ct-series-i .ct-bar, .chartist-school-type-change .ct-series-i .ct-bar {
     stroke: #d17905; }
 
+.ct-series text {
+  font-size: 12px;
+  font-family: 'Overpass'; }
+
 .ct-frequency .ct-grid {
   stroke-dasharray: none; }
 .ct-frequency .ct-bar {
