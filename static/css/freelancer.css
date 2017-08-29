@@ -6926,8 +6926,12 @@ body > .ui-select-bootstrap.open {
   stroke-linecap: square; }
 .ct-frequency .ct-series-a .ct-bar {
   stroke: #4D52D8; }
+.ct-frequency .ct-series-a text {
+  fill: #4D52D8; }
 .ct-frequency .ct-series-b .ct-bar {
   stroke: #00D4CA; }
+.ct-frequency .ct-series-b text {
+  fill: #00D4CA; }
 
 .ct-subject .ct-bar {
   stroke: #4CCDF2; }
