@@ -5,6 +5,7 @@ import angularChartist from "angular-chartist.js"
 import ngSanitize from "angular-sanitize"
 import duScroll from "angular-scroll"
 import angularInview from 'angular-inview';
+import angularCarousel from "angular-ui-carousel"
 // import smoothScroll from 'ngSmoothScroll';
 
 // import chartistBarLabels from "./lib/chartist-bar-labels"
@@ -19,8 +20,9 @@ import top from "./top.component"
 import subjectVizComponent from "./subject-viz.component"
 import speechFrequencyComponent from "./speech-frequency.component-viz"
 import speechMdbComponent from "./speech-mdb-viz"
+import plprSlider from "./plprSlider.component"
 
-let app = angular.module('offenesparlament', [ngAnimate, angularChartist, ui_select, ngSanitize, duScroll, angularInview.name])
+let app = angular.module('offenesparlament', [ngAnimate, angularChartist, ui_select, ngSanitize, duScroll, angularInview.name, 'ui.carousel'])
     .component('protocols', protocolOverviewComponent)
     .component('protocol', protocolComponent)
     .component('speech', speechComponent)
@@ -29,6 +31,7 @@ let app = angular.module('offenesparlament', [ngAnimate, angularChartist, ui_sel
     .component('subjectViz', subjectVizComponent)
     .component('speechFrequency', speechFrequencyComponent)
     .component('speechMdb', speechMdbComponent)
+    .component('plprSlider', plprSlider)
 	.value('duScrollOffset', -200);
 
 app.filter('newlines', function () {
