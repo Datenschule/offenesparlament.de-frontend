@@ -11,6 +11,7 @@ const poc = {
         this.selectedCategories = [];
         this.categories = [];
         this.selectedFilter = "";
+        this.selectedSearch = [];
 
         this.parties = {
             'cducsu' : {
@@ -30,6 +31,15 @@ const poc = {
                 logo: '/static/img/parties/linke.svg'
             }
         };
+
+		this.tagTransform = function (newTag) {
+			var item = {
+			    text: newTag,
+                isTag: true
+			}
+
+			return item;
+		};
 
         const loadSessions = (resp) => {
             this.sessions = resp.data.data.map(session => {
@@ -109,12 +119,13 @@ const poc = {
         };
 
         this.search = () => {
+            console.log("search called");
             this.loading = true;
             $http({
                 method: "GET",
                 url: `${BASE_URL}/api/tops`,
                 params: {
-                    search: this.searchText,
+                    search: this.selectedSearch.map(s => s.text),
                     people: this.selectedSpeakers.map(s => s.speaker_fp),
                     years: this.selectedYears,
                     categories: this.selectedCategories,
