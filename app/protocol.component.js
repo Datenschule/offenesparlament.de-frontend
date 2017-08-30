@@ -4,7 +4,7 @@ const BASE_URL = API_BASE_URL;
 
 const protocol = {
     template: require("./protocol.html"),
-    controller: function ($http, $location, $anchorScroll) {
+    controller: function ($http, $location, $anchorScroll, $timeout) {
         this.utterances = [];
         this.$onInit = () => {
             const linkTarget = $location.hash();
@@ -26,6 +26,9 @@ const protocol = {
 					this.session = this.utterances[0]['sitzung'];
                     this.date = "15.03.2017";
                     this.current_top = "TOP 40 Bundeswehreinsatz im Mittelmeer (SOPHIA)"
+                    console.log($location.hash());
+					$anchorScroll.yOffset = 200;
+                    $timeout($anchorScroll, 0);
 
 				}
             );
@@ -38,7 +41,7 @@ const protocol = {
 			$anchorScroll.yOffset = 200;
 			// call $anchorScroll()
 			$anchorScroll();
-        }
+        };
     }
 }
 export default protocol;

@@ -42,7 +42,7 @@
 
 <div class="container" in-view-container>
 	<div class="container-left-12">
-		<div class="main" ng-if="$ctrl.utterances.length">
+		<div class="main" ng-if="$ctrl.utterances.length" >
 			<h1 inview="$crl.updateTop()"> {{ $ctrl.utterances[0].wahlperiode }}. Wahlperiode - Sitzung {{ $ctrl.utterances[0].sitzung }}</h1>
 			<div ng-repeat="utterance in $ctrl.utterances">
 				<top ng-if="utterance.type === 'top'" title="utterance.title" categories="utterance.categories" in-view="$ctrl.updateTop()"></top>

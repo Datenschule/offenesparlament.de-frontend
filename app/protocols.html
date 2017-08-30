@@ -18,13 +18,13 @@
                 <div class="container" style="height: 3em; overflow: hidden;">
                     <div class="container-left-2">
                         <div class="picture-wrapper">
-                            <img src="{{speaker.picture}}" alt="" style="width:75%; clip-path:circle(16px at 15px 18px)"/>
+                            <img ng-src="{{speaker.picture}}" alt="" style="width:75%; clip-path:circle(16px at 15px 18px)"/>
                         </div>
                     </div>
                     <div class="container-left-8">
                         <div>
                             <span ng-bind-html="speaker.speaker_cleaned | highlight: $select.search"></span>
-                            <img src="{{$ctrl.parties[speaker.speaker_party].logo}}" alt="Logo {{$ctrl.parties[speaker.speaker_party].name}}" style="max-width:3em; max-height:1em">
+                            <img ng-src="{{$ctrl.parties[speaker.speaker_party].logo}}" alt="Logo {{$ctrl.parties[speaker.speaker_party].name}}" style="max-width:3em; max-height:1em">
                         </div>
                         <small>
                             {{speaker.age}} Jahre, {{speaker.education}}

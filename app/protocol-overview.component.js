@@ -37,7 +37,7 @@ const poc = {
                 session.tops = session.tops.map(top => {
                     return {
                         title: top.title,
-                        link: `/protokoll/#!/${session.session.sitzung}#${kebabCase(top)}`,
+                        link: `/protokoll/#!/${session.session.sitzung}#${kebabCase(top.title)}`,
                         categories: top.categories
                     }
                 });
@@ -52,7 +52,6 @@ const poc = {
             $http.get(`${BASE_URL}/api/speakers`).then(
                 (resp) => {
                     this.speakers = uniqBy(resp.data.data, 'speaker_cleaned');
-                    console.log(this.speakers.length);
                     this.loading = false;
                 }
             );
