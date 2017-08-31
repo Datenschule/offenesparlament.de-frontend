@@ -10,7 +10,7 @@ const subject_viz = {
 			{id: 1, name: 'Häufigkeit nach Alter', url_speech: '/api/utterances/by_birth_date_category', url_mdb:'/api/mdb/aggregated/age'},
 			{id: 2, name: 'Häufigkeit nach Bundesland', url_speech: '/api/utterances/by_election_list_category', url_mdb:'/api/mdb/aggregated?attribute=election_list'},
 			{id: 3, name: 'Häufigkeit nach Geschlecht', url_speech: '/api/utterances/by_gender_category', url_mdb:'/api/mdb/aggregated?attribute=gender'},
-			{id: 4, name: 'Häufigkeit nach Beruf', url_speech: '/api/utterances/by_profession_category', url_mdb:'/api/mdb/aggregated?attribute=education'},
+			{id: 4, name: 'Häufigkeit nach Beruf', url_speech: '/api/utterances/by_profession_category', url_mdb:'/api/mdb/aggregated?attribute=education_category'},
 		];
 
 		this.selectedItem = this.itemArray[0];
