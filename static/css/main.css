@@ -2277,6 +2277,9 @@ a img {
   border: 0;
   outline: 0; }
 
+img {
+  max-width: 100%; }
+
 [aria-hidden="true"] {
   display: none; }
 
