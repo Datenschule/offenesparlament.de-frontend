@@ -1,6 +1,5 @@
 .button {
-  background-color: $dark-blue;
-  border-radius: 100px;
+  background-color: black;
   padding: 10px 20px;
   text-decoration: none;
   color: white;
@@ -9,7 +8,7 @@
   font-weight: normal;
   white-space: nowrap;
   &:hover {
-    background-color: lighten($dark-blue, 15%);
+    background-color: lighten(black, 15%);
   }
 }
 

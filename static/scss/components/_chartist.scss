@@ -49,6 +49,13 @@
   }
 }
 
+.ct-series {
+  text {
+    font-size: 12px;
+    font-family: 'Overpass';
+  }
+}
+
 .ct-frequency {
 
   .ct-grid {
@@ -63,11 +70,18 @@
     .ct-bar {
       stroke: nth($chart-colors, 3)
     }
+    text {
+      fill: nth($chart-colors, 3)
+    }
   }
 
   .ct-series-b {
     .ct-bar {
       stroke: nth($chart-colors, 2)
+    }
+
+    text {
+      fill: nth($chart-colors, 2)
     }
   }
 }

@@ -1,0 +1,95 @@
+<div class="container container-bg-grey">
+	<div class="container">
+		<div class="container-left-4 container-left-offset-1">
+			<h3>Kategorie:</h3>
+			<ui-select ng-model="$ctrl.selected_category" theme="selectize" style="width: 300px;" title="Kategorie auswählen"
+					   on-select="$ctrl.update()">
+				<ui-select-match placeholder="Wähle oder suche ein Thema aus der Liste">{{$select.selected}}</ui-select-match>
+				<ui-select-choices repeat="item in $ctrl.categories | filter: $select.search">
+					<span ng-bind-html="item | highlight: $select.search"></span>
+				</ui-select-choices>
+			</ui-select>
+		</div>
+		<div class="container-left-4 container-left-offset-1">
+			<h3>Fraktion:</h3>
+			<ui-select ng-model="$ctrl.selected_fraction" theme="selectize" style="width: 300px;" title="Fraktion auswählen"
+					   on-select="$ctrl.update()">
+				<ui-select-match placeholder="Wähle eine Kategorie aus...">{{$select.selected}}</ui-select-match>
+				<ui-select-choices repeat="item in $ctrl.fractions | filter: $select.search">
+					<span ng-bind-html="item | highlight: $select.search"></span>
+				</ui-select-choices>
+			</ui-select>
+		</div>
+	</div>
+	<div class="container">
+		<div class="container-left-12">
+			<div class="out-wrapper text-center">
+				<div class="wrapper" style="display: inline-block">
+					<div class="omage-inle" style="height:4em; width:10em; margin:auto">
+						<img ng-src="{{$ctrl.ranking[0].picture}}" alt="" style="height:168%; clip-path:circle(35px at 37px 37px)"/>
+						<img src="/static/img/icons/victory_icon.png" alt="" style="height: 20px; position: relative; top: -23px; left: -47px;">
+					</div>
+					<p class="" style="font-size:2rem; text-align: left">
+						{{$ctrl.ranking[0].first_name}} {{$ctrl.ranking[0].last_name}}
+					</p>
+					<p class="" style="font-size: 1rem; text-align: left">
+						{{$ctrl.ranking[0].fraction}} · {{$ctrl.ranking[0].count}} Reden
+					</p>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="container">
+		<div class="container-left-6">
+			<div class="out-wrapper text-center">
+				<div class="wrapper" style="display: inline-block">
+					<div class="omage-inle" style="height:4em; width:10em; margin:auto">
+						<img ng-src="{{$ctrl.ranking[1].picture}}" alt="" style="height:168%; clip-path:circle(35px at 37px 37px)"/>
+						<img src="/static/img/icons/victory_icon.png" alt="" style="height: 20px; position: relative; top: -23px; left: -47px;">
+					</div>
+					<p class="" style="font-size:2rem; text-align: left">
+						{{$ctrl.ranking[1].first_name}} {{$ctrl.ranking[1].last_name}}
+					</p>
+					<p class="" style="font-size: 1rem; text-align: left">
+						{{$ctrl.ranking[1].fraction}} · {{$ctrl.ranking[1].count}} Reden
+					</p>
+				</div>
+			</div>
+		</div>
+		<div class="container-left-6">
+			<div class="out-wrapper text-center">
+				<div class="wrapper" style="display: inline-block">
+					<div class="omage-inle" style="height:4em; width:10em; margin:auto">
+						<img ng-src="{{$ctrl.ranking[2].picture}}" alt="" style="height:168%; clip-path:circle(35px at 37px 37px)"/>
+						<img src="/static/img/icons/victory_icon.png" alt="" style="height: 20px; position: relative; top: -23px; left: -47px;">
+					</div>
+					<p class="" style="font-size:2rem; text-align: left">
+						{{$ctrl.ranking[2].first_name}} {{$ctrl.ranking[2].last_name}}
+					</p>
+					<p class="" style="font-size: 1rem; text-align: left">
+						{{$ctrl.ranking[2].fraction}} · {{$ctrl.ranking[2].count}} Reden
+					</p>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="container">
+		<div class="container-left-10 container-left-offset-1">
+			<table style="width: 100%">
+				<tr class="mdb-rank container" ng-repeat="mdb in $ctrl.ranking | limitTo: 20 track by $index" style="line-height:1em; border-bottom:1px solid black">
+					<td class="" style="vertical-align: middle">
+						{{$index + 1}}.
+					</td>
+					<td class="" style="vertical-align: middle; width:5em;">
+						<div class="picture-wrapper" style="height:4em; margin-top:15px; width:2em">
+							<img ng-src="{{mdb.picture}}" alt="" style="height:100%; clip-path:circle(21px at 25px 25px)"/>
+						</div>
+					</td>
+					<td class="" style="vertical-align: middle">
+						<p>{{mdb.first_name}} {{mdb.last_name}} · {{mdb.fraction}} · {{mdb.count}} Reden</p>
+					</td>
+				</tr>
+			</table>
+		</div>
+	</div>
+</div>

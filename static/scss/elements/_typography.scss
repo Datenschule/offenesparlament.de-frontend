@@ -23,7 +23,7 @@ h3,
   width: 100%;
   position: relative;
   overflow: hidden;
-  text-align: center;
+  text-align: left;
 
   span {
     display: inline-block;
@@ -102,6 +102,10 @@ ul + .h3 {
 
 small {
   font-size: 0.8em;
+}
+
+small a {
+  text-decoration: underline;
 }
 
 i {

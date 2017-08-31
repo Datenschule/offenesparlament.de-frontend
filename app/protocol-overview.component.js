@@ -1,23 +1,54 @@
-import { pull, kebabCase } from "lodash";
+import { pull, kebabCase, uniqBy } from "lodash";
+import maybeEmojify from "./utils";
 
 const BASE_URL = API_BASE_URL;
 
 const poc = {
     template: require("./protocols.html"),
-    controller: function ($http) {
+    controller: function ($http, $timeout) {
         this.loading = true;
         this.selectedSpeakers = [];
         this.selectedYears = [];
         this.selectedCategories = [];
         this.categories = [];
         this.selectedFilter = "";
+        this.selectedSearch = [];
+
+        this.parties = {
+            'cducsu' : {
+                name: 'CDU / CSU',
+                logo: '/static/img/parties/cducsu.svg'
+            },
+            'spd' : {
+                name: 'SPD',
+                logo: '/static/img/parties/spd.svg'
+            },
+            'gruene' : {
+                name: 'Bündnis \'90 die Grünen',
+                logo: '/static/img/parties/gruene.svg'
+            },
+            'linke': {
+                name: 'Die Linke',
+                logo: '/static/img/parties/linke.svg'
+            }
+        };
+
+		this.tagTransform = function (newTag) {
+			var item = {
+			    text: newTag,
+                isTag: true
+			}
+
+			return item;
+		};
 
         const loadSessions = (resp) => {
             this.sessions = resp.data.data.map(session => {
+                session.session.date = Date.parse(session.session.date);
                 session.tops = session.tops.map(top => {
                     return {
                         title: top.title,
-                        link: `/protokoll/#!/${session.session.sitzung}#${kebabCase(top)}`,
+                        link: `/protokoll/#!/${session.session.sitzung}#${kebabCase(top.title)}`,
                         categories: top.categories
                     }
                 });
@@ -31,7 +62,7 @@ const poc = {
 
             $http.get(`${BASE_URL}/api/speakers`).then(
                 (resp) => {
-                    this.speakers = resp.data.data;
+                    this.speakers = uniqBy(resp.data.data, 'speaker_cleaned');
                     this.loading = false;
                 }
             );
@@ -42,6 +73,7 @@ const poc = {
                     this.loading = false;
                 }
             );
+            $timeout(maybeEmojify, 1000);
         };
 
         this.togglSpeaker = (speaker) => {
@@ -89,12 +121,13 @@ const poc = {
         };
 
         this.search = () => {
+            console.log("search called");
             this.loading = true;
             $http({
                 method: "GET",
                 url: `${BASE_URL}/api/tops`,
                 params: {
-                    search: this.searchText,
+                    search: this.selectedSearch.map(s => s.text),
                     people: this.selectedSpeakers.map(s => s.speaker_fp),
                     years: this.selectedYears,
                     categories: this.selectedCategories,
