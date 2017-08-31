@@ -334,7 +334,7 @@ table {
     content: "";
     width: 0;
     height: 0;
-    padding-bottom: 88.88889%; }
+    padding-bottom: 88.8888888889%; }
   .ct-major-second:after {
     content: "";
     display: table;
@@ -355,7 +355,7 @@ table {
     content: "";
     width: 0;
     height: 0;
-    padding-bottom: 83.33333%; }
+    padding-bottom: 83.3333333333%; }
   .ct-minor-third:after {
     content: "";
     display: table;
@@ -418,7 +418,7 @@ table {
     content: "";
     width: 0;
     height: 0;
-    padding-bottom: 66.66667%; }
+    padding-bottom: 66.6666666667%; }
   .ct-perfect-fifth:after {
     content: "";
     display: table;
@@ -460,7 +460,7 @@ table {
     content: "";
     width: 0;
     height: 0;
-    padding-bottom: 61.8047%; }
+    padding-bottom: 61.804697157%; }
   .ct-golden-section:after {
     content: "";
     display: table;
@@ -523,7 +523,7 @@ table {
     content: "";
     width: 0;
     height: 0;
-    padding-bottom: 53.33333%; }
+    padding-bottom: 53.3333333333%; }
   .ct-major-seventh:after {
     content: "";
     display: table;
@@ -607,7 +607,7 @@ table {
     content: "";
     width: 0;
     height: 0;
-    padding-bottom: 33.33333%; }
+    padding-bottom: 33.3333333333%; }
   .ct-major-twelfth:after {
     content: "";
     display: table;
@@ -1264,7 +1264,7 @@ Version: 3.4.5 Timestamp: Mon Nov  4 08:22:42 PST 2013
   position: relative;
   overflow-x: hidden;
   overflow-y: auto;
-  -webkit-tap-highlight-color: transparent; }
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0); }
 
 .select2-results ul.select2-result-sub {
   margin: 0;
@@ -2509,17 +2509,17 @@ ol {
 .list-square, .list-nested ul {
   list-style-type: square; }
   .list-square li, .list-nested ul li {
-    padding-bottom: 0.41667em; }
+    padding-bottom: 0.4166666667em; }
 
 .list-bullet, .list-nested {
   list-style-type: disc; }
   .list-bullet li, .list-nested li {
-    padding-bottom: 0.41667em; }
+    padding-bottom: 0.4166666667em; }
 
 .list-decimal {
   list-style-type: decimal; }
   .list-decimal li {
-    padding-bottom: 0.41667em; }
+    padding-bottom: 0.4166666667em; }
 
 .list-bulletin {
   list-style: none; }
@@ -2566,7 +2566,7 @@ ol {
 .container-right-5, .container-right-4, .container-right-6, .container-right-3, .container-right-7, .container-right-8, .container-right-9, .container-half {
   float: left;
   display: block;
-  margin-right: 2.35765%;
+  margin-right: 2.3576515979%;
   width: 100%;
   padding-bottom: 1.25em; }
   .container-left:last-child,
@@ -2585,8 +2585,8 @@ ol {
   .container-left-7 {
     float: left;
     display: block;
-    margin-right: 2.35765%;
-    width: 57.35098%; }
+    margin-right: 2.3576515979%;
+    width: 57.3509785009%; }
     .container-left:last-child,
     .container-left-7:last-child {
       margin-right: 0; } }
@@ -2594,7 +2594,7 @@ ol {
 .container-left-8 {
   float: left;
   display: block;
-  margin-right: 2.35765%;
+  margin-right: 2.3576515979%;
   width: 100%; }
   .container-left-8:last-child {
     margin-right: 0; }
@@ -2602,8 +2602,8 @@ ol {
     .container-left-8 {
       float: left;
       display: block;
-      margin-right: 2.35765%;
-      width: 65.88078%; }
+      margin-right: 2.3576515979%;
+      width: 65.8807828007%; }
       .container-left-8:last-child {
         margin-right: 0; } }
 
@@ -2611,8 +2611,8 @@ ol {
   .container-left-9 {
     float: left;
     display: block;
-    margin-right: 2.35765%;
-    width: 74.41059%; }
+    margin-right: 2.3576515979%;
+    width: 74.4105871005%; }
     .container-left-9:last-child {
       margin-right: 0; } }
 
@@ -2620,8 +2620,8 @@ ol {
   .container-left-10 {
     float: left;
     display: block;
-    margin-right: 2.35765%;
-    width: 82.94039%; }
+    margin-right: 2.3576515979%;
+    width: 82.9403914003%; }
     .container-left-10:last-child {
       margin-right: 0; } }
 
@@ -2629,8 +2629,8 @@ ol {
   .container-left-6 {
     float: left;
     display: block;
-    margin-right: 2.35765%;
-    width: 48.82117%; }
+    margin-right: 2.3576515979%;
+    width: 48.821174201%; }
     .container-left-6:last-child {
       margin-right: 0; } }
 
@@ -2638,8 +2638,8 @@ ol {
   .container-left-5 {
     float: left;
     display: block;
-    margin-right: 2.35765%;
-    width: 40.29137%; }
+    margin-right: 2.3576515979%;
+    width: 40.2913699012%; }
     .container-left-5:last-child {
       margin-right: 0; } }
 
@@ -2647,8 +2647,8 @@ ol {
   .container-left-4 {
     float: left;
     display: block;
-    margin-right: 2.35765%;
-    width: 31.76157%; }
+    margin-right: 2.3576515979%;
+    width: 31.7615656014%; }
     .container-left-4:last-child {
       margin-right: 0; } }
 
@@ -2656,8 +2656,8 @@ ol {
   .container-left-3 {
     float: left;
     display: block;
-    margin-right: 2.35765%;
-    width: 23.23176%; }
+    margin-right: 2.3576515979%;
+    width: 23.2317613015%; }
     .container-left-3:last-child {
       margin-right: 0; } }
 
@@ -2665,8 +2665,8 @@ ol {
   .container-left-2 {
     float: left;
     display: block;
-    margin-right: 2.35765%;
-    width: 14.70196%; }
+    margin-right: 2.3576515979%;
+    width: 14.7019570017%; }
     .container-left-2:last-child {
       margin-right: 0; } }
 
@@ -2674,8 +2674,8 @@ ol {
   .container-left-1 {
     float: left;
     display: block;
-    margin-right: 2.35765%;
-    width: 6.17215%; }
+    margin-right: 2.3576515979%;
+    width: 6.1721527019%; }
     .container-left-1:last-child {
       margin-right: 0; } }
 
@@ -2716,8 +2716,8 @@ ol {
   .container-right-1 {
     float: left;
     display: block;
-    margin-right: 2.35765%;
-    width: 6.17215%; }
+    margin-right: 2.3576515979%;
+    width: 6.1721527019%; }
     .container-right-1:last-child {
       margin-right: 0; } }
 
@@ -2726,8 +2726,8 @@ ol {
   .container-right-5 {
     float: left;
     display: block;
-    margin-right: 2.35765%;
-    width: 40.29137%; }
+    margin-right: 2.3576515979%;
+    width: 40.2913699012%; }
     .container-right:last-child,
     .container-right-5:last-child {
       margin-right: 0; } }
@@ -2736,8 +2736,8 @@ ol {
   .container-right-4 {
     float: left;
     display: block;
-    margin-right: 2.35765%;
-    width: 31.76157%; }
+    margin-right: 2.3576515979%;
+    width: 31.7615656014%; }
     .container-right-4:last-child {
       margin-right: 0; } }
 
@@ -2745,8 +2745,8 @@ ol {
   .container-right-6 {
     float: left;
     display: block;
-    margin-right: 2.35765%;
-    width: 48.82117%;
+    margin-right: 2.3576515979%;
+    width: 48.821174201%;
     margin-right: 0; }
     .container-right-6:last-child {
       margin-right: 0; } }
@@ -2754,7 +2754,7 @@ ol {
 .container-right-3 {
   float: left;
   display: block;
-  margin-right: 2.35765%;
+  margin-right: 2.3576515979%;
   width: 100%; }
   .container-right-3:last-child {
     margin-right: 0; }
@@ -2762,8 +2762,8 @@ ol {
     .container-right-3 {
       float: left;
       display: block;
-      margin-right: 2.35765%;
-      width: 23.23176%; }
+      margin-right: 2.3576515979%;
+      width: 23.2317613015%; }
       .container-right-3:last-child {
         margin-right: 0; } }
 
@@ -2771,8 +2771,8 @@ ol {
   .container-right-7 {
     float: left;
     display: block;
-    margin-right: 2.35765%;
-    width: 65.88078%; }
+    margin-right: 2.3576515979%;
+    width: 65.8807828007%; }
     .container-right-7:last-child {
       margin-right: 0; } }
 
@@ -2780,8 +2780,8 @@ ol {
   .container-right-8 {
     float: left;
     display: block;
-    margin-right: 2.35765%;
-    width: 65.88078%; }
+    margin-right: 2.3576515979%;
+    width: 65.8807828007%; }
     .container-right-8:last-child {
       margin-right: 0; } }
 
@@ -2789,8 +2789,8 @@ ol {
   .container-right-9 {
     float: left;
     display: block;
-    margin-right: 2.35765%;
-    width: 74.41059%; }
+    margin-right: 2.3576515979%;
+    width: 74.4105871005%; }
     .container-right-9:last-child {
       margin-right: 0; } }
 
@@ -2798,8 +2798,8 @@ ol {
   .container-half {
     float: left;
     display: block;
-    margin-right: 2.35765%;
-    width: 48.82117%; }
+    margin-right: 2.3576515979%;
+    width: 48.821174201%; }
     .container-half:last-child {
       margin-right: 0; }
     .container-half:nth-child(odd) {
@@ -3000,7 +3000,7 @@ ol {
 
 /* makes the font 33% larger relative to the icon container */
 .fa-lg {
-  font-size: 1.33333em;
+  font-size: 1.3333333333em;
   line-height: 0.75em;
   vertical-align: -15%; }
 
@@ -3017,24 +3017,24 @@ ol {
   font-size: 5em; }
 
 .fa-fw {
-  width: 1.28571em;
+  width: 1.2857142857em;
   text-align: center; }
 
 .fa-ul {
   padding-left: 0;
-  margin-left: 2.14286em;
+  margin-left: 2.1428571429em;
   list-style-type: none; }
   .fa-ul > li {
     position: relative; }
 
 .fa-li {
   position: absolute;
-  left: -2.14286em;
-  width: 2.14286em;
-  top: 0.14286em;
+  left: -2.1428571429em;
+  width: 2.1428571429em;
+  top: 0.1428571429em;
   text-align: center; }
   .fa-li.fa-lg {
-    left: -1.85714em; }
+    left: -1.8571428571em; }
 
 .fa-border {
   padding: .2em .25em .15em;
@@ -5500,7 +5500,7 @@ i::before {
       padding-right: 0; }
       @media screen and (min-width: 42em) {
         .navigation ul.submenu li {
-          line-height: 64.61538px; }
+          line-height: 64.6153846154px; }
           .navigation ul.submenu li:first-child > a {
             border-top-left-radius: 5px;
             border-top-right-radius: 5px; }
@@ -5557,7 +5557,7 @@ footer {
     text-align: center;
     height: 44px;
     width: 44px;
-    background: transparent none repeat scroll 0 0;
+    background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
     color: black;
     transition: all 0.3s ease-in-out 0s; }
     footer .footer-social:hover, footer .footer-social:focus, footer .footer-social:active, footer .footer-social.active {
@@ -5660,7 +5660,7 @@ footer {
   margin-top: -10px;
   margin-right: 60px;
   border: none;
-  box-shadow: -0.08485px 0.08485px 0 #696a6e, -0.1697px 0.16971px 0 #696a6e, -0.25456px 0.25456px 0 #696a6e, -0.33941px 0.33942px 0 #696a6e, -0.42426px 0.42427px 0 #696a6e, -0.50911px 0.50913px 0 #696a6e, -0.59397px 0.59398px 0 #696a6e, -0.67882px 0.67884px 0 #696a6e, -0.76367px 0.76369px 0 #696a6e, -0.84852px 0.84855px 0 #696a6e, -0.93338px 0.9334px 0 #696a6e, -1.01823px 1.01826px 0 #696a6e, -1.10308px 1.10311px 0 #696a6e, -1.18793px 1.18797px 0 #696a6e, -1.27279px 1.27282px 0 #696a6e, -1.35764px 1.35768px 0 #696a6e, -1.44249px 1.44253px 0 #696a6e, -1.52734px 1.52739px 0 #696a6e, -1.61219px 1.61224px 0 #696a6e, -1.69705px 1.6971px 0 #696a6e, -1.7819px 1.78195px 0 #696a6e, -1.86675px 1.8668px 0 #696a6e, -1.9516px 1.95166px 0 #696a6e, -2.03646px 2.03651px 0 #696a6e, -2.12131px 2.12137px 0 #696a6e, -2.20616px 2.20622px 0 #696a6e, -2.29101px 2.29108px 0 #696a6e, -2.37587px 2.37593px 0 #696a6e, -2.46072px 2.46079px 0 #696a6e, -2.54557px 2.54564px 0 #696a6e, -2.63042px 2.6305px 0 #696a6e, -2.71528px 2.71535px 0 #696a6e, -2.80013px 2.80021px 0 #696a6e, -2.88498px 2.88506px 0 #696a6e, -2.96983px 2.96992px 0 #696a6e, -3.05468px 3.05477px 0 #696a6e, -3.13954px 3.13963px 0 #696a6e, -3.22439px 3.22448px 0 #696a6e, -3.30924px 3.30934px 0 #696a6e, -3.39409px 3.39419px 0 #696a6e, -3.47895px 3.47905px 0 #696a6e, -3.5638px 3.5639px 0 #696a6e, -3.64865px 3.64875px 0 #696a6e, -3.7335px 3.73361px 0 #696a6e, -3.81836px 3.81846px 0 #696a6e, -3.90321px 3.90332px 0 #696a6e, -3.98806px 3.98817px 0 #696a6e, -4.07291px 4.07303px 0 #696a6e, -4.15776px 4.15788px 0 #696a6e, -4.24262px 4.24274px 0 #696a6e, -4.32747px 4.32759px 0 #696a6e, -4.41232px 4.41245px 0 #696a6e, -4.49717px 4.4973px 0 #696a6e, -4.58203px 4.58216px 0 #696a6e, -4.66688px 4.66701px 0 #696a6e, -4.75173px 4.75187px 0 #696a6e, -4.83658px 4.83672px 0 #696a6e, -4.92144px 4.92158px 0 #696a6e, -5.00629px 5.00643px 0 #696a6e, -5.09114px 5.09129px 0 #696a6e, -5.17599px 5.17614px 0 #696a6e, -5.26085px 5.261px 0 #696a6e, -5.3457px 5.34585px 0 #696a6e, -5.43055px 5.4307px 0 #696a6e, -5.5154px 5.51556px 0 #696a6e, -5.60025px 5.60041px 0 #696a6e, -5.68511px 5.68527px 0 #696a6e, -5.76996px 5.77012px 0 #696a6e, -5.85481px 5.85498px 0 #696a6e, -5.93966px 5.93983px 0 #696a6e, -6.02452px 6.02469px 0 #696a6e, -6.10937px 6.10954px 0 #696a6e, -6.19422px 6.1944px 0 #696a6e, -6.27907px 6.27925px 0 #696a6e, -6.36393px 6.36411px 0 #696a6e, -6.44878px 6.44896px 0 #696a6e, -6.53363px 6.53382px 0 #696a6e, -6.61848px 6.61867px 0 #696a6e, -6.70334px 6.70353px 0 #696a6e, -6.78819px 6.78838px 0 #696a6e, -6.87304px 6.87324px 0 #696a6e, -6.95789px 6.95809px 0 #696a6e, -7.04274px 7.04295px 0 #696a6e, -7.1276px 7.1278px 0 #696a6e, -7.21245px 7.21265px 0 #696a6e, -7.2973px 7.29751px 0 #696a6e, -7.38215px 7.38236px 0 #696a6e, -7.46701px 7.46722px 0 #696a6e, -7.55186px 7.55207px 0 #696a6e, -7.63671px 7.63693px 0 #696a6e, -7.72156px 7.72178px 0 #696a6e, -7.80642px 7.80664px 0 #696a6e, -7.89127px 7.89149px 0 #696a6e, -7.97612px 7.97635px 0 #696a6e, -8.06097px 8.0612px 0 #696a6e, -8.14583px 8.14606px 0 #696a6e, -8.23068px 8.23091px 0 #696a6e, -8.31553px 8.31577px 0 #696a6e, -8.40038px 8.40062px 0 #696a6e, -8.48523px 8.48548px 0 #696a6e; }
+  box-shadow: -0.0848523465px 0.0848547601px 0 #696a6e, -0.1697046931px 0.1697095201px 0 #696a6e, -0.2545570396px 0.2545642802px 0 #696a6e, -0.3394093861px 0.3394190403px 0 #696a6e, -0.4242617326px 0.4242738003px 0 #696a6e, -0.5091140792px 0.5091285604px 0 #696a6e, -0.5939664257px 0.5939833205px 0 #696a6e, -0.6788187722px 0.6788380806px 0 #696a6e, -0.7636711188px 0.7636928406px 0 #696a6e, -0.8485234653px 0.8485476007px 0 #696a6e, -0.9333758118px 0.9334023608px 0 #696a6e, -1.0182281583px 1.0182571208px 0 #696a6e, -1.1030805049px 1.1031118809px 0 #696a6e, -1.1879328514px 1.187966641px 0 #696a6e, -1.2727851979px 1.272821401px 0 #696a6e, -1.3576375445px 1.3576761611px 0 #696a6e, -1.442489891px 1.4425309212px 0 #696a6e, -1.5273422375px 1.5273856812px 0 #696a6e, -1.612194584px 1.6122404413px 0 #696a6e, -1.6970469306px 1.6970952014px 0 #696a6e, -1.7818992771px 1.7819499615px 0 #696a6e, -1.8667516236px 1.8668047215px 0 #696a6e, -1.9516039702px 1.9516594816px 0 #696a6e, -2.0364563167px 2.0365142417px 0 #696a6e, -2.1213086632px 2.1213690017px 0 #696a6e, -2.2061610097px 2.2062237618px 0 #696a6e, -2.2910133563px 2.2910785219px 0 #696a6e, -2.3758657028px 2.3759332819px 0 #696a6e, -2.4607180493px 2.460788042px 0 #696a6e, -2.5455703959px 2.5456428021px 0 #696a6e, -2.6304227424px 2.6304975621px 0 #696a6e, -2.7152750889px 2.7153523222px 0 #696a6e, -2.8001274354px 2.8002070823px 0 #696a6e, -2.884979782px 2.8850618424px 0 #696a6e, -2.9698321285px 2.9699166024px 0 #696a6e, -3.054684475px 3.0547713625px 0 #696a6e, -3.1395368216px 3.1396261226px 0 #696a6e, -3.2243891681px 3.2244808826px 0 #696a6e, -3.3092415146px 3.3093356427px 0 #696a6e, -3.3940938611px 3.3941904028px 0 #696a6e, -3.4789462077px 3.4790451628px 0 #696a6e, -3.5637985542px 3.5638999229px 0 #696a6e, -3.6486509007px 3.648754683px 0 #696a6e, -3.7335032472px 3.7336094431px 0 #696a6e, -3.8183555938px 3.8184642031px 0 #696a6e, -3.9032079403px 3.9033189632px 0 #696a6e, -3.9880602868px 3.9881737233px 0 #696a6e, -4.0729126334px 4.0730284833px 0 #696a6e, -4.1577649799px 4.1578832434px 0 #696a6e, -4.2426173264px 4.2427380035px 0 #696a6e, -4.3274696729px 4.3275927635px 0 #696a6e, -4.4123220195px 4.4124475236px 0 #696a6e, -4.497174366px 4.4973022837px 0 #696a6e, -4.5820267125px 4.5821570437px 0 #696a6e, -4.6668790591px 4.6670118038px 0 #696a6e, -4.7517314056px 4.7518665639px 0 #696a6e, -4.8365837521px 4.836721324px 0 #696a6e, -4.9214360986px 4.921576084px 0 #696a6e, -5.0062884452px 5.0064308441px 0 #696a6e, -5.0911407917px 5.0912856042px 0 #696a6e, -5.1759931382px 5.1761403642px 0 #696a6e, -5.2608454848px 5.2609951243px 0 #696a6e, -5.3456978313px 5.3458498844px 0 #696a6e, -5.4305501778px 5.4307046444px 0 #696a6e, -5.5154025243px 5.5155594045px 0 #696a6e, -5.6002548709px 5.6004141646px 0 #696a6e, -5.6851072174px 5.6852689246px 0 #696a6e, -5.7699595639px 5.7701236847px 0 #696a6e, -5.8548119105px 5.8549784448px 0 #696a6e, -5.939664257px 5.9398332049px 0 #696a6e, -6.0245166035px 6.0246879649px 0 #696a6e, -6.10936895px 6.109542725px 0 #696a6e, -6.1942212966px 6.1943974851px 0 #696a6e, -6.2790736431px 6.2792522451px 0 #696a6e, -6.3639259896px 6.3641070052px 0 #696a6e, -6.4487783362px 6.4489617653px 0 #696a6e, -6.5336306827px 6.5338165253px 0 #696a6e, -6.6184830292px 6.6186712854px 0 #696a6e, -6.7033353757px 6.7035260455px 0 #696a6e, -6.7881877223px 6.7883808055px 0 #696a6e, -6.8730400688px 6.8732355656px 0 #696a6e, -6.9578924153px 6.9580903257px 0 #696a6e, -7.0427447619px 7.0429450858px 0 #696a6e, -7.1275971084px 7.1277998458px 0 #696a6e, -7.2124494549px 7.2126546059px 0 #696a6e, -7.2973018014px 7.297509366px 0 #696a6e, -7.382154148px 7.382364126px 0 #696a6e, -7.4670064945px 7.4672188861px 0 #696a6e, -7.551858841px 7.5520736462px 0 #696a6e, -7.6367111876px 7.6369284062px 0 #696a6e, -7.7215635341px 7.7217831663px 0 #696a6e, -7.8064158806px 7.8066379264px 0 #696a6e, -7.8912682271px 7.8914926864px 0 #696a6e, -7.9761205737px 7.9763474465px 0 #696a6e, -8.0609729202px 8.0612022066px 0 #696a6e, -8.1458252667px 8.1460569667px 0 #696a6e, -8.2306776133px 8.2309117267px 0 #696a6e, -8.3155299598px 8.3157664868px 0 #696a6e, -8.4003823063px 8.4006212469px 0 #696a6e, -8.4852346528px 8.4854760069px 0 #696a6e; }
   .box-button:hover {
     background-color: #fc5c35; }
 
