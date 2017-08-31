@@ -65205,14 +65205,12 @@ var poc = {
             $http.get((BASE_URL + "/api/speakers")).then(
                 function (resp) {
                     this$1.speakers = Object(__WEBPACK_IMPORTED_MODULE_0_lodash__["uniqBy"])(resp.data.data, 'speaker_cleaned');
-                    this$1.loading = false;
                 }
             );
 
             $http.get((BASE_URL + "/api/categories")).then(
                 function (resp) {
                     this$1.categories = resp.data.data;
-                    this$1.loading = false;
                 }
             );
             $timeout(__WEBPACK_IMPORTED_MODULE_1__utils__["a" /* default */], 1000);

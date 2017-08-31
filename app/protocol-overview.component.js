@@ -63,14 +63,12 @@ const poc = {
             $http.get(`${BASE_URL}/api/speakers`).then(
                 (resp) => {
                     this.speakers = uniqBy(resp.data.data, 'speaker_cleaned');
-                    this.loading = false;
                 }
             );
 
             $http.get(`${BASE_URL}/api/categories`).then(
                 (resp) => {
                     this.categories = resp.data.data;
-                    this.loading = false;
                 }
             );
             $timeout(maybeEmojify, 1000);
