@@ -1,16 +1,39 @@
-<div class="container">
-	<div class="container-left-12">
-		<p><strong>Filter nach Jahr</strong></p>
-		<ui-select ng-model="$ctrl.selectedYear" theme="selectize" style="width: 300px;" title="Wähle ein Jahr">
-			<ui-select-match placeholder="Wähle ein Jahr aus">{{$select.selected}}</ui-select-match>
-			<ui-select-choices repeat="item in $ctrl.years | filter: $select.search">
-				<span ng-bind-html="item | highlight: $select.search"></span>
-			</ui-select-choices>
-		</ui-select>
+<div class="container container-bg-grey">
+	<div class="container">
+		<div class="container-left-12">
+			<div class="modal">
+				<label for="modal-1">
+					<div class="modal-trigger pull-right">&lt;/&gt; einbetten</div>
+				</label>
+				<input class="modal-state" id="modal-1" type="checkbox"/>
+				<div class="modal-fade-screen">
+					<div class="modal-inner">
+						<div class="modal-close" for="modal-1"></div>
+						<h1>Die häufigsten Themen</h1>
+						<div class="form-group">
+							<label for="usr">Code zum Einbetten:</label>
+							<input type="text" class="form-control" id="usr" value='<iframe src="http://beta.offenesparlament.de/analyse/embed/themen.html" width="580px" height="435px"></iframe>'>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
 	</div>
-</div><div class="container">
-	<div class="container-left-10 container-left-offset-1">
-		<chartist class="ct-chart ct-frequency" chartist-data="$ctrl.data" chartist-chart-type="Bar"
-				  chartist-chart-options="$ctrl.options" chartist-events="$ctrl.events"></chartist>
+	<div class="container">
+		<div class="container-left-12">
+			<p><strong>Filter nach Jahr</strong></p>
+			<ui-select ng-model="$ctrl.selectedYear" theme="selectize" style="width: 300px;" title="Wähle ein Jahr">
+				<ui-select-match placeholder="Wähle ein Jahr aus">{{$select.selected}}</ui-select-match>
+				<ui-select-choices repeat="item in $ctrl.years | filter: $select.search">
+					<span ng-bind-html="item | highlight: $select.search"></span>
+				</ui-select-choices>
+			</ui-select>
+		</div>
+	</div>
+	<div class="container">
+		<div class="container-left-10 container-left-offset-1">
+			<chartist class="ct-chart ct-frequency" chartist-data="$ctrl.data" chartist-chart-type="Bar"
+					  chartist-chart-options="$ctrl.options" chartist-events="$ctrl.events"></chartist>
+		</div>
 	</div>
 </div>

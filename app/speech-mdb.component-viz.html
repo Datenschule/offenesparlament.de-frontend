@@ -1,5 +1,25 @@
 <div class="container container-bg-grey">
 	<div class="container">
+		<div class="container-left-12">
+			<div class="modal">
+				<label for="modal-1">
+					<div class="modal-trigger pull-right">&lt;/&gt; einbetten</div>
+				</label>
+				<input class="modal-state" id="modal-1" type="checkbox" />
+				<div class="modal-fade-screen">
+					<div class="modal-inner">
+						<div class="modal-close" for="modal-1"></div>
+						<h1>Die häufigsten Sprecher/innen</h1>
+						<div class="form-group">
+							<label for="usr">Code zum Einbetten:</label>
+							<input type="text" class="form-control" id="usr" value='<iframe src="http://beta.offenesparlament.de/analyse/embed/sprecher.html" width="580px" height="435px"></iframe>'>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="container">
 		<div class="container-left-4 container-left-offset-1">
 			<h3>Kategorie:</h3>
 			<ui-select ng-model="$ctrl.selected_category" theme="selectize" style="width: 300px;" title="Kategorie auswählen"
