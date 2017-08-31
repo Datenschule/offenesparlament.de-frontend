@@ -7699,6 +7699,27 @@ div:target, .linked {
 .carousel-dots li.carousel-active button:before {
   opacity: .75; }
 
+.carousel {
+  filter: grayscale(60%);
+  -webkit-filter: grayscale(60%);
+  padding: 40px 40px 20px 40px;
+  background-repeat: no-repeat;
+  background-size: cover; }
+  .carousel p {
+    color: #fff; }
+
+.carousel-1 {
+  background-image: url("/static/img/carousel/carousel1.jpg"); }
+
+.carousel-2 {
+  background-image: url("/static/img/carousel/carousel2.jpg"); }
+
+.carousel-3 {
+  background-image: url("/static/img/carousel/carousel3.jpg"); }
+
+.carousel-4 {
+  background-image: url("/static/img/carousel/carousel4.jpg"); }
+
 .modal label {
   cursor: pointer;
   margin-bottom: 0; }
