@@ -83,6 +83,34 @@ angular-animate@^1.6.5:
   version "1.6.5"
   resolved "https://registry.yarnpkg.com/angular-animate/-/angular-animate-1.6.5.tgz#3817c75880d05fc899a6c8d4b09d1cc62a71e93a"
 
+angular-chartist.js@^4.3.3:
+  version "4.3.3"
+  resolved "https://registry.yarnpkg.com/angular-chartist.js/-/angular-chartist.js-4.3.3.tgz#82c3eea7cb58d6ac2dd6fb8dbaf5933e7e1260d7"
+
+angular-inview@^2.1.0:
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/angular-inview/-/angular-inview-2.1.0.tgz#9e8615b89f26f80565aaef706a04a9c667c7d785"
+
+angular-sanitize@^1.6.6:
+  version "1.6.6"
+  resolved "https://registry.yarnpkg.com/angular-sanitize/-/angular-sanitize-1.6.6.tgz#0fd065a19931517fbece66596d325d72b6e06041"
+
+angular-scroll@^1.0.2:
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/angular-scroll/-/angular-scroll-1.0.2.tgz#2768ff35dbe1ce40e0c3fbedd4534888299c3e2d"
+
+angular-sticky-plugin@^0.4.1:
+  version "0.4.1"
+  resolved "https://registry.yarnpkg.com/angular-sticky-plugin/-/angular-sticky-plugin-0.4.1.tgz#ddc5708346dc50907f6e6a718dcd90644cbd1831"
+
+angular-ui-carousel@^0.1.10:
+  version "0.1.10"
+  resolved "https://registry.yarnpkg.com/angular-ui-carousel/-/angular-ui-carousel-0.1.10.tgz#0a5b1066018b40e700b8c6ee34b0c97fc321952b"
+
+angular@^1.2.0:
+  version "1.6.6"
+  resolved "https://registry.yarnpkg.com/angular/-/angular-1.6.6.tgz#fd5a3cfb437ce382d854ee01120797978527cb64"
+
 angular@^1.6.5:
   version "1.6.5"
   resolved "https://registry.yarnpkg.com/angular/-/angular-1.6.5.tgz#37f788eebec5ce2e3fa02b17bbcb2a231576a0d6"
@@ -626,6 +654,10 @@ chalk@^2.1.0:
     ansi-styles "^3.1.0"
     escape-string-regexp "^1.0.5"
     supports-color "^4.0.0"
+
+chartist@^0.11.0:
+  version "0.11.0"
+  resolved "https://registry.yarnpkg.com/chartist/-/chartist-0.11.0.tgz#84ba5e05490d096d93dcfa9343ebc31ef6a3bd28"
 
 child_process@^1.0.2:
   version "1.0.2"
@@ -2852,6 +2884,12 @@ negotiator@0.6.1:
   version "0.6.1"
   resolved "https://registry.yarnpkg.com/negotiator/-/negotiator-0.6.1.tgz#2b327184e8992101177b28563fb5e7102acd0ca9"
 
+ngSmoothScroll@^2.0.1:
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/ngSmoothScroll/-/ngSmoothScroll-2.0.1.tgz#c4909acd3320a78c5cda64c426df18f6bc00ac73"
+  dependencies:
+    angular "^1.2.0"
+
 no-case@^2.2.0:
   version "2.3.1"
   resolved "https://registry.yarnpkg.com/no-case/-/no-case-2.3.1.tgz#7aeba1c73a52184265554b7dc03baf720df80081"
@@ -4249,6 +4287,10 @@ tweetnacl@^0.14.3, tweetnacl@~0.14.0:
   version "0.14.5"
   resolved "https://registry.yarnpkg.com/tweetnacl/-/tweetnacl-0.14.5.tgz#5ae68177f192d4456269d108afa93ff8743f4f64"
 
+twemoji@^2.5.0:
+  version "2.5.0"
+  resolved "https://registry.yarnpkg.com/twemoji/-/twemoji-2.5.0.tgz#518807f7cdfccb200f24168465284406e7ac5b56"
+
 type-is@~1.6.10, type-is@~1.6.15:
   version "1.6.15"
   resolved "https://registry.yarnpkg.com/type-is/-/type-is-1.6.15.tgz#cab10fb4909e441c82842eafe1ad646c81804410"
@@ -4287,6 +4329,10 @@ uglifyjs-webpack-plugin@^0.4.6:
     source-map "^0.5.6"
     uglify-js "^2.8.29"
     webpack-sources "^1.0.1"
+
+ui-select@^0.19.8:
+  version "0.19.8"
+  resolved "https://registry.yarnpkg.com/ui-select/-/ui-select-0.19.8.tgz#74860848a7fd8bc494d9856d2f62776ea98637c1"
 
 uid-number@^0.0.6:
   version "0.0.6"

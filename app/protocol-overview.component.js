@@ -1,10 +1,11 @@
 import { pull, kebabCase, uniqBy } from "lodash";
+import maybeEmojify from "./utils";
 
 const BASE_URL = API_BASE_URL;
 
 const poc = {
     template: require("./protocols.html"),
-    controller: function ($http) {
+    controller: function ($http, $timeout) {
         this.loading = true;
         this.selectedSpeakers = [];
         this.selectedYears = [];
@@ -72,6 +73,7 @@ const poc = {
                     this.loading = false;
                 }
             );
+            $timeout(maybeEmojify, 1000);
         };
 
         this.togglSpeaker = (speaker) => {
