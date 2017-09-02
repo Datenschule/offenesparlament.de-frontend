@@ -1,4 +1,4 @@
-import { keys,values, reverse, has, max, sum } from "lodash";
+import { keys,values, reverse, has, max, sum, filter } from "lodash";
 
 const BASE_URL = API_BASE_URL;
 
@@ -34,11 +34,55 @@ const subject_viz = {
 				axisY: {
 					offset: 110
 				},
+				high: 50,
+				low: 0,
 				axisX: {
-					showGrid: false
+					showGrid: false,
+					showLabel: false
 				},
-				showLine: true
+				showLine: true,
+				labelOffset: [{
+					x: 10,
+					y: 5
+				},{
+					x: 10,
+					y: 5
+				}],
+				textAnchor: 'left',
+				chartPadding: {
+					top: 15,
+					right: 85,
+					bottom: 5,
+					left: 10
+				},
 			};
+
+			let self = this;
+
+			this.events = {
+				draw: function eventHandler(data) {
+					if(data.type === 'bar') {
+						let curr_key = self.keys[data.index];
+						let value = 0;
+						if (self.subject != 'all')
+							value = data.seriesIndex == 1 ? self.mdb[curr_key] : self.speeches[self.subject][curr_key];
+
+						if (!value)
+							value = 0;
+
+						let text = data.seriesIndex == 1 ?" Abgeordnete" :  " Reden";
+						if (value == 1)
+							text = data.seriesIndex == 1 ?" Abgeordneter" :  " Rede";
+						text += " (" + Math.round(data.value.x * 100) / 100 + "%)";
+						data.group.elem('text', {
+							x: data.x2 + self.options.labelOffset[data.seriesIndex].x,
+							y: data.value.y > 0 ? data.y2 + self.options.labelOffset[data.seriesIndex].y : data.y1 + self.options.labelOffset[data.seriesIndex].y,
+							style: 'text-anchor: ' + self.options.textAnchor
+						}, self.options.labelClass).text(value + text);
+					}
+				}
+			};
+
 			let category_req = $http.get(BASE_URL + '/api/categories')
 
 			let load_data = this.load_data('/api/utterances/by_birth_date_category', '/api/mdb/aggregated/age', 1);
@@ -54,18 +98,23 @@ const subject_viz = {
 				let speeches = $http.get(BASE_URL + url_speech);
 				let mdb = $http.get(BASE_URL + url_mdb);
 
-				this.speeches = speeches;
-				this.mdb = mdb;
+
+
+				// this.speeches = speeches;
+				// this.mdb = mdb;
 
 				$location.search('category_id', id);
 
 				$q.all([speeches, mdb]).then((results) => {
 					this.speeches = results[0].data;
 					this.mdb = results[1].data;
+					console.log(this.mdb);
+					delete this.mdb['null'];
 					this.category = "age";
 					this.subject = "all";
 
-					this.data.labels = keys(this.mdb).sort();
+					this.keys = keys(this.mdb).sort();
+					this.data.labels = this.keys;
 
 					let data = {};
 					for (let category in this.speeches) {
@@ -102,6 +151,7 @@ const subject_viz = {
 		this.select_subject = function(subject) {
 
 			$location.search('subject', subject);
+			this.subject = subject;
 
 			let series_speech = this.data.labels.map((key) => {
 				return this.speeches[subject][key];
