@@ -15,6 +15,7 @@ const subject_viz = {
 
 		this.selectedItem = this.itemArray[0];
 		this.selected_category = "alle";
+		this.loading = true;
 
 		this.$onInit = () => {
 			this.data = {
@@ -43,9 +44,8 @@ const subject_viz = {
 			let load_data = this.load_data('/api/utterances/by_birth_date_category', '/api/mdb/aggregated/age', 1);
 
 			$q.all([category_req, load_data]).then((data) => {
-				console.log(data);
 				this.categories = data[0].data.data;
-				console.log("all data loaded");
+				this.loading = false;
 			})
 		}
 		
