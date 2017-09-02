@@ -5,7 +5,8 @@ const BASE_URL = API_BASE_URL;
 
 const poc = {
     template: require("./protocols.html"),
-    controller: function ($http, $timeout, $location) {
+    controller: function ($http, $timeout, $location, $window, $rootScope) {
+        let self = this;
         this.loading = true;
         this.selectedSpeakers = [];
         this.selectedYears = [];
@@ -33,6 +34,14 @@ const poc = {
             }
         };
 
+		$rootScope.$on('$locationChangeSuccess', function () {
+			let get_string = $window.location.href.split('?')[1];
+			if (get_string)
+				self.paramstring = '?' + get_string;
+			else
+				self.paramstring = '';
+		});
+
 		this.tagTransform = function (newTag) {
 			var item = {
 			    text: newTag,
@@ -48,7 +57,8 @@ const poc = {
                 session.tops = session.tops.map(top => {
                     return {
                         title: top.title,
-                        link: `/protokoll/#!/${session.session.sitzung}#${kebabCase(top.title)}`,
+                        link: `/protokoll/#!/${session.session.sitzung}`,
+                        link_fragment: `#${kebabCase(top.title)}`,
                         categories: top.categories
                     }
                 });
@@ -126,7 +136,6 @@ const poc = {
             console.log("search called");
             this.loading = true;
             this.updateUrl();
-            console.log(this.selectedSpeakers);
 
             $http({
                 method: "GET",

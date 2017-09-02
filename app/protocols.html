@@ -204,10 +204,10 @@
 					<table>
 						<tr ng-repeat="top in session.tops" style="border: 1px solid black;">
 							<td style="width:50%">
-								<a ng-href="{{top.link}}">{{top.title}}</a>
+								<a ng-href="{{top.link}}{{$ctrl.paramstring}}{{top.link_fragment}}">{{top.title}}</a>
 							</td>
 							<td style="width:50%">
-								<a ng-href="{{top.link}}">{{top.categories.join(', ')}}</a>
+								<a ng-href="{{top.link}}{{$ctrl.paramstring}}{{top.link_fragment}}">{{top.categories.join(', ')}}</a>
 							</td>
 						</tr>
 					</table>

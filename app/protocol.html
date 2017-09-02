@@ -7,13 +7,7 @@
 		</div>
 		<div class="container-left-5">
 			<p>
-				Sitzungsnummer: {{$ctrl.session}}
-			</p>
-			<p>
-				Datum: {{$ctrl.date}}
-			</p>
-			<p ng-repeat="top in $ctrl.tops">
-				<span href="#{{top.link}}" du-smooth-scroll="" du-scrollspy="" offset="30" class="spy">{{top.title}}</span>
+				{{$ctrl.session}}. Sitzung ({{$ctrl.date}})
 			</p>
 		</div>
 		<div class="container-left-3">
