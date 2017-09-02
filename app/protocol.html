@@ -40,15 +40,16 @@
 	</div>
 </section>
 
-<div class="container" in-view-container>
+<div class="container poicontainer" in-view-container >
 	<div class="container-left-12">
 		<div class="main" ng-if="$ctrl.utterances.length" >
 			<h1 inview="$crl.updateTop()"> {{ $ctrl.utterances[0].wahlperiode }}. Wahlperiode - Sitzung {{ $ctrl.utterances[0].sitzung }}</h1>
-			<div ng-repeat="utterance in $ctrl.utterances">
-				<top ng-if="utterance.type === 'top'" title="utterance.title" categories="utterance.categories" in-view="$ctrl.updateTop()"></top>
-				<speech id="{{utterance.sequence}}" ng-if="utterance.type === 'speech' || utterance.type === 'chair'" utterance="utterance"></speech>
-				<poi ng-if="utterance.type === 'poi'" utterance="utterance" linked="utterance.sequence "></poi>
-			</div>
+
+			<top ng-repeat-start="utterance in $ctrl.utterances"
+				 ng-if="utterance.type === 'top'" title="utterance.title" categories="utterance.categories" in-view="$ctrl.updateTop()"></top>
+			<speech id="{{utterance.sequence}}" ng-if="utterance.type === 'speech' || utterance.type === 'chair'" utterance="utterance"></speech>
+			<poi ng-repeat-end
+				 ng-if="utterance.type === 'poi'" utterance="utterance" linked="utterance.sequence "></poi>
 		</div>
 		<div class="main" ng-if="!$ctrl.utterances.length">
 			<div class="loader"></div>
