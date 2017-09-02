@@ -1,7 +1,7 @@
 const poi = {
     template: `
     <div id="$ctrl.utterance.sequence">
-        <div class="speaker-info">
+        <div class="protocols-speaker-info">
     
             <a class="protocols-speaker" ng-href="{{$ctrl.utterance.agw_url}}">
                 <span ng-if="$ctrl.utterance.speaker_party">  {{ $ctrl.utterance.speaker_cleaned}} </span>
@@ -13,10 +13,10 @@ const poi = {
                 <img ng-src="{{$ctrl.imgUrl}}"/>
             </span>
             
-            <a class="jumpmark" href="{{ $ctrl.link }}">🔗</a>
+            <a class="protocols-jumpmark" href="{{ $ctrl.link }}">🔗</a>
             
         </div>
-        <div class="text" style="white-space: pre-wrap">{{ $ctrl.utterance.text }}</div>
+        <div class="protocols-text" style="white-space: pre-wrap">{{ $ctrl.utterance.text }}</div>
     </div>
     `
     ,
