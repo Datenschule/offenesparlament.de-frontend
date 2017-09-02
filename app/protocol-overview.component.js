@@ -1,11 +1,11 @@
-import { pull, kebabCase, uniqBy } from "lodash";
+import { pull, kebabCase, uniqBy, find } from "lodash";
 import maybeEmojify from "./utils";
 
 const BASE_URL = API_BASE_URL;
 
 const poc = {
     template: require("./protocols.html"),
-    controller: function ($http, $timeout) {
+    controller: function ($http, $timeout, $location) {
         this.loading = true;
         this.selectedSpeakers = [];
         this.selectedYears = [];
@@ -63,6 +63,7 @@ const poc = {
             $http.get(`${BASE_URL}/api/speakers`).then(
                 (resp) => {
                     this.speakers = uniqBy(resp.data.data, 'speaker_cleaned');
+                    this.parseUrl()
                 }
             );
 
@@ -71,6 +72,9 @@ const poc = {
                     this.categories = resp.data.data;
                 }
             );
+
+
+
             $timeout(maybeEmojify, 1000);
         };
 
@@ -121,6 +125,9 @@ const poc = {
         this.search = () => {
             console.log("search called");
             this.loading = true;
+            this.updateUrl();
+            console.log(this.selectedSpeakers);
+
             $http({
                 method: "GET",
                 url: `${BASE_URL}/api/tops`,
@@ -131,6 +138,26 @@ const poc = {
                     categories: this.selectedCategories,
                 }
             }).then(loadSessions);
+        }
+
+        this.updateUrl = function() {
+            $location.search('people', this.selectedSpeakers.map(s => s.speaker_fp));
+            $location.search('categories', this.selectedCategories);
+            $location.search('search', this.selectedSearch.map(s => s.text));
+            $location.search('years', this.selectedYears);
+        }
+
+        this.parseUrl = function() {
+            let data = $location.search();
+            let keys = ['people', 'categories', 'search', 'years'];
+            keys.map((key) => { if (data[key]) { data[key] = [].concat(data[key])}});
+
+            if (data['search']) this.selectedSearch = data['search'].map((s) => { return {text: s, isTag:true } });
+            if (data['years']) this.selectedYears = data['years'];
+            if (data['categories']) this.selectedCategories = data['categories'];
+            if (data['people']) this.selectedSpeakers = data['people'].map((speaker) => { console.log(speaker); return find(this.speakers, ['speaker_fp', speaker]) });
+
+            this.search()
         }
     }
 };
