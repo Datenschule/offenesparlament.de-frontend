@@ -17175,7 +17175,7 @@
   }
 }.call(this));
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2), __webpack_require__(3)(module)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3), __webpack_require__(2)(module)))
 
 /***/ }),
 /* 1 */
@@ -17187,33 +17187,6 @@ module.exports = angular;
 
 /***/ }),
 /* 2 */
-/***/ (function(module, exports) {
-
-var g;
-
-// This works in non-strict mode
-g = (function() {
-	return this;
-})();
-
-try {
-	// This works if eval is allowed (see CSP)
-	g = g || Function("return this")() || (1,eval)("this");
-} catch(e) {
-	// This works if the window reference is available
-	if(typeof window === "object")
-		{ g = window; }
-}
-
-// g can still be undefined, but nothing to do about it...
-// We return undefined, instead of nothing here, so it's
-// easier to handle this case. if(!global) { ...}
-
-module.exports = g;
-
-
-/***/ }),
-/* 3 */
 /***/ (function(module, exports) {
 
 module.exports = function(module) {
@@ -17238,6 +17211,33 @@ module.exports = function(module) {
 	}
 	return module;
 };
+
+
+/***/ }),
+/* 3 */
+/***/ (function(module, exports) {
+
+var g;
+
+// This works in non-strict mode
+g = (function() {
+	return this;
+})();
+
+try {
+	// This works if eval is allowed (see CSP)
+	g = g || Function("return this")() || (1,eval)("this");
+} catch(e) {
+	// This works if the window reference is available
+	if(typeof window === "object")
+		{ g = window; }
+}
+
+// g can still be undefined, but nothing to do about it...
+// We return undefined, instead of nothing here, so it's
+// easier to handle this case. if(!global) { ...}
+
+module.exports = g;
 
 
 /***/ }),
@@ -17293,12 +17293,12 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__protocol_overview_component__ = __webpack_require__(19);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__poi_component__ = __webpack_require__(22);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__protocol_component__ = __webpack_require__(23);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__speech_component__ = __webpack_require__(31);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__top_component__ = __webpack_require__(32);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__subject_viz_component__ = __webpack_require__(33);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__speech_frequency_component_viz__ = __webpack_require__(35);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__speech_mdb_viz__ = __webpack_require__(37);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__plprSlider_component__ = __webpack_require__(39);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__speech_component__ = __webpack_require__(25);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__top_component__ = __webpack_require__(26);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__subject_viz_component__ = __webpack_require__(27);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__speech_frequency_component_viz__ = __webpack_require__(29);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__speech_mdb_viz__ = __webpack_require__(31);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__plprSlider_component__ = __webpack_require__(33);
 
 
 
@@ -63994,7 +63994,7 @@ angular.module('duScroll.scrollspy', ['duScroll.spyAPI'])
   };
 }]);
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)(module)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2)(module)))
 
 /***/ }),
 /* 17 */
@@ -65205,12 +65205,14 @@ var poc = {
             $http.get((BASE_URL + "/api/speakers")).then(
                 function (resp) {
                     this$1.speakers = Object(__WEBPACK_IMPORTED_MODULE_0_lodash__["uniqBy"])(resp.data.data, 'speaker_cleaned');
+                    this$1.loading = false;
                 }
             );
 
             $http.get((BASE_URL + "/api/categories")).then(
                 function (resp) {
                     this$1.categories = resp.data.data;
+                    this$1.loading = false;
                 }
             );
             $timeout(__WEBPACK_IMPORTED_MODULE_1__utils__["a" /* default */], 1000);
@@ -65855,13 +65857,13 @@ if (!location.protocol) {
   twemoji.base = twemoji.base.replace(/^http:/, "");
 }
 module.exports = twemoji;
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
 /***/ }),
 /* 21 */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container\">\n\t<div class=\"container-left-4\">\n\t\t<h3>Thema:</h3>\n\t\t<ui-select multiple ng-model=\"$ctrl.selectedCategories\" theme=\"selectize\" sortable=\"true\" close-on-select=\"true\"\n\t\t\t\t   on-select=\"$ctrl.search()\" on-remove=\"$ctrl.search()\">\n\t\t\t<ui-select-match placeholder=\"Kategorie auswählen ...\">{{$item}}</ui-select-match>\n\t\t\t<ui-select-choices repeat=\"category in $ctrl.categories | filter: $select.search\">\n\t\t\t\t<div ng-bind-html=\"category | highlight: $select.search\"></div>\n\t\t\t</ui-select-choices>\n\t\t</ui-select>\n\t</div>\n\n\t<div class=\"container-left-4 form-group\">\n\t\t<h3>Person:</h3>\n\t\t<ui-select multiple ng-model=\"$ctrl.selectedSpeakers\" theme=\"selectize\" sortable=\"true\" close-on-select=\"true\"\n\t\t\t\t   on-select=\"$ctrl.search()\" on-remove=\"$ctrl.search()\">\n\t\t\t<ui-select-match placeholder=\"Tippe den Namen eines Abgeordneten...\">{{$item.speaker_cleaned}} ({{$ctrl.parties[$item.speaker_party].name}})</ui-select-match>\n\t\t\t<ui-select-choices repeat=\"speaker in $ctrl.speakers | filter: $select.search | limitTo: 30\">\n\t\t\t\t<div class=\"container\" style=\"height: 3em; overflow: hidden;\">\n\t\t\t\t\t<div class=\"container-left-2\">\n\t\t\t\t\t\t<div class=\"picture-wrapper\">\n\t\t\t\t\t\t\t<img ng-src=\"{{speaker.picture}}\" alt=\"\" style=\"width:75%; clip-path:circle(16px at 15px 18px)\"/>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"container-left-8\">\n\t\t\t\t\t\t<div>\n\t\t\t\t\t\t\t<span ng-bind-html=\"speaker.speaker_cleaned | highlight: $select.search\"></span>\n\t\t\t\t\t\t\t<img ng-src=\"{{$ctrl.parties[speaker.speaker_party].logo}}\" alt=\"Logo {{$ctrl.parties[speaker.speaker_party].name}}\" style=\"max-width:3em; max-height:1em\">\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<small>\n\t\t\t\t\t\t\t{{speaker.age}} Jahre, {{speaker.education}}\n\t\t\t\t\t\t</small>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</ui-select-choices>\n\t\t\t<span class=\"input-group-btn\">\n          <button type=\"button\" ng-click=\"$ctrl.selectedSpeakers = []\" class=\"btn btn-default\">\n            <span class=\"fa fa-trash\"></span>\n          </button>\n        </span>\n\t\t</ui-select>\n\n\t</div>\n\n\t<div class=\"container-left-4\">\n\t\t<h3>Jahr:</h3>\n\t\t<ui-select multiple ng-model=\"$ctrl.selectedYears\" theme=\"selectize\" sortable=\"true\" close-on-select=\"true\"\n\t\t\t\t   on-select=\"$ctrl.search()\" on-remove=\"$ctrl.search()\">\n\t\t\t<ui-select-match placeholder=\"Jahr auswählen...\">{{$item}}</ui-select-match>\n\t\t\t<ui-select-choices repeat=\"year in [2013,2014,2015,2016,2017] | filter: $select.search\">\n\t\t\t\t<div ng-bind-html=\"year | highlight: $select.search\"></div>\n\t\t\t</ui-select-choices>\n\t\t</ui-select>\n\t</div>\n</div>\n<div class=\"container\">\n\t<div class=\"container-left-4\">\n\t\t<h3>Suche:</h3>\n\t\t<ui-select multiple ng-model=\"$ctrl.selectedSearch\" theme=\"selectize\"\n\t\t\t   tagging-tokens=\"SPACE|,|/\"\n\t\t\t   tagging=\"$ctrl.tagTransform\"\n\t\t\t   placeholder=\"Inhalte suchen...\" on-select=\"$ctrl.search()\" on-remove=\"$ctrl.search()\">\n\t\t\t<ui-select-match placeholder=\"Suchbegriff eingeben...\">{{$item.text}}</ui-select-match>\n\t\t\t<ui-select-choices repeat=\"year in [] | filter: $select.search\" style=\"display: none\">\n\t\t\t\t<div></div>\n\t\t\t</ui-select-choices>\n\t\t</ui-select>\n\t</div>\n</div>\n<!--<div class=\"container\">-->\n\t<!--<button-->\n\t\t\t<!--ng-disabled=\"!($ctrl.selectedSpeakers.length-->\n                                   <!--|| $ctrl.searchText.length-->\n                                   <!--|| $ctrl.selectedYears.length-->\n                                   <!--|| $ctrl.selectedCategories.length)\"-->\n\t\t\t<!--ng-click=\"$ctrl.search()\" class=\"button\">Los-->\n\t<!--</button>-->\n<!--</div>-->\n\n<div>\n\t<!--<div class=\"filters container-left-12\">-->\n\t<!--<h1>Filtern nach</h1>-->\n\t<!--<div class=\"options\" ng-class=\"{hasSelect: $ctrl.selectedFilter !== ''}\">-->\n\t<!--<button class=\"topic\"-->\n\t<!--ng-class=\"{selected: $ctrl.selectedFilter === 'topic'}\"-->\n\t<!--ng-click=\"$ctrl.selectFilter('topic')\">-->\n\t<!--📂 <span class=\"text\">Thema</span>-->\n\t<!--<img src=\"/static/img/icons/triangle_bottom.svg\"/>-->\n\t<!--</button>-->\n\t<!--<button class=\"person\"-->\n\t<!--ng-class=\"{selected: $ctrl.selectedFilter === 'person'}\"-->\n\t<!--ng-click=\"$ctrl.selectFilter('person')\">-->\n\t<!--👫 <span class=\"text\">Person</span>-->\n\t<!--<img src=\"/static/img/icons/triangle_bottom.svg\"/>-->\n\t<!--</button>-->\n\t<!--<button class=\"year\"-->\n\t<!--ng-class=\"{selected: $ctrl.selectedFilter === 'year'}\"-->\n\t<!--ng-click=\"$ctrl.selectFilter('year')\">-->\n\t<!--🎆 <span class=\"text\">Jahr</span>-->\n\t<!--<img src=\"/static/img/icons/triangle_bottom.svg\"/>-->\n\t<!--</button>-->\n\t<!--<form ng-submit=\"$ctrl.search()\">-->\n\t<!--<input ng-model=\"$ctrl.searchText\"-->\n\t<!--ng-class=\"{selected: $ctrl.selectedFilter === 'text'}\"-->\n\t<!--ng-focus=\"$ctrl.selectFilter('text')\"-->\n\t<!--placeholder=\"Inhalte suchen...\">-->\n\t<!--<button type=\"submit\" ng-class=\"{selected: $ctrl.selectedFilter === 'text'}\">🔎</button>-->\n\t<!--</form>-->\n\t<!--</div>-->\n\t<!--<div class=\"topics afilter\" ng-show=\"$ctrl.selectedFilter === 'topic'\">-->\n\t<!--<h2>Wähle eine Thema</h2>-->\n\t<!--<ul>-->\n\t<!--<li ng-repeat=\"category in $ctrl.categories | filter: $ctrl.filterCategories\">-->\n\t<!--<input type=\"checkbox\"-->\n\t<!--id=\"category-{{$index}}\"-->\n\t<!--ng-checked=\"$ctrl.selectedCategories.indexOf(category) !== -1\"-->\n\t<!--ng-click=\"$ctrl.togglCategory(category)\"/>-->\n\n\t<!--<label for=\"category-{{$index}}\">-->\n\t<!--<div class=\"person\">-->\n\t<!--{{category}}-->\n\t<!--</div>-->\n\t<!--</label>-->\n\t<!--</li>-->\n\t<!--</ul>-->\n\t<!--</div>-->\n\t<!--<div class=\"people afilter\" ng-show=\"$ctrl.selectedFilter === 'person'\">-->\n\t<!--<h2>Wähle einen Abgeordneten</h2>-->\n\t<!--<input type=\"text\" ng-model=\"$ctrl.speakerSearch\" placeholder=\"Abgeordnete suchen...\"/>-->\n\t<!--<ul>-->\n\t<!--<li ng-repeat=\"speaker in $ctrl.speakers | filter : $ctrl.speakerSearch | filter: $ctrl.filterSpeakers\">-->\n\t<!--<input type=\"checkbox\"-->\n\t<!--id=\"speaker-{{$index}}\"-->\n\t<!--ng-checked=\"$ctrl.selectedSpeakers.indexOf(speaker) !== -1\"-->\n\t<!--ng-click=\"$ctrl.togglSpeaker(speaker)\"/>-->\n\n\t<!--<label for=\"speaker-{{$index}}\">-->\n\t<!--<div ng-if=\"speaker.speaker_party\" class=\"person\">-->\n\t<!--<img src=\"http://www.bundestag.de/image/240714/3x4/162/216/be23238d3921acf3e9fa694ab1ae41f8/dZ/aken_jan_gross.jpg\" />-->\n\t<!--<div class=\"name\">{{speaker.speaker_cleaned}}</div>-->\n\t<!--<div class=\"party\">{{speaker.speaker_party}}</div>-->\n\t<!--</div>-->\n\t<!--<div ng-if=\"!speaker.speaker_party\" class=\"person\">-->\n\t<!--<img src=\"http://www.bundestag.de/image/240714/3x4/162/216/be23238d3921acf3e9fa694ab1ae41f8/dZ/aken_jan_gross.jpg\" />-->\n\t<!--<div class=\"name\">{{speaker.speaker_name}}</div>-->\n\t<!--</div>-->\n\t<!--</label>-->\n\t<!--</li>-->\n\t<!--</ul>-->\n\t<!--</div>-->\n\t<!--<div class=\"years afilter\" ng-show=\"$ctrl.selectedFilter === 'year'\">-->\n\t<!--<h2>Wähle eine Jahr</h2>-->\n\t<!--<ul>-->\n\t<!--<li ng-repeat=\"year in [2013, 2014, 2015, 2016, 2017] | filter: $ctrl.filterYears\">-->\n\t<!--<input type=\"checkbox\"-->\n\t<!--id=\"year-{{$index}}\"-->\n\t<!--ng-checked=\"$ctrl.selectedYears.indexOf(year) !== -1\"-->\n\t<!--ng-click=\"$ctrl.togglYear(year)\"/>-->\n\n\t<!--<label for=\"year-{{$index}}\">-->\n\t<!--<div class=\"person\">-->\n\t<!--{{year}}-->\n\t<!--</div>-->\n\t<!--</label>-->\n\t<!--</li>-->\n\t<!--</ul>-->\n\t<!--</div>-->\n\n\t<!--<div class=\"selections\">-->\n\t<!--<ul>-->\n\t<!--<li ng-repeat=\"speaker in $ctrl.selectedSpeakers\">-->\n\t<!--{{speaker.speaker_cleaned}} <a ng-click=\"$ctrl.togglSpeaker(speaker)\">x</a>-->\n\t<!--</li>-->\n\t<!--<li ng-repeat=\"year in $ctrl.selectedYears\">-->\n\t<!--{{year}} <a ng-click=\"$ctrl.togglYear(year)\">x</a>-->\n\t<!--</li>-->\n\t<!--<li ng-repeat=\"category in $ctrl.selectedCategories\">-->\n\t<!--{{category}} <a ng-click=\"$ctrl.togglCategory(category)\">x</a>-->\n\t<!--</li>-->\n\t<!--</ul>-->\n\t<!--<button-->\n\t<!--ng-disabled=\"!($ctrl.selectedSpeakers.length-->\n\t<!--|| $ctrl.searchText.length-->\n\t<!--|| $ctrl.selectedYears.length-->\n\t<!--|| $ctrl.selectedCategories.length)\"-->\n\t<!--ng-click=\"$ctrl.search()\">Los</button>-->\n\t<!--</div>-->\n\t<!--</div>-->\n\t<div class=\"tops container-left-12\">\n\t\t<table ng-if=\"!$ctrl.loading && $ctrl.sessions.length\">\n\t\t\t<thead>\n\t\t\t<tr>\n\t\t\t\t<th style=\"width: 10%\">Sitzung</th>\n\t\t\t\t<th style=\"width: 10%\">Datum</th>\n\t\t\t\t<th style=\"width: 40%\">Tagesordnungspunkte</th>\n\t\t\t\t<th style=\"width: 40%\">Kategorien</th>\n\t\t\t</tr>\n\t\t\t</thead>\n\t\t\t<tbody>\n\t\t\t<tr ng-repeat=\"session in $ctrl.sessions\">\n\t\t\t\t<td><span>{{session.session.sitzung}}.</span></td>\n\t\t\t\t<td><span ng-if=\"session.session.date\">{{ session.session.date | date :  \"dd.MM.y\" }}</span></td>\n\t\t\t\t<td>\n\t\t\t\t\t<ul ng-repeat=\"top in session.tops\">\n\t\t\t\t\t\t<li>\n\t\t\t\t\t\t\t<a ng-href=\"{{top.link}}\">{{top.title}}</a>\n\t\t\t\t\t\t</li>\n\t\t\t\t\t</ul>\n\t\t\t\t</td>\n\t\t\t\t<td>\n\t\t\t\t\t<ul ng-repeat=\"top in session.tops\">\n\t\t\t\t\t\t<li>\n\t\t\t\t\t\t\t<a ng-href=\"{{top.link}}\">{{top.categories.join(', ')}}</a>\n\t\t\t\t\t\t</li>\n\t\t\t\t\t</ul>\n\t\t\t\t</td>\n\t\t\t</tr>\n\t\t\t</tbody>\n\t\t</table>\n\n\t\t<div class=\"loader\" ng-if=\"$ctrl.loading\"></div>\n\n\t\t<div ng-if=\"!$ctrl.loading && !$ctrl.sessions.length\">\n\t\t\t🕵Wir haben gesucht aber nichts gefunden...\n\t\t</div>\n\t</div>\n</div>\n";
+module.exports = "<div class=\"container\">\n\t<div class=\"container-left-4\">\n\t\t<h3>Thema:</h3>\n\t\t<ui-select multiple ng-model=\"$ctrl.selectedCategories\" theme=\"selectize\" sortable=\"true\" close-on-select=\"true\"\n\t\t\t\t   on-select=\"$ctrl.search()\" on-remove=\"$ctrl.search()\">\n\t\t\t<ui-select-match placeholder=\"Kategorie auswählen ...\">{{$item}}</ui-select-match>\n\t\t\t<ui-select-choices repeat=\"category in $ctrl.categories | filter: $select.search\">\n\t\t\t\t<div ng-bind-html=\"category | highlight: $select.search\"></div>\n\t\t\t</ui-select-choices>\n\t\t</ui-select>\n\t</div>\n\n\t<div class=\"container-left-4 form-group\">\n\t\t<h3>Person:</h3>\n\t\t<ui-select multiple ng-model=\"$ctrl.selectedSpeakers\" theme=\"selectize\" sortable=\"true\" close-on-select=\"true\"\n\t\t\t\t   on-select=\"$ctrl.search()\" on-remove=\"$ctrl.search()\">\n\t\t\t<ui-select-match placeholder=\"Tippe den Namen eines Abgeordneten...\">{{$item.speaker_cleaned}} ({{$ctrl.parties[$item.speaker_party].name}})</ui-select-match>\n\t\t\t<ui-select-choices repeat=\"speaker in $ctrl.speakers | filter: $select.search | limitTo: 30\">\n\t\t\t\t<div class=\"container\" style=\"height: 3em; overflow: hidden;\">\n\t\t\t\t\t<div class=\"container-left-2\">\n\t\t\t\t\t\t<div class=\"picture-wrapper\">\n\t\t\t\t\t\t\t<img ng-src=\"{{speaker.picture}}\" alt=\"\" style=\"width:75%; clip-path:circle(16px at 15px 18px)\"/>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"container-left-8\">\n\t\t\t\t\t\t<div>\n\t\t\t\t\t\t\t<span ng-bind-html=\"speaker.speaker_cleaned | highlight: $select.search\"></span>\n\t\t\t\t\t\t\t<img ng-src=\"{{$ctrl.parties[speaker.speaker_party].logo}}\" alt=\"Logo {{$ctrl.parties[speaker.speaker_party].name}}\" style=\"max-width:3em; max-height:1em\">\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<small>\n\t\t\t\t\t\t\t{{speaker.age}} Jahre, {{speaker.education}}\n\t\t\t\t\t\t</small>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</ui-select-choices>\n\t\t\t<span class=\"input-group-btn\">\n          <button type=\"button\" ng-click=\"$ctrl.selectedSpeakers = []\" class=\"btn btn-default\">\n            <span class=\"fa fa-trash\"></span>\n          </button>\n        </span>\n\t\t</ui-select>\n\n\t</div>\n\n\t<div class=\"container-left-4\">\n\t\t<h3>Jahr:</h3>\n\t\t<ui-select multiple ng-model=\"$ctrl.selectedYears\" theme=\"selectize\" sortable=\"true\" close-on-select=\"true\"\n\t\t\t\t   on-select=\"$ctrl.search()\" on-remove=\"$ctrl.search()\">\n\t\t\t<ui-select-match placeholder=\"Jahr auswählen...\">{{$item}}</ui-select-match>\n\t\t\t<ui-select-choices repeat=\"year in [2013,2014,2015,2016,2017] | filter: $select.search\">\n\t\t\t\t<div ng-bind-html=\"year | highlight: $select.search\"></div>\n\t\t\t</ui-select-choices>\n\t\t</ui-select>\n\t</div>\n</div>\n<div class=\"container\">\n\t<div class=\"container-left-4\">\n\t\t<h3>Suche:</h3>\n\t\t<ui-select multiple ng-model=\"$ctrl.selectedSearch\" theme=\"selectize\"\n\t\t\t\t   tagging-tokens=\"SPACE|,|/\"\n\t\t\t\t   tagging=\"$ctrl.tagTransform\"\n\t\t\t\t   placeholder=\"Inhalte suchen...\" on-select=\"$ctrl.search()\" on-remove=\"$ctrl.search()\">\n\t\t\t<ui-select-match placeholder=\"Suchbegriff eingeben...\">{{$item.text}}</ui-select-match>\n\t\t\t<ui-select-choices repeat=\"year in [] | filter: $select.search\" style=\"display: none\">\n\t\t\t\t<div></div>\n\t\t\t</ui-select-choices>\n\t\t</ui-select>\n\t</div>\n</div>\n<!--<div class=\"container\">-->\n<!--<button-->\n<!--ng-disabled=\"!($ctrl.selectedSpeakers.length-->\n<!--|| $ctrl.searchText.length-->\n<!--|| $ctrl.selectedYears.length-->\n<!--|| $ctrl.selectedCategories.length)\"-->\n<!--ng-click=\"$ctrl.search()\" class=\"button\">Los-->\n<!--</button>-->\n<!--</div>-->\n\n<div>\n\t<!--<div class=\"filters container-left-12\">-->\n\t<!--<h1>Filtern nach</h1>-->\n\t<!--<div class=\"options\" ng-class=\"{hasSelect: $ctrl.selectedFilter !== ''}\">-->\n\t<!--<button class=\"topic\"-->\n\t<!--ng-class=\"{selected: $ctrl.selectedFilter === 'topic'}\"-->\n\t<!--ng-click=\"$ctrl.selectFilter('topic')\">-->\n\t<!--📂 <span class=\"text\">Thema</span>-->\n\t<!--<img src=\"/static/img/icons/triangle_bottom.svg\"/>-->\n\t<!--</button>-->\n\t<!--<button class=\"person\"-->\n\t<!--ng-class=\"{selected: $ctrl.selectedFilter === 'person'}\"-->\n\t<!--ng-click=\"$ctrl.selectFilter('person')\">-->\n\t<!--👫 <span class=\"text\">Person</span>-->\n\t<!--<img src=\"/static/img/icons/triangle_bottom.svg\"/>-->\n\t<!--</button>-->\n\t<!--<button class=\"year\"-->\n\t<!--ng-class=\"{selected: $ctrl.selectedFilter === 'year'}\"-->\n\t<!--ng-click=\"$ctrl.selectFilter('year')\">-->\n\t<!--🎆 <span class=\"text\">Jahr</span>-->\n\t<!--<img src=\"/static/img/icons/triangle_bottom.svg\"/>-->\n\t<!--</button>-->\n\t<!--<form ng-submit=\"$ctrl.search()\">-->\n\t<!--<input ng-model=\"$ctrl.searchText\"-->\n\t<!--ng-class=\"{selected: $ctrl.selectedFilter === 'text'}\"-->\n\t<!--ng-focus=\"$ctrl.selectFilter('text')\"-->\n\t<!--placeholder=\"Inhalte suchen...\">-->\n\t<!--<button type=\"submit\" ng-class=\"{selected: $ctrl.selectedFilter === 'text'}\">🔎</button>-->\n\t<!--</form>-->\n\t<!--</div>-->\n\t<!--<div class=\"topics afilter\" ng-show=\"$ctrl.selectedFilter === 'topic'\">-->\n\t<!--<h2>Wähle eine Thema</h2>-->\n\t<!--<ul>-->\n\t<!--<li ng-repeat=\"category in $ctrl.categories | filter: $ctrl.filterCategories\">-->\n\t<!--<input type=\"checkbox\"-->\n\t<!--id=\"category-{{$index}}\"-->\n\t<!--ng-checked=\"$ctrl.selectedCategories.indexOf(category) !== -1\"-->\n\t<!--ng-click=\"$ctrl.togglCategory(category)\"/>-->\n\n\t<!--<label for=\"category-{{$index}}\">-->\n\t<!--<div class=\"person\">-->\n\t<!--{{category}}-->\n\t<!--</div>-->\n\t<!--</label>-->\n\t<!--</li>-->\n\t<!--</ul>-->\n\t<!--</div>-->\n\t<!--<div class=\"people afilter\" ng-show=\"$ctrl.selectedFilter === 'person'\">-->\n\t<!--<h2>Wähle einen Abgeordneten</h2>-->\n\t<!--<input type=\"text\" ng-model=\"$ctrl.speakerSearch\" placeholder=\"Abgeordnete suchen...\"/>-->\n\t<!--<ul>-->\n\t<!--<li ng-repeat=\"speaker in $ctrl.speakers | filter : $ctrl.speakerSearch | filter: $ctrl.filterSpeakers\">-->\n\t<!--<input type=\"checkbox\"-->\n\t<!--id=\"speaker-{{$index}}\"-->\n\t<!--ng-checked=\"$ctrl.selectedSpeakers.indexOf(speaker) !== -1\"-->\n\t<!--ng-click=\"$ctrl.togglSpeaker(speaker)\"/>-->\n\n\t<!--<label for=\"speaker-{{$index}}\">-->\n\t<!--<div ng-if=\"speaker.speaker_party\" class=\"person\">-->\n\t<!--<img src=\"http://www.bundestag.de/image/240714/3x4/162/216/be23238d3921acf3e9fa694ab1ae41f8/dZ/aken_jan_gross.jpg\" />-->\n\t<!--<div class=\"name\">{{speaker.speaker_cleaned}}</div>-->\n\t<!--<div class=\"party\">{{speaker.speaker_party}}</div>-->\n\t<!--</div>-->\n\t<!--<div ng-if=\"!speaker.speaker_party\" class=\"person\">-->\n\t<!--<img src=\"http://www.bundestag.de/image/240714/3x4/162/216/be23238d3921acf3e9fa694ab1ae41f8/dZ/aken_jan_gross.jpg\" />-->\n\t<!--<div class=\"name\">{{speaker.speaker_name}}</div>-->\n\t<!--</div>-->\n\t<!--</label>-->\n\t<!--</li>-->\n\t<!--</ul>-->\n\t<!--</div>-->\n\t<!--<div class=\"years afilter\" ng-show=\"$ctrl.selectedFilter === 'year'\">-->\n\t<!--<h2>Wähle eine Jahr</h2>-->\n\t<!--<ul>-->\n\t<!--<li ng-repeat=\"year in [2013, 2014, 2015, 2016, 2017] | filter: $ctrl.filterYears\">-->\n\t<!--<input type=\"checkbox\"-->\n\t<!--id=\"year-{{$index}}\"-->\n\t<!--ng-checked=\"$ctrl.selectedYears.indexOf(year) !== -1\"-->\n\t<!--ng-click=\"$ctrl.togglYear(year)\"/>-->\n\n\t<!--<label for=\"year-{{$index}}\">-->\n\t<!--<div class=\"person\">-->\n\t<!--{{year}}-->\n\t<!--</div>-->\n\t<!--</label>-->\n\t<!--</li>-->\n\t<!--</ul>-->\n\t<!--</div>-->\n\n\t<!--<div class=\"selections\">-->\n\t<!--<ul>-->\n\t<!--<li ng-repeat=\"speaker in $ctrl.selectedSpeakers\">-->\n\t<!--{{speaker.speaker_cleaned}} <a ng-click=\"$ctrl.togglSpeaker(speaker)\">x</a>-->\n\t<!--</li>-->\n\t<!--<li ng-repeat=\"year in $ctrl.selectedYears\">-->\n\t<!--{{year}} <a ng-click=\"$ctrl.togglYear(year)\">x</a>-->\n\t<!--</li>-->\n\t<!--<li ng-repeat=\"category in $ctrl.selectedCategories\">-->\n\t<!--{{category}} <a ng-click=\"$ctrl.togglCategory(category)\">x</a>-->\n\t<!--</li>-->\n\t<!--</ul>-->\n\t<!--<button-->\n\t<!--ng-disabled=\"!($ctrl.selectedSpeakers.length-->\n\t<!--|| $ctrl.searchText.length-->\n\t<!--|| $ctrl.selectedYears.length-->\n\t<!--|| $ctrl.selectedCategories.length)\"-->\n\t<!--ng-click=\"$ctrl.search()\">Los</button>-->\n\t<!--</div>-->\n\t<!--</div>-->\n\t<div class=\"tops container-left-12\">\n\t\t<table ng-if=\"!$ctrl.loading && $ctrl.sessions.length\">\n\t\t\t<thead>\n\t\t\t<tr>\n\t\t\t\t<th style=\"width: 10%\">Sitzung</th>\n\t\t\t\t<th style=\"width: 10%\">Datum</th>\n\t\t\t\t<th style=\"width: 80%\">Tagesordnungspunkte</th>\n\t\t\t\t<!--<th style=\"width: 40%\">Kategorien</th>-->\n\t\t\t</tr>\n\t\t\t</thead>\n\t\t\t<tbody>\n\t\t\t<tr ng-repeat=\"session in $ctrl.sessions\" style=\"border:1px solid black\">\n\t\t\t\t<td><span>{{session.session.sitzung}}.</span></td>\n\t\t\t\t<td><span ng-if=\"session.session.date\">{{ session.session.date | date :  \"dd.MM.y\" }}</span></td>\n\t\t\t\t<td>\n\t\t\t\t\t<table>\n\t\t\t\t\t\t<tr ng-repeat=\"top in session.tops\" style=\"border: 1px solid black;\">\n\t\t\t\t\t\t\t<td style=\"width:50%\">\n\t\t\t\t\t\t\t\t<a ng-href=\"{{top.link}}\">{{top.title}}</a>\n\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t<td style=\"width:50%\">\n\t\t\t\t\t\t\t\t<a ng-href=\"{{top.link}}\">{{top.categories.join(', ')}}</a>\n\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t</table>\n\t\t\t\t</td>\n\t\t\t\t<!--<td>-->\n\t\t\t\t<!--<ul ng-repeat=\"top in session.tops\">-->\n\t\t\t\t<!--<li>-->\n\t\t\t\t<!--<a ng-href=\"{{top.link}}\">{{top.categories.join(', ')}}</a>-->\n\t\t\t\t<!--</li>-->\n\t\t\t\t<!--</ul>-->\n\t\t\t\t<!--</td>-->\n\t\t\t</tr>\n\t\t\t</tbody>\n\t\t</table>\n\n\t\t<div class=\"loader\" ng-if=\"$ctrl.loading\"></div>\n\n\t\t<div ng-if=\"!$ctrl.loading && !$ctrl.sessions.length\">\n\t\t\t🕵Wir haben gesucht aber nichts gefunden...\n\t\t</div>\n\t</div>\n</div>\n";
 
 /***/ }),
 /* 22 */
@@ -65916,21 +65918,14 @@ var poi = {
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_lodash__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_lodash___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_lodash__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_izitoast__ = __webpack_require__(24);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_izitoast___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_izitoast__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_izitoast_dist_css_iziToast_css__ = __webpack_require__(25);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_izitoast_dist_css_iziToast_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_izitoast_dist_css_iziToast_css__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__utils__ = __webpack_require__(4);
-
-
-
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__utils__ = __webpack_require__(4);
 
 
 var BASE_URL = "http://localhost:5000";
 
 
 var protocol = {
-    template: __webpack_require__(30),
+    template: __webpack_require__(24),
     controller: function ($http, $location, $anchorScroll, $timeout) {
         var this$1 = this;
 
@@ -65954,21 +65949,6 @@ var protocol = {
                     }, []);
 					this$1.session = this$1.utterances[0]['sitzung'];
                     this$1.date = "15.03.2017";
-
-                    var jumpMarkKnown = Object(__WEBPACK_IMPORTED_MODULE_0_lodash__["includes"])(this$1.tops.map(function (top) { return top.link; }), $location.hash());
-
-                    if (!jumpMarkKnown){
-                        __WEBPACK_IMPORTED_MODULE_1_izitoast___default.a.show({
-                            title: '🙈',
-                            message: 'Aus technischen Gründen können wir leider nicht direkt zu dem' +
-                            ' von dir ausgewählen Tagesordnungspunkt springen.' +
-                            ' Du kannst aber die Browsersuche nutzen, um ihn zu finden.',
-                            timeout: 10000,
-                            progressBar: false,
-                        });
-                    }
-
-
                     this$1.current_top = "TOP 40 Bundeswehreinsatz im Mittelmeer (SOPHIA)"
                     console.log($location.hash());
 					$anchorScroll.yOffset = 200;
@@ -65976,7 +65956,7 @@ var protocol = {
 
 				}
             );
-            $timeout(__WEBPACK_IMPORTED_MODULE_3__utils__["a" /* default */], 3000);
+            $timeout(__WEBPACK_IMPORTED_MODULE_1__utils__["a" /* default */], 3000);
         }
         this.selectTop = function(link) {
             console.log('scrolled by' + link);
@@ -65993,1543 +65973,17 @@ var protocol = {
 
 /***/ }),
 /* 24 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, exports) {
 
-/* WEBPACK VAR INJECTION */(function(global) {var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*
-* iziToast | v1.1.5
-* http://izitoast.marcelodolce.com
-* by Marcelo Dolce.
-*/
-(function (root, factory) {
-	if (true) {
-		!(__WEBPACK_AMD_DEFINE_ARRAY__ = [], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory(root)),
-				__WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ?
-				(__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__),
-				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
-	} else if (typeof exports === 'object') {
-		module.exports = factory(root);
-	} else {
-		root.iziToast = factory(root);
-	}
-})(typeof global !== "undefined" ? global : window || this.window || this.global, function (root) {
-
-	'use strict';
-
-	//
-	// Variables
-	//
-	var $iziToast = {},
-		PLUGIN_NAME = 'iziToast',
-		BODY = document.querySelector('body'),
-		ISMOBILE = (/Mobi/.test(navigator.userAgent)) ? true : false,
-		ISCHROME = /Chrome/.test(navigator.userAgent) && /Google Inc/.test(navigator.vendor),
-		ISFIREFOX = typeof InstallTrigger !== 'undefined',
-		ACCEPTSTOUCH = 'ontouchstart' in document.documentElement,
-		POSITIONS = ['bottomRight','bottomLeft','bottomCenter','topRight','topLeft','topCenter','center'],
-		THEMES = {
-			info: {
-				color: "blue",
-				icon: "ico-info"
-			},
-			success: {
-				color: "green",
-				icon: "ico-check",
-			},
-			warning: {
-				color: "yellow",
-				icon: "ico-warning",
-			},
-			error: {
-				color: "red",
-				icon: "ico-error",
-			}
-		},
-		MOBILEWIDTH = 568,
-		CONFIG = {};
-
-	// Default settings
-	var defaults = {
-		id: null, 
-		class: '',
-		title: '',
-		titleColor: '',
-		titleSize: '',
-		titleLineHeight: '',
-		message: '',
-		messageColor: '',
-		messageSize: '',
-		messageLineHeight: '',
-		backgroundColor: '',
-		theme: 'light', // dark
-		color: '', // blue, red, green, yellow
-		icon: '',
-		iconText: '',
-		iconColor: '',
-		image: '',
-		imageWidth: 50,
-		maxWidth: null,
-		zindex: null,
-		layout: 1,
-		balloon: false,
-		close: true,
-		rtl: false,
-		position: 'bottomRight', // bottomRight, bottomLeft, topRight, topLeft, topCenter, bottomCenter, center
-		target: '',
-		targetFirst: true,
-		toastOnce: false,
-		timeout: 5000,
-		drag: true,
-		pauseOnHover: true,
-		resetOnHover: false,
-		progressBar: true,
-		progressBarColor: '',
-		animateInside: true,
-		buttons: {},
-		transitionIn: 'fadeInUp', // bounceInLeft, bounceInRight, bounceInUp, bounceInDown, fadeIn, fadeInDown, fadeInUp, fadeInLeft, fadeInRight, flipInX
-		transitionOut: 'fadeOut', // fadeOut, fadeOutUp, fadeOutDown, fadeOutLeft, fadeOutRight, flipOutX
-		transitionInMobile: 'fadeInUp',
-		transitionOutMobile: 'fadeOutDown',
-		onOpening: function () {},
-		onOpened: function () {},
-		onClosing: function () {},
-		onClosed: function () {}
-	};
-
-	//
-	// Methods
-	//
-
-
-	/**
-	 * Polyfill for remove() method
-	 */
-	if (!('remove' in Element.prototype)) {
-	    Element.prototype.remove = function() {
-	        if (this.parentNode) {
-	            this.parentNode.removeChild(this);
-	        }
-	    };
-	}
-
-	/*
-     * Polyfill for CustomEvent for IE >= 9
-     * https://developer.mozilla.org/en-US/docs/Web/API/CustomEvent/CustomEvent#Polyfill
-     */
-    if (typeof window.CustomEvent !== "function") {
-        var CustomEventPolyfill = function (event, params) {
-            params = params || { bubbles: false, cancelable: false, detail: undefined };
-            var evt = document.createEvent('CustomEvent');
-            evt.initCustomEvent(event, params.bubbles, params.cancelable, params.detail);
-            return evt;
-        };
-
-        CustomEventPolyfill.prototype = window.Event.prototype;
-
-        window.CustomEvent = CustomEventPolyfill;
-    } 
-
-	/**
-	 * A simple forEach() implementation for Arrays, Objects and NodeLists
-	 * @private
-	 * @param {Array|Object|NodeList} collection Collection of items to iterate
-	 * @param {Function} callback Callback function for each iteration
-	 * @param {Array|Object|NodeList} scope Object/NodeList/Array that forEach is iterating over (aka `this`)
-	 */
-	var forEach = function (collection, callback, scope) {
-		if (Object.prototype.toString.call(collection) === '[object Object]') {
-			for (var prop in collection) {
-				if (Object.prototype.hasOwnProperty.call(collection, prop)) {
-					callback.call(scope, collection[prop], prop, collection);
-				}
-			}
-		} else {
-			if(collection){
-				for (var i = 0, len = collection.length; i < len; i++) {
-					callback.call(scope, collection[i], i, collection);
-				}
-			}
-		}
-	};
-
-	/**
-	 * Merge defaults with user options
-	 * @private
-	 * @param {Object} defaults Default settings
-	 * @param {Object} options User options
-	 * @returns {Object} Merged values of defaults and options
-	 */
-	var extend = function (defaults, options) {
-		var extended = {};
-		forEach(defaults, function (value, prop) {
-			extended[prop] = defaults[prop];
-		});
-		forEach(options, function (value, prop) {
-			extended[prop] = options[prop];
-		});
-		return extended;
-	};
-
-
-	/**
-	 * Create a fragment DOM elements
-	 * @private
-	 */
-	var createFragElem = function(htmlStr) {
-		var frag = document.createDocumentFragment(),
-			temp = document.createElement('div');
-		temp.innerHTML = htmlStr;
-		while (temp.firstChild) {
-			frag.appendChild(temp.firstChild);
-		}
-		return frag;
-	};
-
-
-	/**
-	 * Check if is a color
-	 * @private
-	 */
-	var isColor = function(color){
-		if( color.substring(0,1) == "#" || color.substring(0,3) == "rgb" || color.substring(0,3) == "hsl" ){
-			return true;
-		} else {
-			return false;
-		}
-	};
-
-
-	/**
-	 * Drag method of toasts
-	 * @private
-	 */
-	var drag = function() {
-	    
-	    return {
-	        move: function(toast, instance, settings, xpos) {
-
-	        	var opacity,
-	        		opacityRange = 0.3,
-	        		distance = 180;
-	            
-	            toast.style.transform = 'translateX('+xpos + 'px)';
-
-	            if(xpos > 0){
-	            	opacity = (distance-xpos) / distance;
-	            	if(opacity < opacityRange){
-						instance.hide(extend(settings, { transitionOut: 'fadeOutRight', transitionOutMobile: 'fadeOutRight' }), toast, 'drag');
-					}
-	            } else {
-	            	opacity = (distance+xpos) / distance;
-	            	if(opacity < opacityRange){
-						instance.hide(extend(settings, { transitionOut: 'fadeOutLeft', transitionOutMobile: 'fadeOutLeft' }), toast, 'drag');
-					}
-	            }
-				toast.style.opacity = opacity;
-		
-				if(opacity < opacityRange){
-
-					if(ISCHROME || ISFIREFOX)
-						{ toast.style.left = xpos+'px'; }
-
-					toast.parentNode.style.opacity = opacityRange;
-
-	                this.stopMoving(toast, null);
-				}
-				
-	        },
-	        startMoving: function(toast, instance, settings, e) {
-
-	            e = e || window.event;
-	            var posX = ((ACCEPTSTOUCH) ? e.touches[0].clientX : e.clientX),
-	                toastLeft = toast.style.transform.replace('px)', '');
-	                toastLeft = toastLeft.replace('translateX(', '');
-	            var offsetX = posX - toastLeft;
-
-				toast.classList.remove(settings.transitionIn);
-				toast.classList.remove(settings.transitionInMobile);
-				toast.style.transition = "";
-
-	            if (ACCEPTSTOUCH) {
-	                document.ontouchmove = function(e) {
-	                    e.preventDefault();
-	                    e = e || window.event;
-	                    var posX = e.touches[0].clientX,
-	                        finalX = posX - offsetX;
-                        drag.move(toast, instance, settings, finalX);
-	                };
-	            } else {
-	                document.onmousemove = function(e) {
-	                    e.preventDefault();
-	                    e = e || window.event;
-	                    var posX = e.clientX,
-	                        finalX = posX - offsetX;
-                        drag.move(toast, instance, settings, finalX);
-	                };
-	            }
-
-	        },
-	        stopMoving: function(toast, e) {
-
-	            if (ACCEPTSTOUCH) {
-	                document.ontouchmove = function() {};
-	            } else {
-	            	document.onmousemove = function() {};
-	            }
-				toast.style.transition = "transform 0.4s ease, opacity 0.4s ease";
-				toast.style.opacity = "";
-				toast.style.transform = "";
-				window.setTimeout(function() {
-					toast.style.transition = "";
-				}, 400);
-	        }
-	    };
-
-	}();
-
-
-	/**
-	 * Do the calculation to move the progress bar
-	 * @private
-	 */
-	var moveProgress = function(toast, settings, callback){
-
-		var $elem = toast.querySelector("."+PLUGIN_NAME+"-progressbar div");
-
-		var timer = null;
-
-		var is = {
-			Paused: false,
-			Reseted: false,
-			Closed: false
-		};
-
-		var progressBar = {
-			hideEta: null,
-			maxHideTime: null,
-			currentTime: new Date().getTime(),
-			updateProgress: function()
-			{
-				is.Paused = toast.classList.contains(PLUGIN_NAME+'-paused') ? true : false;
-				is.Reseted = toast.classList.contains(PLUGIN_NAME+'-reseted') ? true : false;
-				is.Closed = toast.classList.contains(PLUGIN_NAME+'-closed') ? true : false;
-
-				if(is.Reseted){
-					clearInterval(timer);
-					$elem.style.width = '100%';
-					moveProgress(toast, settings, callback);
-					toast.classList.remove(PLUGIN_NAME+'-reseted');
-				}
-				if(is.Closed){
-					clearInterval(timer);
-					toast.classList.remove(PLUGIN_NAME+'-closed');
-				}
-				if(!is.Paused && !is.Reseted && !is.Closed){
-					progressBar.currentTime = progressBar.currentTime+10;
-					var percentage = ((progressBar.hideEta - (progressBar.currentTime)) / progressBar.maxHideTime) * 100;
-					$elem.style.width = percentage + '%';
-
-					if(Math.round(percentage) < 0 || typeof toast != 'object'){
-						clearInterval(timer);
-						callback.apply();
-					}
-				}
-
-			}
-		};
-
-		if (settings.timeout) {
-			progressBar.maxHideTime = parseFloat(settings.timeout);
-			progressBar.hideEta = new Date().getTime() + progressBar.maxHideTime;
-			timer = setInterval(progressBar.updateProgress, 10);
-		}
-	};
-
-	/**
-	 * Destroy the current initialization.
-	 * @public
-	 */
-	$iziToast.destroy = function () {
-
-		forEach(document.querySelectorAll('.'+PLUGIN_NAME+'-wrapper'), function(element, index) {
-			element.remove();
-		});
-
-		forEach(document.querySelectorAll('.'+PLUGIN_NAME), function(element, index) {
-			element.remove();
-		});
-
-		// Remove event listeners
-		document.removeEventListener(PLUGIN_NAME+'-opened', {}, false);
-		document.removeEventListener(PLUGIN_NAME+'-opening', {}, false);
-		document.removeEventListener(PLUGIN_NAME+'-closing', {}, false);
-		document.removeEventListener(PLUGIN_NAME+'-closed', {}, false);
-
-		// Reset variables
-		CONFIG = {};
-	};
-
-	/**
-	 * Initialize Plugin
-	 * @public
-	 * @param {Object} options User settings
-	 */
-	$iziToast.settings = function (options) {
-
-		// Destroy any existing initializations
-		$iziToast.destroy();
-
-		CONFIG = options;
-		defaults = extend(defaults, options || {});
-	};
-
-
-	/**
-	 * Building themes functions.
-	 * @public
-	 * @param {Object} options User settings
-	 */
-	forEach(THEMES, function (theme, name) {
-
-		$iziToast[name] = function (options) {
-
-			var settings = extend(CONFIG, options || {});
-			settings = extend(theme, settings || {});
-
-			this.show(settings);
-		};
-
-	});
-
-
-	/**
-	 * Close the specific Toast
-	 * @public
-	 * @param {Object} options User settings
-	 */
-	$iziToast.hide = function (options, $toast, closedBy) {
-
-		var settings = extend(defaults, options || {});
-			closedBy = closedBy || false;
-
-		if(typeof $toast != 'object'){
-			$toast = document.querySelector($toast);
-		}
-		$toast.classList.add(PLUGIN_NAME+'-closed');
-
-		if(settings.transitionIn || settings.transitionInMobile){
-			$toast.classList.remove(settings.transitionIn);
-			$toast.classList.remove(settings.transitionInMobile);
-		}
-
-		if(ISMOBILE || window.innerWidth <= MOBILEWIDTH){
-			if(settings.transitionOutMobile)
-				{ $toast.classList.add(settings.transitionOutMobile); }
-		} else{
-			if(settings.transitionOut)
-				{ $toast.classList.add(settings.transitionOut); }
-		}
-		var H = $toast.parentNode.offsetHeight;
-				$toast.parentNode.style.height = H+'px';
-				$toast.style.pointerEvents = 'none';
-		
-		if(!ISMOBILE || window.innerWidth > MOBILEWIDTH){
-			$toast.parentNode.style.transitionDelay = '0.2s';
-		}
-
-		try {
-			settings.closedBy = closedBy;
-			var event = new CustomEvent(PLUGIN_NAME+'-closing', {detail: settings, bubbles: true, cancelable: true});
-			document.dispatchEvent(event);
-		} catch(ex){
-			console.warn(ex);
-		}
-
-		setTimeout(function() {
-			
-			$toast.parentNode.style.height = '0px';
-			$toast.parentNode.style.overflow = '';
-
-			window.setTimeout(function(){
-				
-				$toast.parentNode.remove();
-				try {
-					settings.closedBy = closedBy;
-					var event = new CustomEvent(PLUGIN_NAME+'-closed', {detail: settings, bubbles: true, cancelable: true});
-					document.dispatchEvent(event);
-				} catch(ex){
-					console.warn(ex);
-				}
-
-				if(typeof settings.onClosed !== "undefined"){
-					settings.onClosed.apply(null, [settings, $toast, closedBy]);
-				}
-
-			}, 1000);
-		}, 200);
-
-
-		if(typeof settings.onClosing !== "undefined"){
-			settings.onClosing.apply(null, [settings, $toast, closedBy]);
-		}
-	};
-
-	/**
-	 * Create and show the Toast
-	 * @public
-	 * @param {Object} options User settings
-	 */
-	$iziToast.show = function (options) {
-
-		var that = this;
-
-		// Merge user options with defaults
-		var settings = extend(CONFIG, options || {});
-			settings = extend(defaults, settings);
-
-		if(settings.toastOnce && settings.id && document.querySelectorAll('.'+PLUGIN_NAME+'#'+settings.id).length > 0){
-			return false;
-		}
-
-		var $DOM = {
-			toast: document.createElement("div"),
-			toastBody: document.createElement("div"),
-			toastCapsule: document.createElement("div"),
-			icon: document.createElement("i"),
-			cover: document.createElement("div"),
-			buttons: document.createElement("div"),
-			wrapper: null
-		};
-
-		$DOM.toast.appendChild($DOM.toastBody);
-		$DOM.toastCapsule.appendChild($DOM.toast);
-
-		// CSS Settings
-		(function(){
-
-			$DOM.toast.classList.add(PLUGIN_NAME);
-			$DOM.toastCapsule.classList.add(PLUGIN_NAME+"-capsule");
-			$DOM.toastBody.classList.add(PLUGIN_NAME + '-body');
-
-			if(ISMOBILE || window.innerWidth <= MOBILEWIDTH){
-				if(settings.transitionInMobile)
-					{ $DOM.toast.classList.add(settings.transitionInMobile); }
-			} else {
-				if(settings.transitionIn)
-					{ $DOM.toast.classList.add(settings.transitionIn); }
-			}
-
-			if(settings.class){
-				var classes = settings.class.split(" ");
-				forEach(classes, function (value, index) {
-					$DOM.toast.classList.add(value);
-				});
-			}
-
-			if(settings.id){ $DOM.toast.id = settings.id; }
-
-			if(settings.rtl){ $DOM.toast.classList.add(PLUGIN_NAME + '-rtl'); }
-
-			if(settings.layout > 1){ $DOM.toast.classList.add(PLUGIN_NAME+"-layout"+settings.layout); }
-
-			if(settings.balloon){ $DOM.toast.classList.add(PLUGIN_NAME+"-balloon"); }
-
-			if(settings.maxWidth){
-				if( !isNaN(settings.maxWidth) ){
-					$DOM.toast.style.maxWidth = settings.maxWidth+'px';
-				} else {
-					$DOM.toast.style.maxWidth = settings.maxWidth;
-				}
-			}
-
-			if (settings.theme !== '' || settings.theme !== 'light') {
-
-				$DOM.toast.classList.add(PLUGIN_NAME+'-theme-'+settings.theme);
-			}
-
-			if (settings.color) { //#, rgb, rgba, hsl
-				
-				if( isColor(settings.color) ){
-					$DOM.toast.style.background = settings.color;
-				} else {
-					$DOM.toast.classList.add(PLUGIN_NAME+'-color-'+settings.color);
-				}
-			}
-
-			if (settings.backgroundColor) {
-				$DOM.toast.style.background = settings.backgroundColor;
-				if(settings.balloon){
-					$DOM.toast.style.borderColor = settings.backgroundColor;				
-				}
-			}
-		})();
-
-		// Cover image
-		(function(){
-			if (settings.image) {
-				$DOM.cover.classList.add(PLUGIN_NAME + '-cover');
-				$DOM.cover.style.width = settings.imageWidth + "px";
-				$DOM.cover.style.backgroundImage = 'url(' + settings.image + ')';
-
-				if(settings.rtl){
-					$DOM.toastBody.style.marginRight = (settings.imageWidth + 10) + 'px';
-				} else {
-					$DOM.toastBody.style.marginLeft = (settings.imageWidth + 10) + 'px';				
-				}
-				$DOM.toast.appendChild($DOM.cover);
-			}
-		})();
-
-		// Button close
-		(function(){
-			if(settings.close){
-				
-				$DOM.buttonClose = document.createElement("button");
-
-				$DOM.buttonClose.classList.add(PLUGIN_NAME + '-close');
-				$DOM.buttonClose.addEventListener('click', function (e) {
-					var button = e.target;
-					that.hide(settings, $DOM.toast, 'button');
-				});
-				$DOM.toast.appendChild($DOM.buttonClose);
-			} else {
-				if(settings.rtl){
-					$DOM.toast.style.paddingLeft = "30px";
-				} else {
-					$DOM.toast.style.paddingRight = "30px";
-				}
-			}
-		})();
-
-		// Progress Bar
-		(function(){
-			if (settings.progressBar && settings.timeout) {
-
-				$DOM.progressBar = document.createElement("div");
-				$DOM.progressBarDiv = document.createElement("div");
-
-				$DOM.progressBar.classList.add(PLUGIN_NAME + '-progressbar');
-				$DOM.progressBarDiv.style.background = settings.progressBarColor;
-				$DOM.progressBar.appendChild($DOM.progressBarDiv);
-				$DOM.toast.appendChild($DOM.progressBar);
-				
-				setTimeout(function() {
-					moveProgress($DOM.toast, settings, function(){
-						that.hide(settings, $DOM.toast);
-					});
-				}, 300);
-			}
-			else if( settings.progressBar === false && settings.timeout){
-				setTimeout(function() {
-					that.hide(settings, $DOM.toast);
-				}, settings.timeout);
-			}
-		})();
-
-		// Icon
-		(function(){
-			if (settings.icon) {
-				$DOM.icon.setAttribute("class", PLUGIN_NAME + '-icon ' + settings.icon);
-				
-				if (settings.iconText){
-					$DOM.icon.appendChild(document.createTextNode(settings.iconText));
-				}
-
-				if(settings.rtl){
-					$DOM.toastBody.style.paddingRight = '33px';
-				} else {
-					$DOM.toastBody.style.paddingLeft = '33px';				
-				}
-				
-				if (settings.iconColor){
-					$DOM.icon.style.color = settings.iconColor;
-				}
-				$DOM.toastBody.appendChild($DOM.icon);
-			}
-		})();
-
-		// Title
-		(function(){
-			if (settings.title.length > 0) {
-
-				$DOM.strong = document.createElement("strong");
-				$DOM.strong.appendChild(createFragElem(settings.title));
-				$DOM.toastBody.appendChild($DOM.strong);
-
-				if (settings.titleColor) {
-					$DOM.strong.style.color = settings.titleColor;
-				}
-				if (settings.titleSize) {
-					if( !isNaN(settings.titleSize) ){
-						$DOM.strong.style.fontSize = settings.titleSize+'px';
-					} else {
-						$DOM.strong.style.fontSize = settings.titleSize;
-					}
-				}
-				if (settings.titleLineHeight) {
-					if( !isNaN(settings.titleSize) ){
-						$DOM.strong.style.lineHeight = settings.titleLineHeight+'px';
-					} else {
-						$DOM.strong.style.lineHeight = settings.titleLineHeight;
-					}
-				}
-			}
-		})();
-		
-		// Message
-		(function(){
-			if (settings.message.length > 0) {
-
-				$DOM.p = document.createElement("p");
-				$DOM.p.appendChild(createFragElem(settings.message));
-				$DOM.toastBody.appendChild($DOM.p);
-
-				if (settings.messageColor) {
-					$DOM.p.style.color = settings.messageColor;
-				}
-				if (settings.messageSize) {
-					if( !isNaN(settings.titleSize) ){
-						$DOM.p.style.fontSize = settings.messageSize+'px';
-					} else {
-						$DOM.p.style.fontSize = settings.messageSize;
-					}
-				}
-				if (settings.messageLineHeight) {
-					
-					if( !isNaN(settings.titleSize) ){
-						$DOM.p.style.lineHeight = settings.messageLineHeight+'px';
-					} else {
-						$DOM.p.style.lineHeight = settings.messageLineHeight;
-					}
-				}
-			}
-		})();
-
-		if (settings.title.length > 0 && settings.message.length > 0) {
-			$DOM.strong.style.paddingRight = 10+'px';
-		}
-
-		// Buttons
-		(function(){
-			if (settings.buttons.length > 0) {
-
-				$DOM.buttons.classList.add(PLUGIN_NAME + '-buttons');
-
-				if (settings.message.length > 0) {
-					if(settings.rtl){
-						$DOM.p.style.marginLeft = '15px';
-					} else {
-						$DOM.p.style.marginRight = '15px';
-					}
-				}
-
-				var i = 0;
-				forEach(settings.buttons, function (value, index) {
-					$DOM.buttons.appendChild(createFragElem(value[0]));
-
-					var $btns = $DOM.buttons.childNodes;
-
-					$btns[i].addEventListener('click', function (e) {
-						e.preventDefault();
-						var ts = value[1];
-						return new ts(that, $DOM.toast); 
-					});
-
-					i++;
-				});
-				$DOM.toastBody.appendChild($DOM.buttons);
-			}
-		})();
-
-		// Target
-		(function(){
-			$DOM.toastCapsule.style.visibility = 'hidden';
-			setTimeout(function() {
-				var H = $DOM.toast.offsetHeight;
-				var style = $DOM.toast.currentStyle || window.getComputedStyle($DOM.toast);
-				var marginTop = style.marginTop;
-					marginTop = marginTop.split("px");
-					marginTop = parseInt(marginTop[0]);
-				var marginBottom = style.marginBottom;
-					marginBottom = marginBottom.split("px");
-					marginBottom = parseInt(marginBottom[0]);
-
-				$DOM.toastCapsule.style.visibility = '';
-				$DOM.toastCapsule.style.height = (H+marginBottom+marginTop)+'px';
-				setTimeout(function() {
-					$DOM.toastCapsule.style.height = 'auto';
-					if(settings.target){
-						$DOM.toastCapsule.style.overflow = 'visible';
-					}
-				}, 1000);
-			}, 100);
-		})();
-
-		// Target
-		(function(){
-			var position = settings.position;
-
-			if(settings.target){
-
-				$DOM.wrapper = document.querySelector(settings.target);
-				$DOM.wrapper.classList.add(PLUGIN_NAME + '-target');
-
-				if (settings.targetFirst) {
-					$DOM.wrapper.insertBefore($DOM.toastCapsule, $DOM.wrapper.firstChild);
-				} else {
-					$DOM.wrapper.appendChild($DOM.toastCapsule);
-				}
-
-			} else {
-
-				if( POSITIONS.indexOf(settings.position) == -1 ){
-					console.warn("["+PLUGIN_NAME+"] Incorrect position.\nIt can be › " + POSITIONS);
-					return;
-				}
-
-				if(ISMOBILE || window.innerWidth <= MOBILEWIDTH){
-					if(settings.position == "bottomLeft" || settings.position == "bottomRight" || settings.position == "bottomCenter"){
-						position = PLUGIN_NAME+'-wrapper-bottomCenter';
-					}
-					else if(settings.position == "topLeft" || settings.position == "topRight" || settings.position == "topCenter"){
-						position = PLUGIN_NAME+'-wrapper-topCenter';
-					}
-					else{
-						position = PLUGIN_NAME+'-wrapper-center';
-					}
-				} else {
-					position = PLUGIN_NAME+'-wrapper-'+position;
-				}
-				$DOM.wrapper = document.querySelector('.' + PLUGIN_NAME + '-wrapper.'+position);
-
-				if (!$DOM.wrapper) {
-					$DOM.wrapper = document.createElement("div");
-					$DOM.wrapper.classList.add(PLUGIN_NAME + '-wrapper');
-					$DOM.wrapper.classList.add(position);
-					document.body.appendChild($DOM.wrapper);
-				}
-				if(settings.position == "topLeft" || settings.position == "topCenter" || settings.position == "topRight"){
-					$DOM.wrapper.insertBefore($DOM.toastCapsule, $DOM.wrapper.firstChild);
-				} else {
-					$DOM.wrapper.appendChild($DOM.toastCapsule);
-				}
-			}
-
-			if (!isNaN(settings.zindex)) {
-				$DOM.wrapper.style.zIndex = settings.zindex;
-			} else {
-				console.warn("["+PLUGIN_NAME+"] Invalid zIndex.");
-			}
-		})();
-
-		// Inside animations
-		(function(){
-			if(settings.animateInside){
-				$DOM.toast.classList.add(PLUGIN_NAME+'-animateInside');
-			
-				var animationTimes = [200, 100, 300];
-				if(settings.transitionIn == "bounceInLeft"){
-					animationTimes = [400, 200, 400];
-				}
-
-				if (settings.title.length > 0) {
-					window.setTimeout(function(){
-						$DOM.strong.classList.add('slideIn');
-					}, animationTimes[0]);
-				}
-
-				if (settings.message.length > 0) {
-					window.setTimeout(function(){
-						$DOM.p.classList.add('slideIn');
-					}, animationTimes[1]);
-				}
-
-				if (settings.icon) {
-					window.setTimeout(function(){
-						$DOM.icon.classList.add('revealIn');
-					}, animationTimes[2]);
-				}
-
-				if (settings.buttons.length > 0 && $DOM.buttons) {
-					var counter = 150;
-					forEach($DOM.buttons.childNodes, function(element, index) {
-
-						window.setTimeout(function(){
-							element.classList.add('revealIn');
-						}, counter);
-						counter = counter + counter;
-					});
-				}
-			}
-		})();
-
-		settings.onOpening.apply(null, [settings, $DOM.toast]);
-
-		try {
-			var event = new CustomEvent(PLUGIN_NAME + '-opening', {detail: settings, bubbles: true, cancelable: true});
-			document.dispatchEvent(event);
-		} catch(ex){
-			console.warn(ex);
-		}
-
-		setTimeout(function() {
-			try {
-				var event = new CustomEvent(PLUGIN_NAME + '-opened', {detail: settings, bubbles: true, cancelable: true});
-				document.dispatchEvent(event);
-			} catch(ex){
-				console.warn(ex);
-			}
-
-			settings.onOpened.apply(null, [settings, $DOM.toast]);
-		}, 1000);
-
-
-		if(settings.pauseOnHover){
-			
-			$DOM.toast.addEventListener('mouseenter', function (e) {
-				this.classList.add(PLUGIN_NAME+'-paused');
-			});
-			$DOM.toast.addEventListener('mouseleave', function (e) {
-				this.classList.remove(PLUGIN_NAME+'-paused');
-			});
-		}
-
-		if(settings.resetOnHover){
-
-			$DOM.toast.addEventListener('mouseenter', function (e) {
-				this.classList.add(PLUGIN_NAME+'-reseted');
-			});
-			$DOM.toast.addEventListener('mouseleave', function (e) {
-				this.classList.remove(PLUGIN_NAME+'-reseted');
-			});
-		}
-
-		if(settings.drag){
-
-			if (ACCEPTSTOUCH) {
-
-			    $DOM.toast.addEventListener('touchstart', function(e) {
-			        drag.startMoving(this, that, settings, e);
-			    }, false);
-
-			    $DOM.toast.addEventListener('touchend', function(e) {
-			        drag.stopMoving(this, e);
-			    }, false);
-			} else {
-
-			    $DOM.toast.addEventListener('mousedown', function(e) {
-			    	e.preventDefault();
-			        drag.startMoving(this, that, settings, e);
-			    }, false);
-
-			    $DOM.toast.addEventListener('mouseup', function(e) {
-			    	e.preventDefault();
-			        drag.stopMoving(this, e);
-			    }, false);
-			}
-		}
-
-	};
-
-	return $iziToast;
-});
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2)))
+module.exports = "<section sticky-nav>\n\t<div class=\"container\">\n\t\t<div class=\"container-left-3\">\n\t\t\t<p>\n\t\t\t\t<a href=\"/protokolle/\" class=\"bold\"><i class=\"fa fa-arrow-left\"></i> zurück zur Suche</a>\n\t\t\t</p>\n\t\t</div>\n\t\t<div class=\"container-left-5\">\n\t\t\t<p>\n\t\t\t\tSitzungsnummer: {{$ctrl.session}}\n\t\t\t</p>\n\t\t\t<p>\n\t\t\t\tDatum: {{$ctrl.date}}\n\t\t\t</p>\n\t\t\t<p ng-repeat=\"top in $ctrl.tops\">\n\t\t\t\t<span href=\"#{{top.link}}\" du-smooth-scroll=\"\" du-scrollspy=\"\" offset=\"30\" class=\"spy\">{{top.title}}</span>\n\t\t\t</p>\n\t\t</div>\n\t\t<div class=\"container-left-3\">\n\t\t\t<div class=\"\">\n\t\t\t\t<span>springe zu TOP: </span>\n\t\t\t\t<ui-select ng-model=\"$ctrl.selectedTop\" theme=\"selectize\" style=\"width: 300px;\" title=\"Wähle ein TOP\"\n\t\t\t\t\t\t   on-select=\"$ctrl.selectTop($item.link)\">\n\t\t\t\t\t<ui-select-match placeholder=\"Wähle ein TOP aus\">{{$select.selected.title}}</ui-select-match>\n\t\t\t\t\t<ui-select-choices repeat=\"item in $ctrl.tops | filter: $select.search\">\n\t\t\t\t\t\t<span ng-bind-html=\"item.title | highlight: $select.search\"></span>\n\t\t\t\t\t</ui-select-choices>\n\t\t\t\t</ui-select>\n\t\t\t</div>\n\t\t\t<div class=\"\">\n\t\t\t\t<span>springe zu Suchergebnis: </span>\n\t\t\t\t<ui-select ng-model=\"$ctrl.selectedResult\" theme=\"selectize\" style=\"width: 300px;\" title=\"Wähle ein TOP\">\n\t\t\t\t\t<ui-select-match placeholder=\"Wähle ein TOP aus\">{{$select.selected.title}}</ui-select-match>\n\t\t\t\t\t<ui-select-choices repeat=\"item in [1,2,3,4,5] | filter: $select.search\">\n\t\t\t\t\t\t<span ng-bind-html=\"item | highlight: $select.search\"></span>\n\t\t\t\t\t</ui-select-choices>\n\t\t\t\t</ui-select>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n</section>\n\n<div class=\"container\" in-view-container>\n\t<div class=\"container-left-12\">\n\t\t<div class=\"main\" ng-if=\"$ctrl.utterances.length\" >\n\t\t\t<h1 inview=\"$crl.updateTop()\"> {{ $ctrl.utterances[0].wahlperiode }}. Wahlperiode - Sitzung {{ $ctrl.utterances[0].sitzung }}</h1>\n\t\t\t<div ng-repeat=\"utterance in $ctrl.utterances\">\n\t\t\t\t<top ng-if=\"utterance.type === 'top'\" title=\"utterance.title\" categories=\"utterance.categories\" in-view=\"$ctrl.updateTop()\"></top>\n\t\t\t\t<speech id=\"{{utterance.sequence}}\" ng-if=\"utterance.type === 'speech' || utterance.type === 'chair'\" utterance=\"utterance\"></speech>\n\t\t\t\t<poi ng-if=\"utterance.type === 'poi'\" utterance=\"utterance\" linked=\"utterance.sequence \"></poi>\n\t\t\t</div>\n\t\t</div>\n\t\t<div class=\"main\" ng-if=\"!$ctrl.utterances.length\">\n\t\t\t<div class=\"loader\"></div>\n\t\t</div>\n\t</div>\n</div>\n";
 
 /***/ }),
 /* 25 */
-/***/ (function(module, exports, __webpack_require__) {
-
-// style-loader: Adds some css to the DOM by adding a <style> tag
-
-// load the styles
-var content = __webpack_require__(26);
-if(typeof content === 'string') content = [[module.i, content, '']];
-// Prepare cssTransformation
-var transform;
-
-var options = {}
-options.transform = transform
-// add the styles to the DOM
-var update = __webpack_require__(28)(content, options);
-if(content.locals) module.exports = content.locals;
-// Hot Module Replacement
-if(false) {
-	// When the styles change, update the <style> tags
-	if(!content.locals) {
-		module.hot.accept("!!../../../css-loader/index.js?minimize=true!./iziToast.css", function() {
-			var newContent = require("!!../../../css-loader/index.js?minimize=true!./iziToast.css");
-			if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
-			update(newContent);
-		});
-	}
-	// When the module is disposed, remove the <style> tags
-	module.hot.dispose(function() { update(); });
-}
-
-/***/ }),
-/* 26 */
-/***/ (function(module, exports, __webpack_require__) {
-
-exports = module.exports = __webpack_require__(27)(undefined);
-// imports
-
-
-// module
-exports.push([module.i, ".iziToast-capsule{font-size:0;height:0;max-height:1000px;width:100%;transform:translateZ(0);backface-visibility:hidden;transition:transform .5s cubic-bezier(.25,.8,.25,1),height .5s cubic-bezier(.25,.8,.25,1)}.iziToast-capsule,.iziToast-capsule *{box-sizing:border-box}.iziToast{display:inline-block;clear:both;position:relative;font-family:Lato,arial;font-size:14px;padding:8px 45px 9px 0;background:hsla(0,0%,93%,.9);border-color:hsla(0,0%,93%,.9);width:100%;pointer-events:all;cursor:default;transform:translateX(0);-webkit-touch-callout:none;-webkit-user-select:none;-khtml-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;min-height:54px}.iziToast>.iziToast-progressbar{position:absolute;left:0;bottom:0;width:100%;z-index:1;background:hsla(0,0%,100%,.2)}.iziToast>.iziToast-progressbar>div{height:2px;width:100%;background:rgba(0,0,0,.3);border-radius:0 0 3px 3px}.iziToast.iziToast-balloon:before{content:\"\";position:absolute;right:8px;left:auto;width:0;height:0;top:100%;border-right:0 solid transparent;border-left:15px solid transparent;border-top:10px solid #000;border-top-color:inherit;border-radius:0}.iziToast.iziToast-balloon .iziToast-progressbar{top:0;bottom:auto}.iziToast.iziToast-balloon>div{border-radius:0 0 0 3px}.iziToast>.iziToast-cover{position:absolute;left:0;top:0;bottom:0;height:100%;margin:0;background-size:100%;background-position:50% 50%;background-repeat:no-repeat;background-color:rgba(0,0,0,.1)}.iziToast>.iziToast-close{position:absolute;right:0;top:0;border:0;padding:0;opacity:.6;width:42px;height:100%;background:url(\"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAJPAAACTwBcGfW0QAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAD3SURBVFiF1ZdtDoMgDEBfdi4PwAX8vLFn0qT7wxantojKupmQmCi8R4tSACpgjC2ICCUbEBa8ingjsU1AXRBeR8aLN64FiknswN8CYefBBDQ3whuFESy7WyQMeC0ipEI0A+0FeBvHUFN8xPaUhAH/iKoWsnXHGegy4J0yxialOfaHJAz4bhRzQzgDvdGnz4GbAonZbCQMuBm1K/kcFu8Mp1N2cFFpsxsMuJqqbIGExGl4loARajU1twskJLLhIsID7+tvUoDnIjTg5T9DPH9EBrz8rxjPzciAl9+O8SxI8CzJ8CxKFfh3ynK8Dyb8wNHM/XDqejx/AtNyPO87tNybAAAAAElFTkSuQmCC\") no-repeat 50% 50%;background-size:8px;cursor:pointer;outline:none}.iziToast>.iziToast-close:hover{opacity:1}.iziToast>.iziToast-body{position:relative;padding:0 0 0 10px;height:100%;min-height:36px;margin:0 0 0 15px}.iziToast>.iziToast-body:after{content:\"\";display:table;clear:both}.iziToast>.iziToast-body>.iziToast-buttons{min-height:17px;display:inline-block;margin:0 -2px}.iziToast>.iziToast-body>.iziToast-buttons>a,.iziToast>.iziToast-body>.iziToast-buttons>button{display:inline-block;margin:6px 2px;border-radius:2px;border:0;padding:5px 10px;font-size:12px;letter-spacing:.02em;cursor:pointer;background:rgba(0,0,0,.1);color:#000}.iziToast>.iziToast-body>.iziToast-buttons>a:hover,.iziToast>.iziToast-body>.iziToast-buttons>button:hover{background:rgba(0,0,0,.2)}.iziToast>.iziToast-body>.iziToast-icon{height:100%;position:absolute;left:0;top:50%;display:table;font-size:23px;line-height:24px;margin-top:-12px;color:#000}.iziToast>.iziToast-body>.iziToast-icon.ico-info{background:url(\"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAMAAACdt4HsAAAAflBMVEUAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACCtoPsAAAAKXRSTlMA6PsIvDob+OapavVhWRYPrIry2MxGQ97czsOzpJaMcE0qJQOwVtKjfxCVFeIAAAI3SURBVFjDlJPZsoIwEETnCiGyb8q+qmjl/3/wFmGKwjBROS9QWbtnOqDDGPq4MdMkSc0m7gcDDhF4NRdv8NoL4EcMpzoJglPl/KTDz4WW3IdvXEvxkfIKn7BMZb1bFK4yZFqghZ03jk0nG8N5NBwzx9xU5cxAg8fXi20/hDdC316lcA8o7t16eRuQvW1XGd2d2P8QSHQDDbdIII/9CR3lUF+lbucfJy4WfMS64EJPORnrZxtfc2pjJdnbuags3l04TTtJMXrdTph4Pyg4XAjugAJqMDf5Rf+oXx2/qi4u6nipakIi7CsgiuMSEF9IGKg8heQJKkxIfFSUU/egWSwNrS1fPDtLfon8sZOcYUQml1Qv9a3kfwsEUyJEMgFBKzdV8o3Iw9yAjg1jdLQCV4qbd3no8yD2GugaC3oMbF0NYHCpJYSDhNI5N2DAWB4F4z9Aj/04Cna/x7eVAQ17vRjQZPh+G/kddYv0h49yY4NWNDWMMOMUIRYvlTECmrN8pUAjo5RCMn8KoPmbJ/+Appgnk//Sy90GYBCGgm7IAskQ7D9hFKW4ApB1ei3FSYD9PjGAKygAV+ARFYBH5BsVgG9kkBSAQWKUFYBRZpkUgGVinRWAdUZQDABBQdIcAElDVBUAUUXWHQBZx1gMAGMprM0AsLbVXHsA5trZe93/wp3svQ0YNb/jWV3AIOLsMtlznSNOH7JqjOpDVh7z8qCZR10ftvO4nxeOvPLkpSuvfXnxzKtvXr7j+v8C5ii0e71At7cAAAAASUVORK5CYII=\") no-repeat 50% 50%;background-size:85%;width:24px;height:24px}.iziToast>.iziToast-body>.iziToast-icon.ico-warning{background:url(\"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEQAAABECAMAAAAPzWOAAAAAkFBMVEUAAAAAAAABAAIAAAABAAIAAAMAAAABAAIBAAIBAAIAAAIAAAABAAIAAAABAAICAAICAAIAAAIAAAAAAAAAAAABAAIBAAIAAAMAAAABAAIBAAMBAAECAAIAAAIAAAIAAAABAAIBAAIBAAMBAAIBAAEAAAIAAAMAAAAAAAABAAECAAICAAIAAAIAAAMAAAQAAAE05yNAAAAAL3RSTlMAB+kD7V8Q+PXicwv7I9iYhkAzJxnx01IV5cmnk2xmHfzexsK4eEw5L7Gei39aRw640awAAAHQSURBVFjD7ZfJdoJAEEWJgCiI4oDiPM8m7///LidErRO7sHrY5u7YXLr7vKqu9kTC0HPmo9n8cJbEQOzqqAdAUHeUZACQuTkGDQBoDJwkHZR0XBz9FkpafXuHP0SJ09mGeJLZ5wwlTmcbA0THPmdEK7XPGTG1zxmInn3OiJ19zkB0jSVTKExMHT0wjAwlWzC0fSPHF1gWRpIhWMYm7fYTFcQGlbemf4dFfdTGg0B/KXM8qBU/3wntbq7rSGqvJ9kla6IpueFJet8fxfem5yhykjyOgNaWF1qSGd5JMNNxpNF7SZQaVh5JzLrTCZIEJ1GyEyVyd+pClMjdaSJK5O40giSRu5PfFiVyd1pAksjdKRnrSsbVdbiHrgT7yss315fkVQPLFQrL+4FHeOXKO5YRFEKv5AiFaMlKLlBpJuVCJlC5sJfvCgztru/3NmBYccPgGTxRAzxn1XGEMUf58pXZvjoOsOCgjL08+b53mtfAM/SVsZcjKLtysQZPqIy9HPP3m/3zKItRwT0LyQo8sTr26tcO83DIUMWIJjierHLsJda/tbNBFY0BP/bKtcM8HNIWCK3aYR4OMzgxo5w5EFLOLKDExXAm9gI4E3iAO94/Ct/lKWuM2LMGbgAAAABJRU5ErkJggg==\") no-repeat 50% 50%;background-size:85%;width:24px;height:24px}.iziToast>.iziToast-body>.iziToast-icon.ico-error{background:url(\"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAMAAACdt4HsAAAAeFBMVEUAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAVyEiIAAAAJ3RSTlMA3BsB98QV8uSyWVUFz7+kcWMM2LuZioBpTUVBNcq2qaibj4d1azLZZYABAAACZElEQVRYw7WX25KCMAyGAxUoFDkpiohnV97/DXeGBtoOUprZ2dyo1K82fxKbwJJVp+KQZ7so2mX5oThVQLKwjDe9YZu4DF3ptAn6rxY0qQPOEq9fNC9ha3y77a22ba24v+9Xbe8v8x03dPOC2/NdvB6xeSreLfGJpnx0TyotKqLm2s7Jd/WO6ivXNp0tCy02R/aFz5VQ5wUPlUL5fIfj5KIlVGU0nWHm/5QtoTVMWY8mzIVu1K9O7XH2JiU/xnOOT39gnUfj+lFHddx4tFjL3/H8jjzaFCy2Rf0c/fdQyQszI8BDR973IyMSKa4krjxAiW/lkRvMP+bKK9WbYS1ASQg8dKjaUGlYPwRe/WoIkz8tiQchH5QAEMv6T0k8MD4mUyWr4E7jAWqZ+xWcMIYkXvlwggJ3IvFK+wIOcpXAo8n8P0COAaXyKH4OsjBuZB4ew0IGu+H1SebhNazsQBbWm8yj+hFuUJB5eMsN0IUXmYendAFFfJB5uEkRMYwxmcd6zDGRtmQePEykAgubymMRFmMxCSIPCRbTuFNN5OGORTjmNGc0Po0m8Uv0gcCry6xUhR2QeLii9tofbEfhz/qvNti+OfPqNm2Mq6105FUMvdT4GPmufMiV8PqBMkc+DdT1bjYYbjzU/ew23VP4n3mLAz4n8Jtv/Ui3ceTT2mzz5o1mZt0gnBpmsdjqRqVlmplcPdqa7X23kL9brdm2t/uBYDPn2+tyu48mtIGD10JTuUrukVrbCFiwDzcHrPjxKt7PW+AZQyT/WESO+1WL7f3o+WLHL2dYMSZsg6dg/z360ofvP4//v1NPzgs28WlWAAAAAElFTkSuQmCC\") no-repeat 50% 50%;background-size:80%;width:24px;height:24px}.iziToast>.iziToast-body>.iziToast-icon.ico-check{background:url(\"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABABAMAAABYR2ztAAAAIVBMVEUAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABt0UjBAAAACnRSTlMApAPhIFn82wgGv8mVtwAAAKVJREFUSMft0LEJAkEARNFFFEw1NFJb8CKjAy1AEOzAxNw+bEEEg6nyFjbY4LOzcBwX7S/gwUxoTdIn+Jbv4Lv8bx446+kB6VsBtK0B+wbMCKxrwL33wOrVeeChX28n7KTOTjgoEu6DRSYAgAAAAkAmAIAAAAIACQIkMkACAAgAIACAyECBKAOJuCagTJwSUCaUAEMAABEBRwAAEQFLbCJgO4bW+AZKGnktR+jAFAAAAABJRU5ErkJggg==\") no-repeat 50% 50%;background-size:85%;width:24px;height:24px}.iziToast>.iziToast-body>strong{margin:10px 0 -10px;color:#000}.iziToast>.iziToast-body>p,.iziToast>.iziToast-body>strong{padding:0;line-height:16px;font-size:14px;text-align:left;float:left}.iziToast>.iziToast-body>p{margin:10px 0;color:rgba(0,0,0,.6)}.iziToast.iziToast-animateInside .iziToast-buttons *,.iziToast.iziToast-animateInside .iziToast-icon,.iziToast.iziToast-animateInside p,.iziToast.iziToast-animateInside strong{opacity:0}.iziToast-target{position:relative;width:100%;margin:0 auto}.iziToast-target .iziToast-capsule{overflow:hidden}.iziToast-target .iziToast-capsule:after{visibility:hidden;display:block;font-size:0;content:\" \";clear:both;height:0}.iziToast-target .iziToast-capsule .iziToast{width:100%;float:left}.iziToast-wrapper{z-index:99999;position:fixed;width:100%;pointer-events:none;display:flex;flex-direction:column}.iziToast-wrapper .iziToast.iziToast-balloon:before{border-right:0 solid transparent;border-left:15px solid transparent;border-top:10px solid #000;border-top-color:inherit;right:8px;left:auto}.iziToast-wrapper-bottomLeft{left:0;bottom:0}.iziToast-wrapper-bottomLeft .iziToast.iziToast-balloon:before{border-right:15px solid transparent;border-left:0 solid transparent;right:auto;left:8px}.iziToast-wrapper-bottomRight{right:0;bottom:0;text-align:right}.iziToast-wrapper-topLeft{left:0;top:0}.iziToast-wrapper-topLeft .iziToast.iziToast-balloon:before{border-right:15px solid transparent;border-left:0 solid transparent;right:auto;left:8px}.iziToast-wrapper-topRight{top:0;right:0;text-align:right}.iziToast-wrapper-topCenter{top:0;left:0;right:0;text-align:center}.iziToast-wrapper-bottomCenter,.iziToast-wrapper-center{bottom:0;left:0;right:0;text-align:center}.iziToast-wrapper-center{top:0;justify-content:center;flex-flow:column;align-items:center}.iziToast-rtl{direction:rtl;padding:8px 0 9px 50px}.iziToast-rtl .iziToast-cover{left:auto;right:0}.iziToast-rtl .iziToast-close{right:auto;left:0}.iziToast-rtl .iziToast-body{padding:0 10px 0 0;margin:0 16px 0 0}.iziToast-rtl .iziToast-body strong{padding:0 0 0 10px}.iziToast-rtl .iziToast-body p,.iziToast-rtl .iziToast-body strong{float:right;text-align:right}.iziToast-rtl .iziToast-body .iziToast-icon{left:auto;right:0}@media only screen and (min-width:568px){.iziToast-wrapper{padding:10px 15px}.iziToast-cover{border-radius:3px 0 0 3px}.iziToast{margin:5px 0;border-radius:3px;width:auto}.iziToast:after{content:\"\";z-index:-1;position:absolute;top:0;left:0;width:100%;height:100%;border-radius:3px;box-shadow:inset 0 -10px 20px -10px rgba(0,0,0,.2),inset 0 0 5px rgba(0,0,0,.1),0 8px 8px -5px rgba(0,0,0,.25)}.iziToast.iziToast-color-dark:after{box-shadow:inset 0 -10px 20px -10px hsla(0,0%,100%,.3),0 10px 10px -5px rgba(0,0,0,.25)}.iziToast.iziToast-balloon .iziToast-progressbar{background:transparent}.iziToast.iziToast-balloon:after{box-shadow:0 10px 10px -5px rgba(0,0,0,.25),inset 0 10px 20px -5px rgba(0,0,0,.25)}.iziToast-target .iziToast:after{box-shadow:inset 0 -10px 20px -10px rgba(0,0,0,.2),inset 0 0 5px rgba(0,0,0,.1)}}.iziToast.iziToast-theme-dark{background:#565c70;border-color:#565c70}.iziToast.iziToast-theme-dark strong{color:#fff}.iziToast.iziToast-theme-dark p{color:hsla(0,0%,100%,.7);font-weight:300}.iziToast.iziToast-theme-dark .iziToast-close{background:url(\"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAQAAADZc7J/AAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAAmJLR0QAAKqNIzIAAAAJcEhZcwAADdcAAA3XAUIom3gAAAAHdElNRQfgCR4OIQIPSao6AAAAwElEQVRIx72VUQ6EIAwFmz2XB+AConhjzqTJ7JeGKhLYlyx/BGdoBVpjIpMJNjgIZDKTkQHYmYfwmR2AfAqGFBcO2QjXZCd24bEggvd1KBx+xlwoDpYmvnBUUy68DYXD77ESr8WDtYqvxRex7a8oHP4Wo1Mkt5I68Mc+qYqv1h5OsZmZsQ3gj/02h6cO/KEYx29hu3R+VTTwz6D3TymIP1E8RvEiiVdZfEzicxYLiljSxKIqlnW5seitTW6uYnv/Aqh4whX3mEUrAAAAJXRFWHRkYXRlOmNyZWF0ZQAyMDE2LTA5LTMwVDE0OjMzOjAyKzAyOjAwl6RMVgAAACV0RVh0ZGF0ZTptb2RpZnkAMjAxNi0wOS0zMFQxNDozMzowMiswMjowMOb59OoAAAAZdEVYdFNvZnR3YXJlAHd3dy5pbmtzY2FwZS5vcmeb7jwaAAAAAElFTkSuQmCC\") no-repeat 50% 50%;background-size:8px}.iziToast.iziToast-theme-dark .iziToast-icon{color:#fff}.iziToast.iziToast-theme-dark .iziToast-icon.ico-info{background:url(\"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAMAAACdt4HsAAAAflBMVEUAAAD////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////vroaSAAAAKXRSTlMA6PsIvDob+OapavVhWRYPrIry2MxGQ97czsOzpJaMcE0qJQOwVtKjfxCVFeIAAAI3SURBVFjDlJPZsoIwEETnCiGyb8q+qmjl/3/wFmGKwjBROS9QWbtnOqDDGPq4MdMkSc0m7gcDDhF4NRdv8NoL4EcMpzoJglPl/KTDz4WW3IdvXEvxkfIKn7BMZb1bFK4yZFqghZ03jk0nG8N5NBwzx9xU5cxAg8fXi20/hDdC316lcA8o7t16eRuQvW1XGd2d2P8QSHQDDbdIII/9CR3lUF+lbucfJy4WfMS64EJPORnrZxtfc2pjJdnbuags3l04TTtJMXrdTph4Pyg4XAjugAJqMDf5Rf+oXx2/qi4u6nipakIi7CsgiuMSEF9IGKg8heQJKkxIfFSUU/egWSwNrS1fPDtLfon8sZOcYUQml1Qv9a3kfwsEUyJEMgFBKzdV8o3Iw9yAjg1jdLQCV4qbd3no8yD2GugaC3oMbF0NYHCpJYSDhNI5N2DAWB4F4z9Aj/04Cna/x7eVAQ17vRjQZPh+G/kddYv0h49yY4NWNDWMMOMUIRYvlTECmrN8pUAjo5RCMn8KoPmbJ/+Appgnk//Sy90GYBCGgm7IAskQ7D9hFKW4ApB1ei3FSYD9PjGAKygAV+ARFYBH5BsVgG9kkBSAQWKUFYBRZpkUgGVinRWAdUZQDABBQdIcAElDVBUAUUXWHQBZx1gMAGMprM0AsLbVXHsA5trZe93/wp3svQ0YNb/jWV3AIOLsMtlznSNOH7JqjOpDVh7z8qCZR10ftvO4nxeOvPLkpSuvfXnxzKtvXr7j+v8C5ii0e71At7cAAAAASUVORK5CYII=\") no-repeat 50% 50%;background-size:85%}.iziToast.iziToast-theme-dark .iziToast-icon.ico-warning{background:url(\"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEQAAABECAMAAAAPzWOAAAAAllBMVEUAAAD////+//3+//3+//3///////z+//3+//3+//3////////////9//3////+//39//3///3////////////+//3+//39//3///z+//z+//7///3///3///3///3////////+//3+//3+//3+//z+//3+//7///3///z////////+//79//3///3///z///v+//3///+trXouAAAAMHRSTlMAB+j87RBf+PXiCwQClSPYhkAzJxnx05tSyadzcmxmHRbp5d7Gwrh4TDkvsYt/WkdQzCITAAAB1UlEQVRYw+3XaXKCQBCGYSIIighoxCVqNJrEPfly/8vFImKXduNsf/Mc4K1y7FnwlMLQc/bUbj85R6bA1LXRDICg6RjJcZa7NQYtnLUGTpERSiOXxrOPkv9s30iGKDmtbYir3H7OUHJa2ylAuvZzRvzUfs7Ii/2cgfTt54x82s8ZSM848gJmYtroQzA2jHwA+LkBIEuMGt+QIng1igzlyMrkuP2CyOi47axRaYTL5jhDJehoR+aovC29s3iIyly3Eb+hRCvZo2qsGTnhKr2cLDS+J73GsqBI9W80UCmWWpEuhIjh6ZRGjyNRarjzKGJ2Ou2himCvjHwqI+rTqQdlRH06TZQR9ek0hiqiPp06mV4ke7QPX6ERUZxO8Uo3sqrfhxvoRrCpvXwL/UjR9GRHMIvLgke4d5QbiwhM6JV2YKKF4vIl7XIBkwm4keryJVmvk/TfwcmPwQNkUQuyA2/sYGwnXL7GPu4bW1jYsmevrNj09/MGZMOEPXslQVqO8hqykD17JfPHP/bmo2yGGpdZiH3IZvzZa7B3+IdDjjpjesHJcvbs5dZ/e+cddVoDdvlq7x12Nac+iN7e4R8OXTjp0pw5CGnOLNDEzeBs5gVwFniAO+8f8wvfeXP2hyqnmwAAAABJRU5ErkJggg==\") no-repeat 50% 50%;background-size:85%}.iziToast.iziToast-theme-dark .iziToast-icon.ico-error{background:url(\"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAMAAACdt4HsAAAAeFBMVEUAAAD////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////GqOSsAAAAJ3RSTlMA3BsB98QV8uSyWVUFz6RxYwzYvbupmYqAaU1FQTXKv7abj4d1azKNUit3AAACZElEQVRYw7WXaZOCMAyGw30UORRQBLxX/v8/3BkaWjrY2szO5otKfGrzJrEp6Kw6F8f8sI+i/SE/FucKSBaWiT8p5idlaEtnXTB9tKDLLHAvdSatOan3je93k9F2vRF36+mr1a6eH2NFNydoHq/ieU/UXcWjjk9XykdNWq2ywtp4tXL6Wb2T/MqtzzZutsrNyfvA51KoQROhVCjfrnASIRpSVUZiD5v4RbWExjRdJzSmOsZFvzYz59kRSr6V5zE+/QELHkNdb3VRx45HS1b1u+zfkkcbRAZ3qJ9l/A4qefHUDMShJe+6kZKJDD2pLQ9Q4lu+5Q7rz7Plperd7AtQEgIPI6o2dxr2D4GXvxqCiKcn8cD4gxIAEt7/GYkHL16KqeJd0NB4gJbXfgVnzCGJlzGcocCVSLzUvoAj9xJ4NF7/R8gxoVQexc/hgBpSebjPjgPs59cHmYfn7NkDb6wXmUf1I1ygIPPw4gtgCE8yDw8eAop4J/PQcBExjQmZx37MsZB2ZB4cLKQCG5vKYxMWSzMxIg8pNtOyUkvkocEmXGo69mh8FgnxS4yBwMvDrJSNHZB4uC3ayz/YkcIP4lflwVIT+OU07ZSjrbTkZQ6dTPkYubZ8GC/Cqxu6WvJZII93dcCw46GdNqdpTeF/tiMOuDGB9z/NI6NvyWetGPM0g+bVNeovBmamHXWj0nCbEaGeTMN2PWrqd6cM26ZxP2DeJvj+ph/30Zi/GmRbtlK5SptI+nwGGnvH6gUruT+L16MJHF+58rwNIifTV0vM8+hwMeOXAb6Yx0wXT+b999WXfvn+8/X/F7fWzjdTord5AAAAAElFTkSuQmCC\") no-repeat 50% 50%;background-size:80%}.iziToast.iziToast-theme-dark .iziToast-icon.ico-check{background:url(\"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABABAMAAABYR2ztAAAAIVBMVEUAAAD////////////////////////////////////////PIev5AAAACnRSTlMApAPhIFn82wgGv8mVtwAAAKVJREFUSMft0LEJAkEARNFFFEw1NFJb8CKjAy1AEOzAxNw+bEEEg6nyFjbY4LOzcBwX7S/gwUxoTdIn+Jbv4Lv8bx446+kB6VsBtK0B+wbMCKxrwL33wOrVeeChX28n7KTOTjgoEu6DRSYAgAAAAkAmAIAAAAIACQIkMkACAAgAIACAyECBKAOJuCagTJwSUCaUAEMAABEBRwAAEQFLbCJgO4bW+AZKGnktR+jAFAAAAABJRU5ErkJggg==\") no-repeat 50% 50%;background-size:85%}.iziToast.iziToast-theme-dark strong{font-weight:500}.iziToast.iziToast-theme-dark .iziToast-buttons a,.iziToast.iziToast-theme-dark .iziToast-buttons button{color:#fff;background:hsla(0,0%,100%,.1)}.iziToast.iziToast-theme-dark .iziToast-buttons a:hover,.iziToast.iziToast-theme-dark .iziToast-buttons button:hover{background:hsla(0,0%,100%,.2)}.iziToast.iziToast-color-red{background:rgba(243,186,189,.9);border-color:rgba(243,186,189,.9)}.iziToast.iziToast-color-yellow{background:hsla(55,75%,81%,.9);border-color:hsla(55,75%,81%,.9)}.iziToast.iziToast-color-blue{background:rgba(181,225,249,.9);border-color:rgba(181,225,249,.9)}.iziToast.iziToast-color-green{background:rgba(180,241,196,.9);border-color:rgba(180,241,196,.9)}.iziToast.iziToast-layout2 .iziToast-body>p{width:100%}.iziToast.revealIn,.iziToast .revealIn{-webkit-animation:iziT-revealIn 1s cubic-bezier(.25,1.6,.25,1) both;-moz-animation:iziT-revealIn 1s cubic-bezier(.25,1.6,.25,1) both;animation:iziT-revealIn 1s cubic-bezier(.25,1.6,.25,1) both}.iziToast.slideIn,.iziToast .slideIn{-webkit-animation:iziT-slideIn 1s cubic-bezier(.16,.81,.32,1) both;-moz-animation:iziT-slideIn 1s cubic-bezier(.16,.81,.32,1) both;animation:iziT-slideIn 1s cubic-bezier(.16,.81,.32,1) both}.iziToast.bounceInLeft{-webkit-animation:iziT-bounceInLeft .7s ease-in-out both;animation:iziT-bounceInLeft .7s ease-in-out both}.iziToast.bounceInRight{-webkit-animation:iziT-bounceInRight .85s ease-in-out both;animation:iziT-bounceInRight .85s ease-in-out both}.iziToast.bounceInDown{-webkit-animation:iziT-bounceInDown .7s ease-in-out both;animation:iziT-bounceInDown .7s ease-in-out both}.iziToast.bounceInUp{-webkit-animation:iziT-bounceInUp .7s ease-in-out both;animation:iziT-bounceInUp .7s ease-in-out both}.iziToast.fadeIn{-webkit-animation:iziT-fadeIn .5s ease both;animation:iziT-fadeIn .5s ease both}.iziToast.fadeInUp{-webkit-animation:iziT-fadeInUp .7s ease both;animation:iziT-fadeInUp .7s ease both}.iziToast.fadeInDown{-webkit-animation:iziT-fadeInDown .7s ease both;animation:iziT-fadeInDown .7s ease both}.iziToast.fadeInLeft{-webkit-animation:iziT-fadeInLeft .85s cubic-bezier(.25,.8,.25,1) both;animation:iziT-fadeInLeft .85s cubic-bezier(.25,.8,.25,1) both}.iziToast.fadeInRight{-webkit-animation:iziT-fadeInRight .85s cubic-bezier(.25,.8,.25,1) both;animation:iziT-fadeInRight .85s cubic-bezier(.25,.8,.25,1) both}.iziToast.flipInX{-webkit-animation:iziT-flipInX .85s cubic-bezier(.35,0,.25,1) both;animation:iziT-flipInX .85s cubic-bezier(.35,0,.25,1) both}.iziToast.fadeOut{-webkit-animation:iziT-fadeOut .7s ease both;animation:iziT-fadeOut .7s ease both}.iziToast.fadeOutDown{-webkit-animation:iziT-fadeOutDown .7s cubic-bezier(.4,.45,.15,.91) both;animation:iziT-fadeOutDown .7s cubic-bezier(.4,.45,.15,.91) both}.iziToast.fadeOutUp{-webkit-animation:iziT-fadeOutUp .7s cubic-bezier(.4,.45,.15,.91) both;animation:iziT-fadeOutUp .7s cubic-bezier(.4,.45,.15,.91) both}.iziToast.fadeOutLeft{-webkit-animation:iziT-fadeOutLeft .5s ease both;animation:iziT-fadeOutLeft .5s ease both}.iziToast.fadeOutRight{-webkit-animation:iziT-fadeOutRight .5s ease both;animation:iziT-fadeOutRight .5s ease both}.iziToast.flipOutX{-webkit-backface-visibility:visible!important;backface-visibility:visible!important;-webkit-animation:iziT-flipOutX .7s cubic-bezier(.4,.45,.15,.91) both;animation:iziT-flipOutX .7s cubic-bezier(.4,.45,.15,.91) both}@-moz-keyframes iziT-revealIn{0%{opacity:0;transform:scale3d(.3,.3,1)}to{opacity:1}}@-webkit-keyframes iziT-revealIn{0%{opacity:0;transform:scale3d(.3,.3,1)}to{opacity:1}}@-o-keyframes iziT-revealIn{0%{opacity:0;transform:scale3d(.3,.3,1)}to{opacity:1}}@keyframes iziT-revealIn{0%{opacity:0;transform:scale3d(.3,.3,1)}to{opacity:1}}@-moz-keyframes iziT-slideIn{0%{opacity:0;transform:translateX(50px)}to{opacity:1;transform:translateX(0)}}@-webkit-keyframes iziT-slideIn{0%{opacity:0;transform:translateX(50px)}to{opacity:1;transform:translateX(0)}}@-o-keyframes iziT-slideIn{0%{opacity:0;transform:translateX(50px)}to{opacity:1;transform:translateX(0)}}@keyframes iziT-slideIn{0%{opacity:0;transform:translateX(50px)}to{opacity:1;transform:translateX(0)}}@-moz-keyframes iziT-bounceInLeft{0%{opacity:0;transform:translateX(280px)}50%{opacity:1;transform:translateX(-20px)}70%{transform:translateX(10px)}to{transform:translateX(0)}}@-webkit-keyframes iziT-bounceInLeft{0%{opacity:0;transform:translateX(280px)}50%{opacity:1;transform:translateX(-20px)}70%{transform:translateX(10px)}to{transform:translateX(0)}}@-o-keyframes iziT-bounceInLeft{0%{opacity:0;transform:translateX(280px)}50%{opacity:1;transform:translateX(-20px)}70%{transform:translateX(10px)}to{transform:translateX(0)}}@keyframes iziT-bounceInLeft{0%{opacity:0;transform:translateX(280px)}50%{opacity:1;transform:translateX(-20px)}70%{transform:translateX(10px)}to{transform:translateX(0)}}@-moz-keyframes iziT-bounceInRight{0%{opacity:0;transform:translateX(-280px)}50%{opacity:1;transform:translateX(20px)}70%{transform:translateX(-10px)}to{transform:translateX(0)}}@-webkit-keyframes iziT-bounceInRight{0%{opacity:0;transform:translateX(-280px)}50%{opacity:1;transform:translateX(20px)}70%{transform:translateX(-10px)}to{transform:translateX(0)}}@-o-keyframes iziT-bounceInRight{0%{opacity:0;transform:translateX(-280px)}50%{opacity:1;transform:translateX(20px)}70%{transform:translateX(-10px)}to{transform:translateX(0)}}@keyframes iziT-bounceInRight{0%{opacity:0;transform:translateX(-280px)}50%{opacity:1;transform:translateX(20px)}70%{transform:translateX(-10px)}to{transform:translateX(0)}}@-moz-keyframes iziT-bounceInDown{0%{opacity:0;transform:translateY(-200px)}50%{opacity:1;transform:translateY(10px)}70%{transform:translateY(-5px)}to{transform:translateY(0)}}@-webkit-keyframes iziT-bounceInDown{0%{opacity:0;transform:translateY(-200px)}50%{opacity:1;transform:translateY(10px)}70%{transform:translateY(-5px)}to{transform:translateY(0)}}@-o-keyframes iziT-bounceInDown{0%{opacity:0;transform:translateY(-200px)}50%{opacity:1;transform:translateY(10px)}70%{transform:translateY(-5px)}to{transform:translateY(0)}}@keyframes iziT-bounceInDown{0%{opacity:0;transform:translateY(-200px)}50%{opacity:1;transform:translateY(10px)}70%{transform:translateY(-5px)}to{transform:translateY(0)}}@-moz-keyframes iziT-bounceInUp{0%{opacity:0;transform:translateY(200px)}50%{opacity:1;transform:translateY(-10px)}70%{transform:translateY(5px)}to{transform:translateY(0)}}@-webkit-keyframes iziT-bounceInUp{0%{opacity:0;transform:translateY(200px)}50%{opacity:1;transform:translateY(-10px)}70%{transform:translateY(5px)}to{transform:translateY(0)}}@-o-keyframes iziT-bounceInUp{0%{opacity:0;transform:translateY(200px)}50%{opacity:1;transform:translateY(-10px)}70%{transform:translateY(5px)}to{transform:translateY(0)}}@keyframes iziT-bounceInUp{0%{opacity:0;transform:translateY(200px)}50%{opacity:1;transform:translateY(-10px)}70%{transform:translateY(5px)}to{transform:translateY(0)}}@-moz-keyframes iziT-fadeIn{0%{opacity:0}to{opacity:1}}@-webkit-keyframes iziT-fadeIn{0%{opacity:0}to{opacity:1}}@-o-keyframes iziT-fadeIn{0%{opacity:0}to{opacity:1}}@keyframes iziT-fadeIn{0%{opacity:0}to{opacity:1}}@-moz-keyframes iziT-fadeInUp{0%{opacity:0;-webkit-transform:translate3d(0,100%,0);transform:translate3d(0,100%,0)}to{opacity:1;-webkit-transform:none;transform:none}}@-webkit-keyframes iziT-fadeInUp{0%{opacity:0;-webkit-transform:translate3d(0,100%,0);transform:translate3d(0,100%,0)}to{opacity:1;-webkit-transform:none;transform:none}}@-o-keyframes iziT-fadeInUp{0%{opacity:0;-webkit-transform:translate3d(0,100%,0);transform:translate3d(0,100%,0)}to{opacity:1;-webkit-transform:none;transform:none}}@keyframes iziT-fadeInUp{0%{opacity:0;-webkit-transform:translate3d(0,100%,0);transform:translate3d(0,100%,0)}to{opacity:1;-webkit-transform:none;transform:none}}@-moz-keyframes iziT-fadeInDown{0%{opacity:0;-webkit-transform:translate3d(0,-100%,0);transform:translate3d(0,-100%,0)}to{opacity:1;-webkit-transform:none;transform:none}}@-webkit-keyframes iziT-fadeInDown{0%{opacity:0;-webkit-transform:translate3d(0,-100%,0);transform:translate3d(0,-100%,0)}to{opacity:1;-webkit-transform:none;transform:none}}@-o-keyframes iziT-fadeInDown{0%{opacity:0;-webkit-transform:translate3d(0,-100%,0);transform:translate3d(0,-100%,0)}to{opacity:1;-webkit-transform:none;transform:none}}@keyframes iziT-fadeInDown{0%{opacity:0;-webkit-transform:translate3d(0,-100%,0);transform:translate3d(0,-100%,0)}to{opacity:1;-webkit-transform:none;transform:none}}@-moz-keyframes iziT-fadeInLeft{0%{opacity:0;-webkit-transform:translate3d(300px,0,0);transform:translate3d(300px,0,0)}to{opacity:1;-webkit-transform:none;transform:none}}@-webkit-keyframes iziT-fadeInLeft{0%{opacity:0;-webkit-transform:translate3d(300px,0,0);transform:translate3d(300px,0,0)}to{opacity:1;-webkit-transform:none;transform:none}}@-o-keyframes iziT-fadeInLeft{0%{opacity:0;-webkit-transform:translate3d(300px,0,0);transform:translate3d(300px,0,0)}to{opacity:1;-webkit-transform:none;transform:none}}@keyframes iziT-fadeInLeft{0%{opacity:0;-webkit-transform:translate3d(300px,0,0);transform:translate3d(300px,0,0)}to{opacity:1;-webkit-transform:none;transform:none}}@-moz-keyframes iziT-fadeInRight{0%{opacity:0;-webkit-transform:translate3d(-300px,0,0);transform:translate3d(-300px,0,0)}to{opacity:1;-webkit-transform:none;transform:none}}@-webkit-keyframes iziT-fadeInRight{0%{opacity:0;-webkit-transform:translate3d(-300px,0,0);transform:translate3d(-300px,0,0)}to{opacity:1;-webkit-transform:none;transform:none}}@-o-keyframes iziT-fadeInRight{0%{opacity:0;-webkit-transform:translate3d(-300px,0,0);transform:translate3d(-300px,0,0)}to{opacity:1;-webkit-transform:none;transform:none}}@keyframes iziT-fadeInRight{0%{opacity:0;-webkit-transform:translate3d(-300px,0,0);transform:translate3d(-300px,0,0)}to{opacity:1;-webkit-transform:none;transform:none}}@-moz-keyframes iziT-flipInX{0%{-webkit-transform:perspective(400px) rotateX(90deg);transform:perspective(400px) rotateX(90deg);opacity:0}40%{-webkit-transform:perspective(400px) rotateX(-20deg);transform:perspective(400px) rotateX(-20deg)}60%{-webkit-transform:perspective(400px) rotateX(10deg);transform:perspective(400px) rotateX(10deg);opacity:1}80%{-webkit-transform:perspective(400px) rotateX(-5deg);transform:perspective(400px) rotateX(-5deg)}to{-webkit-transform:perspective(400px);transform:perspective(400px)}}@-webkit-keyframes iziT-flipInX{0%{-webkit-transform:perspective(400px) rotateX(90deg);transform:perspective(400px) rotateX(90deg);opacity:0}40%{-webkit-transform:perspective(400px) rotateX(-20deg);transform:perspective(400px) rotateX(-20deg)}60%{-webkit-transform:perspective(400px) rotateX(10deg);transform:perspective(400px) rotateX(10deg);opacity:1}80%{-webkit-transform:perspective(400px) rotateX(-5deg);transform:perspective(400px) rotateX(-5deg)}to{-webkit-transform:perspective(400px);transform:perspective(400px)}}@-o-keyframes iziT-flipInX{0%{-webkit-transform:perspective(400px) rotateX(90deg);transform:perspective(400px) rotateX(90deg);opacity:0}40%{-webkit-transform:perspective(400px) rotateX(-20deg);transform:perspective(400px) rotateX(-20deg)}60%{-webkit-transform:perspective(400px) rotateX(10deg);transform:perspective(400px) rotateX(10deg);opacity:1}80%{-webkit-transform:perspective(400px) rotateX(-5deg);transform:perspective(400px) rotateX(-5deg)}to{-webkit-transform:perspective(400px);transform:perspective(400px)}}@keyframes iziT-flipInX{0%{-webkit-transform:perspective(400px) rotateX(90deg);transform:perspective(400px) rotateX(90deg);opacity:0}40%{-webkit-transform:perspective(400px) rotateX(-20deg);transform:perspective(400px) rotateX(-20deg)}60%{-webkit-transform:perspective(400px) rotateX(10deg);transform:perspective(400px) rotateX(10deg);opacity:1}80%{-webkit-transform:perspective(400px) rotateX(-5deg);transform:perspective(400px) rotateX(-5deg)}to{-webkit-transform:perspective(400px);transform:perspective(400px)}}@-moz-keyframes iziT-fadeOut{0%{opacity:1}to{opacity:0}}@-webkit-keyframes iziT-fadeOut{0%{opacity:1}to{opacity:0}}@-o-keyframes iziT-fadeOut{0%{opacity:1}to{opacity:0}}@keyframes iziT-fadeOut{0%{opacity:1}to{opacity:0}}@-moz-keyframes iziT-fadeOutDown{0%{opacity:1}to{opacity:0;-webkit-transform:translate3d(0,100%,0);transform:translate3d(0,100%,0)}}@-webkit-keyframes iziT-fadeOutDown{0%{opacity:1}to{opacity:0;-webkit-transform:translate3d(0,100%,0);transform:translate3d(0,100%,0)}}@-o-keyframes iziT-fadeOutDown{0%{opacity:1}to{opacity:0;-webkit-transform:translate3d(0,100%,0);transform:translate3d(0,100%,0)}}@keyframes iziT-fadeOutDown{0%{opacity:1}to{opacity:0;-webkit-transform:translate3d(0,100%,0);transform:translate3d(0,100%,0)}}@-moz-keyframes iziT-fadeOutUp{0%{opacity:1}to{opacity:0;-webkit-transform:translate3d(0,-100%,0);transform:translate3d(0,-100%,0)}}@-webkit-keyframes iziT-fadeOutUp{0%{opacity:1}to{opacity:0;-webkit-transform:translate3d(0,-100%,0);transform:translate3d(0,-100%,0)}}@-o-keyframes iziT-fadeOutUp{0%{opacity:1}to{opacity:0;-webkit-transform:translate3d(0,-100%,0);transform:translate3d(0,-100%,0)}}@keyframes iziT-fadeOutUp{0%{opacity:1}to{opacity:0;-webkit-transform:translate3d(0,-100%,0);transform:translate3d(0,-100%,0)}}@-moz-keyframes iziT-fadeOutLeft{0%{opacity:1}to{opacity:0;-webkit-transform:translate3d(-200px,0,0);transform:translate3d(-200px,0,0)}}@-webkit-keyframes iziT-fadeOutLeft{0%{opacity:1}to{opacity:0;-webkit-transform:translate3d(-200px,0,0);transform:translate3d(-200px,0,0)}}@-o-keyframes iziT-fadeOutLeft{0%{opacity:1}to{opacity:0;-webkit-transform:translate3d(-200px,0,0);transform:translate3d(-200px,0,0)}}@keyframes iziT-fadeOutLeft{0%{opacity:1}to{opacity:0;-webkit-transform:translate3d(-200px,0,0);transform:translate3d(-200px,0,0)}}@-moz-keyframes iziT-fadeOutRight{0%{opacity:1}to{opacity:0;-webkit-transform:translate3d(200px,0,0);transform:translate3d(200px,0,0)}}@-webkit-keyframes iziT-fadeOutRight{0%{opacity:1}to{opacity:0;-webkit-transform:translate3d(200px,0,0);transform:translate3d(200px,0,0)}}@-o-keyframes iziT-fadeOutRight{0%{opacity:1}to{opacity:0;-webkit-transform:translate3d(200px,0,0);transform:translate3d(200px,0,0)}}@keyframes iziT-fadeOutRight{0%{opacity:1}to{opacity:0;-webkit-transform:translate3d(200px,0,0);transform:translate3d(200px,0,0)}}@-moz-keyframes iziT-flipOutX{0%{-webkit-transform:perspective(400px);transform:perspective(400px)}30%{-webkit-transform:perspective(400px) rotateX(-20deg);transform:perspective(400px) rotateX(-20deg);opacity:1}to{-webkit-transform:perspective(400px) rotateX(90deg);transform:perspective(400px) rotateX(90deg);opacity:0}}@-webkit-keyframes iziT-flipOutX{0%{-webkit-transform:perspective(400px);transform:perspective(400px)}30%{-webkit-transform:perspective(400px) rotateX(-20deg);transform:perspective(400px) rotateX(-20deg);opacity:1}to{-webkit-transform:perspective(400px) rotateX(90deg);transform:perspective(400px) rotateX(90deg);opacity:0}}@-o-keyframes iziT-flipOutX{0%{-webkit-transform:perspective(400px);transform:perspective(400px)}30%{-webkit-transform:perspective(400px) rotateX(-20deg);transform:perspective(400px) rotateX(-20deg);opacity:1}to{-webkit-transform:perspective(400px) rotateX(90deg);transform:perspective(400px) rotateX(90deg);opacity:0}}@keyframes iziT-flipOutX{0%{-webkit-transform:perspective(400px);transform:perspective(400px)}30%{-webkit-transform:perspective(400px) rotateX(-20deg);transform:perspective(400px) rotateX(-20deg);opacity:1}to{-webkit-transform:perspective(400px) rotateX(90deg);transform:perspective(400px) rotateX(90deg);opacity:0}}", ""]);
-
-// exports
-
-
-/***/ }),
-/* 27 */
-/***/ (function(module, exports) {
-
-/*
-	MIT License http://www.opensource.org/licenses/mit-license.php
-	Author Tobias Koppers @sokra
-*/
-// css base code, injected by the css-loader
-module.exports = function(useSourceMap) {
-	var list = [];
-
-	// return the list of modules as css string
-	list.toString = function toString() {
-		return this.map(function (item) {
-			var content = cssWithMappingToString(item, useSourceMap);
-			if(item[2]) {
-				return "@media " + item[2] + "{" + content + "}";
-			} else {
-				return content;
-			}
-		}).join("");
-	};
-
-	// import a list of modules into the list
-	list.i = function(modules, mediaQuery) {
-		var this$1 = this;
-
-		if(typeof modules === "string")
-			{ modules = [[null, modules, ""]]; }
-		var alreadyImportedModules = {};
-		for(var i = 0; i < this.length; i++) {
-			var id = this$1[i][0];
-			if(typeof id === "number")
-				{ alreadyImportedModules[id] = true; }
-		}
-		for(i = 0; i < modules.length; i++) {
-			var item = modules[i];
-			// skip already imported module
-			// this implementation is not 100% perfect for weird media query combinations
-			//  when a module is imported multiple times with different media queries.
-			//  I hope this will never occur (Hey this way we have smaller bundles)
-			if(typeof item[0] !== "number" || !alreadyImportedModules[item[0]]) {
-				if(mediaQuery && !item[2]) {
-					item[2] = mediaQuery;
-				} else if(mediaQuery) {
-					item[2] = "(" + item[2] + ") and (" + mediaQuery + ")";
-				}
-				list.push(item);
-			}
-		}
-	};
-	return list;
-};
-
-function cssWithMappingToString(item, useSourceMap) {
-	var content = item[1] || '';
-	var cssMapping = item[3];
-	if (!cssMapping) {
-		return content;
-	}
-
-	if (useSourceMap && typeof btoa === 'function') {
-		var sourceMapping = toComment(cssMapping);
-		var sourceURLs = cssMapping.sources.map(function (source) {
-			return '/*# sourceURL=' + cssMapping.sourceRoot + source + ' */'
-		});
-
-		return [content].concat(sourceURLs).concat([sourceMapping]).join('\n');
-	}
-
-	return [content].join('\n');
-}
-
-// Adapted from convert-source-map (MIT)
-function toComment(sourceMap) {
-	// eslint-disable-next-line no-undef
-	var base64 = btoa(unescape(encodeURIComponent(JSON.stringify(sourceMap))));
-	var data = 'sourceMappingURL=data:application/json;charset=utf-8;base64,' + base64;
-
-	return '/*# ' + data + ' */';
-}
-
-
-/***/ }),
-/* 28 */
-/***/ (function(module, exports, __webpack_require__) {
-
-/*
-	MIT License http://www.opensource.org/licenses/mit-license.php
-	Author Tobias Koppers @sokra
-*/
-
-var stylesInDom = {};
-
-var	memoize = function (fn) {
-	var memo;
-
-	return function () {
-		if (typeof memo === "undefined") memo = fn.apply(this, arguments);
-		return memo;
-	};
-};
-
-var isOldIE = memoize(function () {
-	// Test for IE <= 9 as proposed by Browserhacks
-	// @see http://browserhacks.com/#hack-e71d8692f65334173fee715c222cb805
-	// Tests for existence of standard globals is to allow style-loader
-	// to operate correctly into non-standard environments
-	// @see https://github.com/webpack-contrib/style-loader/issues/177
-	return window && document && document.all && !window.atob;
-});
-
-var getElement = (function (fn) {
-	var memo = {};
-
-	return function(selector) {
-		if (typeof memo[selector] === "undefined") {
-			memo[selector] = fn.call(this, selector);
-		}
-
-		return memo[selector]
-	};
-})(function (target) {
-	return document.querySelector(target)
-});
-
-var singleton = null;
-var	singletonCounter = 0;
-var	stylesInsertedAtTop = [];
-
-var	fixUrls = __webpack_require__(29);
-
-module.exports = function(list, options) {
-	if (typeof DEBUG !== "undefined" && DEBUG) {
-		if (typeof document !== "object") throw new Error("The style-loader cannot be used in a non-browser environment");
-	}
-
-	options = options || {};
-
-	options.attrs = typeof options.attrs === "object" ? options.attrs : {};
-
-	// Force single-tag solution on IE6-9, which has a hard limit on the # of <style>
-	// tags it will allow on a page
-	if (!options.singleton) options.singleton = isOldIE();
-
-	// By default, add <style> tags to the <head> element
-	if (!options.insertInto) options.insertInto = "head";
-
-	// By default, add <style> tags to the bottom of the target
-	if (!options.insertAt) options.insertAt = "bottom";
-
-	var styles = listToStyles(list, options);
-
-	addStylesToDom(styles, options);
-
-	return function update (newList) {
-		var mayRemove = [];
-
-		for (var i = 0; i < styles.length; i++) {
-			var item = styles[i];
-			var domStyle = stylesInDom[item.id];
-
-			domStyle.refs--;
-			mayRemove.push(domStyle);
-		}
-
-		if(newList) {
-			var newStyles = listToStyles(newList, options);
-			addStylesToDom(newStyles, options);
-		}
-
-		for (var i = 0; i < mayRemove.length; i++) {
-			var domStyle = mayRemove[i];
-
-			if(domStyle.refs === 0) {
-				for (var j = 0; j < domStyle.parts.length; j++) domStyle.parts[j]();
-
-				delete stylesInDom[domStyle.id];
-			}
-		}
-	};
-};
-
-function addStylesToDom (styles, options) {
-	for (var i = 0; i < styles.length; i++) {
-		var item = styles[i];
-		var domStyle = stylesInDom[item.id];
-
-		if(domStyle) {
-			domStyle.refs++;
-
-			for(var j = 0; j < domStyle.parts.length; j++) {
-				domStyle.parts[j](item.parts[j]);
-			}
-
-			for(; j < item.parts.length; j++) {
-				domStyle.parts.push(addStyle(item.parts[j], options));
-			}
-		} else {
-			var parts = [];
-
-			for(var j = 0; j < item.parts.length; j++) {
-				parts.push(addStyle(item.parts[j], options));
-			}
-
-			stylesInDom[item.id] = {id: item.id, refs: 1, parts: parts};
-		}
-	}
-}
-
-function listToStyles (list, options) {
-	var styles = [];
-	var newStyles = {};
-
-	for (var i = 0; i < list.length; i++) {
-		var item = list[i];
-		var id = options.base ? item[0] + options.base : item[0];
-		var css = item[1];
-		var media = item[2];
-		var sourceMap = item[3];
-		var part = {css: css, media: media, sourceMap: sourceMap};
-
-		if(!newStyles[id]) styles.push(newStyles[id] = {id: id, parts: [part]});
-		else newStyles[id].parts.push(part);
-	}
-
-	return styles;
-}
-
-function insertStyleElement (options, style) {
-	var target = getElement(options.insertInto)
-
-	if (!target) {
-		throw new Error("Couldn't find a style target. This probably means that the value for the 'insertInto' parameter is invalid.");
-	}
-
-	var lastStyleElementInsertedAtTop = stylesInsertedAtTop[stylesInsertedAtTop.length - 1];
-
-	if (options.insertAt === "top") {
-		if (!lastStyleElementInsertedAtTop) {
-			target.insertBefore(style, target.firstChild);
-		} else if (lastStyleElementInsertedAtTop.nextSibling) {
-			target.insertBefore(style, lastStyleElementInsertedAtTop.nextSibling);
-		} else {
-			target.appendChild(style);
-		}
-		stylesInsertedAtTop.push(style);
-	} else if (options.insertAt === "bottom") {
-		target.appendChild(style);
-	} else {
-		throw new Error("Invalid value for parameter 'insertAt'. Must be 'top' or 'bottom'.");
-	}
-}
-
-function removeStyleElement (style) {
-	if (style.parentNode === null) return false;
-	style.parentNode.removeChild(style);
-
-	var idx = stylesInsertedAtTop.indexOf(style);
-	if(idx >= 0) {
-		stylesInsertedAtTop.splice(idx, 1);
-	}
-}
-
-function createStyleElement (options) {
-	var style = document.createElement("style");
-
-	options.attrs.type = "text/css";
-
-	addAttrs(style, options.attrs);
-	insertStyleElement(options, style);
-
-	return style;
-}
-
-function createLinkElement (options) {
-	var link = document.createElement("link");
-
-	options.attrs.type = "text/css";
-	options.attrs.rel = "stylesheet";
-
-	addAttrs(link, options.attrs);
-	insertStyleElement(options, link);
-
-	return link;
-}
-
-function addAttrs (el, attrs) {
-	Object.keys(attrs).forEach(function (key) {
-		el.setAttribute(key, attrs[key]);
-	});
-}
-
-function addStyle (obj, options) {
-	var style, update, remove, result;
-
-	// If a transform function was defined, run it on the css
-	if (options.transform && obj.css) {
-	    result = options.transform(obj.css);
-
-	    if (result) {
-	    	// If transform returns a value, use that instead of the original css.
-	    	// This allows running runtime transformations on the css.
-	    	obj.css = result;
-	    } else {
-	    	// If the transform function returns a falsy value, don't add this css.
-	    	// This allows conditional loading of css
-	    	return function() {
-	    		// noop
-	    	};
-	    }
-	}
-
-	if (options.singleton) {
-		var styleIndex = singletonCounter++;
-
-		style = singleton || (singleton = createStyleElement(options));
-
-		update = applyToSingletonTag.bind(null, style, styleIndex, false);
-		remove = applyToSingletonTag.bind(null, style, styleIndex, true);
-
-	} else if (
-		obj.sourceMap &&
-		typeof URL === "function" &&
-		typeof URL.createObjectURL === "function" &&
-		typeof URL.revokeObjectURL === "function" &&
-		typeof Blob === "function" &&
-		typeof btoa === "function"
-	) {
-		style = createLinkElement(options);
-		update = updateLink.bind(null, style, options);
-		remove = function () {
-			removeStyleElement(style);
-
-			if(style.href) URL.revokeObjectURL(style.href);
-		};
-	} else {
-		style = createStyleElement(options);
-		update = applyToTag.bind(null, style);
-		remove = function () {
-			removeStyleElement(style);
-		};
-	}
-
-	update(obj);
-
-	return function updateStyle (newObj) {
-		if (newObj) {
-			if (
-				newObj.css === obj.css &&
-				newObj.media === obj.media &&
-				newObj.sourceMap === obj.sourceMap
-			) {
-				return;
-			}
-
-			update(obj = newObj);
-		} else {
-			remove();
-		}
-	};
-}
-
-var replaceText = (function () {
-	var textStore = [];
-
-	return function (index, replacement) {
-		textStore[index] = replacement;
-
-		return textStore.filter(Boolean).join('\n');
-	};
-})();
-
-function applyToSingletonTag (style, index, remove, obj) {
-	var css = remove ? "" : obj.css;
-
-	if (style.styleSheet) {
-		style.styleSheet.cssText = replaceText(index, css);
-	} else {
-		var cssNode = document.createTextNode(css);
-		var childNodes = style.childNodes;
-
-		if (childNodes[index]) style.removeChild(childNodes[index]);
-
-		if (childNodes.length) {
-			style.insertBefore(cssNode, childNodes[index]);
-		} else {
-			style.appendChild(cssNode);
-		}
-	}
-}
-
-function applyToTag (style, obj) {
-	var css = obj.css;
-	var media = obj.media;
-
-	if(media) {
-		style.setAttribute("media", media)
-	}
-
-	if(style.styleSheet) {
-		style.styleSheet.cssText = css;
-	} else {
-		while(style.firstChild) {
-			style.removeChild(style.firstChild);
-		}
-
-		style.appendChild(document.createTextNode(css));
-	}
-}
-
-function updateLink (link, options, obj) {
-	var css = obj.css;
-	var sourceMap = obj.sourceMap;
-
-	/*
-		If convertToAbsoluteUrls isn't defined, but sourcemaps are enabled
-		and there is no publicPath defined then lets turn convertToAbsoluteUrls
-		on by default.  Otherwise default to the convertToAbsoluteUrls option
-		directly
-	*/
-	var autoFixUrls = options.convertToAbsoluteUrls === undefined && sourceMap;
-
-	if (options.convertToAbsoluteUrls || autoFixUrls) {
-		css = fixUrls(css);
-	}
-
-	if (sourceMap) {
-		// http://stackoverflow.com/a/26603875
-		css += "\n/*# sourceMappingURL=data:application/json;base64," + btoa(unescape(encodeURIComponent(JSON.stringify(sourceMap)))) + " */";
-	}
-
-	var blob = new Blob([css], { type: "text/css" });
-
-	var oldSrc = link.href;
-
-	link.href = URL.createObjectURL(blob);
-
-	if(oldSrc) URL.revokeObjectURL(oldSrc);
-}
-
-
-/***/ }),
-/* 29 */
-/***/ (function(module, exports) {
-
-
-/**
- * When source maps are enabled, `style-loader` uses a link element with a data-uri to
- * embed the css on the page. This breaks all relative urls because now they are relative to a
- * bundle instead of the current page.
- *
- * One solution is to only use full urls, but that may be impossible.
- *
- * Instead, this function "fixes" the relative urls to be absolute according to the current page location.
- *
- * A rudimentary test suite is located at `test/fixUrls.js` and can be run via the `npm test` command.
- *
- */
-
-module.exports = function (css) {
-  // get current location
-  var location = typeof window !== "undefined" && window.location;
-
-  if (!location) {
-    throw new Error("fixUrls requires window.location");
-  }
-
-	// blank or null?
-	if (!css || typeof css !== "string") {
-	  return css;
-  }
-
-  var baseUrl = location.protocol + "//" + location.host;
-  var currentDir = baseUrl + location.pathname.replace(/\/[^\/]*$/, "/");
-
-	// convert each url(...)
-	/*
-	This regular expression is just a way to recursively match brackets within
-	a string.
-
-	 /url\s*\(  = Match on the word "url" with any whitespace after it and then a parens
-	   (  = Start a capturing group
-	     (?:  = Start a non-capturing group
-	         [^)(]  = Match anything that isn't a parentheses
-	         |  = OR
-	         \(  = Match a start parentheses
-	             (?:  = Start another non-capturing groups
-	                 [^)(]+  = Match anything that isn't a parentheses
-	                 |  = OR
-	                 \(  = Match a start parentheses
-	                     [^)(]*  = Match anything that isn't a parentheses
-	                 \)  = Match a end parentheses
-	             )  = End Group
-              *\) = Match anything and then a close parens
-          )  = Close non-capturing group
-          *  = Match anything
-       )  = Close capturing group
-	 \)  = Match a close parens
-
-	 /gi  = Get all matches, not the first.  Be case insensitive.
-	 */
-	var fixedCss = css.replace(/url\s*\(((?:[^)(]|\((?:[^)(]+|\([^)(]*\))*\))*)\)/gi, function(fullMatch, origUrl) {
-		// strip quotes (if they exist)
-		var unquotedOrigUrl = origUrl
-			.trim()
-			.replace(/^"(.*)"$/, function(o, $1){ return $1; })
-			.replace(/^'(.*)'$/, function(o, $1){ return $1; });
-
-		// already a full url? no change
-		if (/^(#|data:|http:\/\/|https:\/\/|file:\/\/\/)/i.test(unquotedOrigUrl)) {
-		  return fullMatch;
-		}
-
-		// convert the url to a full url
-		var newUrl;
-
-		if (unquotedOrigUrl.indexOf("//") === 0) {
-		  	//TODO: should we add protocol?
-			newUrl = unquotedOrigUrl;
-		} else if (unquotedOrigUrl.indexOf("/") === 0) {
-			// path should be relative to the base url
-			newUrl = baseUrl + unquotedOrigUrl; // already starts with '/'
-		} else {
-			// path should be relative to current directory
-			newUrl = currentDir + unquotedOrigUrl.replace(/^\.\//, ""); // Strip leading './'
-		}
-
-		// send back the fixed url(...)
-		return "url(" + JSON.stringify(newUrl) + ")";
-	});
-
-	// send back the fixed css
-	return fixedCss;
-};
-
-
-/***/ }),
-/* 30 */
-/***/ (function(module, exports) {
-
-module.exports = "<section sticky-nav>\n\t<div class=\"container\">\n\t\t<div class=\"container-left-3\">\n\t\t\t<p>\n\t\t\t\t<a href=\"/protokolle/\" class=\"bold\"><i class=\"fa fa-arrow-left\"></i> zurück zur Suche</a>\n\t\t\t</p>\n\t\t</div>\n\t\t<div class=\"container-left-5\">\n\t\t\t<p>\n\t\t\t\tSitzungsnummer: {{$ctrl.session}}\n\t\t\t</p>\n\t\t\t<p>\n\t\t\t\tDatum: {{$ctrl.date}}\n\t\t\t</p>\n\t\t\t<p ng-repeat=\"top in $ctrl.tops\">\n\t\t\t\t<span href=\"#{{top.link}}\" du-smooth-scroll=\"\" du-scrollspy=\"\" offset=\"30\" class=\"spy\">{{top.title}}</span>\n\t\t\t</p>\n\t\t</div>\n\t\t<div class=\"container-left-3\">\n\t\t\t<div class=\"\">\n\t\t\t\t<span>springe zu TOP: </span>\n\t\t\t\t<ui-select ng-model=\"$ctrl.selectedTop\" theme=\"selectize\" style=\"width: 300px;\" title=\"Wähle ein TOP\"\n\t\t\t\t\t\t   on-select=\"$ctrl.selectTop($item.link)\">\n\t\t\t\t\t<ui-select-match placeholder=\"Wähle ein TOP aus\">{{$select.selected.title}}</ui-select-match>\n\t\t\t\t\t<ui-select-choices repeat=\"item in $ctrl.tops | filter: $select.search\">\n\t\t\t\t\t\t<span ng-bind-html=\"item.title | highlight: $select.search\"></span>\n\t\t\t\t\t</ui-select-choices>\n\t\t\t\t</ui-select>\n\t\t\t</div>\n\t\t\t<div class=\"\">\n\t\t\t\t<span>springe zu Suchergebnis: </span>\n\t\t\t\t<ui-select ng-model=\"$ctrl.selectedResult\" theme=\"selectize\" style=\"width: 300px;\" title=\"Wähle ein TOP\">\n\t\t\t\t\t<ui-select-match placeholder=\"Wähle ein TOP aus\">{{$select.selected.title}}</ui-select-match>\n\t\t\t\t\t<ui-select-choices repeat=\"item in [1,2,3,4,5] | filter: $select.search\">\n\t\t\t\t\t\t<span ng-bind-html=\"item | highlight: $select.search\"></span>\n\t\t\t\t\t</ui-select-choices>\n\t\t\t\t</ui-select>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n</section>\n\n<div class=\"container poicontainer\" in-view-container >\n\t<div class=\"container-left-12\">\n\t\t<div class=\"main\" ng-if=\"$ctrl.utterances.length\" >\n\t\t\t<h1 inview=\"$crl.updateTop()\"> {{ $ctrl.utterances[0].wahlperiode }}. Wahlperiode - Sitzung {{ $ctrl.utterances[0].sitzung }}</h1>\n\n\t\t\t<top ng-repeat-start=\"utterance in $ctrl.utterances\"\n\t\t\t\t ng-if=\"utterance.type === 'top'\" title=\"utterance.title\" categories=\"utterance.categories\" in-view=\"$ctrl.updateTop()\"></top>\n\t\t\t<speech id=\"{{utterance.sequence}}\" ng-if=\"utterance.type === 'speech' || utterance.type === 'chair'\" utterance=\"utterance\"></speech>\n\t\t\t<poi ng-repeat-end\n\t\t\t\t ng-if=\"utterance.type === 'poi'\" utterance=\"utterance\" linked=\"utterance.sequence \"></poi>\n\t\t</div>\n\t\t<div class=\"main\" ng-if=\"!$ctrl.utterances.length\">\n\t\t\t<div class=\"loader\"></div>\n\t\t</div>\n\t</div>\n</div>\n";
-
-/***/ }),
-/* 31 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 var poi = {
-    template: "\n    <div id=\"$ctrl.utterance.sequence\">\n        <div class=\"protocols-speaker-info\">\n    \n            <a class=\"protocols-speaker\" ng-href=\"{{$ctrl.utterance.agw_url}}\">\n                <span ng-if=\"$ctrl.utterance.speaker_party\">  {{ $ctrl.utterance.speaker_cleaned}} </span>\n                <span ng-if=\"!$ctrl.utterance.speaker_party\">  {{ $ctrl.utterance.speaker}} </span>\n            </a>\n            <span ng-if=\"$ctrl.utterance.type == 'chair'\"> 👩‍⚖️</span>\n            \n            <span class=\"protocols-party\" ng-if=\"$ctrl.utterance.speaker_party\">\n                <img ng-src=\"{{$ctrl.imgUrl}}\"/>\n            </span>\n            \n            <a class=\"protocols-jumpmark\" href=\"{{ $ctrl.link }}\">🔗</a>\n            \n        </div>\n        <div class=\"protocols-text\" style=\"white-space: pre-wrap\">{{ $ctrl.utterance.text }}</div>\n    </div>\n    "
+    template: "\n    <div id=\"$ctrl.utterance.sequence\">\n        <div class=\"speaker-info\">\n    \n            <a class=\"protocols-speaker\" ng-href=\"{{$ctrl.utterance.agw_url}}\">\n                <span ng-if=\"$ctrl.utterance.speaker_party\">  {{ $ctrl.utterance.speaker_cleaned}} </span>\n                <span ng-if=\"!$ctrl.utterance.speaker_party\">  {{ $ctrl.utterance.speaker}} </span>\n            </a>\n            <span ng-if=\"$ctrl.utterance.type == 'chair'\"> 👩‍⚖️</span>\n            \n            <span class=\"protocols-party\" ng-if=\"$ctrl.utterance.speaker_party\">\n                <img ng-src=\"{{$ctrl.imgUrl}}\"/>\n            </span>\n            \n            <a class=\"jumpmark\" href=\"{{ $ctrl.link }}\">🔗</a>\n            \n        </div>\n        <div class=\"text\" style=\"white-space: pre-wrap\">{{ $ctrl.utterance.text }}</div>\n    </div>\n    "
     ,
     bindings: {
         utterance: '<',
@@ -67548,9 +66002,8 @@ var poi = {
 };
 /* harmony default export */ __webpack_exports__["a"] = (poi);
 
-
 /***/ }),
-/* 32 */
+/* 26 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -67577,7 +66030,7 @@ var top = {
 /* harmony default export */ __webpack_exports__["a"] = (top);
 
 /***/ }),
-/* 33 */
+/* 27 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -67588,7 +66041,7 @@ var top = {
 var BASE_URL = "http://localhost:5000";
 
 var subject_viz = {
-	template: __webpack_require__(34),
+	template: __webpack_require__(28),
 	controller: function ($location, $anchorScroll, $timeout, $http, $q) {
 		var this$1 = this;
 
@@ -67700,13 +66153,13 @@ var subject_viz = {
 /* harmony default export */ __webpack_exports__["a"] = (subject_viz);
 
 /***/ }),
-/* 34 */
+/* 28 */
 /***/ (function(module, exports) {
 
 module.exports = "<div class=\"container container-bg-grey\">\n\t<div class=\"container\">\n\t\t<div class=\"container-left-12\">\n\t\t\t<div class=\"modal\">\n\t\t\t\t<label for=\"modal-1\">\n\t\t\t\t\t<div class=\"modal-trigger pull-right\">&lt;/&gt; einbetten</div>\n\t\t\t\t</label>\n\t\t\t\t<input class=\"modal-state\" id=\"modal-1\" type=\"checkbox\"/>\n\t\t\t\t<div class=\"modal-fade-screen\">\n\t\t\t\t\t<div class=\"modal-inner\">\n\t\t\t\t\t\t<div class=\"modal-close\" for=\"modal-1\"></div>\n\t\t\t\t\t\t<h1>Die häufigsten Themen</h1>\n\t\t\t\t\t\t<div class=\"form-group\">\n\t\t\t\t\t\t\t<label for=\"usr\">Code zum Einbetten:</label>\n\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" id=\"usr\" value='<iframe src=\"http://beta.offenesparlament.de/analyse/embed/themen.html\" width=\"580px\" height=\"435px\"></iframe>'>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n\t<div class=\"container\">\n\t\t<div class=\"container-left-12\">\n\t\t\t<p><strong>Filter nach Jahr</strong></p>\n\t\t\t<ui-select ng-model=\"$ctrl.selectedYear\" theme=\"selectize\" style=\"width: 300px;\" title=\"Wähle ein Jahr\">\n\t\t\t\t<ui-select-match placeholder=\"Wähle ein Jahr aus\">{{$select.selected}}</ui-select-match>\n\t\t\t\t<ui-select-choices repeat=\"item in $ctrl.years | filter: $select.search\">\n\t\t\t\t\t<span ng-bind-html=\"item | highlight: $select.search\"></span>\n\t\t\t\t</ui-select-choices>\n\t\t\t</ui-select>\n\t\t</div>\n\t</div>\n\t<div class=\"container\">\n\t\t<div class=\"container-left-10 container-left-offset-1\">\n\t\t\t<chartist class=\"ct-chart ct-frequency\" chartist-data=\"$ctrl.data\" chartist-chart-type=\"Bar\"\n\t\t\t\t\t  chartist-chart-options=\"$ctrl.options\" chartist-events=\"$ctrl.events\"></chartist>\n\t\t</div>\n\t</div>\n</div>\n";
 
 /***/ }),
-/* 35 */
+/* 29 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -67717,7 +66170,7 @@ module.exports = "<div class=\"container container-bg-grey\">\n\t<div class=\"co
 var BASE_URL = "http://localhost:5000";
 
 var subject_viz = {
-	template: __webpack_require__(36),
+	template: __webpack_require__(30),
 	controller: function ($location, $anchorScroll, $timeout, $http, $q) {
 		var this$1 = this;
 
@@ -67835,13 +66288,13 @@ var subject_viz = {
 /* harmony default export */ __webpack_exports__["a"] = (subject_viz);
 
 /***/ }),
-/* 36 */
+/* 30 */
 /***/ (function(module, exports) {
 
 module.exports = "<div class=\"container container-bg-grey\">\n\t<div class=\"container\">\n\t\t<div class=\"container-left-offset-10 container-left-2\">\n\t\t\t<div class=\"modal\">\n\t\t\t\t<label for=\"modal-1\">\n\t\t\t\t\t<div class=\"modal-trigger pull-right\">&lt;/&gt; einbetten</div>\n\t\t\t\t</label>\n\t\t\t\t<input class=\"modal-state\" id=\"modal-1\" type=\"checkbox\" />\n\t\t\t\t<div class=\"modal-fade-screen\">\n\t\t\t\t\t<div class=\"modal-inner\">\n\t\t\t\t\t\t<div class=\"modal-close\" for=\"modal-1\"></div>\n\t\t\t\t\t\t<h1>Altersanteile der Abgeordneten und die Häufigkeit der Reden</h1>\n\t\t\t\t\t\t<div class=\"form-group\">\n\t\t\t\t\t\t\t<label for=\"usr\">Code zum Einbetten:</label>\n\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" id=\"usr\" value='<iframe src=\"http://beta.offenesparlament.de/analyse/embed/hintergrund.html#!?category_id=1\" width=\"580px\" height=\"435px\"></iframe>'>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n\t<div class=\"container\">\n\t\t<div class=\"container-left-4\">\n\t\t\t<h3>Thema:</h3>\n\t\t\t<ui-select ng-model=\"$ctrl.selectedItem\" theme=\"selectize\" style=\"width: 300px;\" title=\"Choose a country\"\n\t\t\t\t\t   on-select=\"$ctrl.load_data($item.url_speech, $item.url_mdb, $item.id)\">\n\t\t\t\t<ui-select-match placeholder=\"Wähle eine Kategorie aus\">{{$select.selected.name}}</ui-select-match>\n\t\t\t\t<ui-select-choices repeat=\"item in $ctrl.itemArray | filter: $select.search\">\n\t\t\t\t\t<span ng-bind-html=\"item.name | highlight: $select.search\"></span>\n\t\t\t\t</ui-select-choices>\n\t\t\t</ui-select>\n\t\t</div>\n\t\t<div class=\"container-left-4 container-left-offset-1\">\n\t\t\t<h3>Kategorie:</h3>\n\t\t\t<ui-select ng-model=\"$ctrl.selected_category\" theme=\"selectize\" style=\"width: 300px;\" title=\"Choose a country\"\n\t\t\t\t\t   on-select=\"$ctrl.select_subject($item)\">\n\t\t\t\t<ui-select-match placeholder=\"Wähle oder suche ein Thema aus der Liste\">{{$select.selected}}</ui-select-match>\n\t\t\t\t<ui-select-choices repeat=\"item in $ctrl.categories | filter: $select.search\">\n\t\t\t\t\t<span ng-bind-html=\"item | highlight: $select.search\"></span>\n\t\t\t\t</ui-select-choices>\n\t\t\t</ui-select>\n\t\t</div>\n\n\t</div>\n\t<div class=\"container\">\n\t\t<chartist class=\"ct-frequency\" chartist-data=\"$ctrl.data\" chartist-chart-type=\"Bar\"\n\t\t\t\t  chartist-chart-options=\"$ctrl.options\"></chartist>\n\t</div>\n\t<div class=\"container\">\n\t\t<small>Quelle: <a href=\"https://www.abgeordnetenwatch.de/bundestag-2013-2017/profile\">Profile der MdBs von Abgeordnetenwatch</a>,\n\t\t\t<a href=\"https://www.bundestag.de/tagesordnung\">Sitzungsablauf</a> und\n\t\t\t<a href=\"https://www.bundestag.de/protokolle\">Rednerlisten</a> des Bundestages</small>\n\t</div>\n</div>\n\n";
 
 /***/ }),
-/* 37 */
+/* 31 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -67852,7 +66305,7 @@ module.exports = "<div class=\"container container-bg-grey\">\n\t<div class=\"co
 var BASE_URL = "http://localhost:5000";
 
 var subject_viz = {
-	template: __webpack_require__(38),
+	template: __webpack_require__(32),
 	controller: function ($location, $anchorScroll, $timeout, $http, $q) {
 		var this$1 = this;
 
@@ -67944,13 +66397,13 @@ var subject_viz = {
 
 
 /***/ }),
-/* 38 */
+/* 32 */
 /***/ (function(module, exports) {
 
 module.exports = "<div class=\"container container-bg-grey\">\n\t<div class=\"container\">\n\t\t<div class=\"container-left-12\">\n\t\t\t<div class=\"modal\">\n\t\t\t\t<label for=\"modal-1\">\n\t\t\t\t\t<div class=\"modal-trigger pull-right\">&lt;/&gt; einbetten</div>\n\t\t\t\t</label>\n\t\t\t\t<input class=\"modal-state\" id=\"modal-1\" type=\"checkbox\" />\n\t\t\t\t<div class=\"modal-fade-screen\">\n\t\t\t\t\t<div class=\"modal-inner\">\n\t\t\t\t\t\t<div class=\"modal-close\" for=\"modal-1\"></div>\n\t\t\t\t\t\t<h1>Die häufigsten Sprecher/innen</h1>\n\t\t\t\t\t\t<div class=\"form-group\">\n\t\t\t\t\t\t\t<label for=\"usr\">Code zum Einbetten:</label>\n\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" id=\"usr\" value='<iframe src=\"http://beta.offenesparlament.de/analyse/embed/sprecher.html\" width=\"580px\" height=\"435px\"></iframe>'>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n\t<div class=\"container\">\n\t\t<div class=\"container-left-4 container-left-offset-1\">\n\t\t\t<h3>Kategorie:</h3>\n\t\t\t<ui-select ng-model=\"$ctrl.selected_category\" theme=\"selectize\" style=\"width: 300px;\" title=\"Kategorie auswählen\"\n\t\t\t\t\t   on-select=\"$ctrl.update()\">\n\t\t\t\t<ui-select-match placeholder=\"Wähle oder suche ein Thema aus der Liste\">{{$select.selected}}</ui-select-match>\n\t\t\t\t<ui-select-choices repeat=\"item in $ctrl.categories | filter: $select.search\">\n\t\t\t\t\t<span ng-bind-html=\"item | highlight: $select.search\"></span>\n\t\t\t\t</ui-select-choices>\n\t\t\t</ui-select>\n\t\t</div>\n\t\t<div class=\"container-left-4 container-left-offset-1\">\n\t\t\t<h3>Fraktion:</h3>\n\t\t\t<ui-select ng-model=\"$ctrl.selected_fraction\" theme=\"selectize\" style=\"width: 300px;\" title=\"Fraktion auswählen\"\n\t\t\t\t\t   on-select=\"$ctrl.update()\">\n\t\t\t\t<ui-select-match placeholder=\"Wähle eine Kategorie aus...\">{{$select.selected}}</ui-select-match>\n\t\t\t\t<ui-select-choices repeat=\"item in $ctrl.fractions | filter: $select.search\">\n\t\t\t\t\t<span ng-bind-html=\"item | highlight: $select.search\"></span>\n\t\t\t\t</ui-select-choices>\n\t\t\t</ui-select>\n\t\t</div>\n\t</div>\n\t<div class=\"container\">\n\t\t<div class=\"container-left-12\">\n\t\t\t<div class=\"out-wrapper text-center\">\n\t\t\t\t<div class=\"wrapper\" style=\"display: inline-block\">\n\t\t\t\t\t<div class=\"omage-inle\" style=\"height:4em; width:10em; margin:auto\">\n\t\t\t\t\t\t<img ng-src=\"{{$ctrl.ranking[0].picture}}\" alt=\"\" style=\"height:168%; clip-path:circle(35px at 37px 37px)\"/>\n\t\t\t\t\t\t<img src=\"/static/img/icons/victory_icon.png\" alt=\"\" style=\"height: 20px; position: relative; top: -23px; left: -47px;\">\n\t\t\t\t\t</div>\n\t\t\t\t\t<p class=\"\" style=\"font-size:2rem; text-align: left\">\n\t\t\t\t\t\t{{$ctrl.ranking[0].first_name}} {{$ctrl.ranking[0].last_name}}\n\t\t\t\t\t</p>\n\t\t\t\t\t<p class=\"\" style=\"font-size: 1rem; text-align: left\">\n\t\t\t\t\t\t{{$ctrl.ranking[0].fraction}} · {{$ctrl.ranking[0].count}} Reden\n\t\t\t\t\t</p>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n\t<div class=\"container\">\n\t\t<div class=\"container-left-6\">\n\t\t\t<div class=\"out-wrapper text-center\">\n\t\t\t\t<div class=\"wrapper\" style=\"display: inline-block\">\n\t\t\t\t\t<div class=\"omage-inle\" style=\"height:4em; width:10em; margin:auto\">\n\t\t\t\t\t\t<img ng-src=\"{{$ctrl.ranking[1].picture}}\" alt=\"\" style=\"height:168%; clip-path:circle(35px at 37px 37px)\"/>\n\t\t\t\t\t\t<img src=\"/static/img/icons/victory_icon.png\" alt=\"\" style=\"height: 20px; position: relative; top: -23px; left: -47px;\">\n\t\t\t\t\t</div>\n\t\t\t\t\t<p class=\"\" style=\"font-size:2rem; text-align: left\">\n\t\t\t\t\t\t{{$ctrl.ranking[1].first_name}} {{$ctrl.ranking[1].last_name}}\n\t\t\t\t\t</p>\n\t\t\t\t\t<p class=\"\" style=\"font-size: 1rem; text-align: left\">\n\t\t\t\t\t\t{{$ctrl.ranking[1].fraction}} · {{$ctrl.ranking[1].count}} Reden\n\t\t\t\t\t</p>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\t\t<div class=\"container-left-6\">\n\t\t\t<div class=\"out-wrapper text-center\">\n\t\t\t\t<div class=\"wrapper\" style=\"display: inline-block\">\n\t\t\t\t\t<div class=\"omage-inle\" style=\"height:4em; width:10em; margin:auto\">\n\t\t\t\t\t\t<img ng-src=\"{{$ctrl.ranking[2].picture}}\" alt=\"\" style=\"height:168%; clip-path:circle(35px at 37px 37px)\"/>\n\t\t\t\t\t\t<img src=\"/static/img/icons/victory_icon.png\" alt=\"\" style=\"height: 20px; position: relative; top: -23px; left: -47px;\">\n\t\t\t\t\t</div>\n\t\t\t\t\t<p class=\"\" style=\"font-size:2rem; text-align: left\">\n\t\t\t\t\t\t{{$ctrl.ranking[2].first_name}} {{$ctrl.ranking[2].last_name}}\n\t\t\t\t\t</p>\n\t\t\t\t\t<p class=\"\" style=\"font-size: 1rem; text-align: left\">\n\t\t\t\t\t\t{{$ctrl.ranking[2].fraction}} · {{$ctrl.ranking[2].count}} Reden\n\t\t\t\t\t</p>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n\t<div class=\"container\">\n\t\t<div class=\"container-left-10 container-left-offset-1\">\n\t\t\t<table style=\"width: 100%\">\n\t\t\t\t<tr class=\"mdb-rank container\" ng-repeat=\"mdb in $ctrl.ranking | limitTo: 20 track by $index\" style=\"line-height:1em; border-bottom:1px solid black\">\n\t\t\t\t\t<td class=\"\" style=\"vertical-align: middle\">\n\t\t\t\t\t\t{{$index + 1}}.\n\t\t\t\t\t</td>\n\t\t\t\t\t<td class=\"\" style=\"vertical-align: middle; width:5em;\">\n\t\t\t\t\t\t<div class=\"picture-wrapper\" style=\"height:4em; margin-top:15px; width:2em\">\n\t\t\t\t\t\t\t<img ng-src=\"{{mdb.picture}}\" alt=\"\" style=\"height:100%; clip-path:circle(21px at 25px 25px)\"/>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</td>\n\t\t\t\t\t<td class=\"\" style=\"vertical-align: middle\">\n\t\t\t\t\t\t<p>{{mdb.first_name}} {{mdb.last_name}} · {{mdb.fraction}} · {{mdb.count}} Reden</p>\n\t\t\t\t\t</td>\n\t\t\t\t</tr>\n\t\t\t</table>\n\t\t</div>\n\t</div>\n</div>";
 
 /***/ }),
-/* 39 */
+/* 33 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";

@@ -57,9 +57,9 @@
 	<div class="container-left-4">
 		<h3>Suche:</h3>
 		<ui-select multiple ng-model="$ctrl.selectedSearch" theme="selectize"
-			   tagging-tokens="SPACE|,|/"
-			   tagging="$ctrl.tagTransform"
-			   placeholder="Inhalte suchen..." on-select="$ctrl.search()" on-remove="$ctrl.search()">
+				   tagging-tokens="SPACE|,|/"
+				   tagging="$ctrl.tagTransform"
+				   placeholder="Inhalte suchen..." on-select="$ctrl.search()" on-remove="$ctrl.search()">
 			<ui-select-match placeholder="Suchbegriff eingeben...">{{$item.text}}</ui-select-match>
 			<ui-select-choices repeat="year in [] | filter: $select.search" style="display: none">
 				<div></div>
@@ -68,13 +68,13 @@
 	</div>
 </div>
 <!--<div class="container">-->
-	<!--<button-->
-			<!--ng-disabled="!($ctrl.selectedSpeakers.length-->
-                                   <!--|| $ctrl.searchText.length-->
-                                   <!--|| $ctrl.selectedYears.length-->
-                                   <!--|| $ctrl.selectedCategories.length)"-->
-			<!--ng-click="$ctrl.search()" class="button">Los-->
-	<!--</button>-->
+<!--<button-->
+<!--ng-disabled="!($ctrl.selectedSpeakers.length-->
+<!--|| $ctrl.searchText.length-->
+<!--|| $ctrl.selectedYears.length-->
+<!--|| $ctrl.selectedCategories.length)"-->
+<!--ng-click="$ctrl.search()" class="button">Los-->
+<!--</button>-->
 <!--</div>-->
 
 <div>
@@ -192,28 +192,33 @@
 			<tr>
 				<th style="width: 10%">Sitzung</th>
 				<th style="width: 10%">Datum</th>
-				<th style="width: 40%">Tagesordnungspunkte</th>
-				<th style="width: 40%">Kategorien</th>
+				<th style="width: 80%">Tagesordnungspunkte</th>
+				<!--<th style="width: 40%">Kategorien</th>-->
 			</tr>
 			</thead>
 			<tbody>
-			<tr ng-repeat="session in $ctrl.sessions">
+			<tr ng-repeat="session in $ctrl.sessions" style="border:1px solid black">
 				<td><span>{{session.session.sitzung}}.</span></td>
 				<td><span ng-if="session.session.date">{{ session.session.date | date :  "dd.MM.y" }}</span></td>
 				<td>
-					<ul ng-repeat="top in session.tops">
-						<li>
-							<a ng-href="{{top.link}}">{{top.title}}</a>
-						</li>
-					</ul>
+					<table>
+						<tr ng-repeat="top in session.tops" style="border: 1px solid black;">
+							<td style="width:50%">
+								<a ng-href="{{top.link}}">{{top.title}}</a>
+							</td>
+							<td style="width:50%">
+								<a ng-href="{{top.link}}">{{top.categories.join(', ')}}</a>
+							</td>
+						</tr>
+					</table>
 				</td>
-				<td>
-					<ul ng-repeat="top in session.tops">
-						<li>
-							<a ng-href="{{top.link}}">{{top.categories.join(', ')}}</a>
-						</li>
-					</ul>
-				</td>
+				<!--<td>-->
+				<!--<ul ng-repeat="top in session.tops">-->
+				<!--<li>-->
+				<!--<a ng-href="{{top.link}}">{{top.categories.join(', ')}}</a>-->
+				<!--</li>-->
+				<!--</ul>-->
+				<!--</td>-->
 			</tr>
 			</tbody>
 		</table>
