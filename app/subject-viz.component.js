@@ -1,4 +1,4 @@
-import { keys,values, reverse, sum } from "lodash";
+import { keys,values, reverse, sum, uniq } from "lodash";
 
 const BASE_URL = API_BASE_URL;
 
@@ -52,10 +52,11 @@ const subject_viz = {
 			
 			this.events = {
 				draw: function eventHandler(data) {
-					if(data.type === 'bar' && self.items) {
-						let current_item = self.items[data.index];
-						let value = data.seriesIndex == 1 ? current_item[1].sum : current_item[1].count;
-						value = Math.round(Math.ceil(value * self.sums[data.seriesIndex] / 100))
+					if(data.type === 'bar') {
+						console.log(data);
+						let curr_key = self.keys[data.index];
+
+						let value = data.seriesIndex == 1 ? self.current_sum[curr_key] : self.current_count[curr_key];
 						if (data.seriesIndex == 1) {
 							value = Math.round((value / 60)) * 100 / 100;
 						}
@@ -74,41 +75,52 @@ const subject_viz = {
 			requests.push($http.get(BASE_URL + '/api/tops/category_count'));
 
 			$q.all(requests).then((data) => {
-				let keys = Object.keys(data[0].data);
 
-				let result = {};
+				this.counts = data[1].data;
+				this.sums = data[0].data;
+				this.loading = false;
 
-				let sum_sum = sum(Object.values(data[0].data));
-				let sum_count = sum(Object.values(data[1].data));
-
-				this.sums = [sum_count, sum_sum];
-
-				keys.map((key) => {
-					result[key] = { sum: data[0]['data'][key] * 100 / sum_sum, count: data[1]['data'][key] * 100 / sum_count }
-				});
-
-
-				this.items = Object.keys(result).map(function(key) {
-					return [key, result[key]];
-				});
-
-				this.items.sort(function(first, second) {
-					return first[1].count - second[1].count;
-				});
-
-				this.data.labels = this.items.map((item) => item[0]);
-				this.data.series = [this.items.map((item) => item[1].count), this.items.map((item) => item[1].sum)];
-
-				this.options.height = this.data.series[0].length * 70 + 'px';
-
-				console.log(sum_count);
-
-				console.log(result);
+				this.select();
+				this.years = ['alle'].concat(Object.keys(this.counts));
 			})
-		}
+		};
 
-		function merge_data(data) {
+		this.select = function(year) {
 
+			this.keys = reverse(collect_keys(this.counts));
+			this.data.labels = this.keys;
+
+			let count_sum = 0;
+			let sum_sum = 0;
+			this.current_count = {};
+			this.current_sum = {};
+
+			if (!year || year == 'alle') {
+				this.current_count = Object.values(this.counts).reduce((prev, item) => {
+					Object.keys(item).map((key) => {  if (key in prev) {prev[key] += item[key]} else {prev[key] = item[key]} });
+					return prev;
+				}, {});
+				this.current_sum = Object.values(this.sums).reduce((prev, item) => {
+					Object.keys(item).map((key) => { if (key in prev) {prev[key] += item[key]} else {prev[key] = item[key]} });
+					return prev;
+				}, {});
+				
+			} else {
+				this.current_count = this.counts[year];
+				this.current_sum = this.sums[year];
+
+			}
+			count_sum = sum(Object.values(this.current_count));
+			sum_sum = sum(Object.values(this.current_sum));
+			this.data.series = [this.keys.map((key) => this.current_count[key] * 100 / count_sum),
+				this.keys.map((key) => this.current_sum[key] * 100 / sum_sum)];
+			this.options.height = this.data.series[0].length * 70 + 'px';
+		};
+
+		function collect_keys(data) {
+			let keys = Object.values(data).map((year) => Object.keys(year))
+			let single_keys = keys.reduce((prev, curr) => { return prev.concat(curr) }, []);
+			return uniq(single_keys);
 		}
 	}
 };
