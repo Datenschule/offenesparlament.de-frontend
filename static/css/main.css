@@ -2206,6 +2206,9 @@ Grau heller: #333333
 .u-centered {
   text-align: center; }
 
+.b-centered {
+  margin: auto; }
+
 .u-padding-right {
   padding-right: 0.5em; }
 
