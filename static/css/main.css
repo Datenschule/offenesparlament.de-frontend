@@ -2240,9 +2240,24 @@ Grau heller: #333333
 *[hidden], .hidden {
   display: none !important; }
 
+.show-mobile {
+  display: none; }
+  @media only screen and (max-width: 48em) {
+    .show-mobile {
+      display: initial; } }
+
+.show-mobile-block {
+  display: none; }
+  @media only screen and (max-width: 48em) {
+    .show-mobile-block {
+      display: block; } }
+
 @media only screen and (max-width: 48em) {
   .hide-mobile {
     display: none !important; } }
+
+.wrap {
+  word-wrap: break-word; }
 
 * {
   box-sizing: border-box; }
@@ -2265,7 +2280,7 @@ h5 a {
   text-decoration: none; }
 
 hr {
-  border-color: #AD1D19; }
+  border-color: #88ffdb; }
 
 strong, b {
   font-weight: 700; }
@@ -7532,7 +7547,7 @@ div:target, .linked {
 .protokolle .selections button:disabled {
   background-color: gray; }
 
-.protokolle .tops tbody td:first-child span {
+.protokolle .session-column span {
   background-color: #88ffdb;
   padding: .3em; }
 

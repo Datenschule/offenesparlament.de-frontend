@@ -46,8 +46,26 @@
   display: none !important;
 }
 
+.show-mobile {
+  display:none;
+  @include respond-to(medium-down) {
+    display: initial;
+  }
+}
+
+.show-mobile-block {
+  display:none;
+  @include respond-to(medium-down) {
+    display: block;
+  }
+}
+
 .hide-mobile {
   @include respond-to(medium-down) {
     display:none !important;
   }
+}
+
+.wrap {
+  word-wrap: break-word;
 }
