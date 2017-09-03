@@ -12,7 +12,7 @@ layout: default
 		<br><br>
 		Uns ist eine gute Dokumentation unserer Datenarbeit wichtig, damit andere Menschen die Ergebnisse besser überprüfen und auf diesem Wissen aufbauen können.
 		<br><br>
-		Alle Daten können unter CC0 als Open Data frei zugänglich und können hier heruntergeladen werden. Fehler entdeckt? Melde dich bei uns per <a href="mailto:info@datenschule.de">Mail</a>. Wir werden Korrekturen schnellstmöglich vornehmen.
+		Alle Daten sind unter CC0 als Open Data frei zugänglich und können hier heruntergeladen werden. Fehler entdeckt? Melde dich bei uns per <a href="mailto:info@datenschule.de">Mail</a>. Wir werden Korrekturen schnellstmöglich vornehmen.
 		</p>
 	</div>
 </div>
@@ -26,7 +26,7 @@ layout: default
 <div class="container">
 	<div class="container-left-12">
 		<p><strong>Suchen und Finden</strong></p>
-		<p>Bei unserer Recherche haben wir verschiedene Datenquellen gesammelt und dann definiert, welche Daten zuverlässig und aussagekräftig sind (Qualität der Daten), um unsere Frage zu beantworten. OffenesParlament verwendet überwiegend historische Daten des Bundestags zur 18. Wahlperiode (Oktober 2013 - Juni 2017). Die Plenarprotokolle werden nach jeder Sitzung online als txt- und pdf-Dateien online auf der Bundestagswebseite veröffentlicht. Sie umfassen unter
+		<p>Bei unserer Recherche haben wir verschiedene Datenquellen gesammelt und dann definiert, welche Daten zuverlässig und aussagekräftig sind (Qualität der Daten), um unsere Frage zu beantworten. OffenesParlament verwendet überwiegend historische Daten des Bundestags zur 18. Wahlperiode (Oktober 2013 - Juni 2017). Die Plenarprotokolle werden nach jeder Sitzung online als txt- und pdf-Dateien auf der Bundestagswebseite veröffentlicht. Sie umfassen unter
 		anderem Redebeiträge der Abgeordneten, Listen der Abgeordneten, Berichte und Debatten, Sitzungsverläufe und Tagesordnungspunkte, Gesetzentwürfe, und Drucksachen. Zusätzlich nutzen wir Informationen zu den Profilen der einzelnen Abgeordnetenq von abgeordnetenwatch.de und dem Bundestag: Berufe, Geschlecht, Alter und Bilder der Abgeordneten.</p>
 	</div>
 </div>
@@ -40,22 +40,8 @@ layout: default
 		Die Plenarprotokolle liegen uns in Textform vor. Um einzelnen Abgeordneten Redebeiträge zuordnen zu können, bringen wir die Texte mit unserem <a href="https://github.com/Datenschule/plpr-scraper">PLPR-Scraper</a> in eine tabellarische Form. Einzelne Redebeiträge haben wir den Tagesordnungspunkten zugeordnet. Die Details der Tagesordnungspunkte stammen aus den <a href="https://github.com/Datenschule/agendas">Sitzungsverläufen</a>. Die Verknüpfung mit den Redebeiträgen erstellen wir anhand der <a href="https://github.com/Datenschule/topscraper">Rednerlisten der Plenarprotokolle</a>. Tagesordnungspunkte verknüpfen wir mit Informationen zu den Abgeordneten über den <a href="https://github.com/Datenschule/mdb-merger">MdB-Merger</a>. Um die Themen der Plenarprotokolle herauszuarbeiten, haben wir jeden Titel der Tagesordnungspunkte klassifiziert. Die Klassifizierung erfolgte mit dem Open Source-Tool <a href="https://crowdcrafting.org/">crowdcrafting”</a>. Die Liste der <a href="https://dipbt.bundestag.de/dip21.web/bt">Arbeitsbereiche des Bundestags</a> dient uns dabei als Grundlage und beinhaltet 18 Themen, die bei der Zuordnung der Tagesordnungspunkte bei OffenesParlament verwendet werden.
 		</p>
 		<p>
-		Von uns werden die Daten inhaltlich nicht verändert, sondern lediglich in einer anderen Form dargestellt. Um unsere Arbeitsschritte nachvollziehbar zu machen, verweisen wir auf die von uns bearbeiteten Daten und Rohdaten der ursprünglichen Quellen:
+		Von uns werden die Daten inhaltlich nicht verändert, sondern lediglich in einer anderen Form dargestellt. Um unsere Arbeitsschritte nachvollziehbar zu machen, verweisen wir auf die von uns bearbeiteten Daten und Rohdaten der ursprünglichen Quellen (weiter unten).
 		</p>
-		<ul>
-			<li>
-				Rohdatenzugriff zur Überprüfung der genutzten Datenbasis
-			</li>
-			<li>
-				Von uns aufbereitete Daten, die für die Analysen verwendet wurden
-			</li>
-			<li>
-				Scraper für das Abfragen der Daten auf der Webseite des Bundestags
-			</li>
-			<li>
-				Quellcode von OffenesParlament auf GitHub.
-			</li>
-		</ul>
 	</div>
 </div>
 <div class="container">
@@ -88,42 +74,53 @@ layout: default
 <div class="container">
 	<div class="container-left-offset-1 container-left-11">
 		<h1>
-			Klaut euch die Daten
-			<img src="/static/img/icons/man-running.png" alt="" class="title-img hide-mobile">
-		</h1>
-	</div>
-</div>
-<div class="container container-bg-light-blue container-interlude-margin-negative">
-	<div class="container-left-2 hide-mobile">
-		<img src="/static/img/icons/woman-running.png" alt="">
-	</div>
-	<div class="container-left-12">
-		<p>
-			Ein kurzer Text, der erklärt, in welchem Rahmen die Datenschule dieses Projekt macht und dass wir uns freuen, wenn aus den
-			vorhandenen Datenbeständen mehr Projekte entstehen. Dazu gibt es dann zwei Links. Einmal zu der Seite, auf der die Daten
-			zum Download bereit stehen und dann noch die Projektseite, auf der Projekte gefeatured werden, die was zum selben
-			Thema machen.
-		</p>
-		<div class="container">
-			<div class="container-left-4">
-				<strong><a href="/analyse/">zur den Daten <i class="fa fa-arrow-right"></i></a></strong>
-			</div>
-			<div class="container-left-4">
-				<strong><a href="/analyse/">zur den Projekten <i class="fa fa-arrow-right"></i></a></strong>
-			</div>
-		</div>
-	</div>
-</div>
-
-<div class="container">
-	<div class="container-left-offset-1 container-left-11">
-		<h1>
 			Unsere Daten zum Download
 		</h1>
 	</div>
 </div>
+
 <div class="container container-interlude-margin-negative">
 	<div class="container-left-offset-1 container-left-10">
+		<div class="container-wrap-row">
+			<div class="container-left-1">
+				<img src="/static/img/icons/open-file-folder.png" alt="" style="float:left; max-height:3em; margin-right:10px;">
+			</div>
+			<div class="container-left-8">
+				<p class="smaller"><strong>Rohdatenzugriff zur Überprüfung der genutzten Datenbasis</strong><br/>
+					<a href="https://github.com/Datenschule/offenesparlament-data/tree/master/sessions/csv" target="_blank">CSV</a> |
+					<a href="https://github.com/Datenschule/offenesparlament-data/tree/master/sessions/json" target="_blank">JSON</a></p>
+			</div>
+		</div>
+		<div class="container-wrap-row">
+			<div class="container-left-1">
+				<img src="/static/img/icons/open-file-folder.png" alt="" style="float:left; max-height:3em; margin-right:10px;">
+			</div>
+			<div class="container-left-8">
+				<p class="smaller"><strong>Von uns aufbereitete Daten, die für die Analysen verwendet wurden</strong><br/>
+					<a href="https://github.com/Datenschule/offenesparlament-data/tree/master/sessions/csv" target="_blank">CSV</a> |
+					<a href="https://github.com/Datenschule/offenesparlament-data/tree/master/sessions/json" target="_blank">JSON</a></p>
+			</div>
+		</div>
+		<div class="container-wrap-row">
+			<div class="container-left-1">
+				<img src="/static/img/icons/open-file-folder.png" alt="" style="float:left; max-height:3em; margin-right:10px;">
+			</div>
+			<div class="container-left-8">
+				<p class="smaller"><strong>Scraper für das Abfragen der Daten auf der Webseite des Bundestags</strong><br/>
+					<a href="https://github.com/Datenschule/offenesparlament-data/tree/master/sessions/csv" target="_blank">CSV</a> |
+					<a href="https://github.com/Datenschule/offenesparlament-data/tree/master/sessions/json" target="_blank">JSON</a></p>
+			</div>
+		</div>
+		<div class="container-wrap-row">
+			<div class="container-left-1">
+				<img src="/static/img/icons/open-file-folder.png" alt="" style="float:left; max-height:3em; margin-right:10px;">
+			</div>
+			<div class="container-left-8">
+				<p class="smaller"><strong>Quellcode von OffenesParlament auf GitHub</strong><br/>
+					<a href="https://github.com/Datenschule/offenesparlament-data/tree/master/sessions/csv" target="_blank">CSV</a> |
+					<a href="https://github.com/Datenschule/offenesparlament-data/tree/master/sessions/json" target="_blank">JSON</a></p>
+			</div>
+		</div>
 		<div class="container-wrap-row">
 			<div class="container-left-1">
 				<img src="/static/img/icons/open-file-folder.png" alt="" style="float:left; max-height:3em; margin-right:10px;">
@@ -199,21 +196,5 @@ layout: default
 	</div>
 </div>
 
-<div class="container">
-	<div class="container-left-offset-1 container-left-11">
-		<h1>Weiter gehts</h1>
-	</div>
-</div>
-<div class="container">
-	<div class="container-left-5">
-		<img src="/static/img/go_on_preview2.png" alt="">
-	</div>
-	<div class="container-left-5">
-		<p>Schau dir an, welche Abgeordneten zu welchem Thema gesprochen haben. Ut wisi enim ad minim veniam, quis nostrud exerci
-			tation ullamcorper suscipit lobortis nisl.</p>
-		<p>
-			<strong><a href="/analyse/">zur nächsten Analyse <i class="fa fa-arrow-right"></i></a></strong>
-		</p>
-	</div>
-</div>
+
 
