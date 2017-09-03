@@ -34,7 +34,7 @@
 	</div>
 	<div class="container">
 		<div class="container-left-12">
-			Aktuelle Suche: <span ng-repeat="mdb in $ctrl.filter_dict['people']">{{mdb}}</span>
+			Aktuelle Suche: <span ng-repeat="mdb in $ctrl.filter_dict['people'] track by $index">{{mdb}}</span>
 		</div>
 	</div>
 </section>
@@ -48,7 +48,7 @@
 					<span class="dot"></span>
 				</a>
 			</li>
-			<li ng-repeat="top in $ctrl.tops">
+			<li ng-repeat="top in $ctrl.tops track by $index">
 				<a href="#{{top.link}}">
 					<span class="menu-title">{{top.title}}</span>
 					<span class="dot"></span>
