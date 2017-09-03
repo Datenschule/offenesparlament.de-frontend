@@ -72,7 +72,7 @@ const protocol = {
 			event.preventDefault();
 
 			$('html, body').animate({
-				scrollTop: $( $.attr(this, 'href') ).offset().top
+				scrollTop: $( $.attr(this, 'href') ).offset().top - 200
 			}, 800, 'swing');
 		});
 	}
