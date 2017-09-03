@@ -68,7 +68,7 @@ const protocol = {
 			$anchorScroll();
 		};
 
-		$(document).on('click', 'a', function(event){
+		$(document).on('click', '.side-menu a', function(event){
 			event.preventDefault();
 
 			$('html, body').animate({
