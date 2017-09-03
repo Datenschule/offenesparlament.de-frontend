@@ -1,4 +1,4 @@
-<section sticky-nav>
+<section sticky-nav id="page-top">
 	<div class="container">
 		<div class="container-left-3">
 			<p>
@@ -39,11 +39,14 @@
 	</div>
 </section>
 
-<div class="container poicontainer" in-view-container >
+<div class="container poicontainer">
 	<div class="side-menu">
 		<ul class="nav">
-			<li class="hidden">
-				<a class="page-scroll" href="#page-top">Start</a>
+			<li class="">
+				<a href="#page-top">
+					<span class="menu-title">Start</span>
+					<span class="dot"></span>
+				</a>
 			</li>
 			<li ng-repeat="top in $ctrl.tops">
 				<a href="#{{top.link}}">
@@ -51,35 +54,17 @@
 					<span class="dot"></span>
 				</a>
 			</li>
-			<!--<li class="active">-->
-				<!--<a href="#home" class="page-scroll">-->
-					<!--<span class="menu-title">Start</span>-->
-					<!--<span class="dot"></span>-->
-				<!--</a>-->
-			<!--</li>-->
-			<!--<li>-->
-				<!--<a href="#theissue" class="page-scroll">-->
-					<!--<span class="menu-title">Das Problem</span>-->
-					<!--<span class="dot"></span>-->
-				<!--</a>-->
-			<!--</li>-->
-			<!--<li>-->
-				<!--<a href="#recommendations" class="page-scroll">-->
-					<!--<span class="menu-title">Empfehlungen</span>-->
-					<!--<span class="dot"></span>-->
-				<!--</a>-->
-			<!--</li>-->
-			<!--<li>-->
-				<!--<a href="#resources" class="page-scroll">-->
-					<!--<span class="menu-title">Ressourcen</span>-->
-					<!--<span class="dot"></span>-->
-				<!--</a>-->
-			<!--</li>-->
+			<li class="">
+				<a href="#page-end">
+					<span class="menu-title">Ende</span>
+					<span class="dot"></span>
+				</a>
+			</li>
 		</ul>
 	</div>
 	<div class="container-left-12">
 		<div class="main" ng-if="$ctrl.utterances.length" >
-			<h1 inview="$crl.updateTop()"> {{ $ctrl.utterances[0].wahlperiode }}. Wahlperiode - Sitzung {{ $ctrl.utterances[0].sitzung }}</h1>
+			<h1> {{ $ctrl.utterances[0].wahlperiode }}. Wahlperiode - Sitzung {{ $ctrl.utterances[0].sitzung }}</h1>
 
 			<top ng-repeat-start="utterance in $ctrl.utterances"
 				 ng-if="utterance.type === 'top'" title="utterance.title" categories="utterance.categories" in-view="$ctrl.updateTop()"></top>
@@ -91,4 +76,5 @@
 			<div class="loader"></div>
 		</div>
 	</div>
+	<div id="page-end"></div>
 </div>
