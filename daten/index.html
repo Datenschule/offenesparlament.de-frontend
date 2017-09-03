@@ -8,68 +8,63 @@ layout: default
 </div>
 <div class="container">
 	<div class="container-left-12">
-		<p>Mit unserem Bildungsprogramm, der Datenschule, möchten wir gemeinnützigen Organisationen den guten Umgang mit Daten verständlich machen und die Chancen der Digitalisierung für die Zivilgesellschaft aufzeigen. Unsere Workshops und
-			Kooperationsprojekte orientieren sich an der Data Pipeline. Diese Methode verschafft einen guten Überblick darüber, wie man beim Arbeiten mit Daten von der ersten Fragestellung bis zur Kommunikation vorgeht.
-			<br><br>
-			Uns ist eine gute Dokumentation unserer Datenarbeit wichtig, damit andere Menschen die Ergebnisse besser überprüfen und auf diesem Wissen aufbauen können.
-			<br><br>
-			Alle Daten können unter CC0 als Open Data frei zugänglich und können hier heruntergeladen werden. Fehler entdeckt? Melde dich bei uns per Mail: info@datenschule.de. Wir werden Korrekturen schnellstmöglich vornehmen.
+		<p>Mit unserem Bildungsprogramm, der Datenschule, möchten wir gemeinnützigen Organisationen den guten Umgang mit Daten verständlich machen und die Chancen der Digitalisierung für die Zivilgesellschaft aufzeigen. Unsere Workshops und Kooperationsprojekte orientieren sich an der <a href="https://datenschule.de/workshops/">Data Pipeline</a>. Diese Methode verschafft einen guten Überblick darüber, wie man beim Arbeiten mit Daten von der ersten Fragestellung bis zur Kommunikation vorgeht.
+		<br><br>
+		Uns ist eine gute Dokumentation unserer Datenarbeit wichtig, damit andere Menschen die Ergebnisse besser überprüfen und auf diesem Wissen aufbauen können.
+		<br><br>
+		Alle Daten können unter CC0 als Open Data frei zugänglich und können hier heruntergeladen werden. Fehler entdeckt? Melde dich bei uns per <a href="mailto:info@datenschule.de">Mail</a>. Wir werden Korrekturen schnellstmöglich vornehmen.
 		</p>
 	</div>
 </div>
 <div class="container">
 	<div class="container-left-12">
 		<p><strong>Fragestellung</strong></p>
-		<p>OffenesParlament existiert seit 2013 und ist ein Community-Projekt, zu dem viele ehrenamtlich Engagierte beigetragen haben. Ziel ist es, Regierungshandeln verständlicher und transparenter zu machen. Wir wollten wissen, über
-			welche Themen im Bundestag verhandelt wird und welche Positionen die einzelnen Abgeordneten beziehen.
+		<p>OffenesParlament existiert seit 2013 und ist ein Community-Projekt, zu dem viele ehrenamtlich Engagierte beigetragen haben. Ziel ist es, Regierungshandeln verständlicher und transparenter zu machen. Wir wollten wissen, über welche Themen im Bundestag verhandelt wird und welche Positionen die einzelnen Abgeordneten beziehen.
 		</p>
 	</div>
 </div>
 <div class="container">
 	<div class="container-left-12">
 		<p><strong>Suchen und Finden</strong></p>
-		<p>Bei unserer Recherche haben wir verschiedene Datenquellen gesammelt und dann definiert, welche Daten zuverlässig und aussagekräftig sind (Qualität der Daten), um unsere Frage zu beantworten. OffenesParlament verwendet überwiegend
-			historische Daten des Bundestags zur 18. Wahlperiode (Oktober 2013 - Juni 2017). Die Plenarprotokolle werden nach jeder Sitzung online als txt- und pdf-Dateien online auf der Bundestagswebseite veröffentlicht. Sie umfassen unter
-			anderem Redebeiträge der Abgeordneten, Listen der Abgeordneten, Berichte und Debatten, Sitzungsverläufe und Tagesordnungspunkte, Gesetzentwürfe, und Drucksachen. Zusätzlich nutzen wir Informationen zu den Profilen der einzelnen
-			Abgeordneten von abgeordnetenwatch.de und dem Bundestag: Berufe, Geschlecht, Alter und Bilder der Abgeordneten.</p>
+		<p>Bei unserer Recherche haben wir verschiedene Datenquellen gesammelt und dann definiert, welche Daten zuverlässig und aussagekräftig sind (Qualität der Daten), um unsere Frage zu beantworten. OffenesParlament verwendet überwiegend historische Daten des Bundestags zur 18. Wahlperiode (Oktober 2013 - Juni 2017). Die Plenarprotokolle werden nach jeder Sitzung online als txt- und pdf-Dateien online auf der Bundestagswebseite veröffentlicht. Sie umfassen unter
+		anderem Redebeiträge der Abgeordneten, Listen der Abgeordneten, Berichte und Debatten, Sitzungsverläufe und Tagesordnungspunkte, Gesetzentwürfe, und Drucksachen. Zusätzlich nutzen wir Informationen zu den Profilen der einzelnen Abgeordnetenq von abgeordnetenwatch.de und dem Bundestag: Berufe, Geschlecht, Alter und Bilder der Abgeordneten.</p>
 	</div>
 </div>
 <div class="container">
 	<div class="container-left-12">
 		<p><strong>Säubern</strong></p>
-		<p>Daten müssen vor der eigentlichen Analyse überprüft, validiert und gesäubert werden, bevor Rückschlüsse aus ihnen gezogen werden können. Bei der Säuberung der Daten werden z.B. Informationslücken recherchiert und Daten in eine
-			strukturierte Form gebracht, damit sie von Maschinen verarbeitet werden können. Außerdem müssen die verschiedenen Datenquellen miteinander verknüpft werden, sodass ein einheitlicher Datensatz entsteht.
-			<br><br>
-			//Plenarprotokolle
-			Die Plenarprotokolle liegen uns in Textform vor. Um einzelnen Abgeordneten Redebeiträge zuordnen zu können, bringen wir die Texte mit unserem PLPR-Scraper in eine tabellarische Form. Dabei werden für jeden Beitrag (Rede oder
-			Zwischenruf) der Beitragstext und der Name des Abgeordneten sowie seine Fraktion gespeichert.
-			<br><br>
-			//Tagesordnungspunkte und Abgeordnete
-			Einzelne Redebeiträge haben wir den Tagesordnungspunkten zugeordnet. Die Details der Tagesordnungspunkte stammen aus den Sitzungsverläufen. Die Verknüpfung mit den Redebeiträgen erstellen wir anhand der Rednerlisten der
-			Plenarprotokolle. Die Verknüpfung dieser Daten erstellen wir mit einem Mergetool für die Tagesordnungspunkte. Diese Daten verknüpfen wir mit Informationen zu den Abgeordneten über den Mdb-merger.
-			<br><br>
-			Die Originaldaten exportieren wir als CSV- und JSON-Dateien, die für die Nutzung der Daten in weiterführenden Analysen besser geeignet sind als TXT-Dateien.
-			<br><br>
-			Um die Themen der Plenarprotokolle herauszuarbeiten, haben wir jeden Titel der Tagesordnungspunkte klassifiziert. Die Klassifizierung erfolgte mit dem Open Source-Tool “crowdcrafting”. Die Liste der Arbeitsbereiche des
-			Bundestags dient uns dabei als Grundlage und beinhaltet 18 Themen, die bei OffenesParlament verwendet werden.
-			<br><br>
-			Von uns werden die Daten inhaltlich nicht verändert, sondern lediglich in einer anderen Form dargestellt. Um unsere Arbeitsschritte nachvollziehbar zu machen, verweisen wir auf die von uns bearbeiteten Daten und Rohdaten der
-			ursprünglichen Quellen:
-			<br><br>
-			Rohdatenzugriff zur Überprüfung der genutzten Datenbasis.
-			Von uns aufbereitete Daten, die für die Analysen verwendet wurden.
-			Scraper für das Abfragen der Daten auf der Webseite des Bundestags.
-			Quellcode von OffenesParlament auf GitHub.
+		<p>
+		Daten müssen vor der eigentlichen Analyse überprüft, validiert und gesäubert werden, bevor Rückschlüsse aus ihnen gezogen werden können. Bei der Säuberung der Daten werden z.B. Informationslücken recherchiert und Daten in eine strukturierte Form gebracht, damit sie von Maschinen verarbeitet werden können. Außerdem müssen die verschiedenen Datenquellen miteinander verknüpft werden, sodass ein einheitlicher Datensatz entsteht.
 		</p>
+		<p>
+		Die Plenarprotokolle liegen uns in Textform vor. Um einzelnen Abgeordneten Redebeiträge zuordnen zu können, bringen wir die Texte mit unserem <a href="https://github.com/Datenschule/plpr-scraper">PLPR-Scraper</a> in eine tabellarische Form. Einzelne Redebeiträge haben wir den Tagesordnungspunkten zugeordnet. Die Details der Tagesordnungspunkte stammen aus den <a href="https://github.com/Datenschule/agendas">Sitzungsverläufen</a>. Die Verknüpfung mit den Redebeiträgen erstellen wir anhand der <a href="https://github.com/Datenschule/topscraper">Rednerlisten der Plenarprotokolle</a>. Tagesordnungspunkte verknüpfen wir mit Informationen zu den Abgeordneten über den <a href="https://github.com/Datenschule/mdb-merger">MdB-Merger</a>. Um die Themen der Plenarprotokolle herauszuarbeiten, haben wir jeden Titel der Tagesordnungspunkte klassifiziert. Die Klassifizierung erfolgte mit dem Open Source-Tool <a href="https://crowdcrafting.org/">crowdcrafting”</a>. Die Liste der <a href="https://dipbt.bundestag.de/dip21.web/bt">Arbeitsbereiche des Bundestags</a> dient uns dabei als Grundlage und beinhaltet 18 Themen, die bei der Zuordnung der Tagesordnungspunkte bei OffenesParlament verwendet werden.
+		</p>
+		<p>
+		Von uns werden die Daten inhaltlich nicht verändert, sondern lediglich in einer anderen Form dargestellt. Um unsere Arbeitsschritte nachvollziehbar zu machen, verweisen wir auf die von uns bearbeiteten Daten und Rohdaten der ursprünglichen Quellen:
+		</p>
+		<ul>
+			<li>
+				Rohdatenzugriff zur Überprüfung der genutzten Datenbasis
+			</li>
+			<li>
+				Von uns aufbereitete Daten, die für die Analysen verwendet wurden
+			</li>
+			<li>
+				Scraper für das Abfragen der Daten auf der Webseite des Bundestags
+			</li>
+			<li>
+				Quellcode von OffenesParlament auf GitHub.
+			</li>
+		</ul>
 	</div>
 </div>
 <div class="container">
 	<div class="container-left-12">
 		<p><strong>Analysieren</strong></p>
-		<p>Die von uns aufbereiteten Daten werden in einer Datenbank gesammelt, die uns erlaubt, die verknüpften Daten flexibel abzufragen. Um ein Gefühl für die Daten zu bekommen, haben wir explorativ gearbeitet und die Test-Ergebnisse in
-			Python Notebooks festgehalten.
-			<br><br>
-			Außerdem haben wir von uns erstellte CSV Dateien mit Orange analysiert. Orange ist ein interaktives Datamining Tool, um Teile von Datensätzen einfach zu analysieren.
+		<p>Die von uns aufbereiteten Daten werden in einer Datenbank gesammelt, die uns erlaubt, die verknüpften Daten flexibel abzufragen. Um ein Gefühl für die Daten zu bekommen, haben wir explorativ gearbeitet und die Test-Ergebnisse in <a href="https://github.com/Datenschule/wahldaten/blob/master/notebooks/Plenarprotokolle.ipynb">Python Notebooks</a> festgehalten.
+		</p>
+		<p>
+		Außerdem haben wir von uns erstellte CSV Dateien mit <a href="https://orange.biolab.si/">Orange</a> analysiert. Orange ist ein interaktives Datamining Tool, um Teile von Datensätzen einfach zu analysieren.
 		</p>
 	</div>
 </div>
