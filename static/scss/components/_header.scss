@@ -260,6 +260,7 @@
       line-height: $navigation-height;
       text-decoration: none;
       width: auto;
+      text-align: left;
     }
 
     a {
@@ -369,6 +370,7 @@
     &:focus > .submenu,
     &:hover > .submenu {
       display: block;
+      background-color: $white;
     }
 
     @include media($horizontal-bar-mode) {
@@ -430,7 +432,6 @@
       }
 
       a {
-        background-color: darken($navigation-background, 3%);
         display: inline;
         text-align: right;
         width: 100%;
