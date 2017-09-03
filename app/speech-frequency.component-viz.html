@@ -1,6 +1,6 @@
 <div class="container container-bg-grey">
 	<div class="container" ng-if="!$ctrl.loading">
-		<div class="container">
+		<div class="container hide-mobile">
 			<div class="container-left-offset-10 container-left-2">
 				<div class="modal">
 					<label for="modal-1">
@@ -21,7 +21,7 @@
 			</div>
 		</div>
 		<div class="container">
-			<div class="container-left-4">
+			<div class="container-left-4 container-left-offset-1">
 				<h3>Thema:</h3>
 				<ui-select ng-model="$ctrl.selectedItem" theme="selectize" style="width: 300px;" title="Choose a country"
 						   on-select="$ctrl.load_data($item.url_speech, $item.url_mdb, $item.id)">
