@@ -101,8 +101,12 @@
 		<div class="container hide-mobile" ng-if="!$ctrl.loading && $ctrl.sessions.length">
 			<div class="container-left-1">Sitzung</div>
 			<div class="container-left-2">Datum</div>
-			<div class="container-left-4">Tagesordnungspunkte</div>
-			<div class="container-left-4">Kategorien</div>
+			<div class="container-left-8">
+				<div class="container">
+					<div class="container-left-2">Bezeichner</div>
+					<div class="container-left-5">Titel</div>
+					<div class="container-left-4">Kategorien</div>
+				</div>
 		</div>
 		<!--<tbody>-->
 		<div class="container" ng-repeat="session in $ctrl.sessions">
@@ -111,10 +115,13 @@
 			<div class="container-left-8">
 				<hr  class="show-mobile-block" />
 				<div class="container" ng-repeat="top in session.tops">
-					<div class="container-left-6">
-						<a ng-href="{{top.link}}{{$ctrl.paramstring}}{{top.link_fragment}}">{{top.title}}</a>
+					<div class="container-left-2">
+						<a ng-href="{{top.link}}{{$ctrl.paramstring}}{{top.link_fragment}}">{{top.session_identifier}}</a>
 					</div>
 					<div class="container-left-5">
+						<a ng-href="{{top.link}}{{$ctrl.paramstring}}{{top.link_fragment}}">{{top.name}}</a>
+					</div>
+					<div class="container-left-4">
 						<a ng-href="{{top.link}}{{$ctrl.paramstring}}{{top.link_fragment}}">{{top.categories.join(', ')}}</a>
 					</div>
 					<hr class="show-mobile-block" />

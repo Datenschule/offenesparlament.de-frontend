@@ -59,7 +59,9 @@ const poc = {
                         title: top.title,
                         link: `/protokoll/#!/${session.session.sitzung}`,
                         link_fragment: `#${kebabCase(top.title)}`,
-                        categories: top.categories
+                        categories: top.categories,
+                        name: top.name,
+                        session_identifier: top.session_identifier
                     }
                 });
                 return session;
