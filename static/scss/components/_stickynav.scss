@@ -1,5 +1,5 @@
 .controls-fixed{
-  background-color:white;
+  background-color:$base-accent-color;
   border-bottom: 1px solid black;
   top:0;
   left:0;
@@ -7,4 +7,11 @@
   position:fixed;
   bottom:auto;
   width:100%;
+  color: white;
+  p {
+    color: white;
+    a {
+      color:white;
+    }
+  }
 }

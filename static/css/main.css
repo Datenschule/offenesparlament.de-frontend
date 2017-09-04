@@ -7578,23 +7578,20 @@ div:target, .linked {
 .afilter.ng-hide {
   max-height: 0; }
 
-.protocol-nav {
-  background-color: #4D52D8;
-  color: white; }
-  .protocol-nav p {
-    color: white; }
-    .protocol-nav p a {
-      color: white; }
-
 .controls-fixed {
-  background-color: white;
+  background-color: #4D52D8;
   border-bottom: 1px solid black;
   top: 0;
   left: 0;
   padding: 10px 15px;
   position: fixed;
   bottom: auto;
-  width: 100%; }
+  width: 100%;
+  color: white; }
+  .controls-fixed p {
+    color: white; }
+    .controls-fixed p a {
+      color: white; }
 
 .v-middle, .ui-carousel .carousel-btn {
   display: block;
