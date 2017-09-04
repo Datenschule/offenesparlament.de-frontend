@@ -8,16 +8,8 @@
   transform: translate(0, -50%);
 }
 
-@font-face {
-  font-family: "ui-carousel";
-  src: url("fonts/ui-carousel.eot");
-  src: url("fonts/ui-carousel.eot?#iefix") format("embedded-opentype"), url("fonts/ui-carousel.woff") format("woff"), url("fonts/ui-carousel.ttf") format("truetype"), url("fonts/ui-carousel.svg#ui-carousel") format("svg");
-  font-weight: normal;
-  font-style: normal;
-}
-
 [data-icon]:before {
-  font-family: "ui-carousel" !important;
+  font-family: "icomoon" !important;
   content: attr(data-icon);
   font-style: normal !important;
   font-weight: normal !important;
@@ -31,7 +23,7 @@
 
 [class^="ui-icon-"]:before,
 [class*=" ui-icon-"]:before {
-  font-family: "ui-carousel" !important;
+  font-family: "icomoon" !important;
   font-style: normal !important;
   font-weight: normal !important;
   font-variant: normal !important;
@@ -43,15 +35,15 @@
 }
 
 .ui-icon-prev:before {
-  content: "\61";
+  content: "\ea40";
 }
 
 .ui-icon-next:before {
-  content: "\62";
+  content: "\ea3c";
 }
 
 .ui-icon-dot:before {
-  content: "\63";
+  content: "\eae9";
 }
 
 .ui-carousel {
@@ -157,7 +149,7 @@
   left: 0px;
   width: 15px;
   height: 15px;
-  content: "\63";
+  content: "\eae9";
   text-align: center;
   opacity: 0.25;
   color: black;
@@ -170,14 +162,22 @@
 }
 
 .carousel {
-  filter: grayscale(60%);
-  -webkit-filter: grayscale(60%);
-  padding: 40px 40px 20px 40px;
   background-repeat: no-repeat;
   background-size: cover;
+  height:20em;
 
-  p {
-    color: $white;
+  .carousel-overlay {
+    height:20em;
+    background-color: rgba(100,100,100,0.7);
+
+
+    .carousel-container {
+      padding: 40px 40px 20px 40px;
+      background-color: transparent;
+      p {
+        color: $white;
+      }
+    }
   }
 }
 

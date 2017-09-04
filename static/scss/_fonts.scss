@@ -3,6 +3,14 @@
 @import "../fonts/overpass";
 @import './lib/font-awesome/font-awesome';
 
+@font-face {
+  font-family: "icomoon";
+  src: url("/static/fonts/icomoon/icomoon.eot");
+  src: url("/static/fonts/icomoon/icomoon.eot?#iefix") format("embedded-opentype"), url("/static/fonts/icomoon/icomoon.woff") format("woff"), url("/static/fonts/icomoon/icomoon.ttf") format("truetype"), url("/static/fonts/icomoon/icomoon.svg") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
 .smaller {
   font-size: 0.8em;
 }
@@ -12,5 +20,6 @@
 }
 
 i::before {
-  margin-right: 5px;
+  margin-right: -10px;
+  margin-left: -10px;
 }
