@@ -123,8 +123,47 @@ layout: analyse
 			        <div class="protocols-text ng-binding" style="white-space: pre-wrap">Die Zusammenarbeit zwischen unserer Untersuchungskommission und Volkswagen funktioniert übrigens kooperativ.</div>
 			    </div>
 			</speech>
+			<poi ng-repeat-end="" ng-if="utterance.type === 'poi'" utterance="utterance" linked="utterance.sequence " class="ng-scope ng-isolate-scope">
+		    	<div class="protocols-poi" ng-class="{linked: $ctrl.utterance.linked}">
+		            <div id="740">
+		                <span class="protocols-poiemoji ng-binding">
+		                    🗯
+		                </span>
+		                <span class="ng-binding">
+		                    Das glaube ich ausnahmsweise!
 
-			<speech id="739" ng-if="utterance.type === 'speech' || utterance.type === 'chair'" utterance="utterance" class="ng-scope ng-isolate-scope">
+		                    <!-- ngIf: $ctrl.utterance.speaker_cleaned --><span ng-if="$ctrl.utterance.speaker_cleaned" class="ng-scope">
+		                        <a ng-href="$ctrl.utterance.agw_url" class="ng-binding" href="$ctrl.utterance.agw_url">Dr. Anton Hofreiter</a>
+		                        <!-- ngIf: $ctrl.utterance.speaker_party --><span class="protocols-poi-party ng-scope" ng-if="$ctrl.utterance.speaker_party">
+		                            <img ng-src="/static/img/parties/gruene.svg" src="/static/img/parties/gruene.svg">
+		                        </span><!-- end ngIf: $ctrl.utterance.speaker_party -->
+		                    </span><!-- end ngIf: $ctrl.utterance.speaker_cleaned -->
+		                    <a class="protocols-jumpmark" href="#!/155#740">🔗</a>
+		                </span>
+		            </div>
+		        </div>
+		    </poi>
+		    <poi ng-repeat-end="" ng-if="utterance.type === 'poi'" utterance="utterance" linked="utterance.sequence " class="ng-scope ng-isolate-scope">
+		    	<div class="protocols-poi" ng-class="{linked: $ctrl.utterance.linked}">
+		            <div id="741">
+		                <span class="protocols-poiemoji ng-binding">
+		                    🗯
+		                </span>
+		                <span class="ng-binding">
+		                    Man könnte auch „Seilschaft“ dazu sagen!
+
+		                    <!-- ngIf: $ctrl.utterance.speaker_cleaned --><span ng-if="$ctrl.utterance.speaker_cleaned" class="ng-scope">
+		                        <a ng-href="$ctrl.utterance.agw_url" class="ng-binding" href="$ctrl.utterance.agw_url">Katrin Göring-Eckardt</a>
+		                        <!-- ngIf: $ctrl.utterance.speaker_party --><span class="protocols-poi-party ng-scope" ng-if="$ctrl.utterance.speaker_party">
+		                            <img ng-src="/static/img/parties/gruene.svg" src="/static/img/parties/gruene.svg">
+		                        </span><!-- end ngIf: $ctrl.utterance.speaker_party -->
+		                    </span><!-- end ngIf: $ctrl.utterance.speaker_cleaned -->
+		                    <a class="protocols-jumpmark" href="#!/155#741">🔗</a>
+		                </span>
+		            </div>
+		        </div>
+		    </poi>
+			<speech id="754" ng-if="utterance.type === 'speech' || utterance.type === 'chair'" utterance="utterance" class="ng-scope ng-isolate-scope">
 			    <div id="$ctrl.utterance.sequence">
 			        <div class="protocols-speaker-info">
 			    
@@ -136,13 +175,48 @@ layout: analyse
 			            
 			            <!-- ngIf: $ctrl.utterance.speaker_party -->
 			            
-			            <a class="protocols-jumpmark" href="#!/155#739">🔗</a>
+			            <a class="protocols-jumpmark" href="#!/155#754">🔗</a>
 			            
 			        </div>
-			        <div class="protocols-text ng-binding" style="white-space: pre-wrap">Die Zusammenarbeit zwischen unserer Untersuchungskommission und Volkswagen funktioniert übrigens kooperativ.</div>
+			        <div class="protocols-text ng-binding" style="white-space: pre-wrap">Der Rückruf ist angeordnet, und die Fahrzeuge werden in einen regelkonformen Zustand gebracht. Das ist die Wahrheit, Herr Krischer.</div>
 			    </div>
-			</speech>
-			<speech id="739" ng-if="utterance.type === 'speech' || utterance.type === 'chair'" utterance="utterance" class="ng-scope ng-isolate-scope">
+			 </speech>
+			 <poi ng-repeat-end="" ng-if="utterance.type === 'poi'" utterance="utterance" linked="utterance.sequence " class="ng-scope ng-isolate-scope">
+			     <div class="protocols-poi" ng-class="{linked: $ctrl.utterance.linked}">
+			            <div id="755">
+			                <span class="protocols-poiemoji ng-binding">
+			                    👏
+			                </span>
+			                <span class="ng-binding">
+			                    Beifall bei der CDU/CSU sowie bei Abgeordneten der SPD
+
+			                    <!-- ngIf: $ctrl.utterance.speaker_cleaned -->
+			                    <a class="protocols-jumpmark" href="#!/155#755">🔗</a>
+			                </span>
+			            </div>
+			        </div>
+			</poi>
+			<poi ng-repeat-end="" ng-if="utterance.type === 'poi'" utterance="utterance" linked="utterance.sequence " class="ng-scope ng-isolate-scope">
+		     <div class="protocols-poi" ng-class="{linked: $ctrl.utterance.linked}">
+		            <div id="756">
+		                <span class="protocols-poiemoji ng-binding">
+		                    🗯
+		                </span>
+		                <span class="ng-binding">
+		                    Ja, da wird Software aufgespielt! Reduzieren Sie mal die Emissionen!
+
+		                    <!-- ngIf: $ctrl.utterance.speaker_cleaned --><span ng-if="$ctrl.utterance.speaker_cleaned" class="ng-scope">
+		                        <a ng-href="$ctrl.utterance.agw_url" class="ng-binding" href="$ctrl.utterance.agw_url">Oliver Krischer</a>
+		                        <!-- ngIf: $ctrl.utterance.speaker_party --><span class="protocols-poi-party ng-scope" ng-if="$ctrl.utterance.speaker_party">
+		                            <img ng-src="/static/img/parties/gruene.svg" src="/static/img/parties/gruene.svg">
+		                        </span><!-- end ngIf: $ctrl.utterance.speaker_party -->
+		                    </span><!-- end ngIf: $ctrl.utterance.speaker_cleaned -->
+		                    <a class="protocols-jumpmark" href="#!/155#756">🔗</a>
+		                </span>
+		            </div>
+		        </div>
+		    </poi>
+			<speech id="758" ng-if="utterance.type === 'speech' || utterance.type === 'chair'" utterance="utterance" class="ng-scope ng-isolate-scope">
 			    <div id="$ctrl.utterance.sequence">
 			        <div class="protocols-speaker-info">
 			    
@@ -154,12 +228,33 @@ layout: analyse
 			            
 			            <!-- ngIf: $ctrl.utterance.speaker_party -->
 			            
-			            <a class="protocols-jumpmark" href="#!/155#739">🔗</a>
+			            <a class="protocols-jumpmark" href="#!/155#758">🔗</a>
 			            
 			        </div>
-			        <div class="protocols-text ng-binding" style="white-space: pre-wrap">Die Zusammenarbeit zwischen unserer Untersuchungskommission und Volkswagen funktioniert übrigens kooperativ.</div>
+			        <div class="protocols-text ng-binding" style="white-space: pre-wrap">Wir optimieren die Prozesse.</div>
 			    </div>
+			    <poi ng-repeat-end="" ng-if="utterance.type === 'poi'" utterance="utterance" linked="utterance.sequence " class="ng-scope ng-isolate-scope">
+			    	<div class="protocols-poi" ng-class="{linked: $ctrl.utterance.linked}">
+			            <div id="756">
+			                <span class="protocols-poiemoji ng-binding">
+			                    🗯
+			                </span>
+			                <span class="ng-binding">
+			                    Ja, da wird Software aufgespielt! Reduzieren Sie mal die Emissionen!
+
+			                    <!-- ngIf: $ctrl.utterance.speaker_cleaned --><span ng-if="$ctrl.utterance.speaker_cleaned" class="ng-scope">
+			                        <a ng-href="$ctrl.utterance.agw_url" class="ng-binding" href="$ctrl.utterance.agw_url">Oliver Krischer</a>
+			                        <!-- ngIf: $ctrl.utterance.speaker_party --><span class="protocols-poi-party ng-scope" ng-if="$ctrl.utterance.speaker_party">
+			                            <img ng-src="/static/img/parties/gruene.svg" src="/static/img/parties/gruene.svg">
+			                        </span><!-- end ngIf: $ctrl.utterance.speaker_party -->
+			                    </span><!-- end ngIf: $ctrl.utterance.speaker_cleaned -->
+			                    <a class="protocols-jumpmark" href="#!/155#756">🔗</a>
+			                </span>
+			            </div>
+			        </div>
+			    </poi>
 			</speech>
+
 			<p>Dobrindt wird dabei immer wieder vorgeworfen, die deutsche Autoindustrie in Schutz zu nehmen (<a href="http://www.spiegel.de/wirtschaft/soziales/alexander-dobrindts-lavieren-in-der-abgasaffaere-in-zitaten-a-1161177.html">SPIEGEL,03.08.17</a>).
 				Sein größter Kritiker, Oliver Krischer, stellvertretender Fraktionsvorsitzender der Grünen und Mitglied im Ausschuss Verkehr und Bau, hat nur ein geringes Vertrauen in den Verkehrsminister die Manipulationen aufzuklären, wie
 				er immer wieder unter Beweis stellt. <a href="http://beta.offenesparlament.de/protokoll/#!/231#836">“Herr Dobrindt, Sie sind der Schutzpatron der Trickser und Betrüger. Das möchte ich hier in aller Klarheit sagen.”</a></p>
