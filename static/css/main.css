@@ -2283,7 +2283,7 @@ h5 a {
   text-decoration: none; }
 
 hr {
-  border-color: #88ffdb; }
+  border-color: #4D52D8; }
 
 strong, b {
   font-weight: 700; }
@@ -2328,7 +2328,7 @@ h1,
   font-size: 1.875rem;
   font-weight: 700;
   line-height: 2.5rem;
-  font-size: 48px;
+  font-size: 35px;
   font-style: normal;
   font-weight: 500;
   line-height: normal;
@@ -2344,7 +2344,7 @@ h2,
   font-weight: 700;
   line-height: 2rem;
   text-transform: uppercase;
-  font-size: 35px;
+  font-size: 30px;
   margin-bottom: 70px; }
 
 h3,
@@ -2488,9 +2488,9 @@ a {
 
 a {
   color: black;
-  text-decoration: none; }
+  text-decoration: underline; }
   a:active, a:hover {
-    text-decoration: underline; }
+    text-decoration: none; }
 
 a.link-nav {
   text-decoration: none; }
@@ -7578,6 +7578,14 @@ div:target, .linked {
 .afilter.ng-hide {
   max-height: 0; }
 
+.protocol-nav {
+  background-color: #4D52D8;
+  color: white; }
+  .protocol-nav p {
+    color: white; }
+    .protocol-nav p a {
+      color: white; }
+
 .controls-fixed {
   background-color: white;
   border-bottom: 1px solid black;
@@ -7902,7 +7910,7 @@ div:target, .linked {
   margin-right: 10px;
   text-transform: uppercase;
   font-size: 12px;
-  background-color: black;
+  background-color: #4D52D8;
   padding: 3px 10px;
   font-weight: 600;
   border-radius: 3px;
@@ -7922,7 +7930,7 @@ div:target, .linked {
 
 .side-menu ul li a span.dot {
   position: relative;
-  background-color: black;
+  background-color: #4D52D8;
   border-radius: 2em;
   height: 10px;
   vertical-align: middle;

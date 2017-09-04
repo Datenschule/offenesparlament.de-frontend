@@ -21,7 +21,7 @@
 	</div>
 	<div class="container" ng-if="!$ctrl.loading">
 		<div class="container">
-			<div class="container-left-12">
+			<div class="container-left-11 container-left-offset-1">
 				<p><strong>Filter nach Jahr</strong></p>
 				<ui-select ng-model="$ctrl.selectedYear" theme="selectize" style="width: 300px;" title="Wähle ein Jahr"
 					on-select="$ctrl.select($item)">
@@ -38,11 +38,13 @@
 						  chartist-chart-options="$ctrl.options" chartist-events="$ctrl.events"></chartist>
 			</div>
 		</div>
-		<div class="container">
-			<small>Quelle:
-				<a href="https://www.bundestag.de/tagesordnung">Sitzungsablauf</a> und
-				<a href="https://www.bundestag.de/protokolle">Rednerlisten</a> des Bundestages
-			</small>
+		<div class="container container-margin">
+			<div class="container-left-11 container-left-offset-1">
+				<small>Quelle:
+					<a href="https://www.bundestag.de/tagesordnung">Sitzungsablauf</a> und
+					<a href="https://www.bundestag.de/protokolle">Rednerlisten</a> des Bundestages
+				</small>
+			</div>
 		</div>
 	</div>
 	<div class="container" ng-if="$ctrl.loading">

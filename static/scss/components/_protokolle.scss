@@ -329,3 +329,14 @@ div:target, .linked {
 .afilter.ng-hide {
   max-height: 0;
 }
+
+.protocol-nav {
+  background-color: $base-accent-color;
+  color: white;
+  p {
+    color: white;
+    a {
+      color:white;
+    }
+  }
+}

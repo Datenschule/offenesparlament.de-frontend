@@ -53,7 +53,6 @@ const subject_viz = {
 			this.events = {
 				draw: function eventHandler(data) {
 					if(data.type === 'bar') {
-						console.log(data);
 						let curr_key = self.keys[data.index];
 
 						let value = data.seriesIndex == 1 ? self.current_sum[curr_key] : self.current_count[curr_key];

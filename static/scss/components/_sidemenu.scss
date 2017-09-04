@@ -31,7 +31,7 @@
   margin-right: 10px;
   text-transform: uppercase;
   font-size: 12px;
-  background-color: black;
+  background-color: $base-accent-color;
   padding: 3px 10px;
   font-weight: 600;
   border-radius: 3px;
@@ -52,7 +52,7 @@
 
 .side-menu ul li a span.dot {
   position: relative;
-  background-color: black;
+  background-color: $base-accent-color;
   border-radius: 2em;
   height: 10px;
   vertical-align: middle;

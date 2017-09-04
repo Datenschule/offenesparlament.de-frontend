@@ -8,12 +8,12 @@ a {
   @extend %link;
   color: $link-color;
   //text-decoration: underline;
-  text-decoration: none;
+  text-decoration: underline;
 
   &:active,
   &:hover {
     //text-decoration: none;
-    text-decoration: underline;
+    text-decoration: none;
   }
 }
 
