@@ -59,6 +59,27 @@ layout: analyse
 			<img src="/static/img/preview/gysi_grexit.png" alt="" style="margin: auto; text-align: center; display: inherit;">
 		</div>
 
+		<speech id="63" ng-if="utterance.type === 'speech' || utterance.type === 'chair'" utterance="utterance" class="ng-scope ng-isolate-scope">
+		    <div id="$ctrl.utterance.sequence">
+		        <div class="protocols-speaker-info">
+		    
+		            <a class="protocols-speaker" ng-href="">
+		                <!-- ngIf: $ctrl.utterance.speaker_party --><span ng-if="$ctrl.utterance.speaker_party" class="ng-binding ng-scope">  Dr. Gregor Gysi </span><!-- end ngIf: $ctrl.utterance.speaker_party -->
+		                <!-- ngIf: !$ctrl.utterance.speaker_party -->
+		            </a>
+		            <!-- ngIf: $ctrl.utterance.type == 'chair' -->
+		            
+		            <!-- ngIf: $ctrl.utterance.speaker_party --><span class="protocols-party ng-scope" ng-if="$ctrl.utterance.speaker_party">
+		                <img ng-src="/static/img/parties/linke.svg" src="/static/img/parties/linke.svg">
+		            </span><!-- end ngIf: $ctrl.utterance.speaker_party -->
+		            
+		            <a class="protocols-jumpmark" href="#!/117#63">🔗</a>
+		            
+		        </div>
+		        <div class="protocols-text ng-binding" style="white-space: pre-wrap">Und dann konnte sich Herr Schäuble auch noch auf die SPD und Herrn Gabriel bei der Erpressung Griechenlands mit dem Grexit verlassen. Das ist ein Skandal, sage ich Ihnen.</div>
+		    </div>
+		</speech>
+
 		<p><strong>Uneinigkeit in der Union:</strong></p>
 		<p>Allerdings werden die Stimmen für einen Grexit lauter und schließlich kommt es bei den Verhandlungen zu einem dritten Hilfspaket in der Union zum innerparteilichen Streit, da einige Abgeordnete nicht an die Rückzahlung eines
 			neuen Kredits glauben. Mit den Worten “der Grieche hat jetzt lang genug genervt” <a href="https://www.youtube.com/watch?v=Sxr1udMt0X0">(ZDF,13.07.2015)</a>, kommentiert der CDU-Vize Strobl die 17-stündige Verhandlungen zwischen
