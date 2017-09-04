@@ -57,9 +57,9 @@
 	<div class="container-left-4">
 		<h3>Suche:</h3>
 		<ui-select multiple ng-model="$ctrl.selectedSearch" theme="selectize"
-			   tagging-tokens="SPACE|,|/"
-			   tagging="$ctrl.tagTransform"
-			   placeholder="Inhalte suchen..." on-select="$ctrl.search()" on-remove="$ctrl.search()">
+				   tagging-tokens="SPACE|,|/"
+				   tagging="$ctrl.tagTransform"
+				   placeholder="Inhalte suchen..." on-select="$ctrl.search()" on-remove="$ctrl.search()">
 			<ui-select-match placeholder="Suchbegriff eingeben...">{{$item.text}}</ui-select-match>
 			<ui-select-choices repeat="year in [] | filter: $select.search" style="display: none">
 				<div></div>
@@ -67,156 +67,67 @@
 		</ui-select>
 	</div>
 </div>
-<!--<div class="container">-->
-	<!--<button-->
-			<!--ng-disabled="!($ctrl.selectedSpeakers.length-->
-                                   <!--|| $ctrl.searchText.length-->
-                                   <!--|| $ctrl.selectedYears.length-->
-                                   <!--|| $ctrl.selectedCategories.length)"-->
-			<!--ng-click="$ctrl.search()" class="button">Los-->
-	<!--</button>-->
-<!--</div>-->
 
 <div>
-	<!--<div class="filters container-left-12">-->
-	<!--<h1>Filtern nach</h1>-->
-	<!--<div class="options" ng-class="{hasSelect: $ctrl.selectedFilter !== ''}">-->
-	<!--<button class="topic"-->
-	<!--ng-class="{selected: $ctrl.selectedFilter === 'topic'}"-->
-	<!--ng-click="$ctrl.selectFilter('topic')">-->
-	<!--📂 <span class="text">Thema</span>-->
-	<!--<img src="/static/img/icons/triangle_bottom.svg"/>-->
-	<!--</button>-->
-	<!--<button class="person"-->
-	<!--ng-class="{selected: $ctrl.selectedFilter === 'person'}"-->
-	<!--ng-click="$ctrl.selectFilter('person')">-->
-	<!--👫 <span class="text">Person</span>-->
-	<!--<img src="/static/img/icons/triangle_bottom.svg"/>-->
-	<!--</button>-->
-	<!--<button class="year"-->
-	<!--ng-class="{selected: $ctrl.selectedFilter === 'year'}"-->
-	<!--ng-click="$ctrl.selectFilter('year')">-->
-	<!--🎆 <span class="text">Jahr</span>-->
-	<!--<img src="/static/img/icons/triangle_bottom.svg"/>-->
-	<!--</button>-->
-	<!--<form ng-submit="$ctrl.search()">-->
-	<!--<input ng-model="$ctrl.searchText"-->
-	<!--ng-class="{selected: $ctrl.selectedFilter === 'text'}"-->
-	<!--ng-focus="$ctrl.selectFilter('text')"-->
-	<!--placeholder="Inhalte suchen...">-->
-	<!--<button type="submit" ng-class="{selected: $ctrl.selectedFilter === 'text'}">🔎</button>-->
-	<!--</form>-->
-	<!--</div>-->
-	<!--<div class="topics afilter" ng-show="$ctrl.selectedFilter === 'topic'">-->
-	<!--<h2>Wähle eine Thema</h2>-->
-	<!--<ul>-->
-	<!--<li ng-repeat="category in $ctrl.categories | filter: $ctrl.filterCategories">-->
-	<!--<input type="checkbox"-->
-	<!--id="category-{{$index}}"-->
-	<!--ng-checked="$ctrl.selectedCategories.indexOf(category) !== -1"-->
-	<!--ng-click="$ctrl.togglCategory(category)"/>-->
-
-	<!--<label for="category-{{$index}}">-->
-	<!--<div class="person">-->
-	<!--{{category}}-->
-	<!--</div>-->
-	<!--</label>-->
-	<!--</li>-->
-	<!--</ul>-->
-	<!--</div>-->
-	<!--<div class="people afilter" ng-show="$ctrl.selectedFilter === 'person'">-->
-	<!--<h2>Wähle einen Abgeordneten</h2>-->
-	<!--<input type="text" ng-model="$ctrl.speakerSearch" placeholder="Abgeordnete suchen..."/>-->
-	<!--<ul>-->
-	<!--<li ng-repeat="speaker in $ctrl.speakers | filter : $ctrl.speakerSearch | filter: $ctrl.filterSpeakers">-->
-	<!--<input type="checkbox"-->
-	<!--id="speaker-{{$index}}"-->
-	<!--ng-checked="$ctrl.selectedSpeakers.indexOf(speaker) !== -1"-->
-	<!--ng-click="$ctrl.togglSpeaker(speaker)"/>-->
-
-	<!--<label for="speaker-{{$index}}">-->
-	<!--<div ng-if="speaker.speaker_party" class="person">-->
-	<!--<img src="http://www.bundestag.de/image/240714/3x4/162/216/be23238d3921acf3e9fa694ab1ae41f8/dZ/aken_jan_gross.jpg" />-->
-	<!--<div class="name">{{speaker.speaker_cleaned}}</div>-->
-	<!--<div class="party">{{speaker.speaker_party}}</div>-->
-	<!--</div>-->
-	<!--<div ng-if="!speaker.speaker_party" class="person">-->
-	<!--<img src="http://www.bundestag.de/image/240714/3x4/162/216/be23238d3921acf3e9fa694ab1ae41f8/dZ/aken_jan_gross.jpg" />-->
-	<!--<div class="name">{{speaker.speaker_name}}</div>-->
-	<!--</div>-->
-	<!--</label>-->
-	<!--</li>-->
-	<!--</ul>-->
-	<!--</div>-->
-	<!--<div class="years afilter" ng-show="$ctrl.selectedFilter === 'year'">-->
-	<!--<h2>Wähle eine Jahr</h2>-->
-	<!--<ul>-->
-	<!--<li ng-repeat="year in [2013, 2014, 2015, 2016, 2017] | filter: $ctrl.filterYears">-->
-	<!--<input type="checkbox"-->
-	<!--id="year-{{$index}}"-->
-	<!--ng-checked="$ctrl.selectedYears.indexOf(year) !== -1"-->
-	<!--ng-click="$ctrl.togglYear(year)"/>-->
-
-	<!--<label for="year-{{$index}}">-->
-	<!--<div class="person">-->
-	<!--{{year}}-->
-	<!--</div>-->
-	<!--</label>-->
-	<!--</li>-->
-	<!--</ul>-->
-	<!--</div>-->
-
-	<!--<div class="selections">-->
-	<!--<ul>-->
-	<!--<li ng-repeat="speaker in $ctrl.selectedSpeakers">-->
-	<!--{{speaker.speaker_cleaned}} <a ng-click="$ctrl.togglSpeaker(speaker)">x</a>-->
-	<!--</li>-->
-	<!--<li ng-repeat="year in $ctrl.selectedYears">-->
-	<!--{{year}} <a ng-click="$ctrl.togglYear(year)">x</a>-->
-	<!--</li>-->
-	<!--<li ng-repeat="category in $ctrl.selectedCategories">-->
-	<!--{{category}} <a ng-click="$ctrl.togglCategory(category)">x</a>-->
-	<!--</li>-->
-	<!--</ul>-->
-	<!--<button-->
-	<!--ng-disabled="!($ctrl.selectedSpeakers.length-->
-	<!--|| $ctrl.searchText.length-->
-	<!--|| $ctrl.selectedYears.length-->
-	<!--|| $ctrl.selectedCategories.length)"-->
-	<!--ng-click="$ctrl.search()">Los</button>-->
-	<!--</div>-->
-	<!--</div>-->
 	<div class="tops container-left-12">
-		<table ng-if="!$ctrl.loading && $ctrl.sessions.length">
-			<thead>
-			<tr>
-				<th style="width: 10%">Sitzung</th>
-				<th style="width: 10%">Datum</th>
-				<th style="width: 40%">Tagesordnungspunkte</th>
-				<th style="width: 40%">Kategorien</th>
-			</tr>
-			</thead>
-			<tbody>
-			<tr ng-repeat="session in $ctrl.sessions">
-				<td><span>{{session.session.sitzung}}.</span></td>
-				<td><span ng-if="session.session.date">{{ session.session.date | date :  "dd.MM.y" }}</span></td>
-				<td>
-					<ul ng-repeat="top in session.tops">
-						<li>
-							<a ng-href="{{top.link}}">{{top.title}}</a>
-						</li>
-					</ul>
-				</td>
-				<td>
-					<ul ng-repeat="top in session.tops">
-						<li>
-							<a ng-href="{{top.link}}">{{top.categories.join(', ')}}</a>
-						</li>
-					</ul>
-				</td>
-			</tr>
-			</tbody>
-		</table>
+		<!--<table ng-if="!$ctrl.loading && $ctrl.sessions.length">-->
+		<!--<thead>-->
+		<!--<tr>-->
+		<!--<th style="width: 10%">Sitzung</th>-->
+		<!--<th style="width: 10%">Datum</th>-->
+		<!--<th style="width: 80%">Tagesordnungspunkte</th>-->
+		<!--&lt;!&ndash;<th style="width: 40%">Kategorien</th>&ndash;&gt;-->
+		<!--</tr>-->
+		<!--</thead>-->
+		<!--<tbody>-->
+		<!--<tr ng-repeat="session in $ctrl.sessions" style="border:1px solid black">-->
+		<!--<td><span>{{session.session.sitzung}}.</span></td>-->
+		<!--<td><span ng-if="session.session.date">{{ session.session.date | date :  "dd.MM.y" }}</span></td>-->
+		<!--<td>-->
+		<!--<table>-->
+		<!--<tr ng-repeat="top in session.tops" style="border: 1px solid black;">-->
+		<!--<td style="width:50%">-->
+		<!--<a ng-href="{{top.link}}{{$ctrl.paramstring}}{{top.link_fragment}}">{{top.title}}</a>-->
+		<!--</td>-->
+		<!--<td style="width:50%">-->
+		<!--<a ng-href="{{top.link}}{{$ctrl.paramstring}}{{top.link_fragment}}">{{top.categories.join(', ')}}</a>-->
+		<!--</td>-->
+		<!--</tr>-->
+		<!--</table>-->
+		<!--</td>-->
+		<!--</tr>-->
+		<!--</tbody>-->
+		<!--</table>-->
+		<div class="container hide-mobile" ng-if="!$ctrl.loading && $ctrl.sessions.length">
+			<div class="container-left-1">Sitzung</div>
+			<div class="container-left-2">Datum</div>
+			<div class="container-left-8">
+				<div class="container">
+					<div class="container-left-2">Bezeichner</div>
+					<div class="container-left-5">Titel</div>
+					<div class="container-left-4">Kategorien</div>
+				</div>
+		</div>
+		<!--<tbody>-->
+		<div class="container" ng-repeat="session in $ctrl.sessions">
+			<div class="container-left-1 session-column"><span>{{session.session.sitzung}}.</span><span class="show-mobile"> Sitzung</span></div>
+			<div class="container-left-2 wrap"><span ng-if="session.session.date">{{ session.session.date | date :  "dd.MM.y" }}</span></div>
+			<div class="container-left-8">
+				<hr  class="show-mobile-block" />
+				<div class="container" ng-repeat="top in session.tops">
+					<div class="container-left-2">
+						<a ng-href="{{top.link}}{{$ctrl.paramstring}}{{top.link_fragment}}">{{top.session_identifier}}</a>
+					</div>
+					<div class="container-left-5">
+						<a ng-href="{{top.link}}{{$ctrl.paramstring}}{{top.link_fragment}}">{{top.name}}</a>
+					</div>
+					<div class="container-left-4">
+						<a ng-href="{{top.link}}{{$ctrl.paramstring}}{{top.link_fragment}}">{{top.categories.join(', ')}}</a>
+					</div>
+					<hr class="show-mobile-block" />
+				</div>
+			</div>
+		</div>
 
 		<div class="loader" ng-if="$ctrl.loading"></div>
 

@@ -11,6 +11,7 @@ const subject_viz = {
 
 		this.categories = [];
 		this.fractions = ["alle", "CDU/CSU", "SPD", "Bündnis 90 die Grünen", "die Linke"];
+		this.loading = true;
 
 		this.$onInit = () => {
 			$http.get(BASE_URL + '/api/categories').then((response) => {
@@ -55,6 +56,7 @@ const subject_viz = {
 
 				this.data = result;
 				this.update()
+				this.loading = false;
 			})
 		};
 
@@ -64,7 +66,6 @@ const subject_viz = {
 
 		this.map_fractions = function(data) {
 
-			console.log("called");
 			let result = {};
 			map(this.fractions, (fraction) => {
 				result[fraction] = map_data(filter(data, ['fraction', fraction]))
