@@ -48,7 +48,7 @@
 					<span class="dot"></span>
 				</a>
 			</li>
-			<li ng-repeat="top in $ctrl.tops track by $index">
+			<li ng-repeat="top in $ctrl.tops track by $index" ng-class="{active: top.link==$ctrl.active}">
 				<a href="#{{top.link}}">
 					<span class="menu-title">{{top.title}}</span>
 					<span class="dot"></span>
