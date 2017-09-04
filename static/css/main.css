@@ -2709,7 +2709,7 @@ ol {
   padding-bottom: 1.25em; }
 
 .container {
-  max-width: 64em;
+  max-width: 650px;
   margin-left: auto;
   margin-right: auto; }
   .container::after {
@@ -7934,7 +7934,7 @@ div:target, .linked {
   transform: scale(1.8); }
 
 .side-menu ul li.active span.dot {
-  background-color: black; }
+  background-color: grey; }
 
 .side-menu.expanded ul li a span.menu-title {
   display: inline-block;
