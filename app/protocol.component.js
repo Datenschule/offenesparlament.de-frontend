@@ -10,8 +10,11 @@ const protocol = {
 	template: require("./protocol.html"),
 	controller: function ($http, $location, $anchorScroll, $timeout) {
 		this.utterances = [];
+		let self = this;
 		this.$onInit = () => {
 			const linkTarget = $location.hash();
+			this.link_start = `#!${$location.url()}#`;
+			console.log(this.link_start)
 			$http.get(`${BASE_URL}/api/session${$location.path()}`).then(
 				(resp) => {
 					this.tops = [];
@@ -51,12 +54,20 @@ const protocol = {
 					console.log($location.hash());
 					$anchorScroll.yOffset = 200;
 					$timeout($anchorScroll, 0);
-					this.filter_dict = $location.search();
-					console.log($location.search())
 
 				}
 			);
 			$timeout(maybeEmojify, 3000);
+			$timeout( () => {
+				$('.protocols-top').on('scrollSpy:enter', function() {
+					self.active = $(this).attr('id');
+					console.log('active:' + self.active);
+				});
+
+				$('.protocols-top').scrollSpy();
+				this.filter_dict = $location.search();
+				console.log($location.search())
+			}, 3000);
 		}
 		this.selectTop = function (link) {
 			console.log('scrolled by' + link);
@@ -70,6 +81,8 @@ const protocol = {
 
 		$(document).on('click', '.side-menu a', function(event){
 			event.preventDefault();
+			console.log($.attr(this, 'href'))
+			// $location.hash($.attr(this, 'href').substr(1));
 
 			$('html, body').animate({
 				scrollTop: $( $.attr(this, 'href') ).offset().top - 200

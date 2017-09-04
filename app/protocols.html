@@ -1,5 +1,19 @@
 <div class="container">
 	<div class="container-left-4">
+		<h3>Suche:</h3>
+		<ui-select multiple ng-model="$ctrl.selectedSearch" theme="selectize"
+				   tagging-tokens="SPACE|,|/"
+				   tagging="$ctrl.tagTransform"
+				   placeholder="Inhalte suchen..." on-select="$ctrl.search()" on-remove="$ctrl.search()">
+			<ui-select-match placeholder="Suchbegriff eingeben...">{{$item.text}}</ui-select-match>
+			<ui-select-choices repeat="year in [] | filter: $select.search" style="display: none">
+				<div></div>
+			</ui-select-choices>
+		</ui-select>
+	</div>
+</div>
+<div class="container">
+	<div class="container-left-4">
 		<h3>Thema:</h3>
 		<ui-select multiple ng-model="$ctrl.selectedCategories" theme="selectize" sortable="true" close-on-select="true"
 				   on-select="$ctrl.search()" on-remove="$ctrl.search()">
@@ -53,20 +67,6 @@
 		</ui-select>
 	</div>
 </div>
-<div class="container">
-	<div class="container-left-4">
-		<h3>Suche:</h3>
-		<ui-select multiple ng-model="$ctrl.selectedSearch" theme="selectize"
-				   tagging-tokens="SPACE|,|/"
-				   tagging="$ctrl.tagTransform"
-				   placeholder="Inhalte suchen..." on-select="$ctrl.search()" on-remove="$ctrl.search()">
-			<ui-select-match placeholder="Suchbegriff eingeben...">{{$item.text}}</ui-select-match>
-			<ui-select-choices repeat="year in [] | filter: $select.search" style="display: none">
-				<div></div>
-			</ui-select-choices>
-		</ui-select>
-	</div>
-</div>
 
 <div>
 	<div class="tops container-left-12">
@@ -103,36 +103,37 @@
 			<div class="container-left-2">Datum</div>
 			<div class="container-left-8">
 				<div class="container">
-					<div class="container-left-2">Bezeichner</div>
+					<div class="container-left-2">Bez.</div>
 					<div class="container-left-5">Titel</div>
 					<div class="container-left-4">Kategorien</div>
 				</div>
-		</div>
-		<!--<tbody>-->
-		<div class="container" ng-repeat="session in $ctrl.sessions">
-			<div class="container-left-1 session-column"><span>{{session.session.sitzung}}.</span><span class="show-mobile"> Sitzung</span></div>
-			<div class="container-left-2 wrap"><span ng-if="session.session.date">{{ session.session.date | date :  "dd.MM.y" }}</span></div>
-			<div class="container-left-8">
-				<hr  class="show-mobile-block" />
-				<div class="container" ng-repeat="top in session.tops">
-					<div class="container-left-2">
-						<a ng-href="{{top.link}}{{$ctrl.paramstring}}{{top.link_fragment}}">{{top.session_identifier}}</a>
+			</div>
+			<!--<tbody>-->
+			<div class="container" ng-repeat="session in $ctrl.sessions">
+				<div class="container-left-1 session-column"><span>{{session.session.sitzung}}.</span><span class="show-mobile"> Sitzung</span></div>
+				<div class="container-left-2 wrap"><span ng-if="session.session.date">{{ session.session.date | date :  "dd.MM.y" }}</span></div>
+				<div class="container-left-8">
+					<hr class="show-mobile-block"/>
+					<div class="container" ng-repeat="top in session.tops">
+						<div class="container-left-2">
+							<a ng-href="{{top.link}}{{$ctrl.paramstring}}{{top.link_fragment}}">{{top.session_identifier}}</a>
+						</div>
+						<div class="container-left-5">
+							<a ng-href="{{top.link}}{{$ctrl.paramstring}}{{top.link_fragment}}">{{top.name}}</a>
+						</div>
+						<div class="container-left-4">
+							<a ng-href="{{top.link}}{{$ctrl.paramstring}}{{top.link_fragment}}">{{top.categories.join(', ')}}</a>
+						</div>
+						<hr class="show-mobile-block"/>
 					</div>
-					<div class="container-left-5">
-						<a ng-href="{{top.link}}{{$ctrl.paramstring}}{{top.link_fragment}}">{{top.name}}</a>
-					</div>
-					<div class="container-left-4">
-						<a ng-href="{{top.link}}{{$ctrl.paramstring}}{{top.link_fragment}}">{{top.categories.join(', ')}}</a>
-					</div>
-					<hr class="show-mobile-block" />
 				</div>
 			</div>
-		</div>
 
-		<div class="loader" ng-if="$ctrl.loading"></div>
+			<div class="loader" ng-if="$ctrl.loading"></div>
 
-		<div ng-if="!$ctrl.loading && !$ctrl.sessions.length">
-			🕵Wir haben gesucht aber nichts gefunden...
+			<div ng-if="!$ctrl.loading && !$ctrl.sessions.length">
+				🕵Wir haben gesucht aber nichts gefunden...
+			</div>
 		</div>
 	</div>
 </div>

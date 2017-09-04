@@ -2877,7 +2877,7 @@ ol {
   padding-left: 83.3%; }
 
 .container-left-offset-11 {
-  padding-left: 91.3%; }
+  margin-left: 91.3%; }
 
 @media only screen and (min-width: 48em) {
   .container-right-1 {
@@ -3014,7 +3014,7 @@ ol {
 .container-flex-center {
   display: -webkit-flex;
   display: flex;
-  justify-content: left;
+  justify-content: center;
   align-items: center; }
 
 .container-wrap-item {
@@ -7934,7 +7934,7 @@ div:target, .linked {
   transform: scale(1.8); }
 
 .side-menu ul li.active span.dot {
-  background-color: black; }
+  background-color: grey; }
 
 .side-menu.expanded ul li a span.menu-title {
   display: inline-block;

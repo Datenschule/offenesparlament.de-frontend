@@ -4,7 +4,7 @@ const top = {
     bindings: {
         title: '<',
     },
-    template: `<h2 id="{{$ctrl.link}}">{{$ctrl.title}}</h2>`,
+    template: `<h2 class="protocols-top" id="{{$ctrl.link}}">{{$ctrl.title}}</h2>`,
     controller: function ($location, $anchorScroll, $timeout) {
         this.$onInit = () => {
             this.link = kebabCase(this.title);
