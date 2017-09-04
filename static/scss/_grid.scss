@@ -1,6 +1,6 @@
 @import 'lib/neat/neat-helpers';
 
-$max-width: 650px !default;
+$max-width: em(1024) !default;
 
 // Breakpoints
 $tiny: em(480);

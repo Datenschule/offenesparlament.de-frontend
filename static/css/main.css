@@ -2709,7 +2709,7 @@ ol {
   padding-bottom: 1.25em; }
 
 .container {
-  max-width: 650px;
+  max-width: 64em;
   margin-left: auto;
   margin-right: auto; }
   .container::after {
@@ -2877,7 +2877,7 @@ ol {
   padding-left: 83.3%; }
 
 .container-left-offset-11 {
-  padding-left: 91.3%; }
+  margin-left: 91.3%; }
 
 @media only screen and (min-width: 48em) {
   .container-right-1 {
@@ -3014,7 +3014,7 @@ ol {
 .container-flex-center {
   display: -webkit-flex;
   display: flex;
-  justify-content: left;
+  justify-content: center;
   align-items: center; }
 
 .container-wrap-item {
