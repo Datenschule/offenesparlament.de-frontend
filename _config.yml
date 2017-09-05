@@ -1,6 +1,8 @@
 # General Stettings
 permalink: none
 
+fullurl: 'http://beta.offenesparlament.de'
+
 # Template Variables
 title: 'EnergyHack Berlin'
 github_url: 'https://github.com/okfde/energyhack'
