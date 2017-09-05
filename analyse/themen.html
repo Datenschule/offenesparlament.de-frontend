@@ -8,7 +8,7 @@ layout: analyse
 </div>
 <div class="container">
 	<div class="container-left-12">
-		<p>In den vergangenen vier Jahren wurden in 253 Sitzungen 3015 Tagesordnungspunkte (TOPs) im Parlament diskutiert. Die TOPs haben wir in 18 Politikfelder kategorisiert, sodass man nachvollziehen kann welche Themen zwischen 2013 und 2017 besonders stark debatiert wurden.
+		<p>In den vergangenen vier Jahren wurden in 253 Sitzungen 3015 Tagesordnungspunkte (TOPs) im Parlament diskutiert. Die TOPs haben wir in 18 Politikfelder kategorisiert, sodass man nachvollziehen kann, welche Themen zwischen 2013 und 2017 besonders stark debatiert wurden.
 		</p>
 	</div>
 </div>
@@ -25,10 +25,8 @@ layout: analyse
 <div class="container">
 	<div class="container-left-12">
 		<p><strong>Was sehen wir hier?</strong></p>
-		<p>Die Themen Gesellschaftspolitik und soziale Gruppen (333 TOPs), Recht (312 TOPs), Außenpolitik und internationale Beziehungen (262 TOPs), und die Themen Arbeit und Beschäftigung (232 TOPs) und  Öffentliche Finanzen, Steuern und Abgaben (208 TOPs) werden am häufigsten im Parlament diskutiert. Das Thema Politisches Leben, Parteien wir - von den Parteien, am webigsten behandelt (18 TOPs), dicht gefolgt von dem Thema Sport, Freizeit und Tourismus (24 TOPs). Die  Da die erste Sitzung einer neuen Legislaturperiode meist im Herbst stattfindet, (bei der 18 Legislaturperiode am 22.10.2013) sind für das Jahr lediglich 9 Sitzungen bzw. 75 TOPs vorhanden.</p>
-		<br>
-		<br>
-		<p>Neben der Häufigkeit einzelner Themen dokumentieren die Pleanrprotokolle auch Debattenverläufe, Streiterein zwischen Regierung und Opposition und lustige Zwischenrufe einzelner Abgeordneten. Viele Themen haben die Abgeordneten in den letzen Jahr beschäftigt. Wir haben uns die griechische Staatsschuldenkrise, die VW-Abgasaffäre sowie die Debatten zur Aufnahme von Geflüchteten exemplarisch angeschaut, um die unterschiedlichen Positionen der Fraktionen genauer herauszuarbeiten</p>
+		<p>Die Themen Gesellschaftspolitik und soziale Gruppen (333 TOPs), Recht (312 TOPs), Außenpolitik und internationale Beziehungen (262 TOPs) sowie Arbeit und Beschäftigung (232 TOPs) und  Öffentliche Finanzen, Steuern und Abgaben (208 TOPs) werden am häufigsten im Parlament diskutiert. Das Thema Politisches Leben, Parteien wird - von den Parteien, am wenigsten behandelt (18 TOPs), dicht gefolgt von dem Thema Sport, Freizeit und Tourismus (24 TOPs). Während die meisten Themen über überwiegend gleich intensiv behandelt werden, steigen einige auch stark an. So hat sich die Redezeit zum Thema Zuwanderung zwischen 2014 bis 2016 von 14 auf 32 Stunden mehr als verdoppelt. Noch stärker ist der Anstieg beim Thema Recht: Waren es 2014 54 TOPs a 38 Stunden, sind es in 2016 129 und 67 Stunden die die sich vornhemlich um Rechtsfragen drehen. Anders ist es bei der Europapolitik. Haben sich 2014 noch 61 TOPs mit europapolitischen Fragenbeschäftigt, sind es 2016 nur noch 40. Da die erste Sitzung einer neuen Legislaturperiode meist im Herbst stattfindet, (bei der 18 Legislaturperiode am 22.10.2013) haben im Jahr 2013 lediglich 9 Sitzungen stattgefunden.</p>
+		<p>Neben der Häufigkeit einzelner Themen dokumentieren die Pleanrprotokolle auch Debattenverläufe, Streiterein zwischen Regierung und Opposition und schlagfertige Zwischenrufe einzelner Abgeordneten. Viele Themen haben die Abgeordneten in den letzen Jahr beschäftigt. Wir haben uns die griechische Staatsschuldenkrise, die VW-Abgasaffäre sowie die Debatten zur Aufnahme von Geflüchteten exemplarisch angeschaut, um die unterschiedlichen Positionen der Fraktionen genauer herauszuarbeiten</p>
 
 		<p><strong>Die griechische Staatsschuldenkrise:</strong></p>
 		<p>Massive Kreditausfälle und drohende Staatspleiten durch die Finanzkrise wurden für die EU ab 2007 zur Herausforderung, was sich auch in den <a href="http://beta.offenesparlament.de/protokolle/"> Plenarprotokollen des Bundestages
@@ -55,9 +53,27 @@ layout: analyse
 		<p>In der vergangenen Legislaturperiode debattiert der Bundestag zwischen Dezember 2014 und August 2015 die Griechenlandhilfen insgesamt sieben mal. Der Begriff ‘Grexit’, also der Austritt Griechenlands aus dem Euroraum, fällt dabei
 			das erste mal in der Verlängerung des 2. Hilfspaketes (27.02.2015), nachdem Finanzminister Schäuble und Teile der CDU in den Wochen zuvor die Option öffentlich diskutieren. Für die Opposition ist dies eine unverantwortliche
 			Politik.</p>
-		<div class="container-left-12">
-			<img src="/static/img/preview/gysi_grexit.png" alt="" style="margin: auto; text-align: center; display: inherit;">
-		</div>
+
+		<speech id="63" ng-if="utterance.type === 'speech' || utterance.type === 'chair'" utterance="utterance" class="ng-scope ng-isolate-scope">
+		    <div id="$ctrl.utterance.sequence">
+		        <div class="protocols-speaker-info">
+		    
+		            <a class="protocols-speaker" ng-href="">
+		                <!-- ngIf: $ctrl.utterance.speaker_party --><span ng-if="$ctrl.utterance.speaker_party" class="ng-binding ng-scope">  Dr. Gregor Gysi </span><!-- end ngIf: $ctrl.utterance.speaker_party -->
+		                <!-- ngIf: !$ctrl.utterance.speaker_party -->
+		            </a>
+		            <!-- ngIf: $ctrl.utterance.type == 'chair' -->
+		            
+		            <!-- ngIf: $ctrl.utterance.speaker_party --><span class="protocols-party ng-scope" ng-if="$ctrl.utterance.speaker_party">
+		                <img ng-src="/static/img/parties/linke.svg" src="/static/img/parties/linke.svg">
+		            </span><!-- end ngIf: $ctrl.utterance.speaker_party -->
+		            
+		            <a class="protocols-jumpmark" href="#!/117#63">🔗</a>
+		            
+		        </div>
+		        <div class="protocols-text ng-binding" style="white-space: pre-wrap">Und dann konnte sich Herr Schäuble auch noch auf die SPD und Herrn Gabriel bei der Erpressung Griechenlands mit dem Grexit verlassen. Das ist ein Skandal, sage ich Ihnen.</div>
+		    </div>
+		</speech>
 
 		<p><strong>Uneinigkeit in der Union:</strong></p>
 		<p>Allerdings werden die Stimmen für einen Grexit lauter und schließlich kommt es bei den Verhandlungen zu einem dritten Hilfspaket in der Union zum innerparteilichen Streit, da einige Abgeordnete nicht an die Rückzahlung eines
@@ -86,16 +102,200 @@ layout: analyse
 
 			<p>Auch für den Bundestag wurde der Abgasskandal ab Sommer 2015 zum Thema, wie <a href="http://beta.offenesparlament.de/protokolle/">die Plenarprotokolle zeigen</a>. In acht offiziellen Tagespunkten widmet sich die Politik
 				zwischen Juli 2015 bis März 2017 dem Thema der Abgasmanipulation. Am 7. Juli 2016 wird sogar ein Untersuchungsausschuss eingerichtet, indem geprüft wird, ob die Bundesregierung über die Software-Manipulationen bereits vor
-				Bekanntwerden des Skandals Bescheid wussten. Verkehrsminister Dobrindt und das Kraftfahrtbundesamt stehen besonders im Fokus, wie die Zwischenrufe der Grünen in den Debatten in den Auszügen zeigen.</p>
-			<div class="container-left-12">
-				<img src="/static/img/preview/gruene_kritik_dobrindt_1.png" alt="" style="margin: auto; text-align: center; display: inherit;">
-			</div>
+				Bekanntwerden des Skandals Bescheid wussten. Verkehrsminister Dobrindt und das Kraftfahrtbundesamt stehen besonders im Fokus, wie die Zwischenrufe der Grünen in den Debatten in den Auszügen zeigen.
+			</p>
+			<speech id="739" ng-if="utterance.type === 'speech' || utterance.type === 'chair'" utterance="utterance" class="ng-scope ng-isolate-scope">
+			    <div id="$ctrl.utterance.sequence">
+			        <div class="protocols-speaker-info">				    
+				        <a class="protocols-speaker" ng-href="">
+				                <!-- ngIf: $ctrl.utterance.speaker_party -->
+				                <!-- ngIf: !$ctrl.utterance.speaker_party --><span ng-if="!$ctrl.utterance.speaker_party" class="ng-binding ng-scope">  Alexander Dobrindt, Bundesminister für Verkehr und digitale Infrastruktur </span><!-- end ngIf: !$ctrl.utterance.speaker_party -->
+				        </a>
+				            <!-- ngIf: $ctrl.utterance.type == 'chair' -->
+				            
+				            <!-- ngIf: $ctrl.utterance.speaker_party -->
+				            
+				        <a class="protocols-jumpmark" href="#!/155#739">🔗</a>
+				            
+			        </div>
+			        <div class="protocols-text ng-binding" style="white-space: pre-wrap">Die Zusammenarbeit zwischen unserer Untersuchungskommission und Volkswagen funktioniert übrigens kooperativ.</div>
+			    </div>
+			</speech>
+			<poi ng-repeat-end="" ng-if="utterance.type === 'poi'" utterance="utterance" linked="utterance.sequence " class="ng-scope ng-isolate-scope">
+		    	<div class="protocols-poi" ng-class="{linked: $ctrl.utterance.linked}">
+		            <div id="740">
+		                <span class="protocols-poiemoji ng-binding">
+		                    🗯
+		                </span>
+		                <span class="ng-binding">
+		                    Das glaube ich ausnahmsweise!
+
+		                    <!-- ngIf: $ctrl.utterance.speaker_cleaned --><span ng-if="$ctrl.utterance.speaker_cleaned" class="ng-scope">
+		                        <a ng-href="$ctrl.utterance.agw_url" class="ng-binding" href="$ctrl.utterance.agw_url">Dr. Anton Hofreiter</a>
+		                        <!-- ngIf: $ctrl.utterance.speaker_party --><span class="protocols-poi-party ng-scope" ng-if="$ctrl.utterance.speaker_party">
+		                            <img ng-src="/static/img/parties/gruene.svg" src="/static/img/parties/gruene.svg">
+		                        </span><!-- end ngIf: $ctrl.utterance.speaker_party -->
+		                    </span><!-- end ngIf: $ctrl.utterance.speaker_cleaned -->
+		                    <a class="protocols-jumpmark" href="#!/155#740">🔗</a>
+		                </span>
+		            </div>
+		        </div>
+		    </poi>
+		    <poi ng-repeat-end="" ng-if="utterance.type === 'poi'" utterance="utterance" linked="utterance.sequence " class="ng-scope ng-isolate-scope">
+		    	<div class="protocols-poi" ng-class="{linked: $ctrl.utterance.linked}">
+		            <div id="741">
+		                <span class="protocols-poiemoji ng-binding">
+		                    🗯
+		                </span>
+		                <span class="ng-binding">
+		                    Man könnte auch „Seilschaft“ dazu sagen!
+
+		                    <!-- ngIf: $ctrl.utterance.speaker_cleaned --><span ng-if="$ctrl.utterance.speaker_cleaned" class="ng-scope">
+		                        <a ng-href="$ctrl.utterance.agw_url" class="ng-binding" href="$ctrl.utterance.agw_url">Katrin Göring-Eckardt</a>
+		                        <!-- ngIf: $ctrl.utterance.speaker_party --><span class="protocols-poi-party ng-scope" ng-if="$ctrl.utterance.speaker_party">
+		                            <img ng-src="/static/img/parties/gruene.svg" src="/static/img/parties/gruene.svg">
+		                        </span><!-- end ngIf: $ctrl.utterance.speaker_party -->
+		                    </span><!-- end ngIf: $ctrl.utterance.speaker_cleaned -->
+		                    <a class="protocols-jumpmark" href="#!/155#741">🔗</a>
+		                </span>
+		            </div>
+		        </div>
+		    </poi>
+			<speech id="754" ng-if="utterance.type === 'speech' || utterance.type === 'chair'" utterance="utterance" class="ng-scope ng-isolate-scope">
+			    <div id="$ctrl.utterance.sequence">
+			        <div class="protocols-speaker-info">
+			    
+			            <a class="protocols-speaker" ng-href="">
+			                <!-- ngIf: $ctrl.utterance.speaker_party -->
+			                <!-- ngIf: !$ctrl.utterance.speaker_party --><span ng-if="!$ctrl.utterance.speaker_party" class="ng-binding ng-scope">  Alexander Dobrindt, Bundesminister für Verkehr und digitale Infrastruktur </span><!-- end ngIf: !$ctrl.utterance.speaker_party -->
+			            </a>
+			            <!-- ngIf: $ctrl.utterance.type == 'chair' -->
+			            
+			            <!-- ngIf: $ctrl.utterance.speaker_party -->
+			            
+			            <a class="protocols-jumpmark" href="#!/155#754">🔗</a>
+			            
+			        </div>
+			        <div class="protocols-text ng-binding" style="white-space: pre-wrap">Der Rückruf ist angeordnet, und die Fahrzeuge werden in einen regelkonformen Zustand gebracht. Das ist die Wahrheit, Herr Krischer.</div>
+			    </div>
+			 </speech>
+			 <poi ng-repeat-end="" ng-if="utterance.type === 'poi'" utterance="utterance" linked="utterance.sequence " class="ng-scope ng-isolate-scope">
+			     <div class="protocols-poi" ng-class="{linked: $ctrl.utterance.linked}">
+			            <div id="755">
+			                <span class="protocols-poiemoji ng-binding">
+			                    👏
+			                </span>
+			                <span class="ng-binding">
+			                    Beifall bei der CDU/CSU sowie bei Abgeordneten der SPD
+
+			                    <!-- ngIf: $ctrl.utterance.speaker_cleaned -->
+			                    <a class="protocols-jumpmark" href="#!/155#755">🔗</a>
+			                </span>
+			            </div>
+			        </div>
+			</poi>
+			<poi ng-repeat-end="" ng-if="utterance.type === 'poi'" utterance="utterance" linked="utterance.sequence " class="ng-scope ng-isolate-scope">
+		     <div class="protocols-poi" ng-class="{linked: $ctrl.utterance.linked}">
+		            <div id="756">
+		                <span class="protocols-poiemoji ng-binding">
+		                    🗯
+		                </span>
+		                <span class="ng-binding">
+		                    Ja, da wird Software aufgespielt! Reduzieren Sie mal die Emissionen!
+
+		                    <!-- ngIf: $ctrl.utterance.speaker_cleaned --><span ng-if="$ctrl.utterance.speaker_cleaned" class="ng-scope">
+		                        <a ng-href="$ctrl.utterance.agw_url" class="ng-binding" href="$ctrl.utterance.agw_url">Oliver Krischer</a>
+		                        <!-- ngIf: $ctrl.utterance.speaker_party --><span class="protocols-poi-party ng-scope" ng-if="$ctrl.utterance.speaker_party">
+		                            <img ng-src="/static/img/parties/gruene.svg" src="/static/img/parties/gruene.svg">
+		                        </span><!-- end ngIf: $ctrl.utterance.speaker_party -->
+		                    </span><!-- end ngIf: $ctrl.utterance.speaker_cleaned -->
+		                    <a class="protocols-jumpmark" href="#!/155#756">🔗</a>
+		                </span>
+		            </div>
+		        </div>
+		    </poi>
+			<speech id="758" ng-if="utterance.type === 'speech' || utterance.type === 'chair'" utterance="utterance" class="ng-scope ng-isolate-scope">
+			    <div id="$ctrl.utterance.sequence">
+			        <div class="protocols-speaker-info">
+			    
+			            <a class="protocols-speaker" ng-href="">
+			                <!-- ngIf: $ctrl.utterance.speaker_party -->
+			                <!-- ngIf: !$ctrl.utterance.speaker_party --><span ng-if="!$ctrl.utterance.speaker_party" class="ng-binding ng-scope">  Alexander Dobrindt, Bundesminister für Verkehr und digitale Infrastruktur </span><!-- end ngIf: !$ctrl.utterance.speaker_party -->
+			            </a>
+			            <!-- ngIf: $ctrl.utterance.type == 'chair' -->
+			            
+			            <!-- ngIf: $ctrl.utterance.speaker_party -->
+			            
+			            <a class="protocols-jumpmark" href="#!/155#758">🔗</a>
+			            
+			        </div>
+			        <div class="protocols-text ng-binding" style="white-space: pre-wrap">Wir optimieren die Prozesse.</div>
+			    </div>
+			</speech>
+			<poi ng-repeat-end="" ng-if="utterance.type === 'poi'" utterance="utterance" linked="utterance.sequence " class="ng-scope ng-isolate-scope">
+		     <div class="protocols-poi" ng-class="{linked: $ctrl.utterance.linked}">
+		            <div id="759">
+		                <span class="protocols-poiemoji ng-binding">
+		                    🗯
+		                </span>
+		                <span class="ng-binding">
+		                    Sie „optimieren die Prozesse“!
+
+		                    <!-- ngIf: $ctrl.utterance.speaker_cleaned --><span ng-if="$ctrl.utterance.speaker_cleaned" class="ng-scope">
+		                        <a ng-href="$ctrl.utterance.agw_url" class="ng-binding" href="$ctrl.utterance.agw_url">Oliver Krischer</a>
+		                        <!-- ngIf: $ctrl.utterance.speaker_party --><span class="protocols-poi-party ng-scope" ng-if="$ctrl.utterance.speaker_party">
+		                            <img ng-src="/static/img/parties/gruene.svg" src="/static/img/parties/gruene.svg">
+		                        </span><!-- end ngIf: $ctrl.utterance.speaker_party -->
+		                    </span><!-- end ngIf: $ctrl.utterance.speaker_cleaned -->
+		                    <a class="protocols-jumpmark" href="#!/155#759">🔗</a>
+		                </span>
+		            </div>
+		        </div>
+		</poi>
+
 			<p>Dobrindt wird dabei immer wieder vorgeworfen, die deutsche Autoindustrie in Schutz zu nehmen (<a href="http://www.spiegel.de/wirtschaft/soziales/alexander-dobrindts-lavieren-in-der-abgasaffaere-in-zitaten-a-1161177.html">SPIEGEL,03.08.17</a>).
 				Sein größter Kritiker, Oliver Krischer, stellvertretender Fraktionsvorsitzender der Grünen und Mitglied im Ausschuss Verkehr und Bau, hat nur ein geringes Vertrauen in den Verkehrsminister die Manipulationen aufzuklären, wie
 				er immer wieder unter Beweis stellt. <a href="http://beta.offenesparlament.de/protokoll/#!/231#836">“Herr Dobrindt, Sie sind der Schutzpatron der Trickser und Betrüger. Das möchte ich hier in aller Klarheit sagen.”</a></p>
-			<div class="container-left-12">
-				<img src="/static/img/preview/gruene_kritik_dobrindt2.png" alt="" style="margin: auto; text-align: center; display: inherit;">
-			</div>
+			<speech id="76" ng-if="utterance.type === 'speech' || utterance.type === 'chair'" utterance="utterance" class="ng-scope ng-isolate-scope">
+			    <div id="$ctrl.utterance.sequence">
+			        <div class="protocols-speaker-info">
+			    
+			            <a class="protocols-speaker" ng-href="">
+			                <!-- ngIf: $ctrl.utterance.speaker_party --><span ng-if="$ctrl.utterance.speaker_party" class="ng-binding ng-scope">  Oliver Krischer </span><!-- end ngIf: $ctrl.utterance.speaker_party -->
+			                <!-- ngIf: !$ctrl.utterance.speaker_party -->
+			            </a>
+			            <!-- ngIf: $ctrl.utterance.type == 'chair' -->
+			            
+			            <!-- ngIf: $ctrl.utterance.speaker_party --><span class="protocols-party ng-scope" ng-if="$ctrl.utterance.speaker_party">
+			                <img ng-src="/static/img/parties/gruene.svg" src="/static/img/parties/gruene.svg">
+			            </span><!-- end ngIf: $ctrl.utterance.speaker_party -->
+			            
+			            <a class="protocols-jumpmark" href="#!/204#76">🔗</a>
+			            
+			        </div>
+			        <div class="protocols-text ng-binding" style="white-space: pre-wrap">Ich sage eines ganz deutlich: Das Hauptproblem in diesem Land ist, dass wir überhaupt keinen Verkehrsminister haben, und schon gar keinen, der die Herausforderungen der Zukunft begriffen hat.</div>
+			    </div>
+			</speech>
+			<speech id="79" ng-if="utterance.type === 'speech' || utterance.type === 'chair'" utterance="utterance" class="ng-scope ng-isolate-scope">
+			    <div id="$ctrl.utterance.sequence">
+			        <div class="protocols-speaker-info">
+			    
+			            <a class="protocols-speaker" ng-href="">
+			                <!-- ngIf: $ctrl.utterance.speaker_party --><span ng-if="$ctrl.utterance.speaker_party" class="ng-binding ng-scope">  Oliver Krischer </span><!-- end ngIf: $ctrl.utterance.speaker_party -->
+			                <!-- ngIf: !$ctrl.utterance.speaker_party -->
+			            </a>
+			            <!-- ngIf: $ctrl.utterance.type == 'chair' -->
+			            
+			            <!-- ngIf: $ctrl.utterance.speaker_party --><span class="protocols-party ng-scope" ng-if="$ctrl.utterance.speaker_party">
+			                <img ng-src="/static/img/parties/gruene.svg" src="/static/img/parties/gruene.svg">
+			            </span><!-- end ngIf: $ctrl.utterance.speaker_party -->
+			            
+			            <a class="protocols-jumpmark" href="#!/204#79">🔗</a>
+			            
+			        </div>
+			        <div class="protocols-text ng-binding" style="white-space: pre-wrap">Wir haben leider nur einen CSU-Beauftragten zur Durchsetzung der vermaledeiten Ausländermaut. Es muss - verdammt noch mal! - Schluss damit sein, dass das Verkehrsressort Verfügungsmasse einer südostdeutschen Regionalpartei ist.</div>
+			    </div>
+			</speech>
 		</div>
 
 	</div>
@@ -108,7 +308,7 @@ layout: analyse
 				des Krieges diskutiert, wie die <a href="http://beta.offenesparlament.de/protokoll/#!/79#object-object">Versorgung und Unterbringung</a> der Geflüchteten, eine <a
 						href="http://beta.offenesparlament.de/protokoll/#!/130#object-object">(etwaige) Obergrenze</a> für Asylsuchende oder die <a href="http://beta.offenesparlament.de/protokoll/#!/145">Fluchtursachen</a>. Zwischen Mai
 				2014 und November 2016 finden 6 Debatten im Bundestag zum Syrienkrieg statt und vier zu syrischen Geflüchteten, allerdings wird das Thema in sehr vielen weiteren Sitzungen mitdiskutiert (<a
-						href="http://beta.offenesparlament.de/protokolle/">über 100 mal</a>).</p>
+						href="http://beta.offenesparlament.de/protokolle/#!?search=Syrien&search=Fl%C3%BCchtlinge">über 100 mal</a>).</p>
 
 			<p>Bundeskanzlerin Merkel setzt sich zu Beginn immer wieder für eine europäische Lösung ein und vertritt eine aktive Flüchtlingspolitik, in der die Grenzen offen gehalten werden. Mit Sonderzügen werden Geflüchtete aus den
 				umliegenden Nachbarländern nach Deutschland befördert. Merkels Aussage “Wir schaffen das” (<a href="https://www.bundesregierung.de/Content/DE/Mitschrift/Pressekonferenzen/2015/08/2015-08-31-pk-merkel.html">Bundespressekonferenz,
