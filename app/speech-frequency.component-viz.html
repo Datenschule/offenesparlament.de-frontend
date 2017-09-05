@@ -22,6 +22,7 @@
 		</div>
 		<div class="container">
 			<div class="container-left-4 container-left-offset-1">
+				<h3>Kategorie:</h3>
 				<ui-select ng-model="$ctrl.selectedItem" theme="selectize" style="width: 300px;" title="Choose a country"
 						   on-select="$ctrl.load_data($item.url_speech, $item.url_mdb, $item.id)">
 					<ui-select-match placeholder="Wähle eine Kategorie aus">{{$select.selected.name}}</ui-select-match>
@@ -31,7 +32,7 @@
 				</ui-select>
 			</div>
 			<div class="container-left-4 container-left-offset-1">
-				<h3>Kategorie:</h3>
+				<h3>Thema:</h3>
 				<ui-select ng-model="$ctrl.selected_category" theme="selectize" style="width: 300px;" title="Choose a country"
 						   on-select="$ctrl.select_subject($item)">
 					<ui-select-match placeholder="Wähle oder suche ein Thema aus der Liste">{{$select.selected}}</ui-select-match>
