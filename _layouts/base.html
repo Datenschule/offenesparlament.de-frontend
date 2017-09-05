@@ -3,14 +3,47 @@
 
 <head>
 
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name="description" content="">
-	<meta name="author" content="">
-
-	<title>{{title}}</title>
-
+	<meta charset="utf-8"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+	{% if page.home %}<title>offenes Parlament - Startseite</title>
+	{% else %}<title>{{page.title}} &gt; offenes Parlament</title>{% endif %}
+	{% if page.card %}
+	<meta name="twitter:card" content="summary"/>
+	<meta name="twitter:site" content="@datenschule"/>
+	<meta name="twitter:creator" content="@datenschule"/>
+	{% if page.title %}
+	<meta name="og:title" content="{{ page.title }}"/>
+	<meta name="twitter:title" content="{{ page.title }}"/>
+	{% else %}
+	<meta name="og:title" content="{{ site.title }}">
+	<meta name="twitter:title" content="{{ site.title }}"/>
+	{% endif %}
+	{% if page.url %}
+	<meta name="og:url" content="{{ site.url }}{{ page.url }}"/>
+	<meta name="twitter:url" content="{{ site.url }}{{ page.url }}"/>
+	{% endif %}
+	{% if page.excerpt %}
+	<meta name="twitter:description" content="{{ page.excerpt | markdownify | strip_html | truncatewords: 50 | truncate: 199 }}"/>
+	<meta name="og:description" content="{{ page.excerpt | markdownify | strip_html | truncatewords: 50 | truncate: 199 }}"/>
+	{% else if page.description %}
+	<meta name="twitter:description" content="{{ page.description }}"/>
+	<meta name="og:description" content="{{ page.description }}"/>
+	{% else if site.description %}
+	<meta name="twitter:description" content="{{ site.description }}"/>
+	<meta name="og:description" content="{{ site.description }}"/>
+	{% endif %}
+	{% if page.image %}
+	<meta name="twitter:image:src" content="{{site.fullurl}}{{ page.image.src }}"/>
+	<meta name="og:image" content="{{site.fullurl}}{{ page.image.src }}"/>
+	{% else %}
+	<meta name="twitter:image:src" content="/static/img/logos/logo_op.png"/>
+	<meta name="og:image" content="/static/img/logos/logo_op.png"/>
+	{% endif %}
+	{% endif %}
+	{% if page.description %}
+	<meta name="description" content="{{ page.description }}"/>
+	{% endif %}
+	<meta property="og:type" content="website"/>
 	<!-- Custom CSS -->
 	<!--<link rel="stylesheet" href="/static/css/select.min.css">-->
 	<!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">-->
