@@ -7940,6 +7940,10 @@ div:target, .linked {
   display: inline-block;
   opacity: 1; }
 
+.side-menu ul li.active a span.menu-title {
+  display: inline-block;
+  opacity: 1; }
+
 .side-menu ul li a:hover span.dot {
   transform: scale(1.8); }
 
