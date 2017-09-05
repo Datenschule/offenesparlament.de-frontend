@@ -97,7 +97,7 @@
 		<div class="container">
 			<div class="container-left-12">
 				<table class="b-centered">
-					<tr class="mdb-rank container" ng-repeat="mdb in $ctrl.ranking | limitTo: 20 track by $index" style="line-height:5em; border-bottom:1px solid black">
+					<tr class="mdb-rank container" ng-repeat="mdb in $ctrl.ranking | limitTo: 10 track by $index" style="line-height:5em; border-bottom:1px solid black">
 						<td class="" style="vertical-align: middle">
 							{{$index + 1}}.
 						</td>
@@ -107,7 +107,7 @@
 							</div>
 						</td>
 						<td class="wrap" style="vertical-align: middle">
-							<p>{{mdb.first_name}} {{mdb.last_name}} · {{mdb.fraction}} · {{mdb.count}} Reden</p>
+							<p><a ng-href="{{mdb.profile_url}}" target="_blank">{{mdb.first_name}} {{mdb.last_name}}</a> · {{mdb.fraction}} · <a href="/protokolle#!?people={{mdb.speaker_fp}}">{{mdb.count}} Reden</a></p>
 						</td>
 					</tr>
 				</table>

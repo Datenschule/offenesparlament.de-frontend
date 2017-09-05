@@ -14,7 +14,7 @@ const poi = {
                     {{ $ctrl.utterance.text }}
 
                     <span ng-if="$ctrl.utterance.speaker_cleaned">
-                        <a ng-href="$ctrl.utterance.agw_url">{{ $ctrl.utterance.speaker_cleaned }}</a>
+                        <a ng-href="$ctrl.utterance.profile_url">{{ $ctrl.utterance.speaker_cleaned }}</a>
                         <span class="protocols-poi-party" ng-if="$ctrl.utterance.speaker_party">
                             <img ng-src="{{$ctrl.imgUrl}}"/>
                         </span>

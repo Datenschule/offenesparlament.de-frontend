@@ -3,7 +3,7 @@ const poi = {
     <div id="$ctrl.utterance.sequence">
         <div class="protocols-speaker-info">
     
-            <a class="protocols-speaker" ng-href="{{$ctrl.utterance.agw_url}}">
+            <a class="protocols-speaker" ng-href="{{$ctrl.utterance.profile_url}}">
                 <span ng-if="$ctrl.utterance.speaker_party">  {{ $ctrl.utterance.speaker_cleaned}} </span>
                 <span ng-if="!$ctrl.utterance.speaker_party">  {{ $ctrl.utterance.speaker}} </span>
             </a>
