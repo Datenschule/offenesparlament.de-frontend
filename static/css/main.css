@@ -7959,4 +7959,25 @@ div:target, .linked {
   padding: 0;
   background-color: transparent !important; }
 
+.speech-mdb .winner-block .wrapper {
+  display: inline-block; }
+  .speech-mdb .winner-block .wrapper .picture-wrapper {
+    height: 4em;
+    width: 10em;
+    margin: auto; }
+    .speech-mdb .winner-block .wrapper .picture-wrapper .mdb-image {
+      height: 168%;
+      clip-path: circle(35px at 37px 37px); }
+    .speech-mdb .winner-block .wrapper .picture-wrapper .victory-image {
+      height: 20px;
+      position: relative;
+      top: -23px;
+      left: -47px; }
+  .speech-mdb .winner-block .wrapper .title {
+    font-size: 2rem;
+    text-align: left; }
+  .speech-mdb .winner-block .wrapper .subtitle {
+    font-size: 1rem;
+    text-align: left; }
+
 /*# sourceMappingURL=main.css.map */

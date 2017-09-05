@@ -1,0 +1,35 @@
+.speech-mdb {
+  .winner-block {
+    .wrapper {
+      display: inline-block;
+
+      .picture-wrapper {
+        height: 4em;
+        width: 10em;
+        margin: auto;
+
+        .mdb-image {
+          height: 168%;
+          clip-path: circle(35px at 37px 37px);
+        }
+
+        .victory-image {
+          height: 20px;
+          position: relative;
+          top: -23px;
+          left: -47px;
+        }
+      }
+
+      .title {
+        font-size: 2rem;
+        text-align: left;
+      }
+
+      .subtitle {
+        font-size: 1rem;
+        text-align: left;
+      }
+    }
+  }
+}

@@ -1,4 +1,4 @@
-<div class="container container-bg-grey">
+<div class="container container-bg-grey speech-mdb">
 	<div class="container" ng-if="!$ctrl.loading">
 		<div class="container">
 			<div class="container-left-12">
@@ -44,52 +44,58 @@
 		</div>
 		<div class="container">
 			<div class="container-left-12">
-				<div class="out-wrapper text-center">
-					<div class="wrapper" style="display: inline-block">
-						<div class="omage-inle" style="height:4em; width:10em; margin:auto">
-							<img ng-src="{{$ctrl.ranking[0].picture}}" alt="" style="height:168%; clip-path:circle(35px at 37px 37px)"/>
-							<img src="/static/img/icons/victory.png" alt="" style="height: 20px; position: relative; top: -23px; left: -47px;">
+				<div class="winner-block text-center">
+					<div class="wrapper">
+						<div class="picture-wrapper">
+							<img ng-src="{{$ctrl.ranking[0].picture}}" alt="{{$ctrl.ranking[0].first_name}} {{$ctrl.ranking[0].last_name}}" class="mdb-image"/>
+							<img src="/static/img/icons/victory.png" alt="meiste reden" class="victory-image">
 						</div>
-						<p class="" style="font-size:2rem; text-align: left">
-							{{$ctrl.ranking[0].first_name}} {{$ctrl.ranking[0].last_name}}
-						</p>
-						<p class="" style="font-size: 1rem; text-align: left">
-							{{$ctrl.ranking[0].fraction}} · {{$ctrl.ranking[0].count}} Reden
-						</p>
+						<div style="margin-top:30px">
+							<p class="title">
+								{{$ctrl.ranking[0].first_name}} {{$ctrl.ranking[0].last_name}}
+							</p>
+							<p class="subtitle">
+								{{$ctrl.ranking[0].fraction}} · {{$ctrl.ranking[0].count}} Reden
+							</p>
+						</div>
 					</div>
 				</div>
 			</div>
 		</div>
 		<div class="container">
 			<div class="container-left-6">
-				<div class="out-wrapper text-center">
-					<div class="wrapper" style="display: inline-block">
-						<div class="omage-inle" style="height:4em; width:10em; margin:auto">
-							<img ng-src="{{$ctrl.ranking[1].picture}}" alt="" style="height:168%; clip-path:circle(35px at 37px 37px)"/>
-							<img src="/static/img/icons/victory_second.png" alt="" style="height: 20px; position: relative; top: -23px; left: -47px;">
+				<div class="winner-block text-center">
+					<div class="wrapper">
+						<div class="picture-wrapper">
+							<img ng-src="{{$ctrl.ranking[1].picture}}" alt="{{$ctrl.ranking[1].first_name}} {{$ctrl.ranking[1].last_name}}" class="mdb-image"/>
+							<img src="/static/img/icons/victory.png" alt="meiste reden" class="victory-image">
 						</div>
-						<p class="" style="font-size:2rem; text-align: left">
-							{{$ctrl.ranking[1].first_name}} {{$ctrl.ranking[1].last_name}}
-						</p>
-						<p class="" style="font-size: 1rem; text-align: left">
-							{{$ctrl.ranking[1].fraction}} · {{$ctrl.ranking[1].count}} Reden
-						</p>
+						<div style="margin-top:30px">
+							<p class="title">
+								{{$ctrl.ranking[1].first_name}} {{$ctrl.ranking[1].last_name}}
+							</p>
+							<p class="subtitle">
+								{{$ctrl.ranking[1].fraction}} · {{$ctrl.ranking[1].count}} Reden
+							</p>
+						</div>
 					</div>
 				</div>
 			</div>
 			<div class="container-left-6">
-				<div class="out-wrapper text-center">
-					<div class="wrapper" style="display: inline-block">
-						<div class="omage-inle" style="height:4em; width:10em; margin:auto">
-							<img ng-src="{{$ctrl.ranking[2].picture}}" alt="" style="height:168%; clip-path:circle(35px at 37px 37px)"/>
-							<img src="/static/img/icons/victory_third.png" alt="" style="height: 20px; position: relative; top: -23px; left: -47px;">
+				<div class="winner-block text-center">
+					<div class="wrapper">
+						<div class="picture-wrapper">
+							<img ng-src="{{$ctrl.ranking[2].picture}}" alt="{{$ctrl.ranking[2].first_name}} {{$ctrl.ranking[2].last_name}}" class="mdb-image"/>
+							<img src="/static/img/icons/victory_second.png" alt="meiste reden" class="victory-image">
 						</div>
-						<p class="" style="font-size:2rem; text-align: left">
-							{{$ctrl.ranking[2].first_name}} {{$ctrl.ranking[2].last_name}}
-						</p>
-						<p class="" style="font-size: 1rem; text-align: left">
-							{{$ctrl.ranking[2].fraction}} · {{$ctrl.ranking[2].count}} Reden
-						</p>
+						<div style="margin-top:30px">
+							<p class="title">
+								{{$ctrl.ranking[2].first_name}} {{$ctrl.ranking[2].last_name}}
+							</p>
+							<p class="subtitle">
+								{{$ctrl.ranking[2].fraction}} · {{$ctrl.ranking[2].count}} Reden
+							</p>
+						</div>
 					</div>
 				</div>
 			</div>
@@ -107,7 +113,7 @@
 							</div>
 						</td>
 						<td class="wrap" style="vertical-align: middle">
-							<p><a ng-href="{{mdb.profile_url}}" target="_blank">{{mdb.first_name}} {{mdb.last_name}}</a> · {{mdb.fraction}} · <a href="/protokolle#!?people={{mdb.speaker_fp}}">{{mdb.count}} Reden</a></p>
+							<p><a ng-href="{{mdb.profile_url}}">{{mdb.first_name}} {{mdb.last_name}}</a> · {{mdb.fraction}} · <a href="/protokolle#!?people={{mdb.speaker_fp}}">{{mdb.count}} Reden</a></p>
 						</td>
 					</tr>
 				</table>

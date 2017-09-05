@@ -48,6 +48,7 @@ const subject_viz = {
 					}
 					return prev;
 				}, []);
+				console.log(categories);
 
 				map(categories, (category) => {
 					result[category] = this.map_fractions(filter(response.data, ['category', category]))
@@ -55,7 +56,8 @@ const subject_viz = {
 				});
 
 				this.data = result;
-				this.update()
+				console.log(result);
+				this.update();
 				this.loading = false;
 			})
 		};
