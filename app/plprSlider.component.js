@@ -37,15 +37,15 @@ const slider = {
 			this.single.slides = [
 				{
 					style: 'carousel-1',
-					title: "Plattdeutsch im Bundestag",
+					title: "Zur Förderung von Minderheitensprachen",
 					text: "„Spraak is Heimat, Spraak hett wat mit Identität to doon, wi weet, wo wi herkaamt, un wi köönt kieken, wo wi henwüllt.“",
-					speaker: "Herbert Behrens Die LINKE"
+					speaker: "Herbert Behrens, Die LINKE"
 
 				},
 				{
 					style: 'carousel-2',
 					title: "Zu Deutschlands Politik in der Debatte zur Bankenunion",
-					text: "drei kleine Schweinchen„Die Politik, die Sie in Brüssel betreiben, erinnert mich an die Die drei kleinen Schweinchen.“",
+					text: "„Die Politik, die Sie in Brüssel betreiben, erinnert mich an die Die drei kleinen Schweinchen.“",
 					speaker: "Manuel Sarrazin, Bündnis '90 die Grünen"
 
 				},
@@ -53,14 +53,14 @@ const slider = {
 					style: 'carousel-3',
 					title: "Plattdeutsch im Bundestag",
 					text: "„Spraak is Heimat, Spraak hett wat mit Identität to doon, wi weet, wo wi herkaamt, un wi köönt kieken, wo wi henwüllt.“",
-					speaker: "Herbert Behrens Die LINKE"
+					speaker: "Herbert Behrens, Die LINKE"
 
 				},
 				{
 					style: 'carousel-4',
 					title: "In der Debatte zur Ehe für Alle",
 					text: "„Vor lauter Schreck ist Horst Seehofer dann aber leider krank geworden.“",
-					speaker: "(Caren Lay, DIE LINKE)"
+					speaker: "Caren Lay, DIE LINKE"
 				}
 			]
 		}
