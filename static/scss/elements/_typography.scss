@@ -24,16 +24,19 @@ h3,
   position: relative;
   overflow: hidden;
   text-align: left;
+  font-size: 25px;
 
   span {
-    display: inline-block;
-    vertical-align: baseline;
-    zoom: 1;
-    *display: inline;
-    *vertical-align: auto;
-    position: relative;
-    padding: 0 20px;
-    text-transform: uppercase;
+    //display: inline-block;
+    //vertical-align: baseline;
+    //zoom: 1;
+    //*display: inline;
+    //*vertical-align: auto;
+    //position: relative;
+    //padding: 0 20px;
+    //text-transform: uppercase;
+    background-color: $second-accent-color;
+
 
     &:before, &:after {
       content: '';
@@ -98,6 +101,11 @@ ul + .h2,
 ul + h3,
 ul + .h3 {
   margin-top: $base-padding-large;
+}
+
+.small-block {
+  display: block;
+  padding-bottom: 10px;
 }
 
 small {
