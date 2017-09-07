@@ -1,4 +1,4 @@
-import {kebabCase, includes} from "lodash";
+import {kebabCase, includes, findIndex} from "lodash";
 import iziToast from "izitoast";
 
 import "izitoast/dist/css/iziToast.css";
@@ -59,9 +59,18 @@ const protocol = {
 			);
 			$timeout(maybeEmojify, 3000);
 			$timeout( () => {
-				$('.protocols-top').on('scrollSpy:enter', function() {
+				$('.protocols-top').on('scrollSpy:enter', function(event) {
 					self.active = $(this).attr('id');
 					console.log('active:' + self.active);
+					console.log(event);
+				});
+
+				$('.protocols-top').on('scrollSpy:exit', function(event) {
+					// self.active = $(this).attr('id');
+					console.log('active:' + self.active);
+					console.log(self.tops);
+					console.log(event);
+					console.log(findIndex(self.tops))
 				});
 
 				$('.protocols-top').scrollSpy();

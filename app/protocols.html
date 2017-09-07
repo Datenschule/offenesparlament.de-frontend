@@ -70,34 +70,6 @@
 
 <div>
 	<div class="tops container-left-12">
-		<!--<table ng-if="!$ctrl.loading && $ctrl.sessions.length">-->
-		<!--<thead>-->
-		<!--<tr>-->
-		<!--<th style="width: 10%">Sitzung</th>-->
-		<!--<th style="width: 10%">Datum</th>-->
-		<!--<th style="width: 80%">Tagesordnungspunkte</th>-->
-		<!--&lt;!&ndash;<th style="width: 40%">Kategorien</th>&ndash;&gt;-->
-		<!--</tr>-->
-		<!--</thead>-->
-		<!--<tbody>-->
-		<!--<tr ng-repeat="session in $ctrl.sessions" style="border:1px solid black">-->
-		<!--<td><span>{{session.session.sitzung}}.</span></td>-->
-		<!--<td><span ng-if="session.session.date">{{ session.session.date | date :  "dd.MM.y" }}</span></td>-->
-		<!--<td>-->
-		<!--<table>-->
-		<!--<tr ng-repeat="top in session.tops" style="border: 1px solid black;">-->
-		<!--<td style="width:50%">-->
-		<!--<a ng-href="{{top.link}}{{$ctrl.paramstring}}{{top.link_fragment}}">{{top.title}}</a>-->
-		<!--</td>-->
-		<!--<td style="width:50%">-->
-		<!--<a ng-href="{{top.link}}{{$ctrl.paramstring}}{{top.link_fragment}}">{{top.categories.join(', ')}}</a>-->
-		<!--</td>-->
-		<!--</tr>-->
-		<!--</table>-->
-		<!--</td>-->
-		<!--</tr>-->
-		<!--</tbody>-->
-		<!--</table>-->
 		<div class="container hide-mobile" ng-if="!$ctrl.loading && $ctrl.sessions.length">
 			<div class="container-left-1">Sitzung</div>
 			<div class="container-left-2">Datum</div>
@@ -108,7 +80,7 @@
 					<div class="container-left-4">Themen</div>
 				</div>
 			</div>
-			<!--<tbody>-->
+
 			<div class="container" ng-repeat="session in $ctrl.sessions">
 				<div class="container-left-1 session-column"><span>{{session.session.sitzung}}.</span><span class="show-mobile"> Sitzung</span></div>
 				<div class="container-left-2 wrap"><span ng-if="session.session.date">{{ session.session.date | date :  "dd.MM.y" }}</span></div>
@@ -129,11 +101,12 @@
 				</div>
 			</div>
 
-			<div class="loader" ng-if="$ctrl.loading"></div>
+
 
 			<div ng-if="!$ctrl.loading && !$ctrl.sessions.length">
 				🕵Wir haben gesucht aber nichts gefunden...
 			</div>
 		</div>
+		<div class="loader" ng-if="$ctrl.loading"></div>
 	</div>
 </div>

@@ -52,10 +52,10 @@
 						</div>
 						<div style="margin-top:30px">
 							<p class="title">
-								{{$ctrl.ranking[0].first_name}} {{$ctrl.ranking[0].last_name}}
+								<a href="{{$ctrl.ranking[0].profile_url}}">{{$ctrl.ranking[0].first_name}} {{$ctrl.ranking[0].last_name}}</a>
 							</p>
 							<p class="subtitle">
-								{{$ctrl.ranking[0].fraction}} · {{$ctrl.ranking[0].count}} Reden
+								{{$ctrl.ranking[0].fraction}} · <a href="/protokolle#!?people={{$ctrl.ranking[0].speaker_fp}}">{{$ctrl.ranking[0].count}} Reden</a>
 							</p>
 						</div>
 					</div>
@@ -72,10 +72,10 @@
 						</div>
 						<div style="margin-top:30px">
 							<p class="title">
-								{{$ctrl.ranking[1].first_name}} {{$ctrl.ranking[1].last_name}}
+								<a href="{{$ctrl.ranking[1].profile_url}}">{{$ctrl.ranking[1].first_name}} {{$ctrl.ranking[1].last_name}}</a>
 							</p>
 							<p class="subtitle">
-								{{$ctrl.ranking[1].fraction}} · {{$ctrl.ranking[1].count}} Reden
+								{{$ctrl.ranking[1].fraction}} · <a href="/protokolle#!?people={{$ctrl.ranking[1].speaker_fp}}">{{$ctrl.ranking[1].count}} Reden</a>
 							</p>
 						</div>
 					</div>
@@ -90,10 +90,10 @@
 						</div>
 						<div style="margin-top:30px">
 							<p class="title">
-								{{$ctrl.ranking[2].first_name}} {{$ctrl.ranking[2].last_name}}
+								<a href="{{$ctrl.ranking[2].profile_url}}">{{$ctrl.ranking[2].first_name}} {{$ctrl.ranking[2].last_name}}</a>
 							</p>
 							<p class="subtitle">
-								{{$ctrl.ranking[2].fraction}} · {{$ctrl.ranking[2].count}} Reden
+								{{$ctrl.ranking[2].fraction}} · <a href="/protokolle#!?people={{$ctrl.ranking[2].speaker_fp}}">{{$ctrl.ranking[2].count}} Reden</a>
 							</p>
 						</div>
 					</div>
@@ -120,10 +120,13 @@
 			</div>
 		</div>
 		<div class="container">
-			<small>Quelle: <a href="https://www.abgeordnetenwatch.de/bundestag-2013-2017/profile">Profile der MdBs von Abgeordnetenwatch</a>,
-				<a href="https://www.bundestag.de/tagesordnung">Sitzungsablauf</a> und
-				<a href="https://www.bundestag.de/protokolle">Rednerlisten</a> des Bundestages
-			</small>
+			<div class="container-left-11 container-left-offset-1">
+				<small class="small-block">Quelle: <a href="https://www.abgeordnetenwatch.de/bundestag-2013-2017/profile">Profile der MdBs von Abgeordnetenwatch</a>,
+					<a href="https://www.bundestag.de/tagesordnung">Sitzungsablauf</a> und
+					<a href="https://www.bundestag.de/protokolle">Rednerlisten</a> des Bundestages
+				</small>
+			</div>
+
 		</div>
 	</div>
 	<div class="container" ng-if="$ctrl.loading">

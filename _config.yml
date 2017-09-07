@@ -5,6 +5,6 @@ fullurl: 'http://beta.offenesparlament.de'
 
 # Template Variables
 title: 'offenes Parlament'
-github_url: 'https://github.com/okfde/energyhack'
+github_url: 'https://github.com/datenschule/offenesparlament.de'
 twitter: '#'
-contact: 'julia.kloiber@okfn.org'
+contact: 'info@datenschule.de'
