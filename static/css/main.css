@@ -2360,17 +2360,11 @@ h3,
   width: 100%;
   position: relative;
   overflow: hidden;
-  text-align: left; }
+  text-align: left;
+  font-size: 25px; }
   h3 span,
   .h3 span {
-    display: inline-block;
-    vertical-align: baseline;
-    zoom: 1;
-    *display: inline;
-    *vertical-align: auto;
-    position: relative;
-    padding: 0 20px;
-    text-transform: uppercase; }
+    background-color: #88ffdb; }
     h3 span:before, h3 span:after,
     .h3 span:before,
     .h3 span:after {
@@ -2461,6 +2455,10 @@ ul + .h2,
 ul + h3,
 ul + .h3 {
   margin-top: 1.875em; }
+
+.small-block {
+  display: block;
+  padding-bottom: 10px; }
 
 small {
   font-size: 0.8em; }
@@ -5482,8 +5480,7 @@ ol {
   font-weight: bold; }
 
 i::before {
-  margin-right: -10px;
-  margin-left: -10px; }
+  margin-left: 8px; }
 
 .container .navigation-sub {
   border-bottom: none; }
@@ -7626,6 +7623,10 @@ div:target, .linked {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale; }
 
+.carousel-wrapper i::before {
+  margin-right: -10px;
+  margin-left: -10px; }
+
 .ui-icon-prev:before {
   content: "\ea40"; }
 
@@ -7979,5 +7980,31 @@ div:target, .linked {
   .speech-mdb .winner-block .wrapper .subtitle {
     font-size: 1rem;
     text-align: left; }
+
+.typewriter h1 {
+  overflow: hidden;
+  /* Ensures the content is not revealed until the animation */
+  border-right: .15em solid orange;
+  /* The typwriter cursor */
+  white-space: nowrap;
+  /* Keeps the content on a single line */
+  margin: 0 auto;
+  /* Gives that scrolling effect as the typing happens */
+  letter-spacing: .15em;
+  /* Adjust as needed */
+  animation: typing 3.5s steps(40, end), blink-caret 0.75s step-end infinite; }
+
+/* The typing effect */
+@keyframes typing {
+  from {
+    width: 0; }
+  to {
+    width: 100%; } }
+/* The typewriter cursor effect */
+@keyframes blink-caret {
+  from, to {
+    border-color: transparent; }
+  50% {
+    border-color: orange; } }
 
 /*# sourceMappingURL=main.css.map */
