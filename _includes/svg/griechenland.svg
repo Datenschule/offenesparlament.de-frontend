@@ -63,5 +63,11 @@
 	<g clip-path="url(#SVGID_2_)">
 		<text transform="matrix(1 0 0 1 567.3901 78.7891)"><tspan x="0" y="0" fill="#030303" font-family="'Helvetica-LightOblique'" font-size="12">19</tspan><tspan x="13.991" y="0" fill="#030303" font-family="'Helvetica-LightOblique'" font-size="12">.</tspan><tspan x="17.004" y="0" fill="#030303" font-family="'Helvetica-LightOblique'" font-size="12"> </tspan><tspan x="20.003" y="0" fill="#030303" font-family="'Helvetica-LightOblique'" font-size="12">A</tspan><tspan x="28.007" y="0" fill="#030303" font-family="'Helvetica-LightOblique'" font-size="12">u</tspan><tspan x="35.003" y="0" fill="#030303" font-family="'Helvetica-LightOblique'" font-size="12">g</tspan><tspan x="42.011" y="0" fill="#030303" font-family="'Helvetica-LightOblique'" font-size="12">u</tspan><tspan x="49.007" y="0" fill="#030303" font-family="'Helvetica-LightOblique'" font-size="12">st</tspan></text>
 	</g>
+	
+		<line clip-path="url(#SVGID_2_)" fill="#C7C9CB" stroke="#97999C" stroke-width="0.5" stroke-miterlimit="10" x1="349.825" y1="68.377" x2="349.825" y2="94.146"/>
+	
+		<line clip-path="url(#SVGID_2_)" fill="#C7C9CB" stroke="#97999C" stroke-width="0.5" stroke-miterlimit="10" x1="425.325" y1="83.376" x2="425.325" y2="94.146"/>
+	
+		<line clip-path="url(#SVGID_2_)" fill="#C7C9CB" stroke="#97999C" stroke-width="0.5" stroke-miterlimit="10" x1="581.325" y1="83.376" x2="581.325" y2="94.146"/>
 </g>
 </svg>
