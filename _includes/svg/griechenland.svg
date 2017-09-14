@@ -26,11 +26,14 @@
 	<rect x="42.825" y="38.157" opacity="0" clip-path="url(#SVGID_2_)" fill="#FFFFFF" width="724" height="155"/>
 	<rect x="43.825" y="101.157" clip-path="url(#SVGID_2_)" fill="#E0E1E3" width="318" height="33"/>
 	<rect x="368.825" y="101.157" clip-path="url(#SVGID_2_)" fill="#E0E1E3" width="318" height="33"/>
+
+	
 	<a href="http://beta.offenesparlament.de/protokoll/#!/76?search=Hilfspaket#top-zp-2-finanzhilfen-zugunsten-griechenlands" target="_blank" class="link-protocol"><rect x="345.825" y="101.157" clip-path="url(#SVGID_2_)" fill="#46B4C6" width="8" height="33"/></a>
-	
-	<a href="http://beta.offenesparlament.de/protokoll/#!/89?search=Hilfspaket#top-zp-4-finanzhilfen-zugunsten-griechenlands" target="_blank" class="link-protocol"><rect x="345.825"<rect x="421.825" y="101.157" clip-path="url(#SVGID_2_)" fill="#46B4C6" width="8" height="33"/></a>
-	
-	<a href="http://beta.offenesparlament.de/protokoll/#!/118?search=Hilfspaket#top-1-regierungserklarung-stabilitatshilfe-fur-griechenland" target="_blank" class="link-protocol"><rect x="345.825"<rect x="576.825" y="101.157" clip-path="url(#SVGID_2_)" fill="#46B4C6" width="9" height="33"/></a>
+
+	<a href="http://beta.offenesparlament.de/protokoll/#!/89?search=Hilfspaket#top-zp-4-finanzhilfen-zugunsten-griechenlands" target="_blank" class="link-protocol"><rect x="421.825" y="101.157" clip-path="url(#SVGID_2_)" fill="#46B4C6" width="8" height="33"/></a>
+
+	<a href="http://beta.offenesparlament.de/protokoll/#!/118?search=Hilfspaket#top-1-regierungserklarung-stabilitatshilfe-fur-griechenland" target="_blank" class="link-protocol"><rect x="576.825" y="101.157" clip-path="url(#SVGID_2_)" fill="#46B4C6" width="9" height="33"/></a>
+
 	<g clip-path="url(#SVGID_2_)">
 		<text transform="matrix(1 0 0 1 186.855 156.8174)"><tspan x="0" y="0" fill="#030303" font-family="'Helvetica-Light'" font-size="15">201</tspan><tspan x="24.029" y="0" fill="#030303" font-family="'Helvetica-Light'" font-size="15">4</tspan></text>
 	</g>
