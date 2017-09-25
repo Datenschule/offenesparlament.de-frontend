@@ -39,7 +39,7 @@ const subject_viz = {
 					x: 45,
 					y: 5
 				}],
-				textAnchor: 'middle',
+				textAnchor: 'start',
 				chartPadding: {
 					top: 15,
 					right: 85,
@@ -53,6 +53,7 @@ const subject_viz = {
 			this.events = {
 				draw: function eventHandler(data) {
 					if(data.type === 'bar') {
+						// console.log(data);
 						let curr_key = self.keys[data.index];
 
 						let value = data.seriesIndex == 1 ? self.current_sum[curr_key] : self.current_count[curr_key];
@@ -61,10 +62,22 @@ const subject_viz = {
 						}
 						let text = data.seriesIndex == 1 ? " Stunden" : " TOPs";
 						data.group.elem('text', {
-							x: data.x2 + self.options.labelOffset[data.seriesIndex].x,
+							x: data.chartRect.x2,
 							y: data.value.y > 0 ? data.y2 + self.options.labelOffset[data.seriesIndex].y : data.y1 + self.options.labelOffset[data.seriesIndex].y,
 							style: 'text-anchor: ' + self.options.textAnchor
 						}, self.options.labelClass).text(value + text);
+
+						let average = self.medians[data.seriesIndex][curr_key];
+						// console.log(average);
+						let average_x = data.x1 + (average * (data.x2 - data.x1) / data.value.x);
+						// console.log(curr_key);
+						data.group.elem('line', {
+							x1: average_x,
+							y1: data.y1 - 8,
+							x2: average_x,
+							y2: data.y1 + 8,
+							style: 'stroke: black; stroke-width:3px'
+						}, self.options.labelClass).text('*');
 					}
 				}
 			};
@@ -77,12 +90,48 @@ const subject_viz = {
 
 				this.counts = data[1].data;
 				this.sums = data[0].data;
+				// console.log(data)
 				this.loading = false;
+
+
+				this.medians = data.map((item) => this.calculateMedians(item.data));
+				console.log(this.medians);
 
 				this.select();
 				this.years = ['alle'].concat(Object.keys(this.counts));
 			})
 		};
+
+		this.calculateMedians = function (data) {
+			let result = {}
+			console.log(data);
+			Object.values(data).map((item) => {
+				// console.log(item);
+				let sum = Object.values(item).reduce((prev, curr) => { return prev + curr }, 0);
+				// console.log(sum);
+				Object.keys(item).map((cat) => {
+					if (!result[cat]) {
+						result[cat] = [];
+					}
+					result[cat].push(item[cat] * 100 / sum)
+				} )
+			});
+			let tmp = result;
+			// console.log(tmp);
+
+			Object.keys(result).map((item_key) => {
+				let item = result[item_key];
+				item.sort((a, b) => a - b);
+				let lowMiddle = Math.floor((item.length - 1) / 2);
+				let highMiddle = Math.ceil((item.length - 1) / 2);
+				let median = (item[lowMiddle] + item[highMiddle]) / 2;
+				// console.log(average);
+				console.log(median);
+				result[item_key] = median;
+			});
+			console.log(result);
+			return result;
+		}
 
 		this.select = function(year) {
 
