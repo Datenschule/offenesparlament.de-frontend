@@ -134,6 +134,7 @@ const subject_viz = {
 					let series_mdb = this.data.labels.map((key) => {
 						return this.mdb[key]
 					});
+					console.log(data);
 
 					let max_speech = sum(series_speech);
 					let max_mdb = sum(series_mdb);

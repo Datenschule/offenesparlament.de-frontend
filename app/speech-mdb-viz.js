@@ -13,6 +13,8 @@ const subject_viz = {
 		this.fractions = ["alle", "CDU/CSU", "SPD", "Bündnis 90 die Grünen", "die Linke"];
 		this.loading = true;
 
+		let self = this;
+
 		this.$onInit = () => {
 			$http.get(BASE_URL + '/api/categories').then((response) => {
 				let categories = response.data.data;
@@ -23,43 +25,63 @@ const subject_viz = {
 		}
 
 		this.load_data = function() {
-			$http.get(BASE_URL + '/api/mdb/speech_by_category').then((response) => {
-				let result = {};
-				let fraction_mapper = {
-					"CDU" : "CDU/CSU",
-					"CSU" : "CDU/CSU",
-					"DIE LINKE": "die Linke",
-					"DIE GRÜNEN" : "Bündnis 90 die Grünen",
-					"SPD": "SPD"
-				}
-				response.data = map(response.data, (value) => {
-					value.fraction = fraction_mapper[value.party];
-					return value;
-				});
-				result['alle'] = {};
+			// $http.get(BASE_URL + '/api/mdb/speech_by_category').then((response) => {
+			//
+			// })
+			//
+			// $http.get(BASE_URL + '/api/mdb/speech_sum').then((response) => {
+			// 	this.data['alle']['alle'] = chain(response.data).sortBy('count').reverse().value();
+			// 	console.log(this.data['alle']['alle'])
+			// })
 
-				result['alle'] = this.map_fractions(response.data);
-
-				result['alle']['alle'] = map_data(response.data);
-
-				let categories = uniqBy(response.data, 'category').reduce((prev,item) => {
-					if (item['category']) {
-						prev.push(item['category']);
+			$q.all([$http.get(BASE_URL + '/api/mdb/speech_by_category'), $http.get(BASE_URL + '/api/mdb/speech_sum')])
+				.then((response => {
+					let result = {};
+					let fraction_mapper = {
+						"CDU" : "CDU/CSU",
+						"CSU" : "CDU/CSU",
+						"DIE LINKE": "die Linke",
+						"DIE GRÜNEN" : "Bündnis 90 die Grünen",
+						"SPD": "SPD"
 					}
-					return prev;
-				}, []);
-				console.log(categories);
 
-				map(categories, (category) => {
-					result[category] = this.map_fractions(filter(response.data, ['category', category]))
-					result[category]['alle'] = map_data(filter(response.data, ['category', category]));
-				});
+					let category_data = response[0];
+					let sum_data = response[1];
 
-				this.data = result;
-				console.log(result);
-				this.update();
-				this.loading = false;
-			})
+					console.log(response)
+
+					sum_data.data = sum_data.data.map((item) => { item['fraction'] = fraction_mapper[item.party]; return item; });
+					console.log(sum_data)
+
+					category_data.data = map(category_data.data, (value) => {
+						value.fraction = fraction_mapper[value.party];
+						return value;
+					});
+
+					result['alle'] = {};
+
+					result['alle'] = this.map_fractions(sum_data.data);
+
+					result['alle']['alle'] = chain(sum_data.data).sortBy('count').reverse().value();
+
+					let categories = uniqBy(category_data.data, 'category').reduce((prev,item) => {
+						if (item['category']) {
+							prev.push(item['category']);
+						}
+						return prev;
+					}, []);
+
+					// console.log(response.data);
+
+					map(categories, (category) => {
+						result[category] = this.map_fractions(filter(category_data.data, ['category', category]))
+						result[category]['alle'] = map_data(filter(category_data.data, ['category', category]));
+					});
+					console.log(result);
+					this.data = result;
+					this.update();
+					this.loading = false;
+				}))
 		};
 
 		this.update = function() {
@@ -67,7 +89,7 @@ const subject_viz = {
 		};
 
 		this.map_fractions = function(data) {
-
+			// console.log(data)
 			let result = {};
 			map(this.fractions, (fraction) => {
 				result[fraction] = map_data(filter(data, ['fraction', fraction]))
