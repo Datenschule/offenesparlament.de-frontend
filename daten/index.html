@@ -20,42 +20,54 @@ title: Daten
 		</p>
 	</div>
 </div>
-<div class="container">
-	<div class="container-left-12">
-		<h3><strong><span>Fragestellung</span></strong></h3>
-		<p>OffenesParlament existiert seit 2013 und ist ein Community-Projekt, zu dem viele ehrenamtlich Engagierte beigetragen haben. Ziel ist es, Regierungshandeln verständlicher und transparenter zu machen. Wir wollten wissen, über
-			welche Themen im Bundestag verhandelt wird und welche Positionen die einzelnen Abgeordneten beziehen.
-		</p>
+<div class="container-interlude container-bg-grey">
+	<div class="container">
+		<div class="container-left-12">
+			<h3><strong>Fragestellung</strong></h3>
+			<p>OffenesParlament existiert seit 2013 und ist ein Community-Projekt, zu dem viele ehrenamtlich Engagierte beigetragen haben. Ziel ist es, Regierungshandeln verständlicher und transparenter zu machen. Wir wollten wissen, über
+				welche Themen im Bundestag verhandelt wird und welche Positionen die einzelnen Abgeordneten beziehen.
+			</p>
+		</div>
 	</div>
 </div>
+
 <div class="container">
 	<div class="container-left-12">
-		<p><strong>Suchen und Finden</strong></p>
-		<p>Bei unserer Recherche haben wir verschiedene Datenquellen gesammelt und dann definiert, welche Daten zuverlässig und aussagekräftig sind (Qualität der Daten), um unsere Frage zu beantworten. OffenesParlament verwendet überwiegend historische Daten des Bundestags zur 18. Wahlperiode (Oktober 2013 - Juni 2017). Die Plenarprotokolle werden nach jeder Sitzung online als txt- und pdf-Dateien auf der Bundestagswebseite veröffentlicht. Sie umfassen unter
-		anderem Redebeiträge der Abgeordneten, Listen der Abgeordneten, Berichte und Debatten, Sitzungsverläufe und Tagesordnungspunkte, Gesetzentwürfe, und Drucksachen. Zusätzlich nutzen wir Informationen zu den Profilen der einzelnen Abgeordneten von abgeordnetenwatch.de und dem Bundestag: Berufe, Geschlecht, Alter und Bilder der Abgeordneten.</p>
+		<h3><strong>Suchen und Finden</strong></h3>
+		<p>Bei unserer Recherche haben wir verschiedene Datenquellen gesammelt und dann definiert, welche Daten zuverlässig und aussagekräftig sind (Qualität der Daten), um unsere Frage zu beantworten. OffenesParlament verwendet überwiegend
+			historische Daten des Bundestags zur 18. Wahlperiode (Oktober 2013 - Juni 2017). Die Plenarprotokolle werden nach jeder Sitzung online als txt- und pdf-Dateien auf der Bundestagswebseite veröffentlicht. Sie umfassen unter
+			anderem Redebeiträge der Abgeordneten, Listen der Abgeordneten, Berichte und Debatten, Sitzungsverläufe und Tagesordnungspunkte, Gesetzentwürfe, und Drucksachen. Zusätzlich nutzen wir Informationen zu den Profilen der einzelnen
+			Abgeordneten von abgeordnetenwatch.de und dem Bundestag: Berufe, Geschlecht, Alter und Bilder der Abgeordneten.</p>
 	</div>
 </div>
-<div class="container">
-	<div class="container-left-12">
-		<h3><strong><span>Säubern</span></strong></h3>
-		<p>
-			Daten müssen vor der eigentlichen Analyse überprüft, validiert und gesäubert werden, bevor Rückschlüsse aus ihnen gezogen werden können. Bei der Säuberung der Daten werden z.B. Informationslücken recherchiert und Daten in eine
-			strukturierte Form gebracht, damit sie von Maschinen verarbeitet werden können. Außerdem müssen die verschiedenen Datenquellen miteinander verknüpft werden, sodass ein einheitlicher Datensatz entsteht.
-		</p>
-		<p>
-			Die Plenarprotokolle liegen uns in Textform vor. Um einzelnen Abgeordneten Redebeiträge zuordnen zu können, bringen wir die Texte mit unserem <a href="https://github.com/Datenschule/plpr-scraper">PLPR-Scraper</a> in eine
-			tabellarische Form. Einzelne Redebeiträge haben wir den Tagesordnungspunkten zugeordnet. Die Details der Tagesordnungspunkte stammen aus den <a href="https://github.com/Datenschule/agendas">Sitzungsverläufen</a>. Die Verknüpfung
-			mit den Redebeiträgen erstellen wir anhand der <a href="https://github.com/Datenschule/topscraper">Rednerlisten der Plenarprotokolle</a>. Tagesordnungspunkte verknüpfen wir mit Informationen zu den Abgeordneten über den <a
-				href="https://github.com/Datenschule/mdb-merger">MdB-Merger</a>. Um die Themen der Plenarprotokolle herauszuarbeiten, haben wir jeden Titel der Tagesordnungspunkte klassifiziert. Die Klassifizierung erfolgte mit dem Open
-			Source-Tool <a href="https://crowdcrafting.org/">crowdcrafting”</a>. Die Liste der <a href="https://dipbt.bundestag.de/dip21.web/bt">Arbeitsbereiche des Bundestags</a> dient uns dabei als Grundlage und beinhaltet 18 Themen, die
-			bei der Zuordnung der Tagesordnungspunkte bei OffenesParlament verwendet werden.
-		</p>
-		<p>
-			Von uns werden die Daten inhaltlich nicht verändert, sondern lediglich in einer anderen Form dargestellt. Um unsere Arbeitsschritte nachvollziehbar zu machen, verweisen wir auf die von uns bearbeiteten Daten und Rohdaten der
-			ursprünglichen Quellen (weiter unten).
-		</p>
+
+<div class="container-interlude container-bg-grey">
+	<div class="container">
+		<div class="container-left-12">
+			<h3><strong>Säubern</strong></h3>
+			<p>
+				Daten müssen vor der eigentlichen Analyse überprüft, validiert und gesäubert werden, bevor Rückschlüsse aus ihnen gezogen werden können. Bei der Säuberung der Daten werden z.B. Informationslücken recherchiert und Daten in
+				eine
+				strukturierte Form gebracht, damit sie von Maschinen verarbeitet werden können. Außerdem müssen die verschiedenen Datenquellen miteinander verknüpft werden, sodass ein einheitlicher Datensatz entsteht.
+			</p>
+			<p>
+				Die Plenarprotokolle liegen uns in Textform vor. Um einzelnen Abgeordneten Redebeiträge zuordnen zu können, bringen wir die Texte mit unserem <a href="https://github.com/Datenschule/plpr-scraper">PLPR-Scraper</a> in eine
+				tabellarische Form. Einzelne Redebeiträge haben wir den Tagesordnungspunkten zugeordnet. Die Details der Tagesordnungspunkte stammen aus den <a href="https://github.com/Datenschule/agendas">Sitzungsverläufen</a>. Die
+				Verknüpfung
+				mit den Redebeiträgen erstellen wir anhand der <a href="https://github.com/Datenschule/topscraper">Rednerlisten der Plenarprotokolle</a>. Tagesordnungspunkte verknüpfen wir mit Informationen zu den Abgeordneten über den <a
+					href="https://github.com/Datenschule/mdb-merger">MdB-Merger</a>. Um die Themen der Plenarprotokolle herauszuarbeiten, haben wir jeden Titel der Tagesordnungspunkte klassifiziert. Die Klassifizierung erfolgte mit dem Open
+				Source-Tool <a href="https://crowdcrafting.org/">crowdcrafting”</a>. Die Liste der <a href="https://dipbt.bundestag.de/dip21.web/bt">Arbeitsbereiche des Bundestags</a> dient uns dabei als Grundlage und beinhaltet 18 Themen,
+				die
+				bei der Zuordnung der Tagesordnungspunkte bei OffenesParlament verwendet werden.
+			</p>
+			<p>
+				Von uns werden die Daten inhaltlich nicht verändert, sondern lediglich in einer anderen Form dargestellt. Um unsere Arbeitsschritte nachvollziehbar zu machen, verweisen wir auf die von uns bearbeiteten Daten und Rohdaten der
+				ursprünglichen Quellen (weiter unten).
+			</p>
+		</div>
 	</div>
 </div>
+
 <div class="container">
 	<div class="container-left-12">
 		<h3><strong>Analysieren</strong></h3>
@@ -67,14 +79,20 @@ title: Daten
 		</p>
 	</div>
 </div>
-<div class="container">
-	<div class="container-left-12">
-		<h3><strong><span>Visualisieren und Kommunizieren</span></strong></h3>
-		<p>welche tools haben wir verwendet? warum?
-			was haben wir gemacht?
-		</p>
+
+<div class="container-interlude container-bg-grey">
+	<div class="container">
+		<div class="container-left-12">
+			<h3><strong>Visualisieren und Kommunizieren</strong></h3>
+			<p>
+				Für unsere Visualisierung haben wir die freie Bibliothek <a href="https://gionkunz.github.io/chartist-js/">Chartist</a> verwendet.
+				Bei dem Großteil unserer Visualisierungen handelt es sich um interaktive Balkendiagramme bei dem die Nutzer einzelne Parameter ändern können.
+				Einfache Diagrammtypen (wie Balken- Kreis- oder Liniendiagramme) bieten den Vorteil, dass sie einfach erschlossen werden können.
+			</p>
+		</div>
 	</div>
 </div>
+
 <div class="container">
 	<div class="container-left-12">
 		<h3><strong>Aktualisierung der Daten</strong></h3>
@@ -96,48 +114,49 @@ title: Daten
 	<div class="container-left-12">
 		<div class="container-wrap-row">
 			<div class="container-wrap-item-2">
-				<img src="/static/img/icons/open-file-folder.png" alt="" style="float:left; max-height:3em; margin-right:10px;">
+				<!--<img src="/static/img/icons/open-file-folder.png" alt="" style="float:left; max-height:3em; margin-right:10px;">-->
+				<p class="ico ico-circle-down" style="float: left"></p>
 				<p class="smaller"><strong>Rohdatenzugriff zur Überprüfung der genutzten Datenbasis</strong><br/>
 					<a href="https://github.com/Datenschule/offenesparlament-data/tree/master/sessions/csv" target="_blank">CSV</a> |
 					<a href="https://github.com/Datenschule/offenesparlament-data/tree/master/sessions/json" target="_blank">JSON</a></p>
 			</div>
 			<div class="container-wrap-item-2">
-				<img src="/static/img/icons/open-file-folder.png" alt="" style="float:left; max-height:3em; margin-right:10px;">
+				<p class="ico ico-circle-down" style="float: left"></p>
 				<p class="smaller"><strong>Von uns aufbereitete Daten, die für die Analysen verwendet wurden</strong><br/>
 					<a href="https://github.com/Datenschule/offenesparlament-data/tree/master/sessions/csv" target="_blank">CSV</a> |
 					<a href="https://github.com/Datenschule/offenesparlament-data/tree/master/sessions/json" target="_blank">JSON</a></p>
 			</div>
 
 			<div class="container-wrap-item-2">
-				<img src="/static/img/icons/open-file-folder.png" alt="" style="float:left; max-height:3em; margin-right:10px;">
+				<p class="ico ico-circle-down" style="float: left"></p>
 				<p class="smaller"><strong>Scraper für das Abfragen der Daten auf der Webseite des Bundestags</strong><br/>
 					<a href="https://github.com/Datenschule/offenesparlament-data/tree/master/sessions/csv" target="_blank">CSV</a> |
 					<a href="https://github.com/Datenschule/offenesparlament-data/tree/master/sessions/json" target="_blank">JSON</a></p>
 			</div>
 
 			<div class="container-wrap-item-2">
-				<img src="/static/img/icons/open-file-folder.png" alt="" style="float:left; max-height:3em; margin-right:10px;">
+				<p class="ico ico-circle-down" style="float: left"></p>
 				<p class="smaller"><strong>Quellcode von OffenesParlament auf GitHub</strong><br/>
 					<a href="https://github.com/Datenschule/offenesparlament-data/tree/master/sessions/csv" target="_blank">CSV</a> |
 					<a href="https://github.com/Datenschule/offenesparlament-data/tree/master/sessions/json" target="_blank">JSON</a></p>
 			</div>
 
 			<div class="container-wrap-item-2">
-				<img src="/static/img/icons/open-file-folder.png" alt="" style="float:left; max-height:3em; margin-right:10px;">
+				<p class="ico ico-circle-down" style="float: left"></p>
 				<p class="smaller"><strong>Protokolle der Plenarsitzungen</strong><br/>
 					<a href="https://github.com/Datenschule/offenesparlament-data/tree/master/sessions/csv" target="_blank">CSV</a> |
 					<a href="https://github.com/Datenschule/offenesparlament-data/tree/master/sessions/json" target="_blank">JSON</a></p>
 			</div>
 
 			<div class="container-wrap-item-2">
-				<img src="/static/img/icons/open-file-folder.png" alt="" style="float:left; max-height:3em; margin-right:10px;">
+				<p class="ico ico-circle-down" style="float: left"></p>
 				<p class="smaller"><strong>Tasgesordnungspunkte aller Plenarsitzungen</strong><br/>
 					<a href="https://raw.githubusercontent.com/Datenschule/offenesparlament-data/master/tops/tops.csv" target="_blank">CSV</a> |
 					<a href="https://raw.githubusercontent.com/Datenschule/offenesparlament-data/master/tops/tops.json" target="_blank">JSON</a></p>
 			</div>
 
 			<div class="container-wrap-item-2" style="width: 100%">
-				<img src="/static/img/icons/open-file-folder.png" alt="" style="float:left; max-height:3em; margin-right:10px;">
+				<p class="ico ico-circle-down" style="float: left"></p>
 				<p class="smaller"><strong>Metadaten der MdBs der 18. Wahlperiode</strong><br/>
 					<a href="https://raw.githubusercontent.com/Datenschule/offenesparlament-data/master/mdb/mdb.csv" target="_blank">CSV</a> |
 					<a href="https://raw.githubusercontent.com/Datenschule/offenesparlament-data/master/mdb/mdb.json" target="_blank">JSON</a></p>
@@ -180,7 +199,7 @@ title: Daten
 				<div class="container-wrap-item-2 container-flex-center">
 					<img src="/static/img/icons/open-file-folder.png" alt="" style="float:left; max-height:3em; margin-right:10px;">
 					<p class="smaller"><strong><a href="https://github.com/okfde/wahldaten">Wahldaten-Repositorium</a></strong> der Open Knowledge Foundation Deutschland.
-						</p>
+					</p>
 				</div>
 			</div>
 		</div>

@@ -67,17 +67,17 @@ const subject_viz = {
 							style: 'text-anchor: ' + self.options.textAnchor
 						}, self.options.labelClass).text(value + text);
 
-						let average = self.medians[data.seriesIndex][curr_key];
-						// console.log(average);
-						let average_x = data.x1 + (average * (data.x2 - data.x1) / data.value.x);
-						// console.log(curr_key);
-						data.group.elem('line', {
-							x1: average_x,
-							y1: data.y1 - 8,
-							x2: average_x,
-							y2: data.y1 + 8,
-							style: 'stroke: black; stroke-width:3px'
-						}, self.options.labelClass).text('*');
+						// let average = self.medians[data.seriesIndex][curr_key];
+						// // console.log(average);
+						// let average_x = data.x1 + (average * (data.x2 - data.x1) / data.value.x);
+						// // console.log(curr_key);
+						// data.group.elem('line', {
+						// 	x1: average_x,
+						// 	y1: data.y1 - 8,
+						// 	x2: average_x,
+						// 	y2: data.y1 + 8,
+						// 	style: 'stroke: black; stroke-width:3px'
+						// }, self.options.labelClass).text('*');
 					}
 				}
 			};

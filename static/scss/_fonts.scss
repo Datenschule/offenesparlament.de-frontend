@@ -21,4 +21,18 @@
 
 i::before {
   margin-left: 8px;
+  margin-right: 8px;
+}
+
+.ico {
+  font-family: "icomoon";
+  margin-right: 8px;
+}
+
+.ico-arrow-up:before {
+  content: '\ea3a'
+}
+
+.ico-circle-down:before {
+  content: '\ea43'
 }

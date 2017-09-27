@@ -5480,7 +5480,18 @@ ol {
   font-weight: bold; }
 
 i::before {
-  margin-left: 8px; }
+  margin-left: 8px;
+  margin-right: 8px; }
+
+.ico {
+  font-family: "icomoon";
+  margin-right: 8px; }
+
+.ico-arrow-up:before {
+  content: ""; }
+
+.ico-circle-down:before {
+  content: ""; }
 
 .container .navigation-sub {
   border-bottom: none; }
@@ -7897,10 +7908,16 @@ div:target, .linked {
   max-height: 30px;
   min-height: 30px; }
 
-.side-menu ul li a span {
+.side-menu ul li button {
+  border: none; }
+
+.side-menu ul li button:focus {
+  outline: 0; }
+
+.side-menu ul li button span {
   display: inline-block; }
 
-.side-menu ul li a span.menu-title {
+.side-menu ul li button span.menu-title {
   color: #fff;
   position: relative;
   margin: 0;
@@ -7926,7 +7943,7 @@ div:target, .linked {
   text-overflow: ellipsis;
   white-space: nowrap; }
 
-.side-menu ul li a span.dot {
+.side-menu ul li button span.dot {
   position: relative;
   background-color: #4D52D8;
   border-radius: 2em;
@@ -7937,25 +7954,25 @@ div:target, .linked {
   -moz-transition: all 0.3s;
   transition: all 0.3s; }
 
-.side-menu ul li a:hover span.menu-title {
+.side-menu ul li button:hover span.menu-title {
   display: inline-block;
   opacity: 1; }
 
-.side-menu ul li.active a span.menu-title {
+.side-menu ul li.active button span.menu-title {
   display: inline-block;
   opacity: 1; }
 
-.side-menu ul li a:hover span.dot {
+.side-menu ul li button:hover span.dot {
   transform: scale(1.8); }
 
 .side-menu ul li.active span.dot {
   background-color: grey; }
 
-.side-menu.expanded ul li a span.menu-title {
+.side-menu.expanded ul li button span.menu-title {
   display: inline-block;
   opacity: 1; }
 
-.side-menu div, .side-menu div.li, .side-menu a {
+.side-menu div, .side-menu div.li, .side-menu button {
   margin: 0;
   padding: 0;
   background-color: transparent !important; }
