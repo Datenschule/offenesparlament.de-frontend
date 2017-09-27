@@ -1,4 +1,4 @@
-import {kebabCase, includes, findIndex} from "lodash";
+import {kebabCase, includes, findIndex, uniqBy, find} from "lodash";
 import iziToast from "izitoast";
 
 import "izitoast/dist/css/iziToast.css";
@@ -12,17 +12,19 @@ const protocol = {
 			this.utterances = [];
 			let self = this;
 			this.active = "";
+			this.speakers = {};
+			this.searchstring = generateSearchString($location.search());
+			console.log(this.searchstring);
 			this.$onInit = () => {
 				const linkTarget = $location.hash();
+				console.log($location.search());
 				this.link_start = `#!${$location.url()}#`;
-				console.log(this.link_start)
 				$http.get(`${BASE_URL}/api/session${$location.path()}`).then(
 					(resp) => {
 						this.tops = [];
 						this.selectedTop = {};
 						this.utterances = resp.data.data.reduce((acc, currentValue, currentIndex, array) => {
 							if (currentIndex > 1 && currentValue.top_id !== array[currentIndex - 1].top_id) {
-								console.log('new top detected');
 								acc.push({type: 'top', 'title': currentValue.top})
 								this.tops.push({type: 'top', 'title': currentValue.top, 'link': kebabCase(currentValue.top)})
 							}
@@ -35,7 +37,21 @@ const protocol = {
 						this.session = resp.data.session;
 						this.session.date = Date.parse(this.session.date);
 						this.date = "15.03.2017";
-						console.log(this.tops);
+
+						$http.get(`${BASE_URL}/api/speakers`).then(
+							(resp) => {
+								this.speakers = uniqBy(resp.data.data, 'speaker_cleaned').reduce((prev, curr) => {
+									prev[curr.speaker_fp] = curr;
+									return prev;
+								}, {});
+								console.log(this.speakers);
+								if (this.filter_dict['people'])
+									this.filter_dict['people'] = [].concat(this.filter_dict['people']);
+									this.filter_dict['people'] = this.filter_dict['people'].map((item) => {
+										return find(this.speakers, ['speaker_fp', item]);
+								});
+							}
+						);
 
 						const jumpMarkKnown = includes(this.tops.map(top => top.link), $location.hash());
 
@@ -50,65 +66,85 @@ const protocol = {
 							});
 						}
 
-						console.log($location.hash());
 						this.active = $location.hash();
 						$anchorScroll.yOffset = 200;
 						$timeout($anchorScroll, 0);
 
 					}
 				);
+				$http.get(`${BASE_URL}/api/tops?${this.searchstring}`).then((response) => {
+					this.tops = response.data.data.reduce((prev, item) => {
+						item.tops.map((top) => {
+							prev.push({identifier: top.session_identifier, session: item.session.sitzung, title: top.title})
+						});
+						return prev;
+					}, []);
+					console.log(this.tops);
+					this.top_index = find_index(this.tops, {'session' : this.session.number, 'title': $location.hash()})
+
+				});
 				$timeout(maybeEmojify, 3000);
 				$timeout(() => {
-
 					$('.protocols-top').on('scrollSpy:exit', function (event) {
 						console.log('exit')
-						// self.active = $(this).attr('id');
-						// console.log('active:' + self.active);
-						// console.log(self.tops);
-						// console.log(event);
-						// console.log(findIndex(self.tops))
-						// console.log($(this).offset());
-						// console.log(window.pageYOffset || document.documentElement.scrollTop)
-						var offset_window = window.pageYOffset || document.documentElement.scrollTop;
-						var offset_element = $(this).offset();
+						let offset_window = window.pageYOffset || document.documentElement.scrollTop;
+						let offset_element = $(this).offset();
+
+						//check for scrolling direction
 						if (offset_window < offset_element.top) {
 							console.log("scrolling up");
 							// console.log(self.tops);
 							let current_index = findIndex(self.tops, ['link', $(this).attr('id')]);
 							self.active = self.tops[current_index - 1].link;
-							console.log(self.active);
 						} else {
-							console.log("scrolling down")
 							let current_index = findIndex(self.tops, ['link', $(this).attr('id')]);
 							self.active = self.tops[current_index].link;
-							console.log(self.active);
 						}
 					});
 
 					$('.protocols-top').scrollSpy();
-					this.filter_dict = $location.search();
-					console.log($location.search())
+
+
 				}, 3000);
 
-				// this.selectTop = function (link) {
-				// 	console.log('scrolled by' + link);
-				// 	// var element = document.getElementById(link);
-				// 	// angular.element(document.body).scrollToElement(element);
-				// 	$location.hash(link);
-				// 	$anchorScroll.yOffset = 200;
-				// 	// call $anchorScroll()
-				// 	$anchorScroll();
-				// };
+				this.filter_dict = $location.search();
 
-				$(document).on('click', '.side-menu a', function (event) {
+
+
+				console.log(this.filter_dict['people']);
+				console.log(this.filter_dict);
+
+				if (this.filter_dict['search'])
+					this.filter_dict['search'] = [].concat(this.filter_dict['search']);
+
+				if (this.filter_dict['categories'])
+					this.filter_dict['categories'] = [].concat(this.filter_dict['categories']);
+
+				if (this.filter_dict['years'])
+					this.filter_dict['years'] = [].concat(this.filter_dict['years']);
+
+				$(document).on('click', '.side-menu button', function (event) {
 					event.preventDefault();
-					console.log($.attr(this, 'href'))
-					$location.hash(self.session + $.attr(this, 'href'));
-
+					// $location.hash($.attr(this, 'href'));
+					console.log($location.hash());
+					$location.hash('test')
+					// console.log($location.path());
+					// console.log($($.attr(this, 'href')));
 					$('html, body').animate({
 						scrollTop: $($.attr(this, 'href')).offset().top - 200
 					}, 800, 'swing');
 				});
+			}
+
+			function generateSearchString(value) {
+				let result = '';
+				Object.keys(value).map((key) => {
+					let item = [].concat(value[key]);
+					item.map((item_value) => {
+						result += key + '=' + item_value + '&';
+					})
+				});
+				return result.slice(0, -1);
 			}
 		}
 	}

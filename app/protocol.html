@@ -2,7 +2,7 @@
 	<div class="container">
 		<div class="container-left-3">
 			<p>
-				<a href="/protokolle/" class="bold"><i class="fa fa-arrow-left"></i> zurück zur Suche</a>
+				<a href="/protokolle/#!?{{$ctrl.searchstring}}" class="bold"><i class="fa fa-arrow-left"></i> zurück zur Suche</a>
 			</p>
 		</div>
 		<div class="container-left-5">
@@ -10,31 +10,45 @@
 				{{$ctrl.session.number}}. Sitzung ({{$ctrl.session.date | date:"dd.MM.y"}})
 			</p>
 		</div>
-		<!--<div class="container-left-3">-->
-			<!--<div class="">-->
-				<!--<span>springe zu TOP: </span>-->
-				<!--<ui-select ng-model="$ctrl.selectedTop" theme="selectize" style="width: 300px;" title="Wähle ein TOP"-->
-						   <!--on-select="$ctrl.selectTop($item.link)">-->
-					<!--<ui-select-match placeholder="Wähle ein TOP aus">{{$select.selected.title}}</ui-select-match>-->
-					<!--<ui-select-choices repeat="item in $ctrl.tops | filter: $select.search">-->
-						<!--<span ng-bind-html="item.title | highlight: $select.search"></span>-->
-					<!--</ui-select-choices>-->
-				<!--</ui-select>-->
-			<!--</div>-->
-			<!--<div class="">-->
-				<!--<span>springe zu Suchergebnis: </span>-->
-				<!--<ui-select ng-model="$ctrl.selectedResult" theme="selectize" style="width: 300px;" title="Wähle ein TOP">-->
-					<!--<ui-select-match placeholder="Wähle ein TOP aus">{{$select.selected.title}}</ui-select-match>-->
-					<!--<ui-select-choices repeat="item in [1,2,3,4,5] | filter: $select.search">-->
-						<!--<span ng-bind-html="item | highlight: $select.search"></span>-->
-					<!--</ui-select-choices>-->
-				<!--</ui-select>-->
-			<!--</div>-->
-		<!--</div>-->
 	</div>
 	<div class="container">
-		<div class="container-left-12">
-			Aktuelle Suche: <span ng-repeat="mdb in $ctrl.filter_dict['people'] track by $index">{{mdb}}</span>
+		<div class="container-left-3">
+			<p><a href="#"><i class="fa fa-chevron-left" aria-hidden="true"></i>17. Sitzung: TOP 2</a></p>
+		</div>
+		<div class="container-left-6" ng-hide=" $ctrl.filter_dict | isEmptyObject">
+			<p>
+				Aktuelle Suche:
+				<span ng-if="$ctrl.filter_dict['people']">
+					MdBs (<span ng-repeat="mdb in $ctrl.filter_dict['people'] track by $index">
+						<span ng-if="!$last">{{mdb.speaker_name}}, </span>
+						<span ng-if="$last">{{mdb.speaker_name}}</span>
+					</span>),
+				</span>
+				<span ng-if="$ctrl.filter_dict['search']">
+					Suchbegriffe(<span ng-repeat="search_item in $ctrl.filter_dict['search'] track by $index">
+						{{search_item}}
+					</span>),
+				</span>
+				<span ng-if="$ctrl.filter_dict['categories']">
+					Themen(
+					<span ng-repeat="subject in $ctrl.filter_dict['categories'] track by $index">
+						{{subject}}
+					</span>),
+				</span>
+				<span ng-if="$ctrl.filter_dict['years']">
+				Jahr(<span ng-repeat="year in $ctrl.filter_dict['years'] track by $index">
+					{{year}}
+					</span>
+				</span>)
+			</p>
+		</div>
+		<div class="container-left-6" ng-show=" $ctrl.filter_dict | isEmptyObject">
+			Aktuelle Suche: keine Filter aktiv
+		</div>
+		<div class="container-left-3">
+			<p class="pull-right">
+				<a href="#">18. Sitzung: TOP 4<i class="fa fa-chevron-right" aria-hidden="true"></i></a>
+			</p>
 		</div>
 	</div>
 </section>
@@ -43,27 +57,27 @@
 	<div class="side-menu">
 		<ul class="nav">
 			<li class="">
-				<a href="#page-top">
+				<button href="#page-top">
 					<span class="menu-title">Start</span>
 					<span class="dot"></span>
-				</a>
+				</button>
 			</li>
 			<li ng-repeat="top in $ctrl.tops track by $index" ng-class="{active: top.link==$ctrl.active}">
-				<a href="#{{top.link}}">
+				<button href="#{{top.link}}">
 					<span class="menu-title">{{top.title}}</span>
 					<span class="dot"></span>
-				</a>
+				</button>
 			</li>
 			<li class="">
-				<a href="#page-end">
+				<button href="#page-end">
 					<span class="menu-title">Ende</span>
 					<span class="dot"></span>
-				</a>
+				</button>
 			</li>
 		</ul>
 	</div>
 	<div class="container-left-12">
-		<div class="main" ng-if="$ctrl.utterances.length" >
+		<div class="main" ng-if="$ctrl.utterances.length">
 			<h1> {{ $ctrl.utterances[0].wahlperiode }}. Wahlperiode - Sitzung {{ $ctrl.utterances[0].sitzung }}</h1>
 
 			<top ng-repeat-start="utterance in $ctrl.utterances"
