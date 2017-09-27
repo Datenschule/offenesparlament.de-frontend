@@ -11,7 +11,6 @@ import angularCarousel from "angular-ui-carousel"
 // import chartistBarLabels from "./lib/chartist-bar-labels"
 
 
-
 import protocolOverviewComponent from "./protocol-overview.component";
 import poiComponent from "./poi.component"
 import protocolComponent from "./protocol.component"
@@ -23,56 +22,86 @@ import speechMdbComponent from "./speech-mdb-viz"
 import plprSlider from "./plprSlider.component"
 
 let app = angular.module('offenesparlament', [ngAnimate, angularChartist, ui_select, ngSanitize, duScroll, angularInview.name, 'ui.carousel'])
-    .component('protocols', protocolOverviewComponent)
-    .component('protocol', protocolComponent)
-    .component('speech', speechComponent)
-    .component('poi', poiComponent)
-    .component('top', top)
-    .component('subjectViz', subjectVizComponent)
-    .component('speechFrequency', speechFrequencyComponent)
-    .component('speechMdb', speechMdbComponent)
-    .component('plprSlider', plprSlider)
+	.component('protocols', protocolOverviewComponent)
+	.component('protocol', protocolComponent)
+	.component('speech', speechComponent)
+	.component('poi', poiComponent)
+	.component('top', top)
+	.component('subjectViz', subjectVizComponent)
+	.component('speechFrequency', speechFrequencyComponent)
+	.component('speechMdb', speechMdbComponent)
+	.component('plprSlider', plprSlider)
 	.value('duScrollOffset', -200);
 
 app.filter('newlines', function () {
-        return function(text) {
-            return text.replace(/\n/g, '<br/>');
-        }
-    });
+	return function (text) {
+		return text.replace(/\n/g, '<br/>');
+	}
+});
 
-app.directive("stickyNav", function stickyNav($window){
-        function stickyNavLink(scope, element){
-            var w = angular.element($window),
-                size = element[0].clientHeight,
-                top = 0;
+app.filter('isEmptyObject', function () {
+	let bar;
+	return function (obj) {
+		for (bar in obj) {
+			if (obj.hasOwnProperty(bar)) {
+				return false;
+			}
+		}
+		return true;
+	};
+});
 
-            function toggleStickyNav(){
-                if(!element.hasClass('controls-fixed') && $window.pageYOffset > top + size){
-                    element.addClass('controls-fixed');
-                } else if(element.hasClass('controls-fixed') && $window.pageYOffset <= top + size){
-                    element.removeClass('controls-fixed');
-                }
-            }
+app.directive("stickyNav", function stickyNav($window) {
+	function stickyNavLink(scope, element) {
+		var w = angular.element($window),
+			size = element[0].clientHeight,
+			top = 0;
 
-            scope.$watch(function(){
-                return element[0].getBoundingClientRect().top + $window.pageYOffset;
-            }, function(newValue, oldValue){
-                if(newValue !== oldValue && !element.hasClass('controls-fixed')){
-                    top = newValue;
-                }
-            });
+		function toggleStickyNav() {
+			if (!element.hasClass('controls-fixed') && $window.pageYOffset > top + size) {
+				element.addClass('controls-fixed');
+			} else if (element.hasClass('controls-fixed') && $window.pageYOffset <= top + size) {
+				element.removeClass('controls-fixed');
+			}
+		}
 
-            w.bind('resize', function stickyNavResize(){
-                element.removeClass('controls-fixed');
-                top = element[0].getBoundingClientRect().top + $window.pageYOffset;
-                toggleStickyNav();
-            });
-            w.bind('scroll', toggleStickyNav);
-        }
+		scope.$watch(function () {
+			return element[0].getBoundingClientRect().top + $window.pageYOffset;
+		}, function (newValue, oldValue) {
+			if (newValue !== oldValue && !element.hasClass('controls-fixed')) {
+				top = newValue;
+			}
+		});
 
-        return {
-            scope: {},
-            restrict: 'A',
-            link: stickyNavLink
-        };
-    });
+		w.bind('resize', function stickyNavResize() {
+			element.removeClass('controls-fixed');
+			top = element[0].getBoundingClientRect().top + $window.pageYOffset;
+			toggleStickyNav();
+		});
+		w.bind('scroll', toggleStickyNav);
+	}
+
+	return {
+		scope: {},
+		restrict: 'A',
+		link: stickyNavLink
+	};
+});
+
+app.factory('protocolService', function($http) {
+	let tops = null;
+	return {
+		search: function(search, people, years, categories) {
+			return $http({
+				method: "GET",
+				url: `${BASE_URL}/api/tops`,
+				params: {
+					search: search,
+					people: people,
+					years: years,
+					categories: categories
+				}
+			})
+		}
+	}
+});
