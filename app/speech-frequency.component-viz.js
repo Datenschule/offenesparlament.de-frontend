@@ -63,9 +63,14 @@ const subject_viz = {
 				draw: function eventHandler(data) {
 					if(data.type === 'bar') {
 						let curr_key = self.keys[data.index];
+						console.log('keys');
+						console.log(self.keys);
+						console.log(self.speeches);
 						let value = 0;
 						if (self.subject != 'all')
 							value = data.seriesIndex == 1 ? self.mdb[curr_key] : self.speeches[self.subject][curr_key];
+						else
+							value = data.seriesIndex == 1 ? self.mdb[curr_key] : 0;
 
 						if (!value)
 							value = 0;
@@ -99,7 +104,6 @@ const subject_viz = {
 				let mdb = $http.get(BASE_URL + url_mdb);
 
 
-
 				// this.speeches = speeches;
 				// this.mdb = mdb;
 
@@ -107,6 +111,8 @@ const subject_viz = {
 
 				$q.all([speeches, mdb]).then((results) => {
 					this.speeches = results[0].data;
+					console.log('speeches')
+					console.log(this.speeches);
 					this.mdb = results[1].data;
 					console.log(this.mdb);
 					delete this.mdb['null'];
@@ -121,7 +127,6 @@ const subject_viz = {
 						let item = this.speeches[category];
 						for (let group in item) {
 							if (!has(data, group)) {
-								console.log("Initialising group");
 								data[group] = 0
 							}
 							data[group] += item[group]
