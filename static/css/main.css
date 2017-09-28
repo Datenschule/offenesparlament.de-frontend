@@ -7986,7 +7986,8 @@ div:target, .linked {
     margin: auto; }
     .speech-mdb .winner-block .wrapper .picture-wrapper .mdb-image {
       height: 168%;
-      clip-path: circle(35px at 37px 37px); }
+      clip-path: circle(35px at 37px 37px);
+      -webkit-clip-path: circle(35px at 37px 37px); }
     .speech-mdb .winner-block .wrapper .picture-wrapper .victory-image {
       height: 20px;
       position: relative;
