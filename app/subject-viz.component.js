@@ -23,7 +23,7 @@ const subject_viz = {
 				horizontalBars: true,
 				height: "100px",
 				axisY: {
-					offset: 110,
+					offset: 120,
 					showLabel: true
 				},
 				axisX: {
@@ -33,7 +33,7 @@ const subject_viz = {
 				showLine: true,
 				seriesBarDistance: 20,
 				labelOffset: [{
-					x: 40,
+					x: 50,
 					y: 5
 				},{
 					x: 45,
@@ -44,7 +44,7 @@ const subject_viz = {
 					top: 15,
 					right: 85,
 					bottom: 5,
-					left: 10
+					left: 45
 				},
 			};
 
