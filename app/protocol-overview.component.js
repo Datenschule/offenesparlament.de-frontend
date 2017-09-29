@@ -5,7 +5,7 @@ const BASE_URL = API_BASE_URL;
 
 const poc = {
     template: require("./protocols.html"),
-    controller: function ($http, $timeout, $location, $window, $rootScope) {
+    controller: function ($http, $timeout, $location, $window, $rootScope, protocolService) {
         let self = this;
         this.loading = true;
         this.selectedSpeakers = [];

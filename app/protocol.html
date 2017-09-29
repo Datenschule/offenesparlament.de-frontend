@@ -1,56 +1,70 @@
 <section sticky-nav id="page-top" class="protocol-nav">
 	<div class="container">
-		<div class="container-left-3">
-			<p>
-				<a href="/protokolle/#!?{{$ctrl.searchstring}}" class="bold"><i class="fa fa-arrow-left"></i> zurück zur Suche</a>
-			</p>
+		<div class="container-left-2 box-margin-top-small">
+			<div class="btn">
+				<a href="/protokolle/#!?{{$ctrl.searchstring}}" class="bold"><i class="fa fa-arrow-left"></i> zur Suche</a>
+			</div>
 		</div>
-		<div class="container-left-5">
-			<p>
-				{{$ctrl.session.number}}. Sitzung ({{$ctrl.session.date | date:"dd.MM.y"}})
-			</p>
+		<div class="container-left-6">
+			<h3>
+				Sitzung {{$ctrl.session.number}}
+			</h3>
+			<div class="subtitle">
+				{{$ctrl.session.date | date:"dd.MM.y"}}
+			</div>
 		</div>
-	</div>
-	<div class="container">
-		<div class="container-left-3">
-			<p><a href="#"><i class="fa fa-chevron-left" aria-hidden="true"></i>17. Sitzung: TOP 2</a></p>
+		<div class="container-left-2 box-margin-top-small">
+			<div class="btn">
+					<i class="fa fa-chevron-left"></i>vorheriges Suchergebnis
+
+			</div>
 		</div>
-		<div class="container-left-6" ng-hide=" $ctrl.filter_dict | isEmptyObject">
-			<p>
-				Aktuelle Suche:
-				<span ng-if="$ctrl.filter_dict['people']">
-					MdBs (<span ng-repeat="mdb in $ctrl.filter_dict['people'] track by $index">
-						<span ng-if="!$last">{{mdb.speaker_name}}, </span>
-						<span ng-if="$last">{{mdb.speaker_name}}</span>
-					</span>),
-				</span>
-				<span ng-if="$ctrl.filter_dict['search']">
-					Suchbegriffe(<span ng-repeat="search_item in $ctrl.filter_dict['search'] track by $index">
-						{{search_item}}
-					</span>),
-				</span>
-				<span ng-if="$ctrl.filter_dict['categories']">
-					Themen(
-					<span ng-repeat="subject in $ctrl.filter_dict['categories'] track by $index">
-						{{subject}}
-					</span>),
-				</span>
-				<span ng-if="$ctrl.filter_dict['years']">
-				Jahr(<span ng-repeat="year in $ctrl.filter_dict['years'] track by $index">
-					{{year}}
-					</span>
-				</span>)
-			</p>
-		</div>
-		<div class="container-left-6" ng-show=" $ctrl.filter_dict | isEmptyObject">
-			Aktuelle Suche: keine Filter aktiv
-		</div>
-		<div class="container-left-3">
-			<p class="pull-right">
-				<a href="#">18. Sitzung: TOP 4<i class="fa fa-chevron-right" aria-hidden="true"></i></a>
-			</p>
+		<div class="container-left-2 box-margin-top-small">
+			<div class="btn">
+				nächstes Suchergebnis<i class="fa fa-chevron-right"></i>
+			</div>
 		</div>
 	</div>
+	<!--<div class="container">-->
+		<!--<div class="container-left-3">-->
+			<!--<p><a href="#"><i class="fa fa-chevron-left" aria-hidden="true"></i>17. Sitzung: TOP 2</a></p>-->
+		<!--</div>-->
+		<!--<div class="container-left-6" ng-hide=" $ctrl.filter_dict | isEmptyObject">-->
+			<!--<p>-->
+				<!--Aktuelle Suche:-->
+				<!--<span ng-if="$ctrl.filter_dict['people']">-->
+					<!--MdBs (<span ng-repeat="mdb in $ctrl.filter_dict['people'] track by $index">-->
+						<!--<span ng-if="!$last">{{mdb.speaker_name}}, </span>-->
+						<!--<span ng-if="$last">{{mdb.speaker_name}}</span>-->
+					<!--</span>),-->
+				<!--</span>-->
+				<!--<span ng-if="$ctrl.filter_dict['search']">-->
+					<!--Suchbegriffe(<span ng-repeat="search_item in $ctrl.filter_dict['search'] track by $index">-->
+						<!--{{search_item}}-->
+					<!--</span>),-->
+				<!--</span>-->
+				<!--<span ng-if="$ctrl.filter_dict['categories']">-->
+					<!--Themen(-->
+					<!--<span ng-repeat="subject in $ctrl.filter_dict['categories'] track by $index">-->
+						<!--{{subject}}-->
+					<!--</span>),-->
+				<!--</span>-->
+				<!--<span ng-if="$ctrl.filter_dict['years']">-->
+				<!--Jahr(<span ng-repeat="year in $ctrl.filter_dict['years'] track by $index">-->
+					<!--{{year}}-->
+					<!--</span>-->
+				<!--</span>)-->
+			<!--</p>-->
+		<!--</div>-->
+		<!--<div class="container-left-6" ng-show=" $ctrl.filter_dict | isEmptyObject">-->
+			<!--Aktuelle Suche: keine Filter aktiv-->
+		<!--</div>-->
+		<!--<div class="container-left-3">-->
+			<!--<p class="pull-right">-->
+				<!--<a href="#">18. Sitzung: TOP 4<i class="fa fa-chevron-right" aria-hidden="true"></i></a>-->
+			<!--</p>-->
+		<!--</div>-->
+	<!--</div>-->
 </section>
 
 <div class="container poicontainer">

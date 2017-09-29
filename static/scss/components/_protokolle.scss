@@ -47,7 +47,7 @@ poi, .protocols-text {
 }
 
 poi .protocols-jumpmark, .protocols-speaker-info .protocols-jumpmark {
-  opacity: 0;
+  opacity: 1;
 }
 
 poi:hover .protocols-jumpmark, .protocols-speaker-info:hover .protocols-jumpmark {
@@ -328,4 +328,24 @@ div:target, .linked {
 
 .afilter.ng-hide {
   max-height: 0;
+}
+
+.protocol-nav {
+  background-color: $container-grey;
+
+  .btn {
+    background: white;
+    border-radius: 5px;
+    width: fit-content;
+    padding: 5px 10px;
+    font-size: 15px;
+
+    a {
+      text-decoration: none;
+    }
+  }
+
+  .btn:hover {
+    background-color: $base-accent-color;
+  }
 }
