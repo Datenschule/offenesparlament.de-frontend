@@ -14,10 +14,9 @@ const protocol = {
 			this.active = "";
 			this.speakers = {};
 			this.searchstring = generateSearchString($location.search());
-			console.log(this.searchstring);
+			this.filter_dict = $location.search();
 			this.$onInit = () => {
 				const linkTarget = $location.hash();
-				console.log($location.search());
 				this.link_start = `#!${$location.url()}#`;
 				$http.get(`${BASE_URL}/api/session${$location.path()}`).then(
 					(resp) => {
@@ -44,9 +43,9 @@ const protocol = {
 									prev[curr.speaker_fp] = curr;
 									return prev;
 								}, {});
-								console.log(this.speakers);
 								if (this.filter_dict['people'])
-									this.filter_dict['people'] = [].concat(this.filter_dict['people']);
+									// console.log(this.filter_dict['people']);
+;									this.filter_dict['people'] = [].concat(this.filter_dict['people']);
 									this.filter_dict['people'] = this.filter_dict['people'].map((item) => {
 										return find(this.speakers, ['speaker_fp', item]);
 								});
@@ -73,29 +72,26 @@ const protocol = {
 					}
 				);
 				$http.get(`${BASE_URL}/api/tops?${this.searchstring}`).then((response) => {
-					this.tops = response.data.data.reduce((prev, item) => {
-						item.tops.map((top) => {
+					this.tops_search = response.data.data.reduce((prev, item) => {
+						item.tops_search.map((top) => {
 							prev.push({identifier: top.session_identifier, session: item.session.sitzung, title: top.title})
 						});
 						return prev;
 					}, []);
-					console.log(this.tops);
-					this.top_index = find_index(this.tops, {'session' : this.session.number, 'title': $location.hash()})
+					this.top_index = findIndex(this.tops_search, {'session' : this.session.number, 'title': $location.hash()})
 
 				});
 				$timeout(maybeEmojify, 3000);
 				$timeout(() => {
 					$('.protocols-top').on('scrollSpy:exit', function (event) {
-						console.log('exit')
 						let offset_window = window.pageYOffset || document.documentElement.scrollTop;
 						let offset_element = $(this).offset();
 
 						//check for scrolling direction
 						if (offset_window < offset_element.top) {
-							console.log("scrolling up");
-							// console.log(self.tops);
+							console.log(self.tops);
 							let current_index = findIndex(self.tops, ['link', $(this).attr('id')]);
-							self.active = self.tops[current_index - 1].link;
+							// self.active = self.tops[current_index - 1].link;
 						} else {
 							let current_index = findIndex(self.tops, ['link', $(this).attr('id')]);
 							self.active = self.tops[current_index].link;
@@ -106,13 +102,6 @@ const protocol = {
 
 
 				}, 3000);
-
-				this.filter_dict = $location.search();
-
-
-
-				console.log(this.filter_dict['people']);
-				console.log(this.filter_dict);
 
 				if (this.filter_dict['search'])
 					this.filter_dict['search'] = [].concat(this.filter_dict['search']);
@@ -125,11 +114,11 @@ const protocol = {
 
 				$(document).on('click', '.side-menu button', function (event) {
 					event.preventDefault();
-					// $location.hash($.attr(this, 'href'));
-					console.log($location.hash());
-					$location.hash('test')
+					$location.hash($.attr(this, 'href'));
+					// $location.hash('test')
 					// console.log($location.path());
 					// console.log($($.attr(this, 'href')));
+					let link = $.attr(this, 'href');
 					$('html, body').animate({
 						scrollTop: $($.attr(this, 'href')).offset().top - 200
 					}, 800, 'swing');
