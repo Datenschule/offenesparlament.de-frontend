@@ -7375,7 +7375,7 @@ poi:hover .protocols-jumpmark, .protocols-speaker-info:hover .protocols-jumpmark
   text-decoration: none; }
 
 .protocols-poi {
-  background-color: #f6f6f6;
+  background-color: #e9e9e9;
   border-radius: 1.5px;
   padding: 1em;
   width: 55%;
@@ -7592,15 +7592,19 @@ div:target, .linked {
 
 .protocol-nav {
   background-color: #e9e9e9; }
-  .protocol-nav .btn {
+  .protocol-nav .btn, .protocol-nav .btn-inactive {
     background: white;
     border-radius: 5px;
     width: fit-content;
     padding: 5px 10px;
     font-size: 15px;
     cursor: pointer; }
-    .protocol-nav .btn a {
+    .protocol-nav .btn a, .protocol-nav .btn-inactive a {
       text-decoration: none; }
+  .protocol-nav .btn-inactive {
+    cursor: default; }
+    .protocol-nav .btn-inactive a {
+      color: grey; }
   .protocol-nav .btn:hover {
     background-color: #4D52D8; }
 
@@ -7790,6 +7794,13 @@ div:target, .linked {
 
 .carousel-4 {
   background-image: url("/static/img/carousel/carousel4.jpg"); }
+
+.carousel-cite {
+  width: 70%;
+  margin: auto; }
+
+.carousel-title {
+  text-decoration: underline; }
 
 .modal label {
   cursor: pointer;

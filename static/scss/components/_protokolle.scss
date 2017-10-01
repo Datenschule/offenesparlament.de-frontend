@@ -56,7 +56,7 @@ poi:hover .protocols-jumpmark, .protocols-speaker-info:hover .protocols-jumpmark
 }
 
 .protocols-poi {
-  background-color: #f6f6f6;
+  background-color: $container-grey;
   border-radius: 1.5px;
   padding: 1em;
   width: 55%;
@@ -333,7 +333,7 @@ div:target, .linked {
 .protocol-nav {
   background-color: $container-grey;
 
-  .btn {
+  .btn, .btn-inactive {
     background: white;
     border-radius: 5px;
     width: fit-content;
@@ -344,6 +344,16 @@ div:target, .linked {
     a {
       text-decoration: none;
     }
+
+  }
+
+  .btn-inactive {
+    cursor: default;
+
+    a{
+      color: grey;
+    }
+
   }
 
   .btn:hover {

@@ -107,6 +107,14 @@ const protocol = {
 
 				}, 3000);
 
+				this.reload = function(link) {
+					console.log(link);
+					$timeout(() => {
+						this.utterances = [];
+						this.$onInit();
+					})
+				}
+
 				if (this.filter_dict['search'])
 					this.filter_dict['search'] = [].concat(this.filter_dict['search']);
 
