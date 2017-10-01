@@ -15,6 +15,8 @@ const protocol = {
 			this.speakers = {};
 			this.searchstring = generateSearchString($location.search());
 			this.filter_dict = $location.search();
+			this.nextLink = "#next";
+			this.prevLink = "#prev";
 			this.$onInit = () => {
 				const linkTarget = $location.hash();
 				this.link_start = `#!${$location.url()}#`;
@@ -72,13 +74,15 @@ const protocol = {
 					}
 				);
 				$http.get(`${BASE_URL}/api/tops?${this.searchstring}`).then((response) => {
-					this.tops_search = response.data.data.reduce((prev, item) => {
-						item.tops_search.map((top) => {
-							prev.push({identifier: top.session_identifier, session: item.session.sitzung, title: top.title})
-						});
-						return prev;
-					}, []);
-					this.top_index = findIndex(this.tops_search, {'session' : this.session.number, 'title': $location.hash()})
+					console.log(response.data.data);
+					this.tops_search = response.data.data.map((item) => {
+						return {session: item.session.sitzung, top: item.tops[0].title};
+					});
+					let top_index = findIndex(this.tops_search, {'session' : this.session.number});
+					this.nextLink = top_index < this.tops_search.length - 1 ?
+						`/protokoll/#!/${this.tops_search[top_index + 1].session}?${this.searchstring}#${kebabCase(this.tops_search[top_index + 1].top)}` : ""
+					this.prevLink = top_index > 0 ?
+						`/protokoll/#!/${this.tops_search[top_index - 1].session}?${this.searchstring}#${kebabCase(this.tops_search[top_index - 1].top)}` : ""
 
 				});
 				$timeout(maybeEmojify, 3000);
@@ -123,7 +127,15 @@ const protocol = {
 						scrollTop: $($.attr(this, 'href')).offset().top - 200
 					}, 800, 'swing');
 				});
-			}
+			};
+
+			this.showNext = function() {
+				console.log("show next")
+			};
+
+			this.showPrev = function() {
+				console.log("show previous")
+			};
 
 			function generateSearchString(value) {
 				let result = '';

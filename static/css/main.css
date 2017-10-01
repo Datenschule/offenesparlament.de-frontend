@@ -7597,7 +7597,8 @@ div:target, .linked {
     border-radius: 5px;
     width: fit-content;
     padding: 5px 10px;
-    font-size: 15px; }
+    font-size: 15px;
+    cursor: pointer; }
     .protocol-nav .btn a {
       text-decoration: none; }
   .protocol-nav .btn:hover {

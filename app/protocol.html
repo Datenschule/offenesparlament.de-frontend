@@ -14,14 +14,17 @@
 			</div>
 		</div>
 		<div class="container-left-2 box-margin-top-small">
-			<div class="btn">
+			<div class="btn" ng-click="$ctrl.showPrev()">
+				<a href="{{$ctrl.prevLink}}">
 					<i class="fa fa-chevron-left"></i>vorheriges Suchergebnis
+				</a>
 
 			</div>
 		</div>
 		<div class="container-left-2 box-margin-top-small">
-			<div class="btn">
-				nächstes Suchergebnis<i class="fa fa-chevron-right"></i>
+			<div class="btn" ng-click="$ctrl.showNext()">
+				<a href="{{$ctrl.nextLink}}">nächstes Suchergebnis<i class="fa fa-chevron-right"></i></a>
+
 			</div>
 		</div>
 	</div>
