@@ -13,8 +13,9 @@ const subject_viz = {
 			{id: 4, name: 'Häufigkeit nach Beruf', url_speech: '/api/utterances/by_profession_category', url_mdb:'/api/mdb/aggregated?attribute=education_category'},
 		];
 
-		this.selectedItem = this.itemArray[0];
-		this.selected_category = "alle";
+		//this.selectedItem = this.itemArray[0];
+		this.selectedItem = {name: "Wähle eine Kategorie"};
+		this.selected_category = "Wähle ein Thema";
 		this.loading = true;
 
 		this.$onInit = () => {
@@ -133,11 +134,13 @@ const subject_viz = {
 						}
 					}
 					let series_speech = this.data.labels.map((key) => {
-						return data[key]
+						// return data[key]
+						return 0;
 					});
 
 					let series_mdb = this.data.labels.map((key) => {
-						return this.mdb[key]
+						// return this.mdb[key]
+						return 0
 					});
 					console.log(data);
 
