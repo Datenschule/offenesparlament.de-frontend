@@ -6,6 +6,12 @@ footer {
   padding-right: 20px;
   color: white;
 
+  .container {
+    margin-bottom: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+
   a {
     color: white !important; //mobile safari important bug
   }
