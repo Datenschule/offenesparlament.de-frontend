@@ -70,10 +70,10 @@
 
 <div>
 	<div class="tops container-left-12">
-		<div class="container hide-mobile" ng-if="!$ctrl.loading && $ctrl.sessions.length">
-			<div class="container-left-1">Sitzung</div>
-			<div class="container-left-2">Datum</div>
-			<div class="container-left-8">
+		<div class="container" ng-if="!$ctrl.loading && $ctrl.sessions.length">
+			<div class="container-left-1 hide-mobile">Sitzung</div>
+			<div class="container-left-2 hide-mobile">Datum</div>
+			<div class="container-left-8 hide-mobile">
 				<div class="container">
 					<div class="container-left-2">Top</div>
 					<div class="container-left-5">Titel</div>
@@ -85,7 +85,6 @@
 				<div class="container-left-1 session-column"><span>{{session.session.sitzung}}.</span><span class="show-mobile"> Sitzung</span></div>
 				<div class="container-left-2 wrap"><span ng-if="session.session.date">{{ session.session.date | date :  "dd.MM.y" }}</span></div>
 				<div class="container-left-8">
-					<hr class="show-mobile-block"/>
 					<div class="container" ng-repeat="top in session.tops">
 						<div class="container-left-2">
 							<a ng-href="{{top.link}}{{$ctrl.paramstring}}{{top.link_fragment}}">{{top.session_identifier}}</a>
@@ -96,8 +95,8 @@
 						<div class="container-left-4">
 							<a ng-href="{{top.link}}{{$ctrl.paramstring}}{{top.link_fragment}}">{{top.categories.join(', ')}}</a>
 						</div>
-						<hr class="show-mobile-block"/>
 					</div>
+					<hr class="show-mobile-block" style="color: #00D4CA"/>
 				</div>
 			</div>
 
