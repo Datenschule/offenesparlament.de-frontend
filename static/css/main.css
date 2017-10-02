@@ -2333,7 +2333,7 @@ h1,
   font-weight: 500;
   line-height: normal;
   margin-bottom: 0rem;
-  margin-top: 1em; }
+  margin-top: 0; }
 
 h2,
 .h2 {
@@ -2711,14 +2711,18 @@ ol {
   max-width: 64em;
   margin-left: auto;
   margin-right: auto;
-  margin-top: 0px;
-  margin-bottom: 25px;
-  padding-top: 20px;
-  padding-bottom: 20px; }
+  margin-top: 0px; }
   .container::after {
     clear: both;
     content: "";
     display: table; }
+
+.container-padding {
+  padding-top: 20px;
+  padding-bottom: 20px; }
+
+.container-margin-bottom {
+  margin-bottom: 25px; }
 
 .container-title {
   margin-bottom: 0px;

@@ -10,13 +10,21 @@
 
 .container {
   @include outer-container($max-width);
+  //@include respond-to($tiny-down) {
+  //  margin: 0 30px;
+  //}
+}
+
+.container-padding {
   padding: {
     top: 20px;
     bottom: 20px;
   };
-  //@include respond-to($tiny-down) {
-  //  margin: 0 30px;
-  //}
+
+}
+
+.container-margin-bottom {
+  margin-bottom: 25px;
 }
 
 .container-title {
