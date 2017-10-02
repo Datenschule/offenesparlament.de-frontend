@@ -2,7 +2,7 @@ import {includes} from "lodash";
 
 const slider = {
 	template: `
-     <ui-carousel slides="$ctrl.slides" dots="true" arrows="true" speed="800" style="" autoplay="true" autoplay-speed="8000">
+     <ui-carousel slides="$ctrl.slides" dots="true" arrows="true" speed="800" style="" autoplay="false" autoplay-speed="8000">
      	<!--<carousel-item>-->
 			<!--<div ng-class="item.style" class="carousel">-->
 				<!--<div class="carousel-overlay">  -->
@@ -16,8 +16,11 @@ const slider = {
     			<!---->
   		<!--</carousel-item>-->
   		<carousel-item>
-  			<p><strong class="carousel-title">{{item.title}}</strong></p>
-  			<div ng-bind-html="item.text"></div>
+  			<div class="carousel-container">
+  				<h1>{{item.title}}</h1>
+  				<div ng-bind-html="item.text"></div>
+			</div>
+  			
 		</carousel-item>
   		
   		<!-- For customize carousel next, previous button -->

@@ -2332,6 +2332,7 @@ h1,
   font-style: normal;
   font-weight: 500;
   line-height: normal;
+  margin-bottom: 0rem;
   margin-top: 1em; }
 
 h2,
@@ -2345,7 +2346,7 @@ h2,
   line-height: 2rem;
   text-transform: uppercase;
   font-size: 30px;
-  margin-bottom: 70px; }
+  margin-bottom: 0px; }
 
 h3,
 .h3 {
@@ -2709,16 +2710,19 @@ ol {
 .container {
   max-width: 64em;
   margin-left: auto;
-  margin-right: auto; }
+  margin-right: auto;
+  margin-top: 0px;
+  margin-bottom: 25px;
+  padding-top: 20px;
+  padding-bottom: 20px; }
   .container::after {
     clear: both;
     content: "";
     display: table; }
 
 .container-title {
-  margin-bottom: 13px;
-  font-size: 0.8em;
-  border-bottom: 2px solid #ebebeb; }
+  margin-bottom: 0px;
+  font-size: 0.8em; }
 
 .container-interlude {
   background-color: #beffe4;
@@ -5710,6 +5714,10 @@ footer {
   padding-left: 20px;
   padding-right: 20px;
   color: white; }
+  footer .container {
+    margin-bottom: 0;
+    padding-top: 0;
+    padding-bottom: 0; }
   footer a {
     color: white !important; }
   footer h4 {
@@ -7609,8 +7617,10 @@ div:target, .linked {
     background-color: #4D52D8; }
 
 .protocol-snippet {
-  width: 60%;
-  margin: auto; }
+  width: 50ch;
+  margin-top: 3em;
+  margin-left: auto;
+  margin-right: auto; }
 
 .controls-fixed {
   background-color: #e9e9e9;
@@ -7795,9 +7805,12 @@ div:target, .linked {
 .carousel-4 {
   background-image: url("/static/img/carousel/carousel4.jpg"); }
 
-.carousel-cite {
-  width: 70%;
+.carousel-container {
+  width: 50ch;
   margin: auto; }
+
+.carousel-cite {
+  margin-top: 30px; }
 
 .carousel-title {
   text-decoration: underline; }
@@ -8059,7 +8072,7 @@ div:target, .linked {
   width: 40px;
   height: 40px;
   bottom: 0;
-  right: 0;
+  right: 40px;
   z-index: 100000;
   cursor: pointer;
   margin: 10px;

@@ -362,6 +362,10 @@ div:target, .linked {
 }
 
 .protocol-snippet {
-  width:60%;
-  margin:auto;
+  width: 50ch;
+  margin: {
+    top: 3em;
+    left: auto;
+    right: auto;
+  };
 }
