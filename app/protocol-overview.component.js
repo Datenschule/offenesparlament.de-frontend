@@ -170,6 +170,17 @@ const poc = {
 
             this.search()
         }
+
+		$(window).scroll(function () {
+			if ($(this).scrollTop() > 300) {
+				$('.toTop').fadeIn();
+			} else {
+				$('.toTop').fadeOut();
+			}
+		});
+		this.scrollTop = function() {
+            $("html, body").animate({ scrollTop: 0 }, 1000);
+		}
     }
 };
 export default poc;

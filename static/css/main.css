@@ -8054,46 +8054,24 @@ div:target, .linked {
     border-color: transparent; }
   50% {
     border-color: orange; } }
-.scrolltop {
-  display: none;
-  width: 100%;
-  margin: 0 auto;
+.toTop {
   position: fixed;
-  bottom: 20px;
-  right: 10px; }
-
-.scroll {
-  position: absolute;
-  right: 20px;
-  bottom: 20px;
-  background: #b2b2b2;
-  background: rgba(178, 178, 178, 0.7);
-  padding: 20px;
-  text-align: center;
-  margin: 0 0 0 0;
+  width: 40px;
+  height: 40px;
+  bottom: 0;
+  right: 0;
+  z-index: 100000;
   cursor: pointer;
-  transition: 0.5s;
-  -moz-transition: 0.5s;
-  -webkit-transition: 0.5s;
-  -o-transition: 0.5s; }
+  margin: 10px;
+  border-radius: 20px;
+  background-color: #00D4CA;
+  color: white; }
 
-.scroll:hover {
-  background: #b2b2b2;
-  transition: 0.5s;
-  -moz-transition: 0.5s;
-  -webkit-transition: 0.5s;
-  -o-transition: 0.5s; }
-
-.scroll:hover .fa {
-  padding-top: -10px; }
-
-.scroll .fa {
-  font-size: 30px;
-  margin-top: -5px;
-  margin-left: 1px;
-  transition: 0.5s;
-  -moz-transition: 0.5s;
-  -webkit-transition: 0.5s;
-  -o-transition: 0.5s; }
+.top-chevron {
+  text-align: center;
+  margin: auto;
+  vertical-align: sub;
+  width: 100%;
+  height: 100%; }
 
 /*# sourceMappingURL=main.css.map */
