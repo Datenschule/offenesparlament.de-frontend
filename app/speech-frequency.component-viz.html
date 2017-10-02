@@ -48,9 +48,12 @@
 					  chartist-chart-options="$ctrl.options" chartist-events="$ctrl.events"></chartist>
 		</div>
 		<div class="container" ng-if="!$ctrl.loading">
-			<small>Quelle: <a href="https://www.abgeordnetenwatch.de/bundestag-2013-2017/profile">Profile der MdBs von Abgeordnetenwatch</a>,
-				<a href="https://www.bundestag.de/tagesordnung">Sitzungsablauf</a> und
-				<a href="https://www.bundestag.de/protokolle">Rednerlisten</a> des Bundestages</small>
+			<div class="container-left-11 container-left-offset-1">
+				<small>Quelle: <a href="https://www.abgeordnetenwatch.de/bundestag-2013-2017/profile">Profile der MdBs von Abgeordnetenwatch</a>,
+					<a href="https://www.bundestag.de/tagesordnung">Sitzungsablauf</a> und
+					<a href="https://www.bundestag.de/protokolle">Rednerlisten</a> des Bundestages</small>
+			</div>
+
 		</div>
 	</div>
 	<div class="container" ng-if="$ctrl.loading">
