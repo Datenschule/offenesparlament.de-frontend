@@ -24,7 +24,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 	{% if page.home %}<title>offenes Parlament - Startseite</title>
 	{% else %}<title>{{page.title}} &gt; offenes Parlament</title>{% endif %}
-	{% if page.card %}
+
 	<meta name="twitter:card" content="summary"/>
 	<meta name="twitter:site" content="@datenschule"/>
 	<meta name="twitter:creator" content="@datenschule"/>
@@ -49,17 +49,14 @@
 	<meta name="twitter:description" content="{{ site.description }}"/>
 	<meta name="og:description" content="{{ site.description }}"/>
 	{% endif %}
-	{% if page.image %}
-	<meta name="twitter:image:src" content="{{site.fullurl}}{{ page.image.src }}"/>
-	<meta name="og:image" content="{{site.fullurl}}{{ page.image.src }}"/>
-	{% else %}
-	<meta name="twitter:image:src" content="{{site.fullurl}}/static/img/logos/logo_op.png"/>
-	<meta name="og:image" content="{{site.fullurl}}/static/img/logos/logo_op.png"/>
+
+	<!--<meta name="twitter:image:src" content="{{site.fullurl}}{{ page.image.src }}"/>-->
+	<meta name="og:image" content="/static/img/twitter_card.png"/>
+	<meta name="twitter:image" content="/static/img/twitter_card.png">
 	{% endif %}
-	{% endif %}
-	{% if page.description %}
-	<meta name="description" content="{{ page.description }}"/>
-	{% endif %}
+
+	<meta name="description" content="OffenesParlament.de macht Plenarprotokolle des Bundestags durchsuchbar"/>
+
 	<meta property="og:type" content="website"/>
 	<!-- Custom CSS -->
 	<!--<link rel="stylesheet" href="/static/css/select.min.css">-->
