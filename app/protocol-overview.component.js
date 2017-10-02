@@ -5,7 +5,7 @@ const BASE_URL = API_BASE_URL;
 
 const poc = {
     template: require("./protocols.html"),
-    controller: function ($http, $timeout, $location, $window, $rootScope, protocolService) {
+    controller: function ($http, $timeout, $location, $window, $rootScope) {
         let self = this;
         this.loading = true;
         this.selectedSpeakers = [];
@@ -70,7 +70,7 @@ const poc = {
         };
 
         this.$onInit = () => {
-            $http.get(`${BASE_URL}/api/tops`).then(loadSessions);
+            $http.get(`${BASE_URL}/api/tops/`).then(loadSessions);
 
             $http.get(`${BASE_URL}/api/speakers`).then(
                 (resp) => {
@@ -141,7 +141,7 @@ const poc = {
 
             $http({
                 method: "GET",
-                url: `${BASE_URL}/api/tops`,
+                url: `${BASE_URL}/api/tops/`,
                 params: {
                     search: this.selectedSearch.map(s => s.text),
                     people: this.selectedSpeakers.map(s => s.speaker_fp),
