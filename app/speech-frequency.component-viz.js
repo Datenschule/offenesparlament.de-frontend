@@ -14,9 +14,12 @@ const subject_viz = {
 		];
 
 		//this.selectedItem = this.itemArray[0];
-		this.selectedItem = {name: "Wähle eine Kategorie"};
+		this.selectedItem = { name: "Wähle eine Kategorie"};
 		this.selected_category = "Wähle ein Thema";
 		this.loading = true;
+		this.category_initialized = false;
+		this.subject_initialized = false;
+
 
 		this.$onInit = () => {
 			this.data = {
@@ -45,7 +48,7 @@ const subject_viz = {
 				labelOffset: [{
 					x: 10,
 					y: 5
-				},{
+				}, {
 					x: 10,
 					y: 5
 				}],
@@ -62,7 +65,7 @@ const subject_viz = {
 
 			this.events = {
 				draw: function eventHandler(data) {
-					if(data.type === 'bar') {
+					if (data.type === 'bar' && self.category_initialized /*&& self.subject_initialized*/) {
 						let curr_key = self.keys[data.index];
 						console.log('keys');
 						console.log(self.keys);
@@ -76,9 +79,9 @@ const subject_viz = {
 						if (!value)
 							value = 0;
 
-						let text = data.seriesIndex == 1 ?" Abgeordnete" :  " Reden";
+						let text = data.seriesIndex == 1 ? " Abgeordnete" : " Reden";
 						if (value == 1)
-							text = data.seriesIndex == 1 ?" Abgeordneter" :  " Rede";
+							text = data.seriesIndex == 1 ? " Abgeordneter" : " Rede";
 						text += " (" + Math.round(data.value.x * 100) / 100 + "%)";
 						data.group.elem('text', {
 							x: data.x2 + self.options.labelOffset[data.seriesIndex].x,
@@ -92,18 +95,21 @@ const subject_viz = {
 			let category_req = $http.get(BASE_URL + '/api/categories')
 
 			let load_data = this.load_data('/api/utterances/by_birth_date_category', '/api/mdb/aggregated/age', 1);
-
+			//
 			$q.all([category_req, load_data]).then((data) => {
 				this.categories = data[0].data.data;
+				this.select_subject(this.categories[0]);
 				this.loading = false;
+				this.selected_category = this.categories[0];
+				this.selectedItem = this.itemArray[0]
 			})
 		}
+
 		
 		this.load_data = function(url_speech, url_mdb, id) {
 			return $q((resolve, reject) => {
 				let speeches = $http.get(BASE_URL + url_speech);
 				let mdb = $http.get(BASE_URL + url_mdb);
-
 
 				// this.speeches = speeches;
 				// this.mdb = mdb;
@@ -112,13 +118,10 @@ const subject_viz = {
 
 				$q.all([speeches, mdb]).then((results) => {
 					this.speeches = results[0].data;
-					console.log('speeches')
-					console.log(this.speeches);
 					this.mdb = results[1].data;
-					console.log(this.mdb);
 					delete this.mdb['null'];
-					this.category = "age";
-					this.subject = "all";
+					// this.category = "age";
+					// this.subject = "all";
 
 					this.keys = keys(this.mdb).sort();
 					this.data.labels = this.keys;
@@ -134,15 +137,17 @@ const subject_viz = {
 						}
 					}
 					let series_speech = this.data.labels.map((key) => {
-						// return data[key]
-						return 0;
+						// if (!this.subject_initialized)
+						// 	return 0;
+						return data[key]
 					});
 
 					let series_mdb = this.data.labels.map((key) => {
+						if (!this.subject_initialized)
+							return 0;
 						// return this.mdb[key]
-						return 0
+						// return 0
 					});
-					console.log(data);
 
 					let max_speech = sum(series_speech);
 					let max_mdb = sum(series_mdb);
@@ -152,7 +157,10 @@ const subject_viz = {
 
 					this.data.series = [series_mdb, series_speech];
 					this.options.height = this.data.series[0].length * 70 + 'px';
+					// this.select_subject(this.subject);
+					this.category_initialized = true;
 					resolve()
+
 				})
 			});
 		};
@@ -169,6 +177,7 @@ const subject_viz = {
 			series_speech = series_speech.map((value) => { return value * 100 / max_speech });
 
 			this.data.series[0] = series_speech;
+			this.subject_initialized = true;
 		}
 	}
 };
