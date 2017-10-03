@@ -55,9 +55,9 @@ const subject_viz = {
 				textAnchor: 'left',
 				chartPadding: {
 					top: 15,
-					right: 85,
+					right: 175,
 					bottom: 5,
-					left: 10
+					left: 155
 				},
 			};
 

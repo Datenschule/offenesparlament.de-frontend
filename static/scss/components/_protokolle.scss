@@ -70,6 +70,10 @@ poi:hover .protocols-jumpmark, .protocols-speaker-info:hover .protocols-jumpmark
   line-height: 1.4em;
   font-family: Georgia, serif;
 
+  @include respond-to(mini-down) {
+    padding-right: 40px;
+  }
+
 }
 
 .protocols-poi-party img {

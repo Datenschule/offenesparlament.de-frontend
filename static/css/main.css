@@ -7410,6 +7410,9 @@ poi:hover .protocols-jumpmark, .protocols-speaker-info:hover .protocols-jumpmark
   max-width: 50ch;
   line-height: 1.4em;
   font-family: Georgia, serif; }
+  @media only screen and (max-width: 15.625em) {
+    .poicontainer {
+      padding-right: 40px; } }
 
 .protocols-poi-party img {
   height: .8em; }
@@ -7643,7 +7646,7 @@ div:target, .linked {
   top: 0;
   left: 0;
   padding: 10px 15px;
-  position: fixed;
+  position: fixed !important;
   bottom: auto;
   width: 100%;
   z-index: 10000;

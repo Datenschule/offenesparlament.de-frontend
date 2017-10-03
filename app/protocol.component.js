@@ -36,8 +36,8 @@ const protocol = {
 							return acc;
 						}, []);
 						this.session = resp.data.session;
+						console.log(resp);
 						this.session.date = Date.parse(this.session.date);
-						this.date = "15.03.2017";
 
 						$http.get(`${BASE_URL}/api/speakers`).then(
 							(resp) => {
@@ -71,20 +71,23 @@ const protocol = {
 						$anchorScroll.yOffset = 200;
 						$timeout($anchorScroll, 0);
 
+						$http.get(`${BASE_URL}/api/tops/?${this.searchstring}`).then((response) => {
+							console.log(response.data.data);
+							this.tops_search = response.data.data.map((item) => {
+								return {session: item.session.sitzung, top: item.tops[0].title};
+							});
+							let top_index = findIndex(this.tops_search, {'session' : this.session.number});
+							console.log(top_index);
+							this.nextLink = top_index < this.tops_search.length - 1 ?
+								`/protokoll/#!/${this.tops_search[top_index + 1].session}?${this.searchstring}#${kebabCase(this.tops_search[top_index + 1].top)}` : ""
+							this.prevLink = top_index > 0 ?
+								`/protokoll/#!/${this.tops_search[top_index - 1].session}?${this.searchstring}#${kebabCase(this.tops_search[top_index - 1].top)}` : ""
+
+						});
+
 					}
 				);
-				$http.get(`${BASE_URL}/api/tops/?${this.searchstring}`).then((response) => {
-					console.log(response.data.data);
-					this.tops_search = response.data.data.map((item) => {
-						return {session: item.session.sitzung, top: item.tops[0].title};
-					});
-					let top_index = findIndex(this.tops_search, {'session' : this.session.number});
-					this.nextLink = top_index < this.tops_search.length - 1 ?
-						`/protokoll/#!/${this.tops_search[top_index + 1].session}?${this.searchstring}#${kebabCase(this.tops_search[top_index + 1].top)}` : ""
-					this.prevLink = top_index > 0 ?
-						`/protokoll/#!/${this.tops_search[top_index - 1].session}?${this.searchstring}#${kebabCase(this.tops_search[top_index - 1].top)}` : ""
 
-				});
 				$timeout(maybeEmojify, 3000);
 				$timeout(() => {
 					$('.protocols-top').on('scrollSpy:exit', function (event) {
