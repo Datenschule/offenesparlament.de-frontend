@@ -51,9 +51,8 @@
 }
 
 .show-mobile {
-  display:none;
-  @include respond-to(medium-down) {
-    display: initial;
+  @include respond-to(small-up) {
+    display: none !important;
   }
 }
 
@@ -65,6 +64,12 @@
 }
 
 .hide-mobile {
+  @include respond-to(small-down) {
+    display:none !important;
+  }
+}
+
+.hide-medium {
   @include respond-to(medium-down) {
     display:none !important;
   }

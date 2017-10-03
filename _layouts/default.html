@@ -39,7 +39,7 @@ layout: base
 <div id="mainContent">
 	{{ content }}
 </div>
-<footer class="box-margin-top-medium">
+<footer class="box-margin-top-medium" style="z-index: 10000">
 	<div class="container">
 		<div class="container-left-6">
 			<div class="container">
@@ -93,7 +93,11 @@ layout: base
 		<div class="container-left-6">
 			<div class="container">
 				<div class="container-left-6"><p><a href="/presse">Presse/Kontakt</a></p></div>
-				<div class="container-left-6"><p class="pull-right"><a href="/impressum">Impressum</a></p></div>
+				<div class="container-left-6 hide-mobile">
+					<p class="pull-right hide-mobile"><a href="/impressum">Impressum</a></p>
+					<p class="show-mobile"><a href="/impressum">Impressum</a></p>
+				</div>
+
 			</div>
 		</div>
 		<div class="container-left-6">

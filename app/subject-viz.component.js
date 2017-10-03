@@ -1,4 +1,4 @@
-import { keys,values, reverse, sum, uniq } from "lodash";
+import { keys, values, reverse, sum, uniq, values } from "lodash";
 
 const BASE_URL = API_BASE_URL;
 
@@ -42,9 +42,9 @@ const subject_viz = {
 				textAnchor: 'start',
 				chartPadding: {
 					top: 15,
-					right: 85,
+					right: 70,
 					bottom: 5,
-					left: 45
+					left: 65
 				},
 			};
 
@@ -98,18 +98,18 @@ const subject_viz = {
 				console.log(this.medians);
 
 				this.select();
-				this.years = ['alle'].concat(Object.keys(this.counts));
+				this.years = ['alle'].concat(keys(this.counts));
 			})
 		};
 
 		this.calculateMedians = function (data) {
 			let result = {}
 			console.log(data);
-			Object.values(data).map((item) => {
+			values(data).map((item) => {
 				// console.log(item);
-				let sum = Object.values(item).reduce((prev, curr) => { return prev + curr }, 0);
+				let sum = values(item).reduce((prev, curr) => { return prev + curr }, 0);
 				// console.log(sum);
-				Object.keys(item).map((cat) => {
+				keys(item).map((cat) => {
 					if (!result[cat]) {
 						result[cat] = [];
 					}
@@ -119,7 +119,7 @@ const subject_viz = {
 			let tmp = result;
 			// console.log(tmp);
 
-			Object.keys(result).map((item_key) => {
+			keys(result).map((item_key) => {
 				let item = result[item_key];
 				item.sort((a, b) => a - b);
 				let lowMiddle = Math.floor((item.length - 1) / 2);
@@ -144,12 +144,12 @@ const subject_viz = {
 			this.current_sum = {};
 
 			if (!year || year == 'alle') {
-				this.current_count = Object.values(this.counts).reduce((prev, item) => {
-					Object.keys(item).map((key) => {  if (key in prev) {prev[key] += item[key]} else {prev[key] = item[key]} });
+				this.current_count = values(this.counts).reduce((prev, item) => {
+					keys(item).map((key) => {  if (key in prev) {prev[key] += item[key]} else {prev[key] = item[key]} });
 					return prev;
 				}, {});
-				this.current_sum = Object.values(this.sums).reduce((prev, item) => {
-					Object.keys(item).map((key) => { if (key in prev) {prev[key] += item[key]} else {prev[key] = item[key]} });
+				this.current_sum = values(this.sums).reduce((prev, item) => {
+					keys(item).map((key) => { if (key in prev) {prev[key] += item[key]} else {prev[key] = item[key]} });
 					return prev;
 				}, {});
 				
@@ -158,16 +158,16 @@ const subject_viz = {
 				this.current_sum = this.sums[year];
 
 			}
-			count_sum = sum(Object.values(this.current_count));
-			sum_sum = sum(Object.values(this.current_sum));
+			count_sum = sum(values(this.current_count));
+			sum_sum = sum(values(this.current_sum));
 			this.data.series = [this.keys.map((key) => this.current_count[key] * 100 / count_sum),
 				this.keys.map((key) => this.current_sum[key] * 100 / sum_sum)];
 			this.options.height = this.data.series[0].length * 70 + 'px';
 		};
 
 		function collect_keys(data) {
-			let keys = Object.values(data).map((year) => Object.keys(year))
-			let single_keys = keys.reduce((prev, curr) => { return prev.concat(curr) }, []);
+			let collected_keys = values(data).map((year) => keys(year))
+			let single_keys = collected_keys.reduce((prev, curr) => { return prev.concat(curr) }, []);
 			return uniq(single_keys);
 		}
 	}

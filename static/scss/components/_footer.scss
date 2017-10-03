@@ -5,6 +5,8 @@ footer {
   padding-left: 20px;
   padding-right: 20px;
   color: white;
+  z-index: 10000;
+  position: relative;
 
   .container {
     margin-bottom: 0;

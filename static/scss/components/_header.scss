@@ -253,6 +253,7 @@
     text-align: left;
     width: 100%;
     z-index: 9999;
+    padding-left: 15px;
 
     @include media ($horizontal-bar-mode) {
       background: transparent;
@@ -261,6 +262,8 @@
       text-decoration: none;
       width: auto;
       text-align: left;
+      padding-left: 0px;
+
     }
 
     a {

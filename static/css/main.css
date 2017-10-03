@@ -2243,11 +2243,9 @@ Grau heller: #333333
 *[hidden], .hidden {
   display: none !important; }
 
-.show-mobile {
-  display: none; }
-  @media only screen and (max-width: 48em) {
-    .show-mobile {
-      display: initial; } }
+@media only screen and (min-width: 37.5em) {
+  .show-mobile {
+    display: none !important; } }
 
 .show-mobile-block {
   display: none; }
@@ -2255,8 +2253,12 @@ Grau heller: #333333
     .show-mobile-block {
       display: block; } }
 
-@media only screen and (max-width: 48em) {
+@media only screen and (max-width: 37.5em) {
   .hide-mobile {
+    display: none !important; } }
+
+@media only screen and (max-width: 48em) {
+  .hide-medium {
     display: none !important; } }
 
 .wrap {
@@ -2716,6 +2718,10 @@ ol {
     clear: both;
     content: "";
     display: table; }
+  @media only screen and (max-width: 64em) {
+    .container {
+      margin-left: 15px;
+      margin-right: 15px; } }
 
 .container-padding {
   padding-top: 20px;
@@ -5581,7 +5587,8 @@ i::before {
     padding-right: 0.8em;
     text-align: left;
     width: 100%;
-    z-index: 9999; }
+    z-index: 9999;
+    padding-left: 15px; }
     @media screen and (min-width: 42em) {
       .navigation ul li.nav-link {
         background: transparent;
@@ -5589,7 +5596,8 @@ i::before {
         line-height: 84px;
         text-decoration: none;
         width: auto;
-        text-align: left; } }
+        text-align: left;
+        padding-left: 0px; } }
     .navigation ul li.nav-link a {
       color: #000;
       display: inline-block;
@@ -5717,7 +5725,9 @@ footer {
   padding-bottom: 20px;
   padding-left: 20px;
   padding-right: 20px;
-  color: white; }
+  color: white;
+  z-index: 10000;
+  position: relative; }
   footer .container {
     margin-bottom: 0;
     padding-top: 0;
@@ -5925,7 +5935,8 @@ footer {
 
 .ui-select-container {
   width: 100%;
-  font-size: 14px; }
+  font-size: 14px;
+  max-width: 100%; }
 
 .select2-results .select2-result-label {
   font-size: 14px; }
@@ -7339,7 +7350,8 @@ progress {
 
 svg {
   display: block;
-  margin: auto; }
+  margin: auto;
+  max-width: 100%; }
 
 svg#germany_svg path:hover {
   fill: #b2c326; }
@@ -7620,6 +7632,7 @@ div:target, .linked {
     background-color: #4D52D8; }
 
 .protocol-snippet {
+  max-width: 100%;
   width: 50ch;
   margin-top: 3em;
   margin-left: auto;
@@ -7633,6 +7646,7 @@ div:target, .linked {
   position: fixed;
   bottom: auto;
   width: 100%;
+  z-index: 10000;
   color: black; }
   .controls-fixed p {
     color: black; }
@@ -7722,10 +7736,10 @@ div:target, .linked {
   opacity: 1; }
 
 .ui-carousel .carousel-prev .carousel-btn {
-  left: -25px; }
+  left: 10px; }
 
 .ui-carousel .carousel-next .carousel-btn {
-  right: -25px; }
+  right: 10px; }
 
 .ui-carousel .carousel-disable {
   opacity: 0.5; }
@@ -7941,8 +7955,8 @@ div:target, .linked {
 .side-menu {
   position: fixed;
   right: 20px;
-  top: 30%;
-  transform: translateY(-73px);
+  top: 50%;
+  transform: translateY(-50%);
   z-index: 99; }
 
 .side-menu ul {
@@ -8040,10 +8054,10 @@ div:target, .linked {
       left: -47px; }
   .speech-mdb .winner-block .wrapper .title {
     font-size: 2rem;
-    text-align: left; }
+    text-align: center; }
   .speech-mdb .winner-block .wrapper .subtitle {
     font-size: 1rem;
-    text-align: left; }
+    text-align: center; }
 
 .typewriter h1 {
   overflow: hidden;

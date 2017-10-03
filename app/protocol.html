@@ -1,5 +1,5 @@
-<section sticky-nav id="page-top" class="protocol-nav">
-	<div class="container">
+<section sticky-nav id="page-top" class="protocol-nav" style="position: relative; z-index: 500">
+	<div class="container" ng-if="$ctrl.utterances.length">
 		<div class="container-left-2 box-margin-top-small">
 			<div class="btn">
 				<a href="/protokolle/#!?{{$ctrl.searchstring}}" class="bold"><i class="fa fa-arrow-left"></i> zur Suche</a>
@@ -71,7 +71,7 @@
 </section>
 
 <div class="container poicontainer">
-	<div class="side-menu">
+	<div class="side-menu" ng-if="$ctrl.utterances.length">
 		<ul class="nav">
 			<li class="">
 				<button href="#page-top">

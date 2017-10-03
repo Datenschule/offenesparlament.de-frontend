@@ -8,6 +8,7 @@ $selected-active-color: lighten($selected-color, 20%);
 .ui-select-container {
   width: 100%;
   font-size: 14px;
+  max-width: 100%;
 }
 
 .select2-results .select2-result-label {

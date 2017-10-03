@@ -13,6 +13,10 @@
   //@include respond-to($tiny-down) {
   //  margin: 0 30px;
   //}
+  @include respond-to(huge-down) {
+    margin-left: 15px;
+    margin-right: 15px;
+  }
 }
 
 .container-padding {
