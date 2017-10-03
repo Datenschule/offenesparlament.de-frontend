@@ -55,7 +55,7 @@ const subject_viz = {
 				textAnchor: 'left',
 				chartPadding: {
 					top: 15,
-					right: 175,
+					right: 215,
 					bottom: 5,
 					left: 155
 				},
@@ -67,9 +67,6 @@ const subject_viz = {
 				draw: function eventHandler(data) {
 					if (data.type === 'bar' && self.category_initialized /*&& self.subject_initialized*/) {
 						let curr_key = self.keys[data.index];
-						console.log('keys');
-						console.log(self.keys);
-						console.log(self.speeches);
 						let value = 0;
 						if (self.subject != 'all')
 							value = data.seriesIndex == 1 ? self.mdb[curr_key] : self.speeches[self.subject][curr_key];
@@ -94,7 +91,7 @@ const subject_viz = {
 
 			let category_req = $http.get(BASE_URL + '/api/categories')
 
-			let load_data = this.load_data('/api/utterances/by_birth_date_category', '/api/mdb/aggregated/age', 1);
+			let load_data = this.load_data('/api/utterances/by_birth_date_category', '/api/mdb/aggregated/age', 1, true);
 			//
 			$q.all([category_req, load_data]).then((data) => {
 				this.categories = data[0].data.data;
@@ -106,7 +103,8 @@ const subject_viz = {
 		}
 
 		
-		this.load_data = function(url_speech, url_mdb, id) {
+		this.load_data = function(url_speech, url_mdb, id, initialized) {
+			this.loading = true;
 			return $q((resolve, reject) => {
 				let speeches = $http.get(BASE_URL + url_speech);
 				let mdb = $http.get(BASE_URL + url_mdb);
@@ -157,8 +155,13 @@ const subject_viz = {
 
 					this.data.series = [series_mdb, series_speech];
 					this.options.height = this.data.series[0].length * 70 + 'px';
-					// this.select_subject(this.subject);
+					console.log(initialized);
+					if (!initialized) {
+						console.log('Subject: ' + this.subject);
+						this.select_subject(this.subject);
+					}
 					this.category_initialized = true;
+					this.loading = false;
 					resolve()
 
 				})

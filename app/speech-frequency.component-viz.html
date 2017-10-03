@@ -23,7 +23,7 @@
 			<div class="container-left-4 container-left-offset-1">
 				<h3>Kategorie:</h3>
 				<ui-select ng-model="$ctrl.selectedItem" theme="selectize" style="width: 300px;" title="Wähle eine Kategorie"
-						   on-select="$ctrl.load_data($item.url_speech, $item.url_mdb, $item.id)">
+						   on-select="$ctrl.load_data($item.url_speech, $item.url_mdb, $item.id, false)">
 					<ui-select-match placeholder="Wähle eine Kategorie aus">{{$select.selected.name}}</ui-select-match>
 					<ui-select-choices repeat="item in $ctrl.itemArray | filter: $select.search">
 						<span ng-bind-html="item.name | highlight: $select.search"></span>
