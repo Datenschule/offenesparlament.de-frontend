@@ -73,7 +73,7 @@ const protocol = {
 
 					}
 				);
-				$http.get(`${BASE_URL}/api/tops?${this.searchstring}`).then((response) => {
+				$http.get(`${BASE_URL}/api/tops/?${this.searchstring}`).then((response) => {
 					console.log(response.data.data);
 					this.tops_search = response.data.data.map((item) => {
 						return {session: item.session.sitzung, top: item.tops[0].title};
@@ -135,14 +135,6 @@ const protocol = {
 						scrollTop: $($.attr(this, 'href')).offset().top - 200
 					}, 800, 'swing');
 				});
-			};
-
-			this.showNext = function() {
-				console.log("show next")
-			};
-
-			this.showPrev = function() {
-				console.log("show previous")
 			};
 
 			function generateSearchString(value) {
