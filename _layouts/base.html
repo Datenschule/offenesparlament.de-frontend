@@ -39,20 +39,14 @@
 	<meta name="og:url" content="{{ site.url }}{{ page.url }}"/>
 	<meta name="twitter:url" content="{{ site.url }}{{ page.url }}"/>
 	{% endif %}
-	{% if page.excerpt %}
-	<meta name="twitter:description" content="{{ page.excerpt | markdownify | strip_html | truncatewords: 50 | truncate: 199 }}"/>
-	<meta name="og:description" content="{{ page.excerpt | markdownify | strip_html | truncatewords: 50 | truncate: 199 }}"/>
-	{% else if page.description %}
-	<meta name="twitter:description" content="{{ page.description }}"/>
-	<meta name="og:description" content="{{ page.description }}"/>
-	{% else if site.description %}
-	<meta name="twitter:description" content="{{ site.description }}"/>
-	<meta name="og:description" content="{{ site.description }}"/>
+
+	<meta name="twitter:description" content="OffenesParlament.de macht Plenarprotokolle des Bundestags durchsuchbar"/>
+	<meta name="og:description" content="OffenesParlament.de macht Plenarprotokolle des Bundestags durchsuchbar"/>
 	{% endif %}
 
 	<!--<meta name="twitter:image:src" content="{{site.fullurl}}{{ page.image.src }}"/>-->
-	<meta name="og:image" content="http://beta.offenesparlament.de/static/img/twitter_card.png"/>
-	<meta name="twitter:image" content="http://beta.offenesparlament.de/static/img/twitter_card.png">
+	<meta name="og:image" content="https://offenesparlament.de/static/img/twitter_card.png"/>
+	<meta name="twitter:image" content="https://offenesparlament.de/static/img/twitter_card.png">
 
 	<meta name="description" content="OffenesParlament.de macht Plenarprotokolle des Bundestags durchsuchbar"/>
 
