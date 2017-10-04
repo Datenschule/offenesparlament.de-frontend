@@ -47,7 +47,7 @@ const protocol = {
 								}, {});
 								if (this.filter_dict['people'])
 									// console.log(this.filter_dict['people']);
-;									this.filter_dict['people'] = [].concat(this.filter_dict['people']);
+									this.filter_dict['people'] = [].concat(this.filter_dict['people']);
 									this.filter_dict['people'] = this.filter_dict['people'].map((item) => {
 										return find(this.speakers, ['speaker_fp', item]);
 								});
@@ -130,9 +130,6 @@ const protocol = {
 				$(document).on('click', '.side-menu button', function (event) {
 					event.preventDefault();
 					$location.hash($.attr(this, 'href'));
-					// $location.hash('test')
-					// console.log($location.path());
-					// console.log($($.attr(this, 'href')));
 					let link = $.attr(this, 'href');
 					$('html, body').animate({
 						scrollTop: $($.attr(this, 'href')).offset().top - 200
