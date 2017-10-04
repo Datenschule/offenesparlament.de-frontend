@@ -5674,7 +5674,6 @@ i::before {
         padding-right: 0.8em;
         position: relative; } }
   .navigation ul.submenu {
-    display: none;
     padding-left: 0;
     padding-top: 10px;
     margin: -10px 0px 0 0; }
@@ -5682,7 +5681,8 @@ i::before {
       .navigation ul.submenu {
         left: -1em;
         position: absolute;
-        top: 1.5em; } }
+        top: 1.5em;
+        display: none; } }
     @media screen and (min-width: 42em) {
       .navigation ul.submenu .submenu.fly-out-right {
         left: 11.8em;

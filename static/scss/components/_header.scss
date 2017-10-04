@@ -383,7 +383,7 @@
   }
 
   ul.submenu {
-    display: none;
+    //display: none;
     padding-left: 0;
     padding-top: 10px;
     margin: -10px 0px 0 0;
@@ -392,6 +392,7 @@
       left: -$navigation-submenu-padding;
       position: absolute;
       top: 1.5em;
+      display: none;
     }
 
     .submenu.fly-out-right {
