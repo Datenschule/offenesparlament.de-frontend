@@ -7425,9 +7425,6 @@ poi:hover .protocols-jumpmark, .protocols-speaker-info:hover .protocols-jumpmark
   line-height: 1.4em;
   margin: 0 auto; }
 
-div:target, .linked {
-  background-color: rgba(255, 255, 191, 0.44); }
-
 .loader,
 .loader:after {
   -webkit-border-radius: 50%;
