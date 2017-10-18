@@ -1,62 +1,74 @@
 <div class="container container-bg-grey">
 	<div class="container">
-		<div class="container hide-mobile">
-			<div class="container-left-12">
+		<div class="share-viz">
+			<a href="https://twitter.com/intent/tweet?text=Hintergrund+der+Abgeordneten+des+Deutschen+Bundestages+nach+Themen+in+der+18.+Wahlperiode&amp;url=https://offenesparlament.de/analyse/redeanteile.html" rel="nofollow" target="_blank"
+			   title="Visualisierung teilen auf Twitter">
+				<i class="fa fa-twitter"></i>
+			</a>
+			<a href="https://facebook.com/sharer.php?u=https://offenesparlament.de/analyse/redeanteile.html" rel="nofollow" target="_blank" title="Visualisierung teilen auf Facebook">
+				<i class="fa fa-facebook"></i>
+			</a>
+			<a href="https://plus.google.com/share?url=https://offenesparlament.de/analyse/redeanteile.html" rel="nofollow" target="_blank" title="Visualisierung teilen auf Google+">
+				<i class="fa fa-google-plus"></i>
+			</a>
+			<div class="container-left-12 share-inline-block" style="margin-top:0.5em;">
 				<div class="modal">
 					<label for="modal-1">
-						<div class="modal-trigger pull-right">&lt;/&gt; einbetten</div>
+						<strong>&lt;/&gt;</strong>
 					</label>
-					<input class="modal-state" id="modal-1" type="checkbox" />
+					<input class="modal-state" id="modal-1" type="checkbox"/>
 					<div class="modal-fade-screen">
 						<div class="modal-inner">
 							<div class="modal-close" for="modal-1"></div>
 							<div class="form-group">
-								<label for="usr">Code zum Einbetten:</label>
-								<input type="text" class="form-control" id="usr" value='<iframe src="http://beta.offenesparlament.de/analyse/embed/hintergrund.html#!?category_id=1" width="580px" height="435px"></iframe>'>
+								<h1>Code zum Einbetten:</h1>
+								<input type="text" class="form-control" id="usr" value='<iframe src="https://offenesparlament.de/analyse/embed/hintergrund.html#!?category_id=1" width="580px" height="435px"></iframe>'>
 							</div>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
-		<div class="container" ng-if="!$ctrl.loading">
-			<div class="container-left-4 container-left-offset-1">
-				<h3>Kategorie:</h3>
-				<ui-select ng-model="$ctrl.selectedItem" theme="selectize" style="width: 300px;" title="Wähle eine Kategorie"
-						   on-select="$ctrl.load_data($item.url_speech, $item.url_mdb, $item.id, false)">
-					<ui-select-match placeholder="Wähle eine Kategorie aus">{{$select.selected.name}}</ui-select-match>
-					<ui-select-choices repeat="item in $ctrl.itemArray | filter: $select.search">
-						<span ng-bind-html="item.name | highlight: $select.search"></span>
-					</ui-select-choices>
-				</ui-select>
-			</div>
-			<div class="container-left-4 container-left-offset-1">
-				<h3>Thema:</h3>
-				<ui-select ng-model="$ctrl.selected_category" theme="selectize" style="width: 300px;" title="Wähle ein Thema"
-						   on-select="$ctrl.select_subject($item)">
-					<ui-select-match placeholder="Wähle oder suche ein Thema aus der Liste">{{$select.selected}}</ui-select-match>
-					<ui-select-choices repeat="item in $ctrl.categories | filter: $select.search">
-						<span ng-bind-html="item | highlight: $select.search"></span>
-					</ui-select-choices>
-				</ui-select>
-			</div>
-
-		</div>
-		<div class="container" ng-if="!$ctrl.loading">
-			<chartist class="ct-frequency" chartist-data="$ctrl.data" chartist-chart-type="Bar"
-					  chartist-chart-options="$ctrl.options" chartist-events="$ctrl.events"></chartist>
-		</div>
-		<div class="container" ng-if="!$ctrl.loading">
-			<div class="container-left-11 container-left-offset-1">
-				<small>Quelle: <a href="https://www.abgeordnetenwatch.de/bundestag-2013-2017/profile">Profile der MdBs von Abgeordnetenwatch</a>,
-					<a href="https://www.bundestag.de/tagesordnung">Sitzungsablauf</a> und
-					<a href="https://www.bundestag.de/protokolle">Rednerlisten</a> des Bundestages</small>
-			</div>
-
-		</div>
 	</div>
-	<div class="container" ng-if="$ctrl.loading">
-		<div class="loader"></div>
+	<div class="container" ng-if="!$ctrl.loading">
+		<div class="container-left-4 container-left-offset-1">
+			<h3>Kategorie:</h3>
+			<ui-select ng-model="$ctrl.selectedItem" theme="selectize" style="width: 300px;" title="Wähle eine Kategorie"
+					   on-select="$ctrl.load_data($item.url_speech, $item.url_mdb, $item.id, false)">
+				<ui-select-match placeholder="Wähle eine Kategorie aus">{{$select.selected.name}}</ui-select-match>
+				<ui-select-choices repeat="item in $ctrl.itemArray | filter: $select.search">
+					<span ng-bind-html="item.name | highlight: $select.search"></span>
+				</ui-select-choices>
+			</ui-select>
+		</div>
+		<div class="container-left-4 container-left-offset-1">
+			<h3>Thema:</h3>
+			<ui-select ng-model="$ctrl.selected_category" theme="selectize" style="width: 300px;" title="Wähle ein Thema"
+					   on-select="$ctrl.select_subject($item)">
+				<ui-select-match placeholder="Wähle oder suche ein Thema aus der Liste">{{$select.selected}}</ui-select-match>
+				<ui-select-choices repeat="item in $ctrl.categories | filter: $select.search">
+					<span ng-bind-html="item | highlight: $select.search"></span>
+				</ui-select-choices>
+			</ui-select>
+		</div>
+
 	</div>
+	<div class="container" ng-if="!$ctrl.loading">
+		<chartist class="ct-frequency" chartist-data="$ctrl.data" chartist-chart-type="Bar"
+				  chartist-chart-options="$ctrl.options" chartist-events="$ctrl.events"></chartist>
+	</div>
+	<div class="container" ng-if="!$ctrl.loading">
+		<div class="container-left-11 container-left-offset-1">
+			<small>Quelle: <a href="https://www.abgeordnetenwatch.de/bundestag-2013-2017/profile">Profile der MdBs von Abgeordnetenwatch</a>,
+				<a href="https://www.bundestag.de/tagesordnung">Sitzungsablauf</a> und
+				<a href="https://www.bundestag.de/protokolle">Rednerlisten</a> des Bundestages
+			</small>
+		</div>
+
+	</div>
+</div>
+<div class="container" ng-if="$ctrl.loading">
+	<div class="loader"></div>
+</div>
 </div>
 

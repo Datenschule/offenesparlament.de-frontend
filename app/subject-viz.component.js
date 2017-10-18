@@ -4,7 +4,7 @@ const BASE_URL = API_BASE_URL;
 
 const subject_viz = {
 	template: require("./subject-viz.html"),
-	controller: function ($location, $anchorScroll, $timeout, $http, $q) {
+	controller: function ($anchorScroll, $timeout, $http, $q) {
 		this.$onInit = () => {
 			this.data = {
 				labels: ['W1', 'W2', 'W3', 'W4', 'W5', 'W6', 'W7', 'W8', 'W9', 'W10'],

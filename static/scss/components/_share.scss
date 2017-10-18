@@ -1,0 +1,23 @@
+.share-viz {
+
+  text-align: right;
+  padding-top: 10px;
+  padding-right: 10px;
+
+  a {
+    text-decoration: none;
+  }
+
+  a:hover {
+    color: $chart-color2;
+  }
+
+  label:hover {
+    color: $chart-color2;
+  }
+
+}
+
+.share-inline-block {
+  display: inline-block;
+}
