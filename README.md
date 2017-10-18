@@ -1,6 +1,6 @@
 # Offenesfrontend
 
-This is the frontend for the new offenesparlament.de
+This is the frontend for the new [offenesparlament.de](https://offenesparlament.de)
 
 
 ## Setup
