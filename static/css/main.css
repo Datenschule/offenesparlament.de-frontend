@@ -5513,7 +5513,7 @@ i::before {
 .navigation {
   background-color: white;
   border-bottom: 1px solid #e6e6e6;
-  min-height: 84px;
+  min-height: 3em;
   width: 100%;
   z-index: 999; }
   .navigation .navigation-wrapper {
@@ -5525,16 +5525,16 @@ i::before {
       display: table; }
   .navigation .logo {
     float: left;
-    max-height: 84px;
+    max-height: 3em;
     padding-left: 20px;
     padding-right: 2em; }
     .navigation .logo img {
-      max-height: 84px;
+      max-height: 3em;
       padding: 0.7em 0;
       float: left; }
     .navigation .logo .header-title {
       margin-left: 10px;
-      line-height: 84px;
+      line-height: 3em;
       text-decoration: none;
       color: #000;
       font-size: 16px;
@@ -5543,7 +5543,7 @@ i::before {
     color: #000;
     display: block;
     float: right;
-    line-height: 84px;
+    line-height: 3em;
     margin: 0;
     padding-right: 1em;
     text-decoration: none;
@@ -5555,8 +5555,10 @@ i::before {
       color: black; }
   .navigation nav {
     float: none;
-    min-height: 84px;
-    z-index: 9999999; }
+    min-height: 3em;
+    z-index: 9999999;
+    margin-top: 18px;
+    margin-bottom: 18px; }
     @media screen and (min-width: 42em) {
       .navigation nav {
         float: right; } }
@@ -5593,7 +5595,7 @@ i::before {
       .navigation ul li.nav-link {
         background: transparent;
         display: inline;
-        line-height: 84px;
+        line-height: 3em;
         text-decoration: none;
         width: auto;
         text-align: left;
@@ -5700,7 +5702,7 @@ i::before {
       padding-right: 0; }
       @media screen and (min-width: 42em) {
         .navigation ul.submenu li {
-          line-height: 64.6153846154px; }
+          line-height: 2.3076923077em; }
           .navigation ul.submenu li:first-child > a {
             border-top-left-radius: 5px;
             border-top-right-radius: 5px; }
