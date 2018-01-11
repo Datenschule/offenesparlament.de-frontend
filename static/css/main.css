@@ -7632,6 +7632,24 @@ poi:hover .protocols-jumpmark, .protocols-speaker-info:hover .protocols-jumpmark
       color: grey; }
   .protocol-nav .btn:hover {
     background-color: #4D52D8; }
+  .protocol-nav .btn-inline {
+    float: left;
+    margin: 0 10px; }
+  .protocol-nav .btn-right {
+    float: right; }
+
+@media only screen and (max-width: 48em) {
+  .protocol-nav-normal {
+    display: none; } }
+
+.protocol-nav-mobile {
+  padding: 10px; }
+  @media only screen and (min-width: 48em) {
+    .protocol-nav-mobile {
+      display: none; } }
+  .protocol-nav-mobile p {
+    margin: 0 10px;
+    float: left; }
 
 .protocol-snippet {
   max-width: 100%;

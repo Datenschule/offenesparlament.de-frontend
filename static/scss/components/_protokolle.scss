@@ -363,6 +363,33 @@ div:target, .linked {
   .btn:hover {
     background-color: $base-accent-color;
   }
+
+  .btn-inline {
+    float: left;
+    margin: 0 10px;
+  }
+
+  .btn-right {
+    float: right;
+  }
+}
+
+.protocol-nav-normal {
+  @include respond-to(medium-down) {
+    display: none;
+  }
+}
+
+.protocol-nav-mobile {
+  padding: 10px;
+  @include respond-to(medium-up) {
+    display:none;
+  }
+
+  p {
+    margin: 0 10px;
+    float: left;
+  }
 }
 
 .protocol-snippet {
