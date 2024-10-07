@@ -4,3 +4,13 @@
 @import 'lib/all';
 // include site specific base styles
 @import 'base';
+
+.deprecation-banner{
+  padding: 15px;
+  background-color: $container-interlude-color;
+
+  .deprecation-banner__content {
+    border-left: 3px solid black;
+    padding-left: 10px;
+  }
+}

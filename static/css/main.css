@@ -8146,4 +8146,11 @@ poi:hover .protocols-jumpmark, .protocols-speaker-info:hover .protocols-jumpmark
 .share-inline-block {
   display: inline-block; }
 
+.deprecation-banner {
+  padding: 15px;
+  background-color: #beffe4; }
+  .deprecation-banner .deprecation-banner__content {
+    border-left: 3px solid black;
+    padding-left: 10px; }
+
 /*# sourceMappingURL=main.css.map */
